@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8C470B28-CF9B-A652-41BD-DBD8E152AB47}</ProjectGuid>
+    <ProjectGuid>{E8D9A665-6657-88B0-A0D5-51C754798CBE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
+    <AssemblyName>Sirenix.OdinInspector.Modules.UnityMathematics</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +35,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -48,7 +48,7 @@
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.15</UnityProjectGeneratorVersion>
-    <UnityProjectType>GamePlugins:3</UnityProjectType>
+    <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.16f1</UnityVersion>
   </PropertyGroup>
@@ -56,78 +56,11 @@
     <Analyzer Include="D:\SoftWare\VS2022\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenProShortcuts.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenTextMeshPro.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\INetEventListener.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\Utils\NetDataReader.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\Layers\PacketLayerBase.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\ConsoleProDebug.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\ReliableChannel.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\NetSocket.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\Layers\XorEncryptLayer.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\Utils\NtpPacket.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenTk2d.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\NetPacket.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\ConnectionRequest.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\NatPunchModule.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\Layers\Crc32cLayer.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\NetPeer.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\NetConstants.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenDeAudio.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\NetStatistics.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\Utils\CRC32C.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\Utils\FastBitConverter.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\SequencedChannel.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\ConsoleProRemoteServer.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\NetDebug.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\NetManager.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\Utils\NetPacketProcessor.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\Utils\INetSerializable.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\Utils\NetSerializer.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\NetUtils.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\Utils\NtpRequest.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\NetPacketPool.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\Utils\NetDataWriter.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
-    <Compile Include="Assets\Plugins\ConsolePro\Remote\LiteNetLib\BaseChannel.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenDeUnityExtended.cs" />
+    <Compile Include="Assets\Plugins\Sirenix\Odin Inspector\Modules\Unity.Mathematics\MathematicsDrawers.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Plugins\Sirenix\Assemblies\NoEmitAndNoEditor\Sirenix.Serialization.dll" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\link.xml" />
-    <None Include="Assets\Plugins\Demigiant\readme_DOTweenPro.txt" />
-    <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.XML" />
-    <None Include="Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.xml" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.xml" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\NoEditor\Sirenix.Serialization.dll" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.xml" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.xml" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll" />
-    <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.dll" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\NoEditor\Sirenix.Utilities.dll" />
-    <None Include="Assets\Plugins\Sirenix\Readme.txt" />
-    <None Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll" />
-    <None Include="Assets\Plugins\Demigiant\DOTweenPro\readme.txt" />
-    <None Include="Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.xml" />
-    <None Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.XML" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.xml" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll" />
-    <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\NoEmitAndNoEditor\Sirenix.Utilities.dll" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll" />
-    <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.xml" />
+    <None Include="Assets\Plugins\Sirenix\Odin Inspector\Modules\Unity.Mathematics\manifest.txt" />
+    <None Include="Assets\Plugins\Sirenix\Odin Inspector\Modules\Unity.Mathematics\Sirenix.OdinInspector.Modules.UnityMathematics.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -352,6 +285,12 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>D:\Unity\UnityEditer\2020.3.16f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>D:\Unity\UnityEditer\2020.3.16f1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>D:\Unity\UnityEditer\2020.3.16f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="Sirenix.Utilities.Editor">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
     </Reference>
@@ -364,11 +303,38 @@
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>Assets\GameFramework\Libraries\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Annotations">
+      <HintPath>Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.7.1\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenProEditor">
+      <HintPath>Assets\Plugins\Demigiant\DOTweenPro\Editor\DOTweenProEditor.dll</HintPath>
+    </Reference>
     <Reference Include="Sirenix.OdinInspector.Editor">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="ConsolePro.Editor">
+      <HintPath>Assets\Plugins\ConsolePro\Editor\ConsolePro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiEditor">
+      <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\Editor\DemiEditor.dll</HintPath>
+    </Reference>
     <Reference Include="Sirenix.OdinInspector.Attributes">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream">
+      <HintPath>Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="log4netPlastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.7.1\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Serialization.Config">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
@@ -379,6 +345,9 @@
     <Reference Include="DOTween">
       <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>Library\PackageCache\com.unity.render-pipelines.core@10.5.1\Editor\ShaderGenerator\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -387,6 +356,12 @@
     </Reference>
     <Reference Include="DOTweenPro">
       <HintPath>Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.7.1\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:\Unity\UnityEditer\2020.3.16f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
@@ -736,113 +711,23 @@
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>D:\Unity\UnityEditer\2020.3.16f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Autodesk.Fbx.Editor">
-      <HintPath>Library\ScriptAssemblies\Autodesk.Fbx.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Formats.Fbx.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Formats.Fbx.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.InputSystem">
-      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Autodesk.Fbx">
-      <HintPath>Library\ScriptAssemblies\Autodesk.Fbx.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Mathematics">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Formats.Fbx.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Formats.Fbx.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
-      <Project>{C045D47A-22ED-C448-A910-1634474415F3}</Project>
-      <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="EnhancedHierarchyEditor.csproj">
-      <Project>{0DDE5075-B852-7981-DB3E-16B6460D60C5}</Project>
-      <Name>EnhancedHierarchyEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityGameFramework.Editor.csproj">
-      <Project>{FEB36A90-6350-3992-8B56-11B621EC6B5D}</Project>
-      <Name>UnityGameFramework.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
-      <Project>{E8D9A665-6657-88B0-A0D5-51C754798CBE}</Project>
-      <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
-    </ProjectReference>
-    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
-      <Project>{896FCABD-6A98-539D-0007-912013C8D772}</Project>
-      <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityGameFramework.Runtime.csproj">
-      <Project>{5070F4F8-7085-4FA5-8814-CFB1D25C2597}</Project>
-      <Name>UnityGameFramework.Runtime</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
