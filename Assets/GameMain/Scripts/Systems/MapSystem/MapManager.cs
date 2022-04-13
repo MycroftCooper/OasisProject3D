@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Sirenix.OdinInspector;
+
 using MycroftToolkit.QuickCode;
 
 
 namespace OasisProject3D.MapSystem {
     public class MapManager : MonoSingleton<MapManager> {
-        private MapData mapData;
+        public Vector2Int MapSize;
+        public Dictionary<Vector3, BlockCtrl> Map;
 
-        public void InitMap() {
+        public float VegetationCoverage;
+
+        public void InitMap(MapData data = null) {
             //Map = new HexBlockLogic[MapSize.y][];
 
             //int desertCol = (int)(MapSize.x * DesertRate);
@@ -42,6 +47,13 @@ namespace OasisProject3D.MapSystem {
             //        //Map[i][j] = landBlock;
             //        index++;
             //    }
+        }
+        public MapData GetMapData() {
+            MapData data = new MapData();
+            return data;
+        }
+        public void LoadMapData(MapData data) {
+
         }
     }
 }
