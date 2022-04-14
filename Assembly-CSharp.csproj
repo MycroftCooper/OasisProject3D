@@ -80,7 +80,6 @@
     <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\LoadRowExtension\IFileStream.cs" />
     <Compile Include="Assets\GameMain\Scripts\Systems\MapSystem\BlockFactory.cs" />
     <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Extensions\DataTableExtension.cs" />
-    <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickCode\ExtensionMethods\VectorConvert.cs" />
     <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Extensions\DataTableExtension.Array.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickCode\QuickReflect.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickCamera\StrategyGame\StrategyCameraCtrl.cs" />
@@ -95,12 +94,12 @@
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickCode\Singleton.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\MathTool\Round.cs" />
     <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Extensions\BinaryReaderExtension.List.cs" />
-    <Compile Include="Assets\GameMain\Scripts\Systems\MapSystem\MapSystemConf.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\MathTool\Bezier.cs" />
     <Compile Include="Assets\GameMain\Scripts\Systems\MapSystem\MapManager.cs" />
     <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Extensions\BinaryReaderExtension.Array.cs" />
     <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\LoadRowExtension\DataTableRowConfig.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickDebug\ReferenceFinder.cs" />
+    <Compile Include="Assets\GameMain\Tools\MycroftToolkit\MathTool\Vector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GameMain\Configs\DataTableCodeTemplate.txt" />
@@ -333,9 +332,6 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>D:\Unity\UnityEditer\2020.3.16f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.Utilities.Editor">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="GameFramework">
       <HintPath>Assets\GameFramework\Libraries\GameFramework.dll</HintPath>
     </Reference>
@@ -354,20 +350,20 @@
     <Reference Include="Sirenix.Serialization.Config">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.Utilities">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll</HintPath>
-    </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Sirenix.Utilities">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Serialization">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenPro">
       <HintPath>Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Utilities.Editor">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:\Unity\UnityEditer\2020.3.16f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
@@ -767,9 +763,6 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>

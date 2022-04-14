@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace OasisProject3D.MapSystem {
     public class BlockData {
         public EBlockType BlockType;
@@ -11,7 +12,7 @@ namespace OasisProject3D.MapSystem {
             get => vegetationCoverage;
             set {
                 vegetationCoverage = value;
-                BlockType = MapSystemConf.GetBlockTypeByVC(value);
+                BlockType = MapManager.GetBlockTypeByVC(value);
             }
         }
 

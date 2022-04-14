@@ -291,9 +291,6 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>D:\Unity\UnityEditer\2020.3.16f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.Utilities.Editor">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="GameFramework">
       <HintPath>Assets\GameFramework\Libraries\GameFramework.dll</HintPath>
     </Reference>
@@ -305,9 +302,6 @@
     </Reference>
     <Reference Include="System.ComponentModel.Annotations">
       <HintPath>Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\System.ComponentModel.Annotations.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Plastic.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.7.1\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenProEditor">
       <HintPath>Assets\Plugins\Demigiant\DOTweenPro\Editor\DOTweenProEditor.dll</HintPath>
@@ -333,23 +327,17 @@
     <Reference Include="EPPlus">
       <HintPath>Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\EPPlus.dll</HintPath>
     </Reference>
-    <Reference Include="log4netPlastic">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.7.1\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
-    </Reference>
     <Reference Include="Sirenix.Serialization.Config">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.Utilities">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
+    <Reference Include="Sirenix.Utilities">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.NRefactory">
       <HintPath>Library\PackageCache\com.unity.render-pipelines.core@10.5.1\Editor\ShaderGenerator\ICSharpCode.NRefactory.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Serialization">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
@@ -357,8 +345,8 @@
     <Reference Include="DOTweenPro">
       <HintPath>Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
     </Reference>
-    <Reference Include="unityplastic">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@1.7.1\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    <Reference Include="Sirenix.Utilities.Editor">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
