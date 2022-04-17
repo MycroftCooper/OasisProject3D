@@ -57,57 +57,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GameMain\Scripts\Systems\MapSystem\MapData.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Extensions\DataTableExtension.Dictionary.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\LoadRowExtension\CommonFileStream.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickCode\QuickRandom.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickDebug\QuickCheck.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\DiscreteGridToolkit\HexTools.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickCamera\StrategyGame\StrategyCameraCtrlActions.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\Timer\Timer.cs" />
     <Compile Include="Assets\GameMain\Scripts\Systems\MapSystem\BlockCtrl.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\LoadRowExtension\TypeNamePair.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\LoadRowExtension\DataTableRowSetting.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\MathTool\Easing.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickDebug\QuickRestart.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickCode\ObjectPool.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickCode\ExtensionMethods\ExtensionMethods.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Extensions\BinaryReaderExtension.Dictionary.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Extensions\DataTableExtension.List.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\DiscreteGridToolkit\SquareTools.cs" />
     <Compile Include="Assets\GameMain\Scripts\Systems\MapSystem\BlockData.cs" />
-    <Compile Include="Assets\GameMain\Scripts\DataTable\DRHexBlock.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickCode\GeneralDictionary.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\LoadRowExtension\IFileStream.cs" />
     <Compile Include="Assets\GameMain\Scripts\Systems\MapSystem\BlockFactory.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Extensions\DataTableExtension.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Extensions\DataTableExtension.Array.cs" />
+    <Compile Include="Assets\GameMain\Tools\MycroftToolkit\MathTool\Vector.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickCode\QuickReflect.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickCamera\StrategyGame\StrategyCameraCtrl.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\LoadRowExtension\AndroidFileStream.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\Timer\TimerExtensions.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\LoadRowExtension\FileStreamHelper.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\LoadRowExtension\DataTableExtensionComponent.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Extensions\BinaryReaderExtension.cs" />
-    <Compile Include="Assets\GameMain\Procedures\Base\ProcedurePreload.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Helper\DataTableHelper.cs" />
-    <Compile Include="Assets\GameMain\Scripts\Entity\EntityData\EntityData.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickCode\Singleton.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\MathTool\Round.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Extensions\BinaryReaderExtension.List.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\MathTool\Bezier.cs" />
     <Compile Include="Assets\GameMain\Scripts\Systems\MapSystem\MapManager.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\Extensions\BinaryReaderExtension.Array.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Runtime\LoadRowExtension\DataTableRowConfig.cs" />
     <Compile Include="Assets\GameMain\Tools\MycroftToolkit\QuickDebug\ReferenceFinder.cs" />
-    <Compile Include="Assets\GameMain\Tools\MycroftToolkit\MathTool\Vector.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\GameMain\Configs\DataTableCodeTemplate.txt" />
-    <None Include="Assets\GameFramework\Libraries\GameFramework.dll" />
-    <None Include="Assets\GameFramework\Libraries\link.xml" />
-    <None Include="Assets\GameFramework\Libraries\GameFramework.xml" />
-    <None Include="Assets\GameFramework\Libraries\ICSharpCode.SharpZipLib.dll" />
-    <None Include="Assets\GameMain\Configs\DataTableTemplate.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -332,14 +304,8 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>D:\Unity\UnityEditer\2020.3.16f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="GameFramework">
-      <HintPath>Assets\GameFramework\Libraries\GameFramework.dll</HintPath>
-    </Reference>
     <Reference Include="DemiLib">
       <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>Assets\GameFramework\Libraries\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.OdinInspector.Editor">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll</HintPath>
@@ -805,10 +771,6 @@
       <Project>{0DDE5075-B852-7981-DB3E-16B6460D60C5}</Project>
       <Name>EnhancedHierarchyEditor</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityGameFramework.Editor.csproj">
-      <Project>{FEB36A90-6350-3992-8B56-11B621EC6B5D}</Project>
-      <Name>UnityGameFramework.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
       <Project>{E8D9A665-6657-88B0-A0D5-51C754798CBE}</Project>
       <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
@@ -816,10 +778,6 @@
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
       <Project>{896FCABD-6A98-539D-0007-912013C8D772}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityGameFramework.Runtime.csproj">
-      <Project>{5070F4F8-7085-4FA5-8814-CFB1D25C2597}</Project>
-      <Name>UnityGameFramework.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

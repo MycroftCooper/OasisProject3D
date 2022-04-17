@@ -17,8 +17,13 @@ namespace OasisProject3D.MapSystem {
         }
         private float vegetationCoverage;
 
-        public Vector3 WorldPos;
-        public Vector3Int LogicalPos;
+        public Vector3 WorldPos {
+            get => transform.position;
+            set => transform.position = value;
+        }
+        public Vector2Int LogicalPos;
+
+        public bool Buildable;
 
         // Start is called before the first frame update
         void Start() {

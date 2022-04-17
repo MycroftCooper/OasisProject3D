@@ -352,14 +352,8 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>D:\Unity\UnityEditer\2020.3.16f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="GameFramework">
-      <HintPath>Assets\GameFramework\Libraries\GameFramework.dll</HintPath>
-    </Reference>
     <Reference Include="DemiLib">
       <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>Assets\GameFramework\Libraries\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.OdinInspector.Editor">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll</HintPath>
@@ -821,10 +815,6 @@
       <Project>{0DDE5075-B852-7981-DB3E-16B6460D60C5}</Project>
       <Name>EnhancedHierarchyEditor</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityGameFramework.Editor.csproj">
-      <Project>{FEB36A90-6350-3992-8B56-11B621EC6B5D}</Project>
-      <Name>UnityGameFramework.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
       <Project>{E8D9A665-6657-88B0-A0D5-51C754798CBE}</Project>
       <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
@@ -832,10 +822,6 @@
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
       <Project>{896FCABD-6A98-539D-0007-912013C8D772}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityGameFramework.Runtime.csproj">
-      <Project>{5070F4F8-7085-4FA5-8814-CFB1D25C2597}</Project>
-      <Name>UnityGameFramework.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
