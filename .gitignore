@@ -24,3 +24,17 @@ Assets/Plugins/Demigiant.meta
 Assets/Plugins/Enhanced Hierarchy.meta
 
 Assets/Plugins/Sirenix.meta
+
+Assembly-CSharp-Editor-firstpass.csproj
+
+Assembly-CSharp-firstpass.csproj
+
+Assembly-CSharp.csproj
+
+EnhancedHierarchyEditor.csproj
+
+Sirenix.OdinInspector.CompatibilityLayer.csproj
+
+Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj
+
+Sirenix.OdinInspector.Modules.UnityMathematics.csproj

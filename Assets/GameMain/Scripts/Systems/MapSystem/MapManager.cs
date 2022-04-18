@@ -18,7 +18,7 @@ namespace OasisProject3D.MapSystem {
         #region 地图配置相关
         [TitleGroup("地图生成相关", order: 0)]
         [TitleGroup("地图生成相关"), ShowInInspector, LabelText("地图大小")]
-        public static Vector2Int MapSize = new Vector2Int(5, 5);
+        public static Vector2Int MapSize = new Vector2Int(30, 50);
         [TitleGroup("地图生成相关"), ShowInInspector, LabelText("地块生成比例")]
         public static Dictionary<EBlockType, float> BlockTypeRange_Generate = new Dictionary<EBlockType, float> {
             {EBlockType.Desert, 0.2f},
@@ -48,8 +48,8 @@ namespace OasisProject3D.MapSystem {
         public void InitMap(MapData data = null) {
             Map = new Dictionary<Vector2Int, BlockCtrl>();
 
-            int desertCol = (int)(MapSize.x * BlockTypeRange_VC[EBlockType.Desert].y - BlockTypeRange_VC[EBlockType.Desert].x);
-            int gobiCol = (int)(MapSize.x * BlockTypeRange_VC[EBlockType.Gobi].y - BlockTypeRange_VC[EBlockType.Gobi].x);
+            int desertCol = (int)(MapSize.x * BlockTypeRange_Generate[EBlockType.Desert]);
+            int gobiCol = (int)(MapSize.x * (BlockTypeRange_Generate[EBlockType.Desert] + BlockTypeRange_Generate[EBlockType.Gobi]));
             int oasisCol = MapSize.x - desertCol - gobiCol;
 
             int index = 0;
