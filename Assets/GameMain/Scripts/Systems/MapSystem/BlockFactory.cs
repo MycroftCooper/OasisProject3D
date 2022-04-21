@@ -35,7 +35,7 @@ namespace OasisProject3D.MapSystem {
             GameObject block = GameObject.Instantiate(BlockBasePrefab, BlockParent.transform);
             BlockCtrl output = block.GetComponent<BlockCtrl>();
             output.LogicalPos = logicalPos;
-            output.Hight = random.Noise.GetNoise(logicalPos.x, logicalPos.y);
+            output.Hight = random.Noise.GetNoise(logicalPos.x, logicalPos.y) * 5;
             output.WorldPos = HexGridTool.Coordinate_Axial.DiscreteToContinuity(logicalPos, BlockSize, false).ToVec3().SwapYZ();
             output.WorldPos += new Vector3(0, output.Hight, 0);
             return output;
