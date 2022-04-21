@@ -102,7 +102,7 @@ namespace OasisProject3D.MapSystem {
         #region 地图工具相关
         public static EBlockType GetBlockTypeByVC(float vc) {
             if (vc < BlockTypeRange_VC[EBlockType.Desert].y) return EBlockType.Desert;
-            if (vc < BlockTypeRange_VC[EBlockType.Gobi].y) return EBlockType.Desert;
+            if (vc < BlockTypeRange_VC[EBlockType.Gobi].y) return EBlockType.Gobi;
             return EBlockType.Oasis;
         }
         public delegate void MapBlockForeachCallback(BlockCtrl theBlock);

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4309442050372449814}
   m_Layer: 0
-  m_Name: Block_Gobi
+  m_Name: Gobi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

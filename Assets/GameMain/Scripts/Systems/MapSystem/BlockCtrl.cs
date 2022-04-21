@@ -6,13 +6,13 @@ using UnityEngine;
 namespace OasisProject3D.MapSystem {
     public class BlockCtrl : MonoBehaviour {
         public EBlockType BlockType;
-
+        public Dictionary<EBlockType, GameObject> BlockTypeGO;
         [ShowInInspector]
         public float VegetationCoverage {
             get => vegetationCoverage;
             set {
                 vegetationCoverage = value;
-                BlockType = MapManager.GetBlockTypeByVC(value);
+                UpdateBlockType();
             }
         }
         private float vegetationCoverage;
@@ -34,6 +34,15 @@ namespace OasisProject3D.MapSystem {
         void Update() {
 
         }
+
+        public void UpdateBlockType() {
+            EBlockType newType = MapManager.GetBlockTypeByVC(vegetationCoverage);
+            if (newType == BlockType) return;
+            BlockTypeGO[BlockType].SetActive(false);
+            BlockTypeGO[newType].SetActive(true);
+            BlockType = newType;
+        }
+
         public BlockData GetBlockData() {
             BlockData data = new BlockData();
             return data;

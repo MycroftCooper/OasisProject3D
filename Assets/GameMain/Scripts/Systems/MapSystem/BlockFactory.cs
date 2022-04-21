@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 
 using MycroftToolkit.QuickCode;
 using MycroftToolkit.DiscreteGridToolkit.Hex;
-
+using System;
 
 namespace OasisProject3D.MapSystem {
 
@@ -16,37 +16,46 @@ namespace OasisProject3D.MapSystem {
         public static float BlockSize = 10;
         [ShowInInspector, LabelText("地块间距")]
         public static float BlockDistance { get => BlockSize * 2 * Mathf.Cos(30 * Mathf.Deg2Rad); }
-        public GameObject BlockBase;
-        [AssetList(Path = "GameMain/Entities/Block"), LabelText("地块预制体")]
-        public List<GameObject> BlockPrefabs;
+        public GameObject BlockBasePrefab;
+        [AssetList(Path = "GameMain/Resources/Blocks/Prefabs/"), LabelText("地块预制体")]
+        public List<GameObject> BlockTypePrefabs;
 
         public BlockFactory() {
             BlockParent = GameObject.Find("MapSystem");
-            GameObject[] prefabs = Resources.LoadAll<GameObject>("Blocks/");
-            BlockPrefabs = new List<GameObject>(prefabs);
-            BlockBase = BlockPrefabs.Find(p => p.name == "Block");
+            GameObject[] prefabs = Resources.LoadAll<GameObject>("Blocks/Prefabs/");
+            BlockTypePrefabs = new List<GameObject>(prefabs);
+            BlockBasePrefab = BlockTypePrefabs.Find(p => p.name == "Block");
+            BlockTypePrefabs.Remove(BlockBasePrefab);
         }
 
-        private BlockCtrl CreateHexBlockBase(Vector2Int logicalPos) {
-            GameObject block = GameObject.Instantiate(BlockBase, BlockParent.transform);
+        public BlockCtrl AddBlock_Base(Vector2Int logicalPos) {
+            GameObject block = GameObject.Instantiate(BlockBasePrefab, BlockParent.transform);
             BlockCtrl output = block.GetComponent<BlockCtrl>();
             output.LogicalPos = logicalPos;
             output.WorldPos = HexGridTool.Coordinate_Axial.DiscreteToContinuity(logicalPos, BlockSize, false).ToVec3().SwapYZ();
             return output;
         }
+        public void AddBlock_Type(BlockCtrl blockCtrl, EBlockType blockType) {
+            blockCtrl.BlockTypeGO = new Dictionary<EBlockType, GameObject>();
+            Transform parent = blockCtrl.transform.Find("BlockType");
+            foreach (GameObject prefab in BlockTypePrefabs) {
+                GameObject targetType = GameObject.Instantiate(prefab, parent);
+                blockCtrl.BlockTypeGO.Add((EBlockType)Enum.Parse(typeof(EBlockType), prefab.name), targetType);
+                if (prefab.name != blockType.ToString()) {
+                    targetType.SetActive(false);
+                }
+            }
+        }
         public BlockCtrl CreateHexBlock(Vector2Int logicalPos, EBlockType blockType) {
-            BlockCtrl output = CreateHexBlockBase(logicalPos);
+            BlockCtrl output = AddBlock_Base(logicalPos);
+            AddBlock_Type(output, blockType);
 
-            output.BlockType = blockType;
-            GameObject targetType = BlockPrefabs.Find(x => x.name == blockType.ToString());
-            GameObject.Instantiate(targetType, output.transform);
-
-            AddHexBlockElement(output);
+            AddBlock_Element(output);
 
             return output;
         }
 
-        public void AddHexBlockElement(BlockCtrl blockCtrl) {
+        public void AddBlock_Element(BlockCtrl blockCtrl) {
 
         }
     }
