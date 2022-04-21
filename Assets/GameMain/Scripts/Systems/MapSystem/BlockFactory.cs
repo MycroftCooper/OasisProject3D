@@ -31,7 +31,7 @@ namespace OasisProject3D.MapSystem {
             GameObject block = GameObject.Instantiate(BlockBase, BlockParent.transform);
             BlockCtrl output = block.GetComponent<BlockCtrl>();
             output.LogicalPos = logicalPos;
-            output.WorldPos = Coordinate_Axial.DiscreteToContinuity(logicalPos, BlockSize, false).ToVec3().SwapYZ();
+            output.WorldPos = HexGridTool.Coordinate_Axial.DiscreteToContinuity(logicalPos, BlockSize, false).ToVec3().SwapYZ();
             return output;
         }
         public BlockCtrl CreateHexBlock(Vector2Int logicalPos, EBlockType blockType) {

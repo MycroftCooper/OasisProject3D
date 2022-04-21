@@ -7,6 +7,8 @@ using Sirenix.OdinInspector;
 using MycroftToolkit.QuickCode;
 using MycroftToolkit.MathTool;
 using Sirenix.Serialization;
+using MycroftToolkit.DiscreteGridToolkit.Hex;
+using System;
 
 namespace OasisProject3D.MapSystem {
     public enum EBlockType {
@@ -52,23 +54,24 @@ namespace OasisProject3D.MapSystem {
             int gobiCol = (int)(MapSize.x * (BlockTypeRange_Generate[EBlockType.Desert] + BlockTypeRange_Generate[EBlockType.Gobi]));
             int oasisCol = MapSize.x - desertCol - gobiCol;
 
-            int index = 0;
-            for (int i = 0; i < MapSize.y; i++) {
-                for (int j = 0; j < MapSize.x; j++) {
+            int px_2 = MapSize.x;
+            for (int x = 0; x < px_2; x++) {
+                int t = x;
+                for (int y = 0; y < MapSize.y; y++) {
                     EBlockType blockType;
-                    if (j < desertCol - MixingAreaSize)
+                    if (y < desertCol - MixingAreaSize)
                         blockType = EBlockType.Desert;
 
-                    else if (j < desertCol)
+                    else if (y < desertCol)
                         if (QuickRandom.SimpleRandom.GetBool())
                             blockType = EBlockType.Desert;
                         else
                             blockType = EBlockType.Gobi;
 
-                    else if (j < desertCol + gobiCol - MixingAreaSize)
+                    else if (y < desertCol + gobiCol - MixingAreaSize)
                         blockType = EBlockType.Gobi;
 
-                    else if (j < desertCol + gobiCol)
+                    else if (y < desertCol + gobiCol)
                         if (QuickRandom.SimpleRandom.GetBool())
                             blockType = EBlockType.Gobi;
                         else
@@ -76,11 +79,13 @@ namespace OasisProject3D.MapSystem {
 
                     else
                         blockType = EBlockType.Oasis;
-                    Vector2Int pos = new Vector2Int(i, j);
+                    Vector2Int pos = new Vector2Int(x, y);
                     BlockCtrl newBlock = factory.CreateHexBlock(pos, blockType);
                     Map.Add(pos, newBlock);
-                    index++;
+
+                    if (y % 2 != 0) x--;
                 }
+                x = t;
             }
         }
         public void UpdateMap() {
@@ -94,10 +99,37 @@ namespace OasisProject3D.MapSystem {
 
         }
 
+        #region 地图工具相关
         public static EBlockType GetBlockTypeByVC(float vc) {
             if (vc < BlockTypeRange_VC[EBlockType.Desert].y) return EBlockType.Desert;
             if (vc < BlockTypeRange_VC[EBlockType.Gobi].y) return EBlockType.Desert;
             return EBlockType.Oasis;
         }
+        public delegate void MapBlockForeachCallback(BlockCtrl theBlock);
+        public void MapBlockForEach_X(MapBlockForeachCallback callback) {
+            int px_1 = 0;
+            int px_2 = px_1 + MapSize.x;
+            for (int y = 0; y < MapSize.y; y++) {
+                for (int x = px_1; x < px_2; x++) {
+                    callback(Map[new Vector2Int(x, y)]);
+                }
+                if (y % 2 != 0) {
+                    px_1--;
+                    px_2--;
+                }
+            }
+        }
+        public void MapBlockForEach_Y(MapBlockForeachCallback callback) {
+            int px_2 = MapSize.x;
+            for (int x = 0; x < px_2; x++) {
+                int t = x;
+                for (int y = 0; y < MapSize.y; y++) {
+                    callback(Map[new Vector2Int(x, y)]);
+                    if (y % 2 != 0) x--;
+                }
+                x = t;
+            }
+        }
+        #endregion
     }
 }
