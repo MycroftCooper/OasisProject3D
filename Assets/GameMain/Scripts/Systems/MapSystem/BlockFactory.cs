@@ -5,6 +5,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 
 using MycroftToolkit.QuickCode;
+using MycroftToolkit.MathTool;
 using MycroftToolkit.DiscreteGridToolkit.Hex;
 using System;
 
@@ -20,6 +21,8 @@ namespace OasisProject3D.MapSystem {
         [AssetList(Path = "GameMain/Resources/Blocks/Prefabs/"), LabelText("地块预制体")]
         public List<GameObject> BlockTypePrefabs;
 
+        private QuickRandom random = MapManager.Instance.Random;
+
         public BlockFactory() {
             BlockParent = GameObject.Find("MapSystem");
             GameObject[] prefabs = Resources.LoadAll<GameObject>("Blocks/Prefabs/");
@@ -32,7 +35,9 @@ namespace OasisProject3D.MapSystem {
             GameObject block = GameObject.Instantiate(BlockBasePrefab, BlockParent.transform);
             BlockCtrl output = block.GetComponent<BlockCtrl>();
             output.LogicalPos = logicalPos;
+            output.Hight = random.Noise.GetNoise(logicalPos.x, logicalPos.y);
             output.WorldPos = HexGridTool.Coordinate_Axial.DiscreteToContinuity(logicalPos, BlockSize, false).ToVec3().SwapYZ();
+            output.WorldPos += new Vector3(0, output.Hight, 0);
             return output;
         }
         public void AddBlock_Type(BlockCtrl blockCtrl, EBlockType blockType) {

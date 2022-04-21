@@ -19,6 +19,11 @@ namespace OasisProject3D.MapSystem {
     public class MapManager : MonoSingleton<MapManager> {
         #region 地图配置相关
         [TitleGroup("地图生成相关", order: 0)]
+        [TitleGroup("地图生成相关"), ShowInInspector, LabelText("随机种子")]
+        public int Seed {
+            get => Random.Seed;
+            set => Random.Seed = value;
+        }
         [TitleGroup("地图生成相关"), ShowInInspector, LabelText("地图大小")]
         public static Vector2Int MapSize = new Vector2Int(30, 50);
         [TitleGroup("地图生成相关"), ShowInInspector, LabelText("地块生成比例")]
@@ -41,9 +46,14 @@ namespace OasisProject3D.MapSystem {
             {EBlockType.Oasis, new Vector2(0.8f, 1f)},
         };
         #endregion
-
+        public QuickRandom Random;
         private void Start() {
+            Random = new QuickRandom(114514);
+            Random.Noise.SetNoiseType(QuickNoise.NoiseType.Cellular);
+            Random.Noise.SetCellularReturnType(QuickNoise.CellularReturnType.CellValue);
+            Random.Noise.SetFrequency(0.1f);
             factory = BlockFactory.Instance;
+
             InitMap();
         }
 
@@ -63,7 +73,7 @@ namespace OasisProject3D.MapSystem {
                         blockType = EBlockType.Desert;
 
                     else if (y < desertCol)
-                        if (QuickRandom.SimpleRandom.GetBool())
+                        if (Random.GetBool())
                             blockType = EBlockType.Desert;
                         else
                             blockType = EBlockType.Gobi;
@@ -72,7 +82,7 @@ namespace OasisProject3D.MapSystem {
                         blockType = EBlockType.Gobi;
 
                     else if (y < desertCol + gobiCol)
-                        if (QuickRandom.SimpleRandom.GetBool())
+                        if (Random.GetBool())
                             blockType = EBlockType.Gobi;
                         else
                             blockType = EBlockType.Oasis;

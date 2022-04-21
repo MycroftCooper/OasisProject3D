@@ -22,6 +22,7 @@ namespace OasisProject3D.MapSystem {
             set => transform.position = value;
         }
         public Vector2Int LogicalPos;
+        public float Hight;
 
         public bool Buildable;
 
@@ -38,9 +39,11 @@ namespace OasisProject3D.MapSystem {
         public void UpdateBlockType() {
             EBlockType newType = MapManager.GetBlockTypeByVC(vegetationCoverage);
             if (newType == BlockType) return;
-            BlockTypeGO[BlockType].SetActive(false);
-            BlockTypeGO[newType].SetActive(true);
-            BlockType = newType;
+            BlockAnimaPlayer.OnTypeChange(this.gameObject, () => {
+                BlockTypeGO[BlockType].SetActive(false);
+                BlockTypeGO[newType].SetActive(true);
+                BlockType = newType;
+            });
         }
 
         public BlockData GetBlockData() {

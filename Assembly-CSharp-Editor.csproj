@@ -56,58 +56,7 @@
     <Analyzer Include="D:\SoftWare\VS2022\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.EscapeStringMap.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\Extensions\PermutationAndCombination.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.DecimalProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.QuaternionProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\Extensions\ExtensionsGenerate.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.GenericDataProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\Extensions\DataTableConfig.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.ShortProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.ULongProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.Vector2IntProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.Vector2Processor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.LongProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.SByteProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.DataProcessorUtility.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.Color32Processor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.DictionaryProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\Extensions\DataTableProcessorExtensions.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.DateTimeProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.CharProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.DoubleProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.StringProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.Excel.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.UShortProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.ICollectionProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.RectProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.BoolProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.Vector4Processor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableGenerator.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.IDictionaryProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\Extensions\ExcelExtension.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.IdProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.ArrayProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.Vector3Processor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.UIntProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.FloatProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.ByteProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.CommentProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.ListProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableGeneratorMenu.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableCodeGenerator.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.IntProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.EnumProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.ColorProcessor.cs" />
-    <Compile Include="Assets\GameMain\Tools\DataTableExtension\Editor\DataTableGenerator\DataTableProcessor.DataProcessor.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\System.ComponentModel.Annotations.dll" />
-    <None Include="Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\Microsoft.IO.RecyclableMemoryStream.dll" />
-    <None Include="Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\Microsoft.IO.RecyclableMemoryStream.xml" />
-    <None Include="Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\EPPlus.dll" />
-    <None Include="Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\EPPlus.xml" />
+    <Compile Include="Assets\GameMain\Tools\MycroftToolkit\Advanced RuleTiles\Editor\RuleTileEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -341,9 +290,6 @@
     <Reference Include="DemiLib">
       <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
     </Reference>
-    <Reference Include="System.ComponentModel.Annotations">
-      <HintPath>Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\System.ComponentModel.Annotations.dll</HintPath>
-    </Reference>
     <Reference Include="DOTweenProEditor">
       <HintPath>Assets\Plugins\Demigiant\DOTweenPro\Editor\DOTweenProEditor.dll</HintPath>
     </Reference>
@@ -361,12 +307,6 @@
     </Reference>
     <Reference Include="Sirenix.OdinInspector.Attributes">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.IO.RecyclableMemoryStream">
-      <HintPath>Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
-    </Reference>
-    <Reference Include="EPPlus">
-      <HintPath>Assets\GameMain\Tools\DataTableExtension\Editor\EPPlus\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Serialization.Config">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
@@ -773,11 +713,11 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Searcher.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
