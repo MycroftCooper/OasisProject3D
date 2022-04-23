@@ -7,19 +7,26 @@ using MycroftToolkit.QuickCode;
 using DG.Tweening;
 
 namespace OasisProject3D.MapSystem {
-    public static class BlockAnimaPlayer {
+    public class BlockAnimaPlayer : MonoSingleton<BlockAnimaPlayer> {
+        public float PlayTime_Selected = 0.5f;
+        public float PlayDistance_Selected = 1f;
+        public float PlayTime_TypeChange = 1f;
+
         public delegate void AnimaCallback();
 
-        public static void OnSelected(GameObject block) {
-
+        public void OnSelected(BlockCtrl block, AnimaCallback callback) {
+            block.transform.DOMoveY(block.WorldPos.y + PlayDistance_Selected, PlayTime_Selected).OnComplete(() => { callback?.Invoke(); });
         }
-        public static void OffSelected(GameObject block) {
-
+        public void OffSelected(BlockCtrl block, AnimaCallback callback) {
+            block.transform.DOMoveY(block.WorldPos.y, PlayTime_Selected).OnComplete(() => { callback?.Invoke(); });
         }
-        public static void OnTypeChange(GameObject block, AnimaCallback callback) {
-            block.transform.DORotate(Vector3.right * 180, 0.5f, RotateMode.WorldAxisAdd).OnComplete(() => {
-                callback();
-                block.transform.DORotate(Vector3.right * 180, 0.5f, RotateMode.WorldAxisAdd);
+        public void OnTypeChange(BlockCtrl block, AnimaCallback callback) {
+            bool isCall = false;
+            block.transform.DORotate(Vector3.right * 360, PlayTime_TypeChange, RotateMode.FastBeyond360).OnUpdate(() => {
+                if (block.transform.rotation.eulerAngles.x > 180 && !isCall) {
+                    callback?.Invoke();
+                    isCall = true;
+                }
             });
         }
     }

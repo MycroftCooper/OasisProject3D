@@ -5,9 +5,17 @@ using UnityEngine;
 
 namespace OasisProject3D.MapSystem {
     public class BlockCtrl : MonoBehaviour {
+        [LabelText("地块类型")]
         public EBlockType BlockType;
+        [LabelText("世界坐标")]
+        public Vector3 WorldPos;
+        [LabelText("逻辑坐标")]
+        public Vector2Int LogicalPos;
+        [LabelText("高度")]
+        public float Hight;
         public Dictionary<EBlockType, GameObject> BlockTypeGO;
-        [ShowInInspector]
+
+        [ShowInInspector, LabelText("绿化率")]
         public float VegetationCoverage {
             get => vegetationCoverage;
             set {
@@ -15,14 +23,10 @@ namespace OasisProject3D.MapSystem {
                 UpdateBlockType();
             }
         }
-        private float vegetationCoverage;
+        public float vegetationCoverage;
+        [ShowInInspector]
+        public BlockInfectionConf InfectionConf;
 
-        public Vector3 WorldPos {
-            get => transform.position;
-            set => transform.position = value;
-        }
-        public Vector2Int LogicalPos;
-        public float Hight;
 
         public bool Buildable;
 
@@ -39,7 +43,7 @@ namespace OasisProject3D.MapSystem {
         public void UpdateBlockType() {
             EBlockType newType = MapManager.GetBlockTypeByVC(vegetationCoverage);
             if (newType == BlockType) return;
-            BlockAnimaPlayer.OnTypeChange(this.gameObject, () => {
+            BlockAnimaPlayer.Instance.OnTypeChange(this, () => {
                 BlockTypeGO[BlockType].SetActive(false);
                 BlockTypeGO[newType].SetActive(true);
                 BlockType = newType;
@@ -49,6 +53,16 @@ namespace OasisProject3D.MapSystem {
         public BlockData GetBlockData() {
             BlockData data = new BlockData();
             return data;
+        }
+        public void LoadBlockData(BlockData data) {
+            WorldPos = data.WorldPos;
+            LogicalPos = data.LogicalPos;
+            Hight = data.Hight;
+
+            VegetationCoverage = data.VegetationCoverage;
+            InfectionConf = data.InfectionConf;
+
+            Buildable = data.Buildable;
         }
     }
 }
