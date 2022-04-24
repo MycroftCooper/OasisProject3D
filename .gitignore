@@ -9,21 +9,7 @@ Temp/
 
 .vs/
 
-Assets/Plugins/Sirenix/
-
-Assets/Plugins/Enhanced Hierarchy/
-
-Assets/Plugins/Demigiant/
-
-Assets/Plugins/ConsolePro/
-
-Assets/Plugins/ConsolePro.meta
-
-Assets/Plugins/Demigiant.meta
-
-Assets/Plugins/Enhanced Hierarchy.meta
-
-Assets/Plugins/Sirenix.meta
+Assets/Plugins/
 
 Assembly-CSharp-Editor-firstpass.csproj
 
