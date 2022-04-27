@@ -9,13 +9,9 @@ using MycroftToolkit.MathTool;
 using Sirenix.Serialization;
 using MycroftToolkit.DiscreteGridToolkit.Hex;
 using System;
+using cfg.MapSystem;
 
 namespace OasisProject3D.MapSystem {
-    public enum EBlockType {
-        Desert,
-        Gobi,
-        Oasis,
-    }
     public class MapManager : MonoSingleton<MapManager> {
         #region 地图配置相关
         [TitleGroup("地图生成相关", order: 0)]
@@ -27,12 +23,7 @@ namespace OasisProject3D.MapSystem {
         public float DensityParameter = 0.1f;
         [TitleGroup("地图生成相关"), ShowInInspector, LabelText("地图大小")]
         public Vector2Int MapSize = new Vector2Int(30, 50);
-        [TitleGroup("地图生成相关"), ShowInInspector, LabelText("地块生成比例")]
-        public static Dictionary<EBlockType, float> BlockTypeRange_Generate = new Dictionary<EBlockType, float> {
-            {EBlockType.Desert, 0.2f},
-            {EBlockType.Gobi, 0.3f},
-            {EBlockType.Oasis, 0.5f},
-        };
+
         [TitleGroup("地图生成相关"), ShowInInspector, LabelText("地块工厂")]
         private BlockFactory factory;
         [TitleGroup("地图生成相关"), ShowInInspector, LabelText("混合区域大小")]
@@ -42,27 +33,8 @@ namespace OasisProject3D.MapSystem {
         public Dictionary<Vector2Int, BlockCtrl> Map;
         [TitleGroup("地图刷新相关"), ShowInInspector, LabelText("全图植被覆盖率")]
         public float VegetationCoverage;
-        [TitleGroup("地图刷新相关"), ShowInInspector, LabelText("刷新规则")]
-        public static Dictionary<EBlockType, BlockInfectionConf> DefaultBlockInfectionConf = new Dictionary<EBlockType, BlockInfectionConf> {
-                {EBlockType.Desert, new BlockInfectionConf{
-                    VCRange = new Vector2(0f, 0.3f),
-                    Infection_Range = 1,
-                    Infection_Factor = 1f,
-                    Infection_Time = 1f,
-                }},
-                { EBlockType.Gobi, new BlockInfectionConf(){
-                    VCRange = new Vector2(0f, 0.3f),
-                    Infection_Range = 1,
-                    Infection_Factor = 1f,
-                    Infection_Time = 1f,
-                }},
-                { EBlockType.Oasis, new BlockInfectionConf(){
-                    VCRange = new Vector2(0f, 0.3f),
-                    Infection_Range = 1,
-                    Infection_Factor = 1f,
-                    Infection_Time = 1f,
-                }},
-        };
+
+        public Dictionary<EBlockType, BlockConfig> BlockConf;
         #endregion
         public QuickRandom Random;
         private void Start() {
@@ -70,6 +42,9 @@ namespace OasisProject3D.MapSystem {
             InitMap();
         }
         public void Init() {
+            BlockConf = DataManager.Instance.Tables.DTBlockConfig.DataMap;
+
+
             Random = new QuickRandom(Seed);
             Random.Noise.SetNoiseType(QuickNoise.NoiseType.Cellular);
             Random.Noise.SetCellularReturnType(QuickNoise.CellularReturnType.CellValue);
@@ -80,8 +55,8 @@ namespace OasisProject3D.MapSystem {
         public void InitMap(MapData data = null) {
             Map = new Dictionary<Vector2Int, BlockCtrl>();
 
-            int desertCol = (int)(MapSize.x * BlockTypeRange_Generate[EBlockType.Desert]);
-            int gobiCol = (int)(MapSize.x * (BlockTypeRange_Generate[EBlockType.Desert] + BlockTypeRange_Generate[EBlockType.Gobi]));
+            int desertCol = (int)(MapSize.x * BlockConf[EBlockType.Desert].GenerateRate);
+            int gobiCol = (int)(MapSize.x * (BlockConf[EBlockType.Desert].GenerateRate + BlockConf[EBlockType.Gobi].GenerateRate));
             int oasisCol = MapSize.x - desertCol - gobiCol;
 
             int px_2 = MapSize.x;
@@ -129,9 +104,19 @@ namespace OasisProject3D.MapSystem {
         }
 
         #region 地图工具相关
-        public static EBlockType GetBlockTypeByVC(float vc) {
-            if (vc < DefaultBlockInfectionConf[EBlockType.Desert].VCRange.y) return EBlockType.Desert;
-            if (vc < DefaultBlockInfectionConf[EBlockType.Gobi].VCRange.y) return EBlockType.Gobi;
+        public bool HasBlock(Vector2Int pos) => Map.ContainsKey(pos);
+        public void SetBlockVC(Vector2Int pos, float vc) {
+            if (Map.ContainsKey(pos)) Map[pos].VegetationCoverage = vc;
+            else Debug.LogError($"MapManager>Error>该点:{pos}不存在!");
+        }
+        public float GetBlockVC(Vector2Int pos) {
+            if (Map.ContainsKey(pos)) return Map[pos].VegetationCoverage;
+            else Debug.LogError($"MapManager>Error>该点:{pos}不存在!");
+            return -1f;
+        }
+        public EBlockType GetBlockTypeByVC(float vc) {
+            if (vc < BlockConf[EBlockType.Desert].GreennessRange.y) return EBlockType.Desert;
+            if (vc < BlockConf[EBlockType.Gobi].GreennessRange.y) return EBlockType.Gobi;
             return EBlockType.Oasis;
         }
         public delegate void MapBlockForeachCallback(BlockCtrl theBlock);

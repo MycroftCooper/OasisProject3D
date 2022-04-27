@@ -1,52 +1,76 @@
-﻿using Sirenix.OdinInspector;
+﻿using cfg.MapSystem;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using MycroftToolkit.DiscreteGridToolkit.Hex;
+
 namespace OasisProject3D.MapSystem {
     public class BlockCtrl : MonoBehaviour {
         [LabelText("地块类型")]
-        public EBlockType BlockType;
+        public EBlockType blockType;
         [LabelText("世界坐标")]
-        public Vector3 WorldPos;
+        public Vector3 worldPos;
         [LabelText("逻辑坐标")]
-        public Vector2Int LogicalPos;
+        public Vector2Int logicalPos;
         [LabelText("高度")]
-        public float Hight;
-        public Dictionary<EBlockType, GameObject> BlockTypeGO;
+        public float hight;
+        public Dictionary<EBlockType, GameObject> blockTypeGO;
 
         [ShowInInspector, LabelText("绿化率")]
         public float VegetationCoverage {
-            get => vegetationCoverage;
+            get => _vegetationCoverage;
             set {
-                vegetationCoverage = value;
+                _vegetationCoverage = value;
                 UpdateBlockType();
             }
         }
-        public float vegetationCoverage;
+        public float _vegetationCoverage;
         [ShowInInspector]
-        public BlockInfectionConf InfectionConf;
+        public InfectionData infectionData;
 
+        public bool canInfectious;
+        public bool canBeInfectious;
+        public bool buildable;
 
-        public bool Buildable;
 
         // Start is called before the first frame update
         void Start() {
 
         }
 
+        private float _deltaTime = 0;
         // Update is called once per frame
         void Update() {
+            if (canInfectious) {
+                _deltaTime += Time.deltaTime;
+                if (_deltaTime * 100 >= 200) {
+                    _deltaTime = 0;
+                    DoInfect();
+                }
+            }
 
         }
 
+        public void DoInfect() {
+            MapManager mm = MapManager.Instance;
+            List<Vector2Int> targertPos = HexGridTool.Coordinate_Axial.GetPointsInHexagon(logicalPos, infectionData.Range);
+            foreach (Vector2Int pos in targertPos) {
+                if (!mm.HasBlock(pos)) continue;
+                float oldVC = mm.GetBlockVC(pos);
+                float newVC = (_vegetationCoverage - oldVC) * infectionData.Factor;
+                mm.SetBlockVC(pos, newVC);
+            }
+
+        }
         public void UpdateBlockType() {
-            EBlockType newType = MapManager.GetBlockTypeByVC(vegetationCoverage);
-            if (newType == BlockType) return;
+            EBlockType newType = MapManager.Instance.GetBlockTypeByVC(_vegetationCoverage);
+            if (newType == blockType) return;
             BlockAnimaPlayer.Instance.OnTypeChange(this, () => {
-                BlockTypeGO[BlockType].SetActive(false);
-                BlockTypeGO[newType].SetActive(true);
-                BlockType = newType;
+                blockTypeGO[blockType].SetActive(false);
+                blockTypeGO[newType].SetActive(true);
+                blockType = newType;
             });
         }
 
@@ -55,14 +79,14 @@ namespace OasisProject3D.MapSystem {
             return data;
         }
         public void LoadBlockData(BlockData data) {
-            WorldPos = data.WorldPos;
-            LogicalPos = data.LogicalPos;
-            Hight = data.Hight;
+            worldPos = data.WorldPos;
+            logicalPos = data.LogicalPos;
+            hight = data.Hight;
 
             VegetationCoverage = data.VegetationCoverage;
-            InfectionConf = data.InfectionConf;
+            infectionData = data.InfectionConf;
 
-            Buildable = data.Buildable;
+            buildable = data.Buildable;
         }
     }
 }

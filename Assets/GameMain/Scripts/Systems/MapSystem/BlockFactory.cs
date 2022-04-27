@@ -1,68 +1,69 @@
-﻿using System.Collections;
+﻿using cfg.MapSystem;
+using MycroftToolkit.DiscreteGridToolkit.Hex;
+using MycroftToolkit.MathTool;
+using MycroftToolkit.QuickCode;
+using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-
-using Sirenix.OdinInspector;
-
-using MycroftToolkit.QuickCode;
-using MycroftToolkit.MathTool;
-using MycroftToolkit.DiscreteGridToolkit.Hex;
-using System;
 
 namespace OasisProject3D.MapSystem {
 
     public class BlockFactory : Singleton<BlockFactory> {
-        public GameObject BlockParent;
+        public GameObject blockParent;
         [ShowInInspector, LabelText("地块大小")]
-        public static float BlockSize = 10;
+        public static float blockSize = 10;
         [ShowInInspector, LabelText("地块间距")]
-        public static float BlockDistance { get => BlockSize * 2 * Mathf.Cos(30 * Mathf.Deg2Rad); }
+        public static float BlockDistance { get => blockSize * 2 * Mathf.Cos(30 * Mathf.Deg2Rad); }
 
-        public GameObject BlockBasePrefab;
+        public GameObject blockBasePrefab;
         [AssetList(Path = "GameMain/Resources/Blocks/Prefabs/"), LabelText("地块预制体")]
-        public List<GameObject> BlockTypePrefabs;
+        public List<GameObject> blockTypePrefabs;
 
-        private float steepParameter;
-        private QuickRandom random;
-        private static Dictionary<EBlockType, BlockInfectionConf> defaultBlockInfectionConf => MapManager.DefaultBlockInfectionConf;
+        private float _steepParameter;
+        private QuickRandom _random;
+        public Dictionary<EBlockType, BlockConfig> blockConf;
 
         public BlockFactory() {
-            BlockParent = GameObject.Find("MapSystem");
+            blockParent = GameObject.Find("MapSystem");
             GameObject[] prefabs = Resources.LoadAll<GameObject>("Blocks/Prefabs/");
-            BlockTypePrefabs = new List<GameObject>(prefabs);
-            BlockBasePrefab = BlockTypePrefabs.Find(p => p.name == "Block");
-            BlockTypePrefabs.Remove(BlockBasePrefab);
+            blockTypePrefabs = new List<GameObject>(prefabs);
+            blockBasePrefab = blockTypePrefabs.Find(p => p.name == "Block");
+            blockTypePrefabs.Remove(blockBasePrefab);
 
-            steepParameter = MapManager.Instance.SteepParameter;
-            random = MapManager.Instance.Random;
+            _steepParameter = MapManager.Instance.SteepParameter;
+            _random = MapManager.Instance.Random;
 
-
-
+            blockConf = MapManager.Instance.BlockConf;
         }
 
         public BlockCtrl AddBlock_Base(Vector2Int logicalPos) {
-            GameObject block = GameObject.Instantiate(BlockBasePrefab, BlockParent.transform);
+            GameObject block = GameObject.Instantiate(blockBasePrefab, blockParent.transform);
             BlockCtrl output = block.GetComponent<BlockCtrl>();
-            output.LogicalPos = logicalPos;
-            output.Hight = random.Noise.GetNoise(logicalPos.x, logicalPos.y) * steepParameter;
-            output.WorldPos = HexGridTool.Coordinate_Axial.DiscreteToContinuity(logicalPos, BlockSize, false).ToVec3().SwapYZ();
-            output.WorldPos += Vector3.up * output.Hight;
-            output.transform.position = output.WorldPos;
+            output.logicalPos = logicalPos;
+            output.hight = _random.Noise.GetNoise(logicalPos.x, logicalPos.y) * _steepParameter;
+            output.worldPos = HexGridTool.Coordinate_Axial.DiscreteToContinuity(logicalPos, blockSize, false).ToVec3().SwapYZ();
+            output.worldPos += Vector3.up * output.hight;
+            output.transform.position = output.worldPos;
+
+            output.canBeInfectious = true;
+            output.canInfectious = true;
+            output.buildable = true;
             return output;
         }
         public void AddBlock_Type(BlockCtrl blockCtrl, EBlockType blockType) {
-            blockCtrl.BlockTypeGO = new Dictionary<EBlockType, GameObject>();
+            blockCtrl.blockTypeGO = new Dictionary<EBlockType, GameObject>();
             Transform parent = blockCtrl.transform.Find("BlockType");
-            foreach (GameObject prefab in BlockTypePrefabs) {
+            foreach (GameObject prefab in blockTypePrefabs) {
                 GameObject targetType = GameObject.Instantiate(prefab, parent);
-                blockCtrl.BlockTypeGO.Add((EBlockType)Enum.Parse(typeof(EBlockType), prefab.name), targetType);
+                blockCtrl.blockTypeGO.Add((EBlockType)Enum.Parse(typeof(EBlockType), prefab.name), targetType);
                 if (prefab.name != blockType.ToString()) {
                     targetType.SetActive(false);
                 }
             }
-            Vector2 vc_range = defaultBlockInfectionConf[blockType].VCRange;
-            blockCtrl.vegetationCoverage = random.GetFloat(vc_range.x, vc_range.y);
-            blockCtrl.InfectionConf = defaultBlockInfectionConf[blockType];
+            Vector2 vc_range = blockConf[blockType].GreennessRange;
+            blockCtrl._vegetationCoverage = _random.GetFloat(vc_range.x, vc_range.y);
+            blockCtrl.infectionData = blockConf[blockType].InfectionData;
 
         }
         public BlockCtrl CreateHexBlock(Vector2Int logicalPos, EBlockType blockType) {

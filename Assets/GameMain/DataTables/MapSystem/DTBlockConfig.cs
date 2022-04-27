@@ -16,29 +16,29 @@ namespace cfg.MapSystem
 
 public sealed partial class DTBlockConfig
 {
-    private readonly Dictionary<int, MapSystem.BlockConfig> _dataMap;
+    private readonly Dictionary<MapSystem.EBlockType, MapSystem.BlockConfig> _dataMap;
     private readonly List<MapSystem.BlockConfig> _dataList;
     
     public DTBlockConfig(JSONNode _json)
     {
-        _dataMap = new Dictionary<int, MapSystem.BlockConfig>();
+        _dataMap = new Dictionary<MapSystem.EBlockType, MapSystem.BlockConfig>();
         _dataList = new List<MapSystem.BlockConfig>();
         
         foreach(JSONNode _row in _json.Children)
         {
             var _v = MapSystem.BlockConfig.DeserializeBlockConfig(_row);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.BlockType, _v);
         }
         PostInit();
     }
 
-    public Dictionary<int, MapSystem.BlockConfig> DataMap => _dataMap;
+    public Dictionary<MapSystem.EBlockType, MapSystem.BlockConfig> DataMap => _dataMap;
     public List<MapSystem.BlockConfig> DataList => _dataList;
 
-    public MapSystem.BlockConfig GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
-    public MapSystem.BlockConfig Get(int key) => _dataMap[key];
-    public MapSystem.BlockConfig this[int key] => _dataMap[key];
+    public MapSystem.BlockConfig GetOrDefault(MapSystem.EBlockType key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public MapSystem.BlockConfig Get(MapSystem.EBlockType key) => _dataMap[key];
+    public MapSystem.BlockConfig this[MapSystem.EBlockType key] => _dataMap[key];
 
     public void Resolve(Dictionary<string, object> _tables)
     {

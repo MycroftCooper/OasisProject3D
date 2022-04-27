@@ -1,6 +1,5 @@
 [
   {
-    "Id": 1,
     "blockType": 0,
     "generateRate": 0.2,
     "greennessRange": {
@@ -14,7 +13,6 @@
     }
   },
   {
-    "Id": 2,
     "blockType": 1,
     "generateRate": 0.3,
     "greennessRange": {
@@ -28,7 +26,6 @@
     }
   },
   {
-    "Id": 3,
     "blockType": 2,
     "generateRate": 0.5,
     "greennessRange": {
