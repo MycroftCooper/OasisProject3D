@@ -13,27 +13,22 @@ namespace cfg
    
 public sealed partial class Tables
 {
-    public item.TbItem TbItem {get; }
-    public block.TbBlock TbBlock {get; }
+    public MapSystem.DTBlockConfig DTBlockConfig {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
         var tables = new System.Collections.Generic.Dictionary<string, object>();
-        TbItem = new item.TbItem(loader("item_tbitem")); 
-        tables.Add("item.TbItem", TbItem);
-        TbBlock = new block.TbBlock(loader("block_tbblock")); 
-        tables.Add("block.TbBlock", TbBlock);
+        DTBlockConfig = new MapSystem.DTBlockConfig(loader("mapsystem_dtblockconfig")); 
+        tables.Add("MapSystem.DTBlockConfig", DTBlockConfig);
         PostInit();
 
-        TbItem.Resolve(tables); 
-        TbBlock.Resolve(tables); 
+        DTBlockConfig.Resolve(tables); 
         PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
     {
-        TbItem.TranslateText(translator); 
-        TbBlock.TranslateText(translator); 
+        DTBlockConfig.TranslateText(translator); 
     }
     
     partial void PostInit();

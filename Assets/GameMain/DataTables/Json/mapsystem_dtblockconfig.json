@@ -1,0 +1,44 @@
+[
+  {
+    "Id": 1,
+    "blockType": 0,
+    "generateRate": 0.2,
+    "greennessRange": {
+      "x": 0,
+      "y": 0.4
+    },
+    "infectionData": {
+      "Range": 2,
+      "Factor": 3,
+      "Time": 2
+    }
+  },
+  {
+    "Id": 2,
+    "blockType": 1,
+    "generateRate": 0.3,
+    "greennessRange": {
+      "x": 0.4,
+      "y": 0.8
+    },
+    "infectionData": {
+      "Range": 1,
+      "Factor": 2,
+      "Time": 4
+    }
+  },
+  {
+    "Id": 3,
+    "blockType": 2,
+    "generateRate": 0.5,
+    "greennessRange": {
+      "x": 0.8,
+      "y": 2
+    },
+    "infectionData": {
+      "Range": 0,
+      "Factor": 1,
+      "Time": 8
+    }
+  }
+]

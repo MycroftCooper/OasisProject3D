@@ -6,25 +6,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace cfg.test
+namespace cfg.MapSystem
 {
-    public enum ETestQuality
+    public enum EBlockType
     {
         /// <summary>
-        /// 最高品质
+        /// 沙漠
         /// </summary>
-        A = 1,
+        Desert = 0,
         /// <summary>
-        /// 黑色的
+        /// 戈壁
         /// </summary>
-        B = 2,
+        Gobi = 1,
         /// <summary>
-        /// 蓝色的
+        /// 绿洲
         /// </summary>
-        C = 3,
-        /// <summary>
-        /// 最差品质
-        /// </summary>
-        D = 4,
+        Oasis = 2,
     }
 }

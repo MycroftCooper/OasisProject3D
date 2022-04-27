@@ -11,34 +11,34 @@ using SimpleJSON;
 
 
 
-namespace cfg.item
+namespace cfg.MapSystem
 {
 
-public sealed partial class TbItem
+public sealed partial class DTBlockConfig
 {
-    private readonly Dictionary<int, item.Item> _dataMap;
-    private readonly List<item.Item> _dataList;
+    private readonly Dictionary<int, MapSystem.BlockConfig> _dataMap;
+    private readonly List<MapSystem.BlockConfig> _dataList;
     
-    public TbItem(JSONNode _json)
+    public DTBlockConfig(JSONNode _json)
     {
-        _dataMap = new Dictionary<int, item.Item>();
-        _dataList = new List<item.Item>();
+        _dataMap = new Dictionary<int, MapSystem.BlockConfig>();
+        _dataList = new List<MapSystem.BlockConfig>();
         
         foreach(JSONNode _row in _json.Children)
         {
-            var _v = item.Item.DeserializeItem(_row);
+            var _v = MapSystem.BlockConfig.DeserializeBlockConfig(_row);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
         PostInit();
     }
 
-    public Dictionary<int, item.Item> DataMap => _dataMap;
-    public List<item.Item> DataList => _dataList;
+    public Dictionary<int, MapSystem.BlockConfig> DataMap => _dataMap;
+    public List<MapSystem.BlockConfig> DataList => _dataList;
 
-    public item.Item GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
-    public item.Item Get(int key) => _dataMap[key];
-    public item.Item this[int key] => _dataMap[key];
+    public MapSystem.BlockConfig GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public MapSystem.BlockConfig Get(int key) => _dataMap[key];
+    public MapSystem.BlockConfig this[int key] => _dataMap[key];
 
     public void Resolve(Dictionary<string, object> _tables)
     {
