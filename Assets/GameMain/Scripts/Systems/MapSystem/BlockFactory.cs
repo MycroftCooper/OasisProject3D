@@ -58,6 +58,7 @@ namespace OasisProject3D.MapSystem {
                     targetType.SetActive(false);
                 }
             }
+            blockCtrl.blockType = blockType;
             Vector2 vc_range = blockConf[blockType].GreennessRange;
             blockCtrl._vegetationCoverage = _random.GetFloat(vc_range.x, vc_range.y);
             blockCtrl.infectionData = getNewInfectionData(blockType);

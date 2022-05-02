@@ -36,12 +36,13 @@ namespace OasisProject3D.MapSystem {
         public bool buildable;
 
         void Start() {
-
+            _deltaTime = Random.Range(-10, 0);
         }
 
         private float _deltaTime = 0;
 
         void Update() {
+
             if (infectionData.CanInfectious) {
                 _deltaTime += Time.deltaTime;
                 if (_deltaTime >= infectionData.Time) {
@@ -61,12 +62,12 @@ namespace OasisProject3D.MapSystem {
                 targetVC += (block._vegetationCoverage - _vegetationCoverage) * mm.BlockConf[block.blockType].InfectionData.Factor;
 
             });
-            Debug.Log(targetVC);
             VegetationCoverage += targetVC;
         }
         public void UpdateBlockType() {
             EBlockType newType = MapManager.Instance.GetBlockTypeByVC(_vegetationCoverage);
-            if (newType == blockType) return;
+            if (newType == blockType)
+                return;
             BlockAnimaPlayer.Instance.OnTypeChange(this, () => {
                 blockTypeGO[blockType].SetActive(false);
                 blockTypeGO[newType].SetActive(true);
@@ -83,7 +84,7 @@ namespace OasisProject3D.MapSystem {
             logicalPos = data.LogicalPos;
             hight = data.Hight;
 
-            VegetationCoverage = data.VegetationCoverage;
+            _vegetationCoverage = data.VegetationCoverage;
             infectionData = data.InfectionConf;
 
             buildable = data.Buildable;

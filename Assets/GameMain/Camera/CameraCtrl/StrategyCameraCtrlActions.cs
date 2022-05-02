@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/GameMain/Camera/StrategyGame/StrategyCameraCtrlActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/GameMain/Camera/CameraCtrl/StrategyCameraCtrlActions.inputactions'
 
 using System;
 using System.Collections;
