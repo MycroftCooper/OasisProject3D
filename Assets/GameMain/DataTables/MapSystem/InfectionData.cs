@@ -21,14 +21,18 @@ public sealed partial class InfectionData :  Bright.Config.BeanBase
         { if(!_json["Range"].IsNumber) { throw new SerializationException(); }  Range = _json["Range"]; }
         { if(!_json["Factor"].IsNumber) { throw new SerializationException(); }  Factor = _json["Factor"]; }
         { if(!_json["Time"].IsNumber) { throw new SerializationException(); }  Time = _json["Time"]; }
+        { if(!_json["canInfectious"].IsBoolean) { throw new SerializationException(); }  CanInfectious = _json["canInfectious"]; }
+        { if(!_json["canBeInfectious"].IsBoolean) { throw new SerializationException(); }  CanBeInfectious = _json["canBeInfectious"]; }
         PostInit();
     }
 
-    public InfectionData(int Range, float Factor, float Time ) 
+    public InfectionData(int Range, float Factor, float Time, bool canInfectious, bool canBeInfectious ) 
     {
         this.Range = Range;
         this.Factor = Factor;
         this.Time = Time;
+        this.CanInfectious = canInfectious;
+        this.CanBeInfectious = canBeInfectious;
         PostInit();
     }
 
@@ -49,6 +53,14 @@ public sealed partial class InfectionData :  Bright.Config.BeanBase
     /// 刷新时间
     /// </summary>
     public float Time { get; private set; }
+    /// <summary>
+    /// 可传播
+    /// </summary>
+    public bool CanInfectious { get; private set; }
+    /// <summary>
+    /// 可被传播
+    /// </summary>
+    public bool CanBeInfectious { get; private set; }
 
     public const int __ID__ = -1322788902;
     public override int GetTypeId() => __ID__;
@@ -68,6 +80,8 @@ public sealed partial class InfectionData :  Bright.Config.BeanBase
         + "Range:" + Range + ","
         + "Factor:" + Factor + ","
         + "Time:" + Time + ","
+        + "CanInfectious:" + CanInfectious + ","
+        + "CanBeInfectious:" + CanBeInfectious + ","
         + "}";
     }
     

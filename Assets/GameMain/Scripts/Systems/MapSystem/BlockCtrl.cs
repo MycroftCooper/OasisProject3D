@@ -4,7 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using MycroftToolkit.MathTool;
 using MycroftToolkit.DiscreteGridToolkit.Hex;
+using MycroftToolkit.QuickCode;
+using System.Linq;
 
 namespace OasisProject3D.MapSystem {
     public class BlockCtrl : MonoBehaviour {
@@ -30,39 +33,36 @@ namespace OasisProject3D.MapSystem {
         [ShowInInspector]
         public InfectionData infectionData;
 
-        public bool canInfectious;
-        public bool canBeInfectious;
         public bool buildable;
 
-
-        // Start is called before the first frame update
         void Start() {
 
         }
 
         private float _deltaTime = 0;
-        // Update is called once per frame
+
         void Update() {
-            if (canInfectious) {
+            if (infectionData.CanInfectious) {
                 _deltaTime += Time.deltaTime;
-                if (_deltaTime * 100 >= 200) {
+                if (_deltaTime >= infectionData.Time) {
                     _deltaTime = 0;
-                    DoInfect();
+                    UpdateBlock();
                 }
             }
 
         }
 
-        public void DoInfect() {
+        public void UpdateBlock() {
             MapManager mm = MapManager.Instance;
-            List<Vector2Int> targertPos = HexGridTool.Coordinate_Axial.GetPointsInHexagon(logicalPos, infectionData.Range);
-            foreach (Vector2Int pos in targertPos) {
-                if (!mm.HasBlock(pos)) continue;
-                float oldVC = mm.GetBlockVC(pos);
-                float newVC = (_vegetationCoverage - oldVC) * infectionData.Factor;
-                mm.SetBlockVC(pos, newVC);
-            }
+            List<Vector2Int> targetPos = HexGridTool.Coordinate_Axial.GetPointsInHexagon(logicalPos, infectionData.Range);
+            List<BlockCtrl> targetBlock = mm.GetBlocks(targetPos);
+            float targetVC = 0;
+            targetBlock.ForEach(block => {
+                targetVC += (block._vegetationCoverage - _vegetationCoverage) * mm.BlockConf[block.blockType].InfectionData.Factor;
 
+            });
+            Debug.Log(targetVC);
+            VegetationCoverage += targetVC;
         }
         public void UpdateBlockType() {
             EBlockType newType = MapManager.Instance.GetBlockTypeByVC(_vegetationCoverage);

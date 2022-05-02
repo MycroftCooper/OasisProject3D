@@ -46,9 +46,6 @@ namespace OasisProject3D.MapSystem {
             output.worldPos += Vector3.up * output.hight;
             output.transform.position = output.worldPos;
 
-            output.canBeInfectious = true;
-            output.canInfectious = true;
-            output.buildable = true;
             return output;
         }
         public void AddBlock_Type(BlockCtrl blockCtrl, EBlockType blockType) {
@@ -63,8 +60,13 @@ namespace OasisProject3D.MapSystem {
             }
             Vector2 vc_range = blockConf[blockType].GreennessRange;
             blockCtrl._vegetationCoverage = _random.GetFloat(vc_range.x, vc_range.y);
-            blockCtrl.infectionData = blockConf[blockType].InfectionData;
-
+            blockCtrl.infectionData = getNewInfectionData(blockType);
+            blockCtrl.buildable = blockConf[blockType].Buildable;
+        }
+        private InfectionData getNewInfectionData(EBlockType blockType) {
+            InfectionData data = blockConf[blockType].InfectionData;
+            InfectionData output = new InfectionData(data.Range, data.Factor, data.Time, data.CanInfectious, data.CanBeInfectious);
+            return output;
         }
         public BlockCtrl CreateHexBlock(Vector2Int logicalPos, EBlockType blockType) {
             BlockCtrl output = AddBlock_Base(logicalPos);

@@ -7,10 +7,13 @@
       "y": 0.4
     },
     "infectionData": {
-      "Range": 2,
-      "Factor": 3,
-      "Time": 2
-    }
+      "Range": 1,
+      "Factor": 0.05,
+      "Time": 6,
+      "canInfectious": true,
+      "canBeInfectious": true
+    },
+    "buildable": true
   },
   {
     "blockType": 1,
@@ -20,10 +23,13 @@
       "y": 0.8
     },
     "infectionData": {
-      "Range": 1,
-      "Factor": 2,
-      "Time": 4
-    }
+      "Range": 2,
+      "Factor": 0.02,
+      "Time": 10,
+      "canInfectious": true,
+      "canBeInfectious": true
+    },
+    "buildable": true
   },
   {
     "blockType": 2,
@@ -33,9 +39,12 @@
       "y": 2
     },
     "infectionData": {
-      "Range": 0,
-      "Factor": 1,
-      "Time": 8
-    }
+      "Range": 3,
+      "Factor": 0.01,
+      "Time": 8,
+      "canInfectious": true,
+      "canBeInfectious": true
+    },
+    "buildable": true
   }
 ]

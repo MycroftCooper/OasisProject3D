@@ -105,15 +105,16 @@ namespace OasisProject3D.MapSystem {
 
         #region 地图工具相关
         public bool HasBlock(Vector2Int pos) => Map.ContainsKey(pos);
-        public void SetBlockVC(Vector2Int pos, float vc) {
-            if (Map.ContainsKey(pos)) Map[pos].VegetationCoverage = vc;
-            else Debug.LogError($"MapManager>Error>该点:{pos}不存在!");
+        public BlockCtrl GetBlock(Vector2Int pos) => HasBlock(pos) ? Map[pos] : null;
+        public List<BlockCtrl> GetBlocks(List<Vector2Int> poses) {
+            List<BlockCtrl> output = new List<BlockCtrl>();
+            foreach (Vector2Int pos in poses) {
+                BlockCtrl bc = GetBlock(pos);
+                if (bc != null) output.Add(bc);
+            }
+            return output;
         }
-        public float GetBlockVC(Vector2Int pos) {
-            if (Map.ContainsKey(pos)) return Map[pos].VegetationCoverage;
-            else Debug.LogError($"MapManager>Error>该点:{pos}不存在!");
-            return -1f;
-        }
+
         public EBlockType GetBlockTypeByVC(float vc) {
             if (vc < BlockConf[EBlockType.Desert].GreennessRange.y) return EBlockType.Desert;
             if (vc < BlockConf[EBlockType.Gobi].GreennessRange.y) return EBlockType.Gobi;
