@@ -25,7 +25,7 @@ namespace OasisProject3D.MapSystem {
         public float VegetationCoverage {
             get => _vegetationCoverage;
             set {
-                _vegetationCoverage = value;
+                _vegetationCoverage = Mathf.Clamp(value, 0, 2);
                 UpdateBlockType();
             }
         }
@@ -59,8 +59,8 @@ namespace OasisProject3D.MapSystem {
             List<BlockCtrl> targetBlock = mm.GetBlocks(targetPos);
             float targetVC = 0;
             targetBlock.ForEach(block => {
-                targetVC += (block._vegetationCoverage - _vegetationCoverage) * mm.BlockConf[block.blockType].InfectionData.Factor;
-
+                if (block.blockType != blockType)
+                    targetVC += mm.BlockConf[block.blockType].InfectionData.Factor;
             });
             VegetationCoverage += targetVC;
         }
@@ -69,11 +69,12 @@ namespace OasisProject3D.MapSystem {
             if (newType == blockType)
                 return;
             BlockAnimaPlayer.Instance.OnTypeChange(this, () => {
-                blockTypeGO[blockType].SetActive(false);
-                blockTypeGO[newType].SetActive(true);
+                BlockFactory.Instance.ChangeBlockMaterials(this, newType);
+                BlockFactory.Instance.AddBlock_Element(this, newType);
                 blockType = newType;
             });
         }
+
 
         public BlockData GetBlockData() {
             BlockData data = new BlockData();

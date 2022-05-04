@@ -1,0 +1,37 @@
+[
+  {
+    "name": "仙人掌",
+    "generateRate": 0.35,
+    "numRange": 2,
+    "modelPath": "Cactus",
+    "materialPath": "Cactus"
+  },
+  {
+    "name": "草",
+    "generateRate": 0.8,
+    "numRange": 5,
+    "modelPath": "Grass",
+    "materialPath": "Grass_Green"
+  },
+  {
+    "name": "石头(灰)",
+    "generateRate": 0.3,
+    "numRange": 2,
+    "modelPath": "Rocks",
+    "materialPath": "Rock_Grey"
+  },
+  {
+    "name": "石头(褐)",
+    "generateRate": 0.3,
+    "numRange": 2,
+    "modelPath": "Rocks",
+    "materialPath": "Rock_Brown"
+  },
+  {
+    "name": "石头(黄)",
+    "generateRate": 0.1,
+    "numRange": 2,
+    "modelPath": "Rocks",
+    "materialPath": "Rock_Yellow"
+  }
+]

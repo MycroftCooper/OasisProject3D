@@ -23,16 +23,18 @@ public sealed partial class BlockConfig :  Bright.Config.BeanBase
         { var _json2 = _json["greennessRange"]; if(!_json2.IsObject) { throw new SerializationException(); }  float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } GreennessRange = new UnityEngine.Vector2(__x, __y); }
         { if(!_json["infectionData"].IsObject) { throw new SerializationException(); }  InfectionData = MapSystem.InfectionData.DeserializeInfectionData(_json["infectionData"]); }
         { if(!_json["buildable"].IsBoolean) { throw new SerializationException(); }  Buildable = _json["buildable"]; }
+        { var _json1 = _json["elements"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; Elements = new string[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { string __v;  { if(!__e.IsString) { throw new SerializationException(); }  __v = __e; }  Elements[_index++] = __v; }   }
         PostInit();
     }
 
-    public BlockConfig(MapSystem.EBlockType blockType, float generateRate, UnityEngine.Vector2 greennessRange, MapSystem.InfectionData infectionData, bool buildable ) 
+    public BlockConfig(MapSystem.EBlockType blockType, float generateRate, UnityEngine.Vector2 greennessRange, MapSystem.InfectionData infectionData, bool buildable, string[] elements ) 
     {
         this.BlockType = blockType;
         this.GenerateRate = generateRate;
         this.GreennessRange = greennessRange;
         this.InfectionData = infectionData;
         this.Buildable = buildable;
+        this.Elements = elements;
         PostInit();
     }
 
@@ -61,6 +63,10 @@ public sealed partial class BlockConfig :  Bright.Config.BeanBase
     /// 可建筑
     /// </summary>
     public bool Buildable { get; private set; }
+    /// <summary>
+    /// 地块元素
+    /// </summary>
+    public string[] Elements { get; private set; }
 
     public const int __ID__ = -114332884;
     public override int GetTypeId() => __ID__;
@@ -84,6 +90,7 @@ public sealed partial class BlockConfig :  Bright.Config.BeanBase
         + "GreennessRange:" + GreennessRange + ","
         + "InfectionData:" + InfectionData + ","
         + "Buildable:" + Buildable + ","
+        + "Elements:" + Bright.Common.StringUtil.CollectionToString(Elements) + ","
         + "}";
     }
     

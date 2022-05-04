@@ -1,50 +1,61 @@
 [
   {
     "blockType": 0,
-    "generateRate": 0.2,
+    "generateRate": 0.24,
     "greennessRange": {
       "x": 0,
       "y": 0.4
     },
     "infectionData": {
       "Range": 1,
-      "Factor": 0.1,
-      "Time": 8,
+      "Factor": -0.015,
+      "Time": 10,
       "canInfectious": true,
       "canBeInfectious": true
     },
-    "buildable": true
+    "buildable": true,
+    "elements": [
+      "仙人掌",
+      "石头(黄)"
+    ]
   },
   {
     "blockType": 1,
-    "generateRate": 0.3,
+    "generateRate": 0.26,
     "greennessRange": {
       "x": 0.4,
       "y": 0.8
     },
     "infectionData": {
       "Range": 2,
-      "Factor": 0.05,
-      "Time": 5,
+      "Factor": -0.006,
+      "Time": 8,
       "canInfectious": true,
       "canBeInfectious": true
     },
-    "buildable": true
+    "buildable": true,
+    "elements": [
+      "石头(褐)"
+    ]
   },
   {
     "blockType": 2,
     "generateRate": 0.5,
     "greennessRange": {
       "x": 0.8,
-      "y": 2
+      "y": 1
     },
     "infectionData": {
-      "Range": 3,
-      "Factor": 0.03,
-      "Time": 5,
+      "Range": 2,
+      "Factor": 0.004,
+      "Time": 8,
       "canInfectious": true,
       "canBeInfectious": true
     },
-    "buildable": true
+    "buildable": true,
+    "elements": [
+      "草",
+      "石头(灰)"
+    ]
   }
 ]

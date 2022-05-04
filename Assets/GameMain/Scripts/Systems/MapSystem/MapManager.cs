@@ -40,7 +40,7 @@ namespace OasisProject3D.MapSystem {
         private void Start() {
             Init();
             InitMap();
-            Time.timeScale = 50;
+            Time.timeScale = 10;
         }
         public void Init() {
             BlockConf = DataManager.Instance.Tables.DTBlockConfig.DataMap;
