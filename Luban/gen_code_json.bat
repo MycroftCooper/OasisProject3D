@@ -10,4 +10,4 @@ set CONF_ROOT=%WORKSPACE%\Luban\Config
  --output_data_dir %WORKSPACE%\Assets\GameMain\DataTables\Json ^
  --gen_types code_cs_unity_json,data_json ^
  -s all 
- exit
+ pause

@@ -1,4 +1,5 @@
-﻿using cfg.MapSystem;
+﻿using cfg;
+using cfg.MapSystem;
 using MycroftToolkit.DiscreteGridToolkit.Hex;
 using MycroftToolkit.MathTool;
 using MycroftToolkit.QuickCode;
@@ -29,8 +30,8 @@ namespace OasisProject3D.MapSystem {
             blockConf = MapManager.Instance.BlockConf;
 
             // 加载地块材质
-            blockPrefab = Resources.Load<GameObject>("Prefabs/Block");
-            Material[] m = Resources.LoadAll<Material>("Materials/Blocks");
+            blockPrefab = Resources.Load<GameObject>("Prefabs/MapSystem/Block");
+            Material[] m = Resources.LoadAll<Material>("Materials/MapSystem/Blocks");
             materials = new Dictionary<string, Material>();
             foreach (var item in m) {
                 materials.Add(item.name, item);
@@ -99,7 +100,7 @@ namespace OasisProject3D.MapSystem {
 
         public void LoadBlockElementRes() {
             // 加载地块元素网格与材质
-            elementPrefab = Resources.Load<GameObject>("Prefabs/BlockElement");
+            elementPrefab = Resources.Load<GameObject>("Prefabs/MapSystem/BlockElement");
             elementParent = blockParent.transform.Find("BlockElementPool");
             elementPool = new GameObjectPool();
             elementPool.InitPool(elementPrefab, 1000, elementParent, false);
@@ -107,8 +108,8 @@ namespace OasisProject3D.MapSystem {
             elementConf = DataManager.Instance.Tables.DTBlockElementConfig.DataMap;
             elementResDict = new Dictionary<string, ElementRes>();
             foreach (var dataRow in elementConf) {
-                Mesh[] meshs = Resources.LoadAll<Mesh>("Meshes/BlockElements/" + dataRow.Value.ModelPath);
-                Material[] materials = Resources.LoadAll<Material>("Materials/BlockElements/" + dataRow.Value.MaterialPath);
+                Mesh[] meshs = Resources.LoadAll<Mesh>("Meshes/MapSystem/BlockElements/" + dataRow.Value.ModelPath);
+                Material[] materials = Resources.LoadAll<Material>("Materials/MapSystem/BlockElements/" + dataRow.Value.MaterialPath);
                 elementResDict.Add(dataRow.Key, new ElementRes(new List<Mesh>(meshs), materials));
             }
         }

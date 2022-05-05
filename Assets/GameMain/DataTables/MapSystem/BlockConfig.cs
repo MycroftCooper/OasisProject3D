@@ -18,7 +18,7 @@ public sealed partial class BlockConfig :  Bright.Config.BeanBase
 {
     public BlockConfig(JSONNode _json) 
     {
-        { if(!_json["blockType"].IsNumber) { throw new SerializationException(); }  BlockType = (MapSystem.EBlockType)_json["blockType"].AsInt; }
+        { if(!_json["blockType"].IsNumber) { throw new SerializationException(); }  BlockType = (EBlockType)_json["blockType"].AsInt; }
         { if(!_json["generateRate"].IsNumber) { throw new SerializationException(); }  GenerateRate = _json["generateRate"]; }
         { var _json2 = _json["greennessRange"]; if(!_json2.IsObject) { throw new SerializationException(); }  float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } GreennessRange = new UnityEngine.Vector2(__x, __y); }
         { if(!_json["infectionData"].IsObject) { throw new SerializationException(); }  InfectionData = MapSystem.InfectionData.DeserializeInfectionData(_json["infectionData"]); }
@@ -27,7 +27,7 @@ public sealed partial class BlockConfig :  Bright.Config.BeanBase
         PostInit();
     }
 
-    public BlockConfig(MapSystem.EBlockType blockType, float generateRate, UnityEngine.Vector2 greennessRange, MapSystem.InfectionData infectionData, bool buildable, string[] elements ) 
+    public BlockConfig(EBlockType blockType, float generateRate, UnityEngine.Vector2 greennessRange, MapSystem.InfectionData infectionData, bool buildable, string[] elements ) 
     {
         this.BlockType = blockType;
         this.GenerateRate = generateRate;
@@ -46,7 +46,7 @@ public sealed partial class BlockConfig :  Bright.Config.BeanBase
     /// <summary>
     /// 地块种类
     /// </summary>
-    public MapSystem.EBlockType BlockType { get; private set; }
+    public EBlockType BlockType { get; private set; }
     /// <summary>
     /// 生成比例
     /// </summary>

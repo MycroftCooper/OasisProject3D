@@ -1,0 +1,666 @@
+[
+  {
+    "name": "中央水塔",
+    "buildingType": 7,
+    "canBulidBlockType": [
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [],
+    "keepCost": [],
+    "produce": [],
+    "storage": [],
+    "describe": "相当于城镇中心，使用经济资源交易"
+  },
+  {
+    "name": "稳固地桩",
+    "buildingType": 1,
+    "canBulidBlockType": [
+      0,
+      1,
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "使沙漠地块变为稳固地块"
+  },
+  {
+    "name": "天气雷达",
+    "buildingType": 1,
+    "canBulidBlockType": [
+      0,
+      1,
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "预知天气"
+  },
+  {
+    "name": "科研站",
+    "buildingType": 1,
+    "canBulidBlockType": [
+      0,
+      1,
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "解锁新科技"
+  },
+  {
+    "name": "水泵",
+    "buildingType": 2,
+    "canBulidBlockType": [
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "获得生产产出物，会降低地块绿化率"
+  },
+  {
+    "name": "大棚",
+    "buildingType": 2,
+    "canBulidBlockType": [
+      0,
+      1,
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "获得生产产出物"
+  },
+  {
+    "name": "耕田",
+    "buildingType": 2,
+    "canBulidBlockType": [
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "获得生产产出物，会大量降低地块绿化率"
+  },
+  {
+    "name": "火力列阵",
+    "buildingType": 2,
+    "canBulidBlockType": [
+      1,
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "获得生产产出物"
+  },
+  {
+    "name": "太阳能列阵",
+    "buildingType": 2,
+    "canBulidBlockType": [
+      0,
+      1,
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "获得生产产出物，晴天产出加倍"
+  },
+  {
+    "name": "风力列阵",
+    "buildingType": 2,
+    "canBulidBlockType": [
+      0,
+      1,
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "获得生产产出物，大风天产出加倍"
+  },
+  {
+    "name": "移动矿车",
+    "buildingType": 2,
+    "canBulidBlockType": [
+      0
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "获得生产产出物"
+  },
+  {
+    "name": "固沙草格",
+    "buildingType": 8,
+    "canBulidBlockType": [
+      0
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "阻隔沙漠化漫延"
+  },
+  {
+    "name": "防风栅栏",
+    "buildingType": 8,
+    "canBulidBlockType": [
+      0,
+      1
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "阻隔沙漠化漫延"
+  },
+  {
+    "name": "治沙灌木",
+    "buildingType": 8,
+    "canBulidBlockType": [
+      1
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "阻隔沙漠化漫延"
+  },
+  {
+    "name": "防风林",
+    "buildingType": 8,
+    "canBulidBlockType": [
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "提升地块绿化率，阻隔沙漠化漫延"
+  },
+  {
+    "name": "护林工作站",
+    "buildingType": 10,
+    "canBulidBlockType": [
+      0,
+      1,
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "生产建筑材料或提高范围内地块绿化率"
+  },
+  {
+    "name": "仓库",
+    "buildingType": 4,
+    "canBulidBlockType": [
+      0,
+      1,
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "存储其它资源"
+  },
+  {
+    "name": "住房",
+    "buildingType": 4,
+    "canBulidBlockType": [
+      0,
+      1,
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "维持人口"
+  },
+  {
+    "name": "电容列阵",
+    "buildingType": 4,
+    "canBulidBlockType": [
+      0,
+      1,
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "存储电力"
+  },
+  {
+    "name": "水塔",
+    "buildingType": 4,
+    "canBulidBlockType": [
+      0,
+      1,
+      2
+    ],
+    "HP": 100,
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
+    "describe": "存储水资源"
+  }
+]

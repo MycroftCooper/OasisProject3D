@@ -15,6 +15,7 @@ public sealed partial class Tables
 {
     public MapSystem.DTBlockConfig DTBlockConfig {get; }
     public MapSystem.DTBlockElementConfig DTBlockElementConfig {get; }
+    public BuildingSystem.DTBuildingConfig DTBuildingConfig {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -23,10 +24,13 @@ public sealed partial class Tables
         tables.Add("MapSystem.DTBlockConfig", DTBlockConfig);
         DTBlockElementConfig = new MapSystem.DTBlockElementConfig(loader("mapsystem_dtblockelementconfig")); 
         tables.Add("MapSystem.DTBlockElementConfig", DTBlockElementConfig);
+        DTBuildingConfig = new BuildingSystem.DTBuildingConfig(loader("buildingsystem_dtbuildingconfig")); 
+        tables.Add("BuildingSystem.DTBuildingConfig", DTBuildingConfig);
         PostInit();
 
         DTBlockConfig.Resolve(tables); 
         DTBlockElementConfig.Resolve(tables); 
+        DTBuildingConfig.Resolve(tables); 
         PostResolve();
     }
 
@@ -34,6 +38,7 @@ public sealed partial class Tables
     {
         DTBlockConfig.TranslateText(translator); 
         DTBlockElementConfig.TranslateText(translator); 
+        DTBuildingConfig.TranslateText(translator); 
     }
     
     partial void PostInit();

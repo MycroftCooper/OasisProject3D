@@ -10,6 +10,7 @@ using Sirenix.Serialization;
 using MycroftToolkit.DiscreteGridToolkit.Hex;
 using System;
 using cfg.MapSystem;
+using cfg;
 
 namespace OasisProject3D.MapSystem {
     public class MapManager : MonoSingleton<MapManager> {

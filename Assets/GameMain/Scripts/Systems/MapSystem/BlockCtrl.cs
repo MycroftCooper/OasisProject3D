@@ -8,6 +8,7 @@ using MycroftToolkit.MathTool;
 using MycroftToolkit.DiscreteGridToolkit.Hex;
 using MycroftToolkit.QuickCode;
 using System.Linq;
+using cfg;
 
 namespace OasisProject3D.MapSystem {
     public class BlockCtrl : MonoBehaviour {
