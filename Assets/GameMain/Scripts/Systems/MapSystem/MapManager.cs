@@ -11,6 +11,7 @@ using MycroftToolkit.DiscreteGridToolkit.Hex;
 using System;
 using cfg.MapSystem;
 using cfg;
+using Borodar.FarlandSkies.LowPoly;
 
 namespace OasisProject3D.MapSystem {
     public class MapManager : MonoSingleton<MapManager> {
@@ -42,6 +43,9 @@ namespace OasisProject3D.MapSystem {
             Init();
             InitMap();
             Time.timeScale = 10;
+        }
+        private void Update() {
+            SkyboxDayNightCycle.Instance.TimeOfDay += (Time.deltaTime / 10000) * 100f;
         }
         public void Init() {
             BlockConf = DataManager.Instance.Tables.DTBlockConfig.DataMap;

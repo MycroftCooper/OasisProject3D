@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7326671101a941b8dfedaaea3a537, type: 3}
+  m_Name: SkyboxControllerPresets
+  m_EditorClassIdentifier: 
+  StarsCubemaps:
+  - {fileID: 8900000, guid: 0b891b1d885eb654ab18d7a3a5fc87e1, type: 3}
+  - {fileID: 8900000, guid: 4d9b59a5208099541b49b0a8fcd22323, type: 3}
+  - {fileID: 8900000, guid: efc11ee732b3d7943ab0cd6236bdd0d1, type: 3}
+  StarsCubemapNames:
+  - 01
+  - 02
+  - 03
+  - Custom
+  SunTextures:
+  - {fileID: 2800000, guid: eb1e18ae3dbe9f348a7bc0d71a5cc811, type: 3}
+  - {fileID: 2800000, guid: e9526b74b74c7e546a861bbea346ddf4, type: 3}
+  - {fileID: 2800000, guid: 89a6b9eaef85da6469da79d68c2ffeaa, type: 3}
+  - {fileID: 2800000, guid: 392b9ab42790fff4894b86df1b854e0c, type: 3}
+  - {fileID: 2800000, guid: bec1a30e00a480146aef8d1d037a846c, type: 3}
+  SunTextureNames:
+  - 01
+  - 02
+  - 03
+  - 04
+  - 05
+  - Custom
+  MoonTextures:
+  - {fileID: 2800000, guid: e894cff36344f5242801ae5fee4eda46, type: 3}
+  - {fileID: 2800000, guid: 9e1c8edab15aa844082fcd05ad8b5d9f, type: 3}
+  - {fileID: 2800000, guid: 243c02b8d5443a945a91d3667be45210, type: 3}
+  - {fileID: 2800000, guid: f59bdd6f69fbc474cbd2214d5273ade6, type: 3}
+  - {fileID: 2800000, guid: 9f42eda02e710ff49b1ba615b31ee896, type: 3}
+  MoonTextureNames:
+  - 01
+  - 02
+  - 03
+  - 04
+  - 05
+  - Custom
+  CloudsCubemaps:
+  - {fileID: 8900000, guid: bfa1267ef40a77540ac2cfde9297f199, type: 3}
+  - {fileID: 8900000, guid: d5d9dd79ad3016943b7f1ff5b201391e, type: 3}
+  - {fileID: 8900000, guid: bf6e148d44189344992ac3145bde0764, type: 3}
+  CloudsCubemapNames:
+  - 01
+  - 02
+  - 03
+  - Custom
