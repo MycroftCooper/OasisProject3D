@@ -45,7 +45,7 @@ namespace OasisProject3D.MapSystem {
             Time.timeScale = 10;
         }
         private void Update() {
-            SkyboxDayNightCycle.Instance.TimeOfDay += (Time.deltaTime / 10000) * 100f;
+            SkyboxDayNightCycle.Instance.TimeOfDay += (Time.deltaTime / 300) * 100f;
         }
         public void Init() {
             BlockConf = DataManager.Instance.Tables.DTBlockConfig.DataMap;

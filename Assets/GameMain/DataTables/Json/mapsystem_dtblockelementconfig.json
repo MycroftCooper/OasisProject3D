@@ -8,8 +8,8 @@
   },
   {
     "name": "草",
-    "generateRate": 0.8,
-    "numRange": 5,
+    "generateRate": 1,
+    "numRange": 10,
     "modelPath": "Grass",
     "materialPath": "Grass_Green"
   },

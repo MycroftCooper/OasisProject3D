@@ -26,3 +26,5 @@ Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj
 Sirenix.OdinInspector.Modules.UnityMathematics.csproj
 
 OasisProject3D.sln
+
+Assembly-CSharp-Editor.csproj
