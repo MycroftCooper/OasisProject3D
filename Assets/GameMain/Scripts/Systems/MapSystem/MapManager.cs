@@ -39,13 +39,30 @@ namespace OasisProject3D.MapSystem {
         public Dictionary<EBlockType, BlockConfig> BlockConf;
         #endregion
         public QuickRandom Random;
+        [TitleGroup("地图刷新相关"), ShowInInspector, LabelText("地图刷新速度范围")]
+        public float randomStartRange;
+        [TitleGroup("地图刷新相关"), ShowInInspector, LabelText("地图刷新速度范围")]
+        public Vector2Int updateSpeedRange;
+        private int _updateSpeed = 1;
+        [TitleGroup("地图刷新相关"), ShowInInspector, LabelText("地图刷新速度")]
+        public int UpdateSpeed {
+            get => _updateSpeed;
+            set {
+                if (value == _updateSpeed) return;
+                _updateSpeed = Mathf.Clamp(value, updateSpeedRange.x, updateSpeedRange.y);
+                MapBlockForEach_Y((x) =>
+                    Timer.Register(
+                        QuickRandom.simple.GetFloat(randomStartRange),
+                        () => x.ticker.Interval = x.infectionData.Time / _updateSpeed
+                     )
+                );
+            }
+        }
+
         private void Start() {
             Init();
             InitMap();
-            Time.timeScale = 10;
-        }
-        private void Update() {
-            SkyboxDayNightCycle.Instance.TimeOfDay += (Time.deltaTime / 300) * 100f;
+            MapBlockForEach_Y((x) => x.Init(randomStartRange)); ;
         }
         public void Init() {
             BlockConf = DataManager.Instance.Tables.DTBlockConfig.DataMap;
@@ -98,15 +115,10 @@ namespace OasisProject3D.MapSystem {
                 x = t;
             }
         }
-        public void UpdateMap() {
 
-        }
         public MapData GetMapData() {
             MapData data = new MapData();
             return data;
-        }
-        public void LoadMapData(MapData data) {
-
         }
 
         #region 地图工具相关

@@ -20,7 +20,6 @@ namespace OasisProject3D.MapSystem {
         public Vector2Int logicalPos;
         [LabelText("高度")]
         public float hight;
-        public Dictionary<EBlockType, GameObject> blockTypeGO;
 
         [ShowInInspector, LabelText("绿化率")]
         public float VegetationCoverage {
@@ -34,24 +33,18 @@ namespace OasisProject3D.MapSystem {
         [ShowInInspector]
         public InfectionData infectionData;
 
+        public Ticker_Auto ticker;
+
         public bool buildable;
 
+
         void Start() {
-            _deltaTime = Random.Range(-10, 0);
+
         }
-
-        private float _deltaTime = 0;
-
-        void Update() {
-
-            if (infectionData.CanInfectious) {
-                _deltaTime += Time.deltaTime;
-                if (_deltaTime >= infectionData.Time) {
-                    _deltaTime = 0;
-                    UpdateBlock();
-                }
-            }
-
+        public void Init(float randomStartRange) {
+            ticker = new Ticker_Auto(infectionData.Time);
+            ticker.onTick += UpdateBlock;
+            Timer.Register(QuickRandom.simple.GetFloat(10), ticker.Start);
         }
 
         public void UpdateBlock() {

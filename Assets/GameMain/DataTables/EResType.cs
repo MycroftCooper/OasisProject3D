@@ -19,7 +19,7 @@ namespace cfg
         /// </summary>
         Water = 1,
         /// <summary>
-        /// 电力
+        /// 能量
         /// </summary>
         Power = 2,
         /// <summary>

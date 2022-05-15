@@ -26,7 +26,7 @@ public sealed partial class InfectionData :  Bright.Config.BeanBase
         PostInit();
     }
 
-    public InfectionData(int Range, float Factor, float Time, bool canInfectious, bool canBeInfectious ) 
+    public InfectionData(int Range, float Factor, int Time, bool canInfectious, bool canBeInfectious ) 
     {
         this.Range = Range;
         this.Factor = Factor;
@@ -52,7 +52,7 @@ public sealed partial class InfectionData :  Bright.Config.BeanBase
     /// <summary>
     /// 刷新时间
     /// </summary>
-    public float Time { get; private set; }
+    public int Time { get; private set; }
     /// <summary>
     /// 可传播
     /// </summary>
