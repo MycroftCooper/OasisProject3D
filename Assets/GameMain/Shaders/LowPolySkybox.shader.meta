@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 64b0353c78f90494db13ca1bd8b4fb6b
+timeCreated: 1469183143
+licenseType: Store
+ShaderImporter:
+  defaultTextures:
+  - _StarsTex: {fileID: 8900000, guid: 0b891b1d885eb654ab18d7a3a5fc87e1, type: 3}
+  - _StarsTwinklingTex: {fileID: 8900000, guid: 064ebe678917495438fab384da3de8b0,
+      type: 3}
+  - _SunTex: {fileID: 2800000, guid: eb1e18ae3dbe9f348a7bc0d71a5cc811, type: 3}
+  - _MoonTex: {fileID: 2800000, guid: e894cff36344f5242801ae5fee4eda46, type: 3}
+  - _CloudsTex: {fileID: 8900000, guid: bfa1267ef40a77540ac2cfde9297f199, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
