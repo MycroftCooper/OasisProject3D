@@ -1,37 +1,77 @@
 [
   {
-    "name": "仙人掌",
+    "name": "cactus",
+    "blockType": 0,
     "generateRate": 0.35,
     "numRange": 2,
-    "modelPath": "Cactus",
-    "materialPath": "Cactus"
+    "modelPath": [
+      "cactus_1_model",
+      "cactus_2_model"
+    ],
+    "materialPath": [
+      "cactus_material"
+    ]
   },
   {
-    "name": "草",
+    "name": "grass",
+    "blockType": 2,
     "generateRate": 1,
     "numRange": 10,
-    "modelPath": "Grass",
-    "materialPath": "Grass_Green"
+    "modelPath": [
+      "grass_1_model",
+      "grass_2_model",
+      "grass_3_model"
+    ],
+    "materialPath": [
+      "grass_green_material"
+    ]
   },
   {
-    "name": "石头(灰)",
+    "name": "rock_grey",
+    "blockType": 2,
     "generateRate": 0.3,
     "numRange": 2,
-    "modelPath": "Rocks",
-    "materialPath": "Rock_Grey"
+    "modelPath": [
+      "rock_1_model",
+      "rock_2_model",
+      "rock_3_model",
+      "rock_4_model",
+      "rock_5_model"
+    ],
+    "materialPath": [
+      "rock_grey_material"
+    ]
   },
   {
-    "name": "石头(褐)",
+    "name": "rock_brown",
+    "blockType": 1,
     "generateRate": 0.3,
     "numRange": 2,
-    "modelPath": "Rocks",
-    "materialPath": "Rock_Brown"
+    "modelPath": [
+      "rock_1_model",
+      "rock_2_model",
+      "rock_3_model",
+      "rock_4_model",
+      "rock_5_model"
+    ],
+    "materialPath": [
+      "rock_brown_material"
+    ]
   },
   {
-    "name": "石头(黄)",
+    "name": "rock_yellow",
+    "blockType": 0,
     "generateRate": 0.1,
     "numRange": 2,
-    "modelPath": "Rocks",
-    "materialPath": "Rock_Yellow"
+    "modelPath": [
+      "rock_1_model",
+      "rock_2_model",
+      "rock_3_model",
+      "rock_4_model",
+      "rock_5_model"
+    ],
+    "materialPath": [
+      "rock_yellow_material"
+    ]
   }
 ]

@@ -13,11 +13,7 @@
       "canInfectious": true,
       "canBeInfectious": true
     },
-    "buildable": true,
-    "elements": [
-      "仙人掌",
-      "石头(黄)"
-    ]
+    "buildable": true
   },
   {
     "blockType": 1,
@@ -33,10 +29,7 @@
       "canInfectious": true,
       "canBeInfectious": true
     },
-    "buildable": true,
-    "elements": [
-      "石头(褐)"
-    ]
+    "buildable": true
   },
   {
     "blockType": 2,
@@ -52,10 +45,6 @@
       "canInfectious": true,
       "canBeInfectious": true
     },
-    "buildable": true,
-    "elements": [
-      "草",
-      "石头(灰)"
-    ]
+    "buildable": true
   }
 ]

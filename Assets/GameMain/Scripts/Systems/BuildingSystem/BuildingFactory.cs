@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-using MycroftToolkit.QuickCode;
+﻿using QuickGameFramework.Runtime;
 
 namespace OasisProject3D.BuildingSystem {
     public class BuidingFactory : Singleton<BuidingFactory> {

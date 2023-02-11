@@ -6,10 +6,30 @@
       2
     ],
     "HP": 100,
-    "bulidCost": [],
-    "keepCost": [],
-    "produce": [],
-    "storage": [],
+    "bulidCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "keepCost": [
+      [
+        0,
+        5
+      ]
+    ],
+    "produce": [
+      [
+        0,
+        5
+      ]
+    ],
+    "storage": [
+      [
+        0,
+        5
+      ]
+    ],
     "describe": "相当于城镇中心，使用经济资源交易"
   },
   {

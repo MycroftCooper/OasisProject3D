@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using MycroftToolkit.QuickCode;
+using QuickGameFramework.Runtime;
 
 namespace Borodar.FarlandSkies.LowPoly {
     [ExecuteInEditMode]

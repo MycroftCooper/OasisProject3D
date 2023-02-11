@@ -1,65 +1,58 @@
 ﻿using cfg.MapSystem;
 using Sirenix.OdinInspector;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using MycroftToolkit.MathTool;
 using MycroftToolkit.DiscreteGridToolkit.Hex;
 using MycroftToolkit.QuickCode;
-using System.Linq;
 using cfg;
+using QuickGameFramework.Runtime;
 
 namespace OasisProject3D.MapSystem {
-    public class BlockCtrl : MonoBehaviour {
+    public class BlockCtrl : Entity {
         [LabelText("地块类型")]
         public EBlockType blockType;
         [LabelText("世界坐标")]
         public Vector3 worldPos;
         [LabelText("逻辑坐标")]
         public Vector2Int logicalPos;
-        [LabelText("高度")]
-        public float hight;
+        public float height;
 
         [ShowInInspector, LabelText("绿化率")]
         public float VegetationCoverage {
-            get => _vegetationCoverage;
+            get => vegetationCoverage;
             set {
-                _vegetationCoverage = Mathf.Clamp(value, 0, 2);
+                vegetationCoverage = Mathf.Clamp(value, 0, 2);
                 UpdateBlockType();
             }
         }
-        public float _vegetationCoverage;
+        public float vegetationCoverage;
         [ShowInInspector]
-        public InfectionData infectionData;
+        public InfectionData InfectionData;
 
-        public Ticker_Auto ticker;
+        public TickerAuto Ticker;
 
         public bool buildable;
-
-
-        void Start() {
-
-        }
+        
         public void Init(float randomStartRange) {
-            ticker = new Ticker_Auto(infectionData.Time);
-            ticker.onTick += UpdateBlock;
-            Timer.Register(QuickRandom.simple.GetFloat(10), ticker.Start);
+            Ticker = new TickerAuto(InfectionData.Time);
+            Ticker.OnTick += UpdateBlock;
+            Timer.Register(QuickRandom.Simple.GetFloat(10), Ticker.Start);
         }
 
         public void UpdateBlock() {
             MapManager mm = MapManager.Instance;
-            List<Vector2Int> targetPos = HexGridTool.Coordinate_Axial.GetPointsInHexagon(logicalPos, infectionData.Range);
+            List<Vector2Int> targetPos = HexGridTool.Coordinate_Axial.GetPointsInHexagon(logicalPos, InfectionData.Range);
             List<BlockCtrl> targetBlock = mm.GetBlocks(targetPos);
-            float targetVC = 0;
+            float targetVc = 0;
             targetBlock.ForEach(block => {
                 if (block.blockType != blockType)
-                    targetVC += mm.BlockConf[block.blockType].InfectionData.Factor;
+                    targetVc += mm.BlockConf[block.blockType].InfectionData.Factor;
             });
-            VegetationCoverage += targetVC;
+            VegetationCoverage += targetVc;
         }
         public void UpdateBlockType() {
-            EBlockType newType = MapManager.Instance.GetBlockTypeByVC(_vegetationCoverage);
+            EBlockType newType = MapManager.Instance.GetBlockTypeByVc(vegetationCoverage);
             if (newType == blockType)
                 return;
             BlockAnimaPlayer.Instance.OnTypeChange(this, () => {
@@ -77,10 +70,10 @@ namespace OasisProject3D.MapSystem {
         public void LoadBlockData(BlockData data) {
             worldPos = data.WorldPos;
             logicalPos = data.LogicalPos;
-            hight = data.Hight;
+            height = data.Height;
 
-            _vegetationCoverage = data.VegetationCoverage;
-            infectionData = data.InfectionConf;
+            vegetationCoverage = data.VegetationCoverage;
+            InfectionData = data.InfectionConf;
 
             buildable = data.Buildable;
         }
