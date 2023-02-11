@@ -33,6 +33,8 @@ namespace OasisProject3D.MapSystem {
         public TickerAuto Ticker;
 
         public bool buildable;
+
+        private MapManager MapMgr => GameEntry.ModuleMgr.GetModule<MapManager>();
         
         public void Init(float randomStartRange) {
             Ticker = new TickerAuto(InfectionData.Time);
@@ -41,18 +43,17 @@ namespace OasisProject3D.MapSystem {
         }
 
         public void UpdateBlock() {
-            MapManager mm = MapManager.Instance;
             List<Vector2Int> targetPos = HexGridTool.Coordinate_Axial.GetPointsInHexagon(logicalPos, InfectionData.Range);
-            List<BlockCtrl> targetBlock = mm.GetBlocks(targetPos);
+            List<BlockCtrl> targetBlock = MapMgr.GetBlocks(targetPos);
             float targetVc = 0;
             targetBlock.ForEach(block => {
                 if (block.blockType != blockType)
-                    targetVc += mm.BlockConf[block.blockType].InfectionData.Factor;
+                    targetVc += MapMgr.BlockConf[block.blockType].InfectionData.Factor;
             });
             VegetationCoverage += targetVc;
         }
         public void UpdateBlockType() {
-            EBlockType newType = MapManager.Instance.GetBlockTypeByVc(vegetationCoverage);
+            EBlockType newType = MapMgr.GetBlockTypeByVc(vegetationCoverage);
             if (newType == blockType)
                 return;
             BlockAnimaPlayer.Instance.OnTypeChange(this, () => {

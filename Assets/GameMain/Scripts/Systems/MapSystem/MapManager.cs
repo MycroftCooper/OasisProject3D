@@ -9,7 +9,7 @@ using cfg;
 using QuickGameFramework.Runtime;
 
 namespace OasisProject3D.MapSystem {
-    public class MapManager : Singleton<MapManager>, IModule {
+    public class MapManager : IModule {
         #region 地图配置相关
         [TitleGroup("地图生成相关", order: 0)]
         [TitleGroup("地图生成相关"), ShowInInspector, LabelText("随机种子")]

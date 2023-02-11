@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using MycroftToolkit.DiscreteGridToolkit;
 using QuickGameFramework.Runtime;
 using UnityEngine;
+using YooAsset;
 using Object = UnityEngine.Object;
 
 namespace OasisProject3D.MapSystem {
@@ -28,22 +29,28 @@ namespace OasisProject3D.MapSystem {
         private QuickRandom _random;
         
         public Dictionary<EBlockType, BlockConfig> BlockConf;
+        
+        private MapManager MapMgr => GameEntry.ModuleMgr.GetModule<MapManager>();
 
-        public void PreLoadAsset(Action callBack = null) {
-            AssetMgr.LoadAssetAsync<GameObject>("Block_Block", target => { BlockPrefab = target;}, PackageName);
+        public List<AssetOperationHandle> PreLoadAsset(Action callBack = null) {
+            var output = new List<AssetOperationHandle>();
+            output.Add(AssetMgr.LoadAssetAsync<GameObject>("Block_Block", target => { BlockPrefab = target;}, PackageName)); 
             
             Materials = new Dictionary<string, Material>();
-            AssetMgr.LoadAssetAsync<Material>("Block_desert_material", target => { Materials.Add(target.name, target);}, PackageName);
-            AssetMgr.LoadAssetAsync<Material>("Block_gobi_material", target => { Materials.Add(target.name, target);}, PackageName);
-            AssetMgr.LoadAssetAsync<Material>("Block_oasis_material", target => { Materials.Add(target.name, target);}, PackageName);
-            PreLoadBlockElementAsset();
+            output.Add(AssetMgr.LoadAssetAsync<Material>("Block_desert_material", target => { Materials.Add(target.name, target);}, PackageName));
+            output.Add(AssetMgr.LoadAssetAsync<Material>("Block_gobi_material", target => { Materials.Add(target.name, target);}, PackageName));
+            output.Add(AssetMgr.LoadAssetAsync<Material>("Block_oasis_material", target => { Materials.Add(target.name, target);}, PackageName));
+            output.Add(AssetMgr.LoadAssetAsync<Material>("Block_land_material", target => { Materials.Add(target.name, target);}, PackageName));
+            PreLoadBlockElementAsset(output);
+
+            return output;
         }
 
         public void Init() {
             BlockParent = GameObject.Find("MapSystem");
-            _steepParameter = MapManager.Instance.steepParameter;
-            _random = MapManager.Instance.Random;
-            BlockConf = MapManager.Instance.BlockConf;
+            _steepParameter = MapMgr.steepParameter;
+            _random = MapMgr.Random;
+            BlockConf = MapMgr.BlockConf;
             InitBlockElementFactory();
         }
 
@@ -52,7 +59,7 @@ namespace OasisProject3D.MapSystem {
                 QLog.Error("MapSystem>BlockFactory>地块生成参数为空！生成失败！");
                 return default;
             }
-            Tuple<Vector2Int, EBlockType> info =(Tuple<Vector2Int, EBlockType>) data;
+            ValueTuple <Vector2Int, EBlockType> info =(ValueTuple<Vector2Int, EBlockType>) data;
             BlockCtrl output = addBlock_Base(info.Item1);
             addBlock_Type(output, info.Item2);
             AddBlock_Element(output, info.Item2);
@@ -93,8 +100,8 @@ namespace OasisProject3D.MapSystem {
             Transform blockBase = blockCtrl.transform.Find("Base");
             MeshRenderer renderer = blockBase.GetComponent<MeshRenderer>();
             Material[] newMaterials = new Material[2];
-            newMaterials[0] = Materials["Land"];
-            newMaterials[1] = Materials[blockType.ToString()];
+            newMaterials[0] = Materials["land_material"];
+            newMaterials[1] = Materials[blockType.ToString().ToLower() + "_material"];
             renderer.materials = newMaterials;
         }
     }
