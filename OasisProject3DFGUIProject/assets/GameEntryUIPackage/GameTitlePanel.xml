@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <controller name="isOverBtn" pages="0,start,4,continue,1,setting,2,about,3,exit" selected="0"/>
+  <controller name="isSelectBtn" pages="5,none,0,start,4,continue,1,setting,2,about,3,exit" selected="0">
+    <action type="change_page" fromPage="" toPage="5,0" controller="isOverBtn" targetPage="0"/>
+    <action type="change_page" fromPage="" toPage="4" controller="isOverBtn" targetPage="4"/>
+    <action type="change_page" fromPage="" toPage="1" controller="isOverBtn" targetPage="1"/>
+    <action type="change_page" fromPage="" toPage="2" controller="isOverBtn" targetPage="2"/>
+    <action type="change_page" fromPage="" toPage="3" controller="isOverBtn" targetPage="3"/>
+  </controller>
+  <displayList>
+    <graph id="n15_bmdr" name="n15" xy="739,0" size="1180,1080" type="rect" lineSize="0" fillColor="#ffdd9e62">
+      <gearDisplay controller="isSelectBtn" pages="0,4,1,2,3"/>
+      <relation target="" sidePair="height-height,rightext-right"/>
+    </graph>
+    <image id="n13_bmdr" name="n13" src="bmdrf1" fileName="Res/mainLab_img.png" xy="0,0" group="n12_bmdr">
+      <relation target="" sidePair="height-height,left-left"/>
+    </image>
+    <component id="n11_bmdr" name="n11" src="bmdrf2" fileName="title_btn.xml" xy="38,110" size="658,400" group="n12_bmdr" aspect="true">
+      <relation target="" sidePair="top-top"/>
+      <Button controller="isSelectBtn" page="5"/>
+    </component>
+    <component id="n2_10tcf" name="n2" src="10tcf0" fileName="btn1.xml" xy="0,547" size="740,120" group="n8_10tcf" alpha="0.85" pageController="isSelectBtn">
+      <gearSize controller="isOverBtn" pages="0,4,1,2,3" values="740,120,1,1|740,80,1,1|740,80,1,1|740,80,1,1|740,80,1,1" ease="Linear" duration="1"/>
+      <gearFontSize controller="isOverBtn" pages="4,1,2,3" values="60|60|60|60" default="80"/>
+      <relation target="" sidePair=""/>
+      <Button title="开始游戏" titleFontSize="80" controller="isSelectBtn" page="0"/>
+    </component>
+    <component id="n14_bmdr" name="n14" src="10tcf0" fileName="btn1.xml" xy="0,667" size="740,80" group="n8_10tcf" alpha="0.85" pageController="isSelectBtn">
+      <gearSize controller="isOverBtn" pages="0,4,1,2,3" values="740,80,1,1|740,120,1,1|740,80,1,1|740,80,1,1|740,80,1,1" ease="Linear" duration="1"/>
+      <gearFontSize controller="isOverBtn" pages="4" values="80" default="60"/>
+      <Button title="继续游戏" titleFontSize="60" controller="isSelectBtn" page="4"/>
+    </component>
+    <component id="n4_10tcf" name="n4" src="10tcf0" fileName="btn1.xml" xy="0,747" size="740,80" group="n8_10tcf" alpha="0.85" pageController="isSelectBtn">
+      <gearSize controller="isOverBtn" pages="0,1,2,3" values="740,80,1,1|740,120,1,1|740,80,1,1|740,80,1,1" default="740,80,1,1" ease="Linear" duration="1"/>
+      <gearFontSize controller="isOverBtn" pages="1" values="80" default="60"/>
+      <Button title="游戏设置" titleFontSize="60" controller="isSelectBtn" page="1"/>
+    </component>
+    <component id="n7_10tcf" name="n7" src="10tcf0" fileName="btn1.xml" xy="0,827" size="740,80" group="n8_10tcf" alpha="0.85" pageController="isSelectBtn">
+      <gearSize controller="isOverBtn" pages="0,1,2,3" values="740,80,1,1|740,80,1,1|740,120,1,1|740,80,1,1" default="740,80,1,1" ease="Linear" duration="1"/>
+      <gearFontSize controller="isOverBtn" pages="2" values="80" default="60"/>
+      <Button title="关于游戏" titleFontSize="60" controller="isSelectBtn" page="2"/>
+    </component>
+    <component id="n6_10tcf" name="n6" src="10tcf0" fileName="btn1.xml" xy="0,907" size="740,80" group="n8_10tcf" alpha="0.85" pageController="isSelectBtn">
+      <gearSize controller="isOverBtn" pages="0,1,2,3" values="740,80,1,1|740,80,1,1|740,80,1,1|740,120,1,1" default="740,80,1,1" ease="Linear" duration="1"/>
+      <gearFontSize controller="isOverBtn" pages="3" values="80" default="60"/>
+      <Button title="退出游戏" titleFontSize="60" controller="isSelectBtn" page="3"/>
+    </component>
+    <group id="n8_10tcf" name="n8" xy="0,547" size="740,440" group="n12_bmdr" advanced="true" layout="vt">
+      <relation target="" sidePair="bottom-bottom"/>
+    </group>
+    <group id="n12_bmdr" name="n12" xy="0,0" size="800,1080" advanced="true">
+      <relation target="" sidePair="height-height,left-left"/>
+    </group>
+  </displayList>
+</component>

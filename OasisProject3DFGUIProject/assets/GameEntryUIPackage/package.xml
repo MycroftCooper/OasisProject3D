@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="awx3ckgt">
+  <resources>
+    <component id="aspm0" name="GameTitlePanel.xml" path="/" exported="true"/>
+    <component id="10tcf0" name="btn1.xml" path="/"/>
+    <image id="bmdr0" name="gameTitle_img.png" path="/Res/"/>
+    <image id="bmdrf1" name="mainLab_img.png" path="/Res/"/>
+    <component id="bmdrf2" name="title_btn.xml" path="/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>
