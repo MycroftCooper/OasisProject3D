@@ -21,11 +21,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _CloudsTex:
-        m_Texture: {fileID: 8900000, guid: d5d9dd79ad3016943b7f1ff5b201391e, type: 3}
+        m_Texture: {fileID: 8900000, guid: bfa1267ef40a77540ac2cfde9297f199, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MoonTex:
-        m_Texture: {fileID: 2800000, guid: 9e1c8edab15aa844082fcd05ad8b5d9f, type: 3}
+        m_Texture: {fileID: 2800000, guid: e894cff36344f5242801ae5fee4eda46, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _StarsTex:

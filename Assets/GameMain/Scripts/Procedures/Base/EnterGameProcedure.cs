@@ -5,8 +5,7 @@ using QuickGameFramework.Runtime;
 public class EnterGameProcedure : Procedure {
     
     protected override void OnEnter(params object[] parameters) {
-        AssetLoadProgress assetLoadProgress = new AssetLoadProgress();
-        assetLoadProgress.AddHandles(BlockFactory.Instance.PreLoadAsset());
+        AssetLoadProgress assetLoadProgress = BlockFactory.Instance.PreLoadAsset();
         assetLoadProgress.Completed += () => GameEntry.ModuleMgr.CreateModule<MapManager>();
     }
 

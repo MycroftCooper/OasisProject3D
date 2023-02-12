@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using MycroftToolkit.DiscreteGridToolkit;
 using QuickGameFramework.Runtime;
 using UnityEngine;
-using YooAsset;
 using Object = UnityEngine.Object;
 
 namespace OasisProject3D.MapSystem {
@@ -32,15 +31,15 @@ namespace OasisProject3D.MapSystem {
         
         private MapManager MapMgr => GameEntry.ModuleMgr.GetModule<MapManager>();
 
-        public List<AssetOperationHandle> PreLoadAsset(Action callBack = null) {
-            var output = new List<AssetOperationHandle>();
-            output.Add(AssetMgr.LoadAssetAsync<GameObject>("Block_Block", target => { BlockPrefab = target;}, PackageName)); 
+        public AssetLoadProgress PreLoadAsset() {
+            var output = new AssetLoadProgress();
+            output += AssetMgr.LoadAssetAsync<GameObject>("Block_Block", target => { BlockPrefab = target;}, PackageName); 
             
             Materials = new Dictionary<string, Material>();
-            output.Add(AssetMgr.LoadAssetAsync<Material>("Block_desert_material", target => { Materials.Add(target.name, target);}, PackageName));
-            output.Add(AssetMgr.LoadAssetAsync<Material>("Block_gobi_material", target => { Materials.Add(target.name, target);}, PackageName));
-            output.Add(AssetMgr.LoadAssetAsync<Material>("Block_oasis_material", target => { Materials.Add(target.name, target);}, PackageName));
-            output.Add(AssetMgr.LoadAssetAsync<Material>("Block_land_material", target => { Materials.Add(target.name, target);}, PackageName));
+            output += AssetMgr.LoadAssetAsync<Material>("Block_desert_material", target => { Materials.Add(target.name, target);}, PackageName);
+            output += AssetMgr.LoadAssetAsync<Material>("Block_gobi_material", target => { Materials.Add(target.name, target);}, PackageName);
+            output += AssetMgr.LoadAssetAsync<Material>("Block_oasis_material", target => { Materials.Add(target.name, target);}, PackageName);
+            output += AssetMgr.LoadAssetAsync<Material>("Block_land_material", target => { Materials.Add(target.name, target);}, PackageName);
             PreLoadBlockElementAsset(output);
 
             return output;
