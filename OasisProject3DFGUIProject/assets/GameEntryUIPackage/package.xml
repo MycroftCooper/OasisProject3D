@@ -2,10 +2,13 @@
 <packageDescription id="awx3ckgt">
   <resources>
     <component id="aspm0" name="GameTitlePanel.xml" path="/" exported="true"/>
-    <component id="10tcf0" name="btn1.xml" path="/"/>
+    <component id="10tcf0" name="btn_1.xml" path="/"/>
     <image id="bmdr0" name="gameTitle_img.png" path="/Res/"/>
     <image id="bmdrf1" name="mainLab_img.png" path="/Res/"/>
     <component id="bmdrf2" name="title_btn.xml" path="/"/>
+    <image id="lzb4f4" name="hexagon _img.png" path="/Res/" scale="9grid" scale9grid="128,33,256,446"/>
+    <component id="lzb4f5" name="windo_confirmation.xml" path="/"/>
+    <component id="lzb4f6" name="btn_2.xml" path="/"/>
   </resources>
   <publish name=""/>
 </packageDescription>
