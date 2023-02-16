@@ -22,7 +22,7 @@ namespace OasisProject3D.MapSystem {
         private void PreLoadBlockElementAsset(AssetLoadProgress handles) {
             _elementConfDict = GameEntry.DataTableMgr.Tables.DTBlockElementConfig.DataMap;
             
-            handles += AssetMgr.LoadAssetAsync<GameObject>("Block_BlockElement", target => { ElementPrefab = target;}, PackageName); 
+            handles += AssetMgr.LoadAssetAsync<GameObject>("Block_BlockElement", target => { ElementPrefab = target;}); 
 
             _elementResDict = new Dictionary<string, (List<Mesh> Meshs, List<Material> Materials)>();
             _blockElementDict = new Dictionary<EBlockType, List<string>>();
@@ -37,12 +37,12 @@ namespace OasisProject3D.MapSystem {
 
                 List<Mesh> meshes = new List<Mesh>(config.Value.ModelPath.Length);
                 foreach (var path in config.Value.ModelPath) {
-                    handles += AssetMgr.LoadAssetAsync<Mesh>($"Block_{path}", target => {meshes.Add(target);}, PackageName);
+                    handles += AssetMgr.LoadAssetAsync<Mesh>($"Block_{path}", target => {meshes.Add(target);});
                 }
 
                 List<Material> materials = new List<Material>(config.Value.MaterialPath.Length);
                 foreach (var path in config.Value.MaterialPath) {
-                    handles += AssetMgr.LoadAssetAsync<Material>($"Block_{path}", target => {materials.Add(target);}, PackageName);
+                    handles += AssetMgr.LoadAssetAsync<Material>($"Block_{path}", target => {materials.Add(target);});
                 }
                 _elementResDict.Add(elementName, (meshes, materials));
             }

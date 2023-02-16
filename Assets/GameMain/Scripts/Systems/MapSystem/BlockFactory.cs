@@ -14,8 +14,7 @@ namespace OasisProject3D.MapSystem {
 
     public partial class BlockFactory : Singleton<BlockFactory>, IEntityFactory<BlockCtrl> {
         private AssetManager AssetMgr => GameEntry.AssetMgr;
-        private const string PackageName = "MainPackage";
-        
+
         public GameObject BlockParent;
         public GameObject BlockPrefab;
         public Dictionary<string, Material> Materials;
@@ -33,13 +32,13 @@ namespace OasisProject3D.MapSystem {
 
         public AssetLoadProgress PreLoadAsset() {
             var output = new AssetLoadProgress();
-            output += AssetMgr.LoadAssetAsync<GameObject>("Block_Block", target => { BlockPrefab = target;}, PackageName); 
+            output += AssetMgr.LoadAssetAsync<GameObject>("Block_Block", target => { BlockPrefab = target;}); 
             
             Materials = new Dictionary<string, Material>();
-            output += AssetMgr.LoadAssetAsync<Material>("Block_desert_material", target => { Materials.Add(target.name, target);}, PackageName);
-            output += AssetMgr.LoadAssetAsync<Material>("Block_gobi_material", target => { Materials.Add(target.name, target);}, PackageName);
-            output += AssetMgr.LoadAssetAsync<Material>("Block_oasis_material", target => { Materials.Add(target.name, target);}, PackageName);
-            output += AssetMgr.LoadAssetAsync<Material>("Block_land_material", target => { Materials.Add(target.name, target);}, PackageName);
+            output += AssetMgr.LoadAssetAsync<Material>("Block_desert_material", target => { Materials.Add(target.name, target);});
+            output += AssetMgr.LoadAssetAsync<Material>("Block_gobi_material", target => { Materials.Add(target.name, target);});
+            output += AssetMgr.LoadAssetAsync<Material>("Block_oasis_material", target => { Materials.Add(target.name, target);});
+            output += AssetMgr.LoadAssetAsync<Material>("Block_land_material", target => { Materials.Add(target.name, target);});
             PreLoadBlockElementAsset(output);
 
             return output;

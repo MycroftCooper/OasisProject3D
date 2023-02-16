@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="awx3ckgt">
   <resources>
-    <component id="aspm0" name="GameTitlePanel.xml" path="/" exported="true"/>
-    <component id="10tcf0" name="btn_1.xml" path="/"/>
+    <component id="aspm0" name="TitlePageView.xml" path="/" exported="true"/>
+    <component id="10tcf0" name="btn_1.xml" path="/Components/"/>
     <image id="bmdr0" name="gameTitle_img.png" path="/Res/"/>
     <image id="bmdrf1" name="mainLab_img.png" path="/Res/"/>
-    <component id="bmdrf2" name="title_btn.xml" path="/"/>
+    <component id="bmdrf2" name="title_btn.xml" path="/Components/"/>
     <image id="lzb4f4" name="hexagon _img.png" path="/Res/" scale="9grid" scale9grid="128,33,256,446"/>
-    <component id="lzb4f5" name="windo_confirmation.xml" path="/"/>
-    <component id="lzb4f6" name="btn_2.xml" path="/"/>
+    <component id="lzb4f5" name="ConfirmationWindo.xml" path="/"/>
+    <component id="lzb4f6" name="btn_2.xml" path="/Components/"/>
+    <image id="lzb4f7" name="1_32.png" path="/Res/"/>
+    <image id="lzb4f8" name="1_21.png" path="/Res/" scale="tile"/>
+    <component id="lzb4f9" name="ProgressBar1.xml" path="/Components/"/>
+    <component id="lzb4fa" name="LoadingPageView.xml" path="/"/>
+    <image id="lzb4fb" name="1_23.png" path="/Res/"/>
+    <image id="lzb4fc" name="1_30.png" path="/Res/"/>
+    <image id="lzb4fd" name="loadingBackground_img.png" path="/Res/"/>
   </resources>
-  <publish name=""/>
+  <publish name="" path="../Assets/GameRes/UI/GameEntry" packageCount="2" genCode="true"/>
 </packageDescription>
