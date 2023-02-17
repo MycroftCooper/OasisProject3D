@@ -36,3 +36,7 @@ Bundles/
 UserSettings/Layouts/
 
 *.sln
+
+.vsconfig
+
+OasisProject3D.sln.DotSettings
