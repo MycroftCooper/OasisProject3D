@@ -34,3 +34,5 @@ Assembly-CSharp-Editor.csproj
 Bundles/
 
 UserSettings/Layouts/
+
+*.sln
