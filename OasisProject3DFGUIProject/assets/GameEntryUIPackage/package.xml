@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="awx3ckgt">
   <resources>
-    <component id="aspm0" name="TitlePageView.xml" path="/" exported="true"/>
+    <component id="aspm0" name="TitlePage.xml" path="/" exported="true"/>
     <component id="10tcf0" name="btn_1.xml" path="/Components/"/>
     <image id="bmdr0" name="gameTitle_img.png" path="/Res/"/>
     <image id="bmdrf1" name="mainLab_img.png" path="/Res/"/>
@@ -12,7 +12,7 @@
     <image id="lzb4f7" name="1_32.png" path="/Res/"/>
     <image id="lzb4f8" name="1_21.png" path="/Res/" scale="tile"/>
     <component id="lzb4f9" name="ProgressBar1.xml" path="/Components/"/>
-    <component id="lzb4fa" name="LoadingPageView.xml" path="/"/>
+    <component id="lzb4fa" name="LoadingPage.xml" path="/" exported="true"/>
     <image id="lzb4fb" name="1_23.png" path="/Res/"/>
     <image id="lzb4fc" name="1_30.png" path="/Res/"/>
     <image id="lzb4fd" name="loadingBackground_img.png" path="/Res/"/>

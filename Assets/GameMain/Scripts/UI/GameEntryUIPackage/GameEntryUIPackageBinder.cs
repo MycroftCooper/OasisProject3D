@@ -8,7 +8,9 @@ namespace OasisProject3D.UI.GameEntryUIPackage
     {
         public static void BindAll()
         {
-            UIObjectFactory.SetPackageItemExtension(TitlePageView.URL, typeof(TitlePageView));
+            UIObjectFactory.SetPackageItemExtension(TitlePage.URL, typeof(TitlePage));
+            UIObjectFactory.SetPackageItemExtension(ProgressBar1.URL, typeof(ProgressBar1));
+            UIObjectFactory.SetPackageItemExtension(LoadingPage.URL, typeof(LoadingPage));
         }
     }
 }
