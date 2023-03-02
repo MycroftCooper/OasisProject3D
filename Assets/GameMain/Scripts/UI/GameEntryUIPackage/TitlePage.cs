@@ -17,6 +17,7 @@ namespace OasisProject3D.UI.GameEntryUIPackage
         public GButton SettingBtn;
         public GButton AboutBtn;
         public GButton ExitBtn;
+        public GGroup TabBtns;
         public const string URL = "ui://awx3ckgtaspm0";
 
         public static TitlePage CreateInstance()
@@ -38,6 +39,7 @@ namespace OasisProject3D.UI.GameEntryUIPackage
             SettingBtn = (GButton)GetChildAt(6);
             AboutBtn = (GButton)GetChildAt(7);
             ExitBtn = (GButton)GetChildAt(8);
+            TabBtns = (GGroup)GetChildAt(9);
         }
     }
 }
