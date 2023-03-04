@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 685572327}
   - component: {fileID: 685572326}
   - component: {fileID: 685572325}
-  - component: {fileID: 685572324}
+  - component: {fileID: 685572328}
   m_Layer: 5
   m_Name: TitlePage
   m_TagString: Untagged
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   packageName: GameEntryUIPackage
   componentName: TitlePage
-  fitScreen: 0
+  fitScreen: 1
   sortingOrder: 0
   packagePath: Assets/GameRes/UI/GameEntry/GameEntryUIPackage
   renderMode: 0
@@ -280,18 +280,6 @@ MonoBehaviour:
   cachedUISize: {x: 1920, y: 1080}
   hitTestMode: 0
   setNativeChildrenOrder: 0
---- !u!114 &685572324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685572321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c368d8dbbed45144a9cddbf0ecfdc68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &685572325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +314,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 880f58c3d5362cc4f8ce6470a2c2421e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &685572328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685572321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c368d8dbbed45144a9cddbf0ecfdc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1010479290
