@@ -10,8 +10,15 @@ namespace OasisProject3D.UI.FGUIExtension
             if (obj == null)
                 return;
 
-            obj.text = "";      // 先设为空一次，防效果错误
             obj.text = text;
+        }
+
+        public static void SetContent<T>(this GObject obj, T value)
+        {
+            if (obj == null)
+                return;
+
+            obj.text = value.ToString();
         }
 
         public static void SetOnClick(this GObject obj, Action callback)

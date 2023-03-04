@@ -27,5 +27,23 @@ namespace OasisProject3D.UI.FGUIExtension
 
             bar.min = min;
         }
+
+        public static void SetPercent(this GProgressBar bar, float percent)
+        {
+            if (bar == null)
+                return;
+
+            bar.max = 1;
+            bar.value = percent;
+        }
+
+        public static void SetValue(this GProgressBar bar, float value, float max)
+        {
+            if (bar == null)
+                return;
+
+            bar.value = value;
+            bar.max = max;
+        }
     }
 }

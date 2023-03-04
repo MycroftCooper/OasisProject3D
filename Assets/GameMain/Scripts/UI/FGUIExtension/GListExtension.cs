@@ -27,7 +27,7 @@ namespace OasisProject3D.UI.FGUIExtension
 
             list.onClickItem.Add((context) =>
             {
-                if (context.data == default || !(context.data is T))
+                if (!(context.data is T))
                     return;
 
                 var data = (T)context.data;
