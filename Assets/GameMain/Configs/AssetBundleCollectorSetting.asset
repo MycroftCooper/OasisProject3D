@@ -44,6 +44,13 @@ MonoBehaviour:
         PackRuleName: PackSeparately
         FilterRuleName: CollectAll
         AssetTags: 
+      - CollectPath: Assets/GameRes/UI/Icon/IconAtlas
+        CollectorGUID: c4ae564f131f13746b6e2fb356051cea
+        CollectorType: 0
+        AddressRuleName: AddressByGroupAndFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
     - GroupName: Block
       GroupDesc: "\u5730\u5757\u7EC4"
       AssetTags: Block
