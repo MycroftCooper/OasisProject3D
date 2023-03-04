@@ -13,36 +13,29 @@
       <relation target="" sidePair="top-top"/>
       <Button controller="IsSelectBtn" page="6"/>
     </component>
-    <component id="n2_10tcf" name="StartBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,587" size="700,80" group="n8_10tcf" alpha="0.85" pageController="IsSelectBtn">
-      <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,120,1,1|700,80,1,1|700,80,1,1|700,80,1,1|700,80,1,1" ease="Linear" duration="1"/>
-      <gearFontSize controller="IsSelectBtn" pages="6,4,1,2,3" values="60|60|60|60|60" default="80"/>
-      <Button title="开始游戏" titleFontSize="60" controller="IsSelectBtn" page="0"/>
-    </component>
-    <component id="n14_bmdr" name="ContinueBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,667" size="700,80" group="n8_10tcf" alpha="0.85" pageController="IsSelectBtn">
-      <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,80,1,1|700,120,1,1|700,80,1,1|700,80,1,1|700,80,1,1" ease="Linear" duration="1"/>
-      <gearFontSize controller="IsSelectBtn" pages="4" values="80" default="60"/>
-      <Button title="继续游戏" titleFontSize="60" controller="IsSelectBtn" page="4"/>
-    </component>
-    <component id="n4_10tcf" name="SettingBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,747" size="700,80" group="n8_10tcf" alpha="0.85" pageController="IsSelectBtn">
-      <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,80,1,1|700,80,1,1|700,120,1,1|700,80,1,1|700,80,1,1" ease="Linear" duration="1"/>
-      <gearFontSize controller="IsSelectBtn" pages="1" values="80" default="60"/>
-      <Button title="游戏设置" titleFontSize="60" controller="IsSelectBtn" page="1"/>
-    </component>
-    <component id="n7_10tcf" name="AboutBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,827" size="700,80" group="n8_10tcf" alpha="0.85" pageController="IsSelectBtn">
-      <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,80,1,1|700,80,1,1|700,80,1,1|700,120,1,1|700,80,1,1" ease="Linear" duration="1"/>
-      <gearFontSize controller="IsSelectBtn" pages="2" values="80" default="60"/>
-      <Button title="关于游戏" titleFontSize="60" controller="IsSelectBtn" page="2"/>
-    </component>
-    <component id="n6_10tcf" name="ExitBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,907" size="700,80" group="n8_10tcf" alpha="0.85" pageController="IsSelectBtn">
-      <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,80,1,1|700,80,1,1|700,80,1,1|700,80,1,1|700,120,1,1" ease="Linear" duration="1"/>
-      <gearFontSize controller="IsSelectBtn" pages="3" values="80" default="60"/>
-      <Button title="退出游戏" titleFontSize="60" controller="IsSelectBtn" page="3"/>
-    </component>
-    <group id="n8_10tcf" name="BtnGroup" xy="19,587" size="700,400" group="n12_bmdr" advanced="true" layout="vt">
-      <relation target="" sidePair="bottom-bottom"/>
-    </group>
     <group id="n12_bmdr" name="TabBtn" xy="0,0" size="800,1080" advanced="true">
       <relation target="" sidePair="height-height,left-left"/>
     </group>
+    <component id="n2_10tcf" name="StartBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,587" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
+      <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,120,1,1|700,80,1,1|700,80,1,1|700,80,1,1|700,80,1,1" ease="Linear" duration="1"/>
+      <Button title="开始游戏" titleFontSize="60" controller="IsSelectBtn" page="0"/>
+    </component>
+    <component id="n14_bmdr" name="ContinueBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,667" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
+      <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,80,1,1|700,120,1,1|700,80,1,1|700,80,1,1|700,80,1,1" ease="Linear" duration="1"/>
+      <Button title="继续游戏" titleFontSize="60" controller="IsSelectBtn" page="4"/>
+    </component>
+    <component id="n4_10tcf" name="SettingBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,747" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
+      <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,80,1,1|700,80,1,1|700,120,1,1|700,80,1,1|700,80,1,1" ease="Linear" duration="1"/>
+      <Button title="游戏设置" titleFontSize="60" controller="IsSelectBtn" page="1"/>
+    </component>
+    <component id="n7_10tcf" name="AboutBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,827" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
+      <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,80,1,1|700,80,1,1|700,80,1,1|700,120,1,1|700,80,1,1" ease="Linear" duration="1"/>
+      <Button title="关于游戏" titleFontSize="60" controller="IsSelectBtn" page="2"/>
+    </component>
+    <component id="n6_10tcf" name="ExitBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,907" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
+      <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,80,1,1|700,80,1,1|700,80,1,1|700,80,1,1|700,120,1,1" ease="Linear" duration="1"/>
+      <Button title="退出游戏" titleFontSize="60" controller="IsSelectBtn" page="3"/>
+    </component>
+    <group id="n16_cgmu" name="TabBtns" xy="19,587" size="700,400" advanced="true" layout="vt" excludeInvisibles="true"/>
   </displayList>
 </component>
