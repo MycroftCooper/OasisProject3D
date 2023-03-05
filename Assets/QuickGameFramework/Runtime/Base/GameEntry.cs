@@ -1,5 +1,6 @@
 using System;
 using QuickGameFramework.Procedure;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace QuickGameFramework.Runtime {
@@ -23,10 +24,24 @@ namespace QuickGameFramework.Runtime {
             
             AssetMgr = new AssetManager();
             AssetMgr.Init(() => {
-                // ProcedureMgr.StartProcedure(Type.GetType("EnterGameProcedure"));
                 UIMgr = new UIManager();
-                SceneManager.LoadScene("StartScene");
+                ChangeScene("StartScene");
             });
+        }
+
+        public static void ChangeScene(string sceneName) {
+            SceneManager.LoadScene(sceneName);
+        }
+
+        public static void ChangeSceneAsync(string sceneName, Action callback) {
+            SceneManager.LoadSceneAsync(sceneName).completed += _ => { callback?.Invoke(); };
+        }
+
+        public static void ExitGame() {
+            if (Application.isEditor) {
+                UnityEditor.EditorApplication.isPlaying = false;
+            }
+            Application.Quit();
         }
     }
 }

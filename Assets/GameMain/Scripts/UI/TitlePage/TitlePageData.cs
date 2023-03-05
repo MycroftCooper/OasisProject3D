@@ -1,4 +1,6 @@
+namespace UI {
+    public enum TitlePageCommand {};
+    public struct TitlePageData { }
 
-public struct TitlePageData {
 
 }

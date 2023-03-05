@@ -22,7 +22,7 @@ namespace QuickGameFramework.Procedure {
         /// <param name="intervalSeconds">流逝时间，以秒为单位。</param>
         protected abstract void OnUpdate(float intervalSeconds);
 
-        protected void Exit() {
+        internal void Exit() {
             OnExit();
             OnDestroy();
         }

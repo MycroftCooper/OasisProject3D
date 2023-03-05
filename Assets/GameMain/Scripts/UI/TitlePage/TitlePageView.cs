@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using FairyGUI;
 using OasisProject3D.UI.GameEntryUIPackage;
+using QuickGameFramework.Runtime;
 using QuickGameFramework.Runtime.UI;
-using UnityEngine;
 
 namespace UI {
     public class TitlePageView : View<TitlePageData> {
@@ -23,7 +23,7 @@ namespace UI {
         }
 
         protected override void ProcessMessage(ValueType command, TitlePageData data) {
-            throw new NotImplementedException();
+            
         }
 
         #region 按钮
@@ -63,7 +63,7 @@ namespace UI {
         private void OnStartGameBtnClicked() {
             var loadingPage = LoadingPage.CreateInstance();
             _titlePage.AddChild(loadingPage);
-            
+            GameEntry.ProcedureMgr.StartProcedure(typeof(GameLoadingProcedure), loadingPage);
         }
 
         private void OnExitGameBtnClicked() {
@@ -71,13 +71,7 @@ namespace UI {
             _titlePage.AddChild(confirmWindow);
             confirmWindow.SetPosition(_titlePage.width/2,_titlePage.height/2,0);
             confirmWindow.TitleText.text = "确认离开游戏？";
-            confirmWindow.YesBtn.onClick.Set(
-                ()=> {
-                    if (Application.isEditor) {
-                        UnityEditor.EditorApplication.isPlaying = false;
-                    }
-                    Application.Quit();
-                });
+            confirmWindow.YesBtn.onClick.Set(GameEntry.ExitGame);
             confirmWindow.NoBtn.onClick.Set(() => {
                 confirmWindow.Dispose();
                 _titlePage.IsSelectBtn.selectedIndex = 0;

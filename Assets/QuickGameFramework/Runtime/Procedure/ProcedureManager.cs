@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using MycroftToolkit.QuickCode;
 using QuickGameFramework.Runtime;
 
@@ -23,7 +24,10 @@ namespace QuickGameFramework.Procedure {
         }
 
         public void OnModuleUpdate(float intervalSeconds) {
-            _procedures.Values.ForEach((x) => x.Update(intervalSeconds));
+            for (int i = 0; i < _procedures.Count; i++) {
+                var vk = _procedures.ElementAt(i);
+                vk.Value.Update(intervalSeconds);
+            }
         }
 
         public void OnModuleDestroy() {
@@ -108,6 +112,35 @@ namespace QuickGameFramework.Procedure {
             _procedures.Add(procedureType, target);
             target.Enter(parameters);
             QLog.Log($"QuickGameFramework>Procedure>流程[{procedureType.Name}]开启成功！");
+        }
+
+        public void ExitProcedure<T>() where T : Procedure {
+            if (!HasProcedure<T>()) {
+                QLog.Error($"QuickGameFramework>Procedure>流程[{typeof(T).Name}]结束失败，不存在此流程！");
+                return;
+            }
+
+            var target = _procedures[typeof(T)];
+            _procedures.Remove(typeof(T));
+            target.Exit();
+            QLog.Log($"QuickGameFramework>Procedure>流程[{typeof(T).Name}]结束成功！");
+        }
+
+        public void ExitProcedure(Type procedureType) {
+            if (procedureType.BaseType != typeof(Procedure)) {
+                QLog.Error($"QuickGameFramework>Procedure>流程[{procedureType.Name}]结束失败，该类型不是流程<Procedure>！");
+                return;
+            }
+
+            if (!HasProcedure(procedureType)) {
+                QLog.Error($"QuickGameFramework>Procedure>流程[{procedureType.Name}]结束失败，不存在此流程！");
+                return;
+            }
+
+            var target = _procedures[procedureType];
+            _procedures.Remove(procedureType);
+            target.Exit();
+            QLog.Log($"QuickGameFramework>Procedure>流程[{procedureType.Name}]结束成功！");
         }
 
         /// <summary>

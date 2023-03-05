@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using QuickGameFramework.Runtime.UI;
-using UnityEngine;
 
 namespace UI {
     public class TitlePageModel : Model<TitlePageData> {
@@ -15,7 +12,9 @@ namespace UI {
         }
 
         protected override void ProcessMessage(Message message) {
-            throw new NotImplementedException();
+            TitlePageCommand command = (TitlePageCommand)message.Command;
+            switch (command) {
+            }
         }
     }
 }
