@@ -1,7 +1,7 @@
 using FairyGUI;
 using System;
 
-namespace OasisProject3D.UI.FGUIExtension
+namespace Medium.FGUIExtension
 {
     public static class GListExtension
     {

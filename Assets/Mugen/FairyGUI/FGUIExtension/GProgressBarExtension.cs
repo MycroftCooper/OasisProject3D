@@ -1,6 +1,6 @@
 ﻿using FairyGUI;
 
-namespace OasisProject3D.UI.FGUIExtension
+namespace Medium.FGUIExtension
 {
     public static class GProgressBarExtension
     {
