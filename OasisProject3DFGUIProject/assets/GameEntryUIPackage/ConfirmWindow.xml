@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="800,340">
+<component size="800,340" pivot="0.5,0.5" anchor="true">
   <displayList>
-    <image id="n0_lzb4" name="Background" src="lzb4f4" fileName="Res/hexagon _img.png" xy="0,-33" size="800,406" alpha="0.8" color="#ce8d4f">
+    <image id="n0_lzb4" name="Background" src="lzb4f4" fileName="Res/hexagon _img.png" xy="0,-33" size="800,406" color="#ce8d4f">
       <relation target="" sidePair=""/>
     </image>
     <text id="n1_lzb4" name="TitleText" xy="141,71" size="458,77" fontSize="57" color="#ffffff" autoSize="shrink" bold="true" text="确认离开游戏？"/>

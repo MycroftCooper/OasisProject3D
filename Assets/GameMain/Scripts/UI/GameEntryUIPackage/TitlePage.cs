@@ -11,7 +11,7 @@ namespace OasisProject3D.UI.GameEntryUIPackage
         public GGraph TabPageBackground;
         public GImage TabBtnBackground;
         public GButton TitleBtn;
-        public GGroup TabBtn;
+        public GGroup TabHead;
         public GButton StartBtn;
         public GButton ContinueBtn;
         public GButton SettingBtn;
@@ -33,7 +33,7 @@ namespace OasisProject3D.UI.GameEntryUIPackage
             TabPageBackground = (GGraph)GetChildAt(0);
             TabBtnBackground = (GImage)GetChildAt(1);
             TitleBtn = (GButton)GetChildAt(2);
-            TabBtn = (GGroup)GetChildAt(3);
+            TabHead = (GGroup)GetChildAt(3);
             StartBtn = (GButton)GetChildAt(4);
             ContinueBtn = (GButton)GetChildAt(5);
             SettingBtn = (GButton)GetChildAt(6);

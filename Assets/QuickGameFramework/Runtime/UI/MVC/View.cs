@@ -1,4 +1,6 @@
 using System;
+using FairyGUI;
+using MycroftToolkit.QuickCode;
 using UnityEngine;
 
 namespace QuickGameFramework.Runtime.UI {
@@ -11,6 +13,16 @@ namespace QuickGameFramework.Runtime.UI {
         protected abstract void OnRefresh(T data);
         protected abstract void ProcessMessage(ValueType command, T data);
         protected abstract bool OnBackButtonClicked();
+
+        public bool useFgui;
+        public string fguiBinderName;
+        protected UIPanel UIPanel;
+        protected virtual void Awake() {
+            if (!useFgui) return;
+            UIPanel = GetComponent<UIPanel>();
+            if(string.IsNullOrEmpty(fguiBinderName)) return;
+            Type.GetType(fguiBinderName).InvokeStaticMethod("BindAll");
+        }
 
         protected virtual void Start() {
             _controller = transform.GetComponent<Controller>();

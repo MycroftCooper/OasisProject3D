@@ -13,7 +13,7 @@
       <relation target="" sidePair="top-top"/>
       <Button controller="IsSelectBtn" page="6"/>
     </component>
-    <group id="n12_bmdr" name="TabBtn" xy="0,0" size="800,1080" advanced="true">
+    <group id="n12_bmdr" name="TabHead" xy="0,0" size="800,1080" advanced="true">
       <relation target="" sidePair="height-height,left-left"/>
     </group>
     <component id="n2_10tcf" name="StartBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,587" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">

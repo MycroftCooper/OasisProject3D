@@ -7,7 +7,7 @@ using UnityEngine;
 namespace UI {
     public class TitlePageModel : Model<TitlePageData> {
         protected override void OnShow(ValueType extraParams) {
-            throw new NotImplementedException();
+
         }
 
         protected override void OnHide(ValueType extraParams) {

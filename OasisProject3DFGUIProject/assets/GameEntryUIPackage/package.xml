@@ -7,7 +7,7 @@
     <image id="bmdrf1" name="mainLab_img.png" path="/Res/"/>
     <component id="bmdrf2" name="title_btn.xml" path="/Components/"/>
     <image id="lzb4f4" name="hexagon _img.png" path="/Res/" scale="9grid" scale9grid="128,33,256,446"/>
-    <component id="lzb4f5" name="ConfirmationWindo.xml" path="/Components/"/>
+    <component id="lzb4f5" name="ConfirmWindow.xml" path="/" exported="true"/>
     <component id="lzb4f6" name="btn_2.xml" path="/Components/"/>
     <image id="lzb4f7" name="1_32.png" path="/Res/"/>
     <image id="lzb4f8" name="1_21.png" path="/Res/" scale="tile"/>
