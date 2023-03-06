@@ -11,8 +11,9 @@ public class GameLoadingProcedure : Procedure {
     private AssetLoadProgress _assetLoadProgress;
     
     protected override void OnEnter(params object[] parameters) {
-        _progressBar = ((LoadingPage)parameters[0]).ProgressBar;
+        _progressBar = GameEntry.UIMgr.GetUIInstance<LoadingPage>(nameof(LoadingPage)).ProgressBar;
         _assetLoadProgress = BlockFactory.Instance.PreLoadAsset();
+        _assetLoadProgress += GameEntry.UIMgr.PreLoadAsset();
         _assetLoadProgress.Completed += () => _isLoadCompleted = true;
         
         _progressBar.value = 0;
@@ -21,7 +22,7 @@ public class GameLoadingProcedure : Procedure {
 
     protected override void OnUpdate(float intervalSeconds) {
         if (_isLoadCompleted && _timer.isCompleted) {
-            GameEntry.ProcedureMgr.ExitProcedure<GameLoadingProcedure>();
+            Exit();
             return;
         }
         _progressBar.Update(_timer.GetTimeElapsed()/_timer.duration *100);
@@ -29,10 +30,11 @@ public class GameLoadingProcedure : Procedure {
     }
 
     protected override void OnExit() {
-        GameEntry.ChangeSceneAsync("MainGameScene", () => GameEntry.ModuleMgr.CreateModule<MapManager>());
+        GameEntry.ChangeSceneAsync("MainGameScene", () => {
+            GameEntry.ModuleMgr.CreateModule<MapManager>();
+            GameEntry.AssetMgr.UnloadAssets();
+        });
     }
 
-    protected override void OnDestroy() {
-
-    }
+    protected override void OnDestroy() { }
 }

@@ -16,9 +16,14 @@ namespace QuickGameFramework.Runtime {
         public UIManager() {
             _projectAssetSetting = GameEntry.ConfigMgr.ProjectAssetSetting;
             _handleDict = new Dictionary<string, AssetOperationHandle>();
+            _uiCtrlDict = new GeneralDictionary<string>();
+        }
 
-            GameEntry.AssetMgr.LoadAssetAsync<SpriteAtlas>($"{_projectAssetSetting.uiResPath}IconAtlas",
+        public AssetLoadProgress PreLoadAsset() {
+            var output = new AssetLoadProgress();
+            output += GameEntry.AssetMgr.LoadAssetAsync<SpriteAtlas>($"{_projectAssetSetting.uiResPath}IconAtlas",
                 _ => { _iconAtlas = _; }, _projectAssetSetting.uiAssetsPackageName);
+            return output;
         }
 
         #region UI资源预加载相关
@@ -28,7 +33,7 @@ namespace QuickGameFramework.Runtime {
 
         public void PreloadPackage(string uiPackageName) {
             if (_handleDict.ContainsKey(uiPackageName)) {
-                QLog.Error($"QuickGameFramework>UIManager>FUI包[{uiPackageName}]加载失败！ 该FUI包已加载，请勿重复加载！");
+                QLog.Error($"QuickGameFramework>UIMgr> FUI包[{uiPackageName}]加载失败！ 该FUI包已加载，请勿重复加载！");
                 return;
             }
             UIPackage.AddPackage(uiPackageName, LoadFunc);
@@ -36,7 +41,7 @@ namespace QuickGameFramework.Runtime {
 
         public void ReleasePreloadPackage(string uiPackageName) {
             if (_handleDict.ContainsKey(uiPackageName)) {
-                QLog.Error($"QuickGameFramework>UIManager>FUI包[{uiPackageName}]释放失败！ 该FUI包未加载！");
+                QLog.Error($"QuickGameFramework>UIMgr> FUI包[{uiPackageName}]释放失败！ 该FUI包未加载！");
                 return;
             }
             UIPackage.RemovePackage(uiPackageName);
@@ -64,22 +69,64 @@ namespace QuickGameFramework.Runtime {
         #endregion
 
         #region UI组件动态生成相关
-        public GComponent CreateFguiComponentSync(string pkgName, string componentName) {
+        private readonly GeneralDictionary<string> _uiCtrlDict;
+        public GComponent CreateFguiComponentSync(string uiID, string pkgName, string componentName) {
+            if (HasUIInstance(uiID)) {
+                QLog.Error($"QuickGameFramework>UIMgr> UI实例已存在，UIId:{uiID}, componentName:{componentName}的UI创建失败！");
+                return default;
+            }
             GComponent view = UIPackage.CreateObject(pkgName,componentName).asCom;
             view.displayObject.gameObject.AddComponent<UIAssetLoader>();
+            AddUIInstance(uiID, view);
+            QLog.Log($"QuickGameFramework>UIMgr> UI实例创建成功！UIId:{uiID}, componentName:{componentName}");
             return view;
         }
         
-        public void CreateFguiComponentASync(string pkgName, string componentName, UIPackage.CreateObjectCallback callback) {
+        public void CreateFguiComponentASync(string uiID, string pkgName, string componentName, UIPackage.CreateObjectCallback callback) {
+            if (HasUIInstance(uiID)) {
+                QLog.Error($"QuickGameFramework>UIMgr> UI实例已存在，UIId:{uiID}, componentName:{componentName}的UI创建失败！");
+                return;
+            }
             UIPackage.CreateObjectAsync(pkgName,componentName, (_)=> {
                 _.displayObject.gameObject.AddComponent<UIAssetLoader>();
+                AddUIInstance(uiID, _);
+                QLog.Log($"QuickGameFramework>UIMgr> UI实例创建成功！UIId:{uiID}, componentName:{componentName}");
                 callback?.Invoke(_);
             });
         }
 
-        public void DisposeFguiComponent(GComponent target) {
-            target.Dispose();
+        public T CreateFguiComponent<T>(string uiID, Func<T> createInstanceFunc) where T : GComponent {
+            if (HasUIInstance(uiID)) {
+                QLog.Error($"QuickGameFramework>UIMgr> UI实例已存在，UIId:{uiID}, type:{typeof(T)}的UI创建失败！");
+                return default;
+            }
+            if (createInstanceFunc == null) {
+                QLog.Error($"QuickGameFramework>UIMgr> 实例创建方法为空，UIId:{uiID}, type:{typeof(T)}的UI创建失败！");
+                return default;
+            }
+            T output = createInstanceFunc.Invoke();
+            AddUIInstance(uiID, output);
+            QLog.Log($"QuickGameFramework>UIMgr> UI实例创建成功！UIId:{uiID}, type:{typeof(T)}");
+            return output;
         }
+
+        public void DisposeFguiComponent(string uiID, GComponent target) {
+            target.Dispose();
+            RemoveUIInstance(uiID);
+        }
+        public void AddUIInstance(string uiID, object uiCtrl) {
+            _uiCtrlDict.Add(uiID, uiCtrl);
+        }
+        public bool HasUIInstance(string uiID) {
+            return _uiCtrlDict.ContainsKey(uiID);
+        }
+        public T GetUIInstance<T>(string uiID) {
+            return _uiCtrlDict.Get<T>(uiID);
+        }
+        public void RemoveUIInstance(string uiID) {
+            _uiCtrlDict.Remove(uiID);
+        }
+
         #endregion
 
         public Sprite GetIcon(string iconID) {

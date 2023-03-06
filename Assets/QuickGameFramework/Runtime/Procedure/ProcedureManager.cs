@@ -114,19 +114,19 @@ namespace QuickGameFramework.Procedure {
             QLog.Log($"QuickGameFramework>Procedure>流程[{procedureType.Name}]开启成功！");
         }
 
-        public void ExitProcedure<T>() where T : Procedure {
+        public void DestroyProcedure<T>() where T : Procedure {
             if (!HasProcedure<T>()) {
-                QLog.Error($"QuickGameFramework>Procedure>流程[{typeof(T).Name}]结束失败，不存在此流程！");
+                QLog.Error($"QuickGameFramework>Procedure>流程[{typeof(T).Name}]强制销毁失败，不存在此流程！");
                 return;
             }
 
             var target = _procedures[typeof(T)];
             _procedures.Remove(typeof(T));
-            target.Exit();
-            QLog.Log($"QuickGameFramework>Procedure>流程[{typeof(T).Name}]结束成功！");
+            target.Destroy();
+            QLog.Log($"QuickGameFramework>Procedure>流程[{typeof(T).Name}]强制销毁成功！");
         }
 
-        public void ExitProcedure(Type procedureType) {
+        internal void ExitProcedure(Type procedureType) {
             if (procedureType.BaseType != typeof(Procedure)) {
                 QLog.Error($"QuickGameFramework>Procedure>流程[{procedureType.Name}]结束失败，该类型不是流程<Procedure>！");
                 return;
@@ -136,10 +136,8 @@ namespace QuickGameFramework.Procedure {
                 QLog.Error($"QuickGameFramework>Procedure>流程[{procedureType.Name}]结束失败，不存在此流程！");
                 return;
             }
-
-            var target = _procedures[procedureType];
+            
             _procedures.Remove(procedureType);
-            target.Exit();
             QLog.Log($"QuickGameFramework>Procedure>流程[{procedureType.Name}]结束成功！");
         }
 

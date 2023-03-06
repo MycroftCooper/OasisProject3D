@@ -292,8 +292,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f3432b36b7a544b852b65ce8158ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiID: TitlePage
   useFgui: 1
   fguiBinderName: OasisProject3D.UI.GameEntryUIPackage.GameEntryUIPackageBinder
+  defaultBtnTextSize: 60
+  selectBtnTextSize: 80
 --- !u!114 &685572326
 MonoBehaviour:
   m_ObjectHideFlags: 0

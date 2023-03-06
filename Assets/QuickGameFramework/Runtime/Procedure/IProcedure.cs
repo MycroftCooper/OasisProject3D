@@ -1,3 +1,5 @@
+using QuickGameFramework.Runtime;
+
 namespace QuickGameFramework.Procedure {
     public abstract class Procedure {
         public float ProcessDuration { get; protected set; }
@@ -22,9 +24,9 @@ namespace QuickGameFramework.Procedure {
         /// <param name="intervalSeconds">流逝时间，以秒为单位。</param>
         protected abstract void OnUpdate(float intervalSeconds);
 
-        internal void Exit() {
+        protected void Exit() {
             OnExit();
-            OnDestroy();
+            GameEntry.ProcedureMgr.ExitProcedure(GetType());
         }
 
         /// <summary>

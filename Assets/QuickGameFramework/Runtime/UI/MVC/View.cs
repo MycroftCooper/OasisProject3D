@@ -14,6 +14,7 @@ namespace QuickGameFramework.Runtime.UI {
         protected abstract void ProcessMessage(ValueType command, T data);
         protected abstract bool OnBackButtonClicked();
 
+        public string uiID;
         public bool useFgui;
         public string fguiBinderName;
         protected UIPanel UIPanel;
@@ -26,8 +27,13 @@ namespace QuickGameFramework.Runtime.UI {
 
         protected virtual void Start() {
             _controller = transform.GetComponent<Controller>();
+            GameEntry.UIMgr.AddUIInstance(uiID, this);
         }
-        
+
+        protected void OnDestroy() {
+            GameEntry.UIMgr.RemoveUIInstance(uiID);
+        }
+
         public void HandleCommand(ValueType command, T data) {
             switch (command) {
                 case Message.CommonCommand.Show:

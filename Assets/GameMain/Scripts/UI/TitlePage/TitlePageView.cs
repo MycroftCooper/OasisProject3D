@@ -61,9 +61,9 @@ namespace UI {
         }
 
         private void OnStartGameBtnClicked() {
-            var loadingPage = LoadingPage.CreateInstance();
+            var loadingPage = GameEntry.UIMgr.CreateFguiComponent(nameof(LoadingPage), LoadingPage.CreateInstance);
             _titlePage.AddChild(loadingPage);
-            GameEntry.ProcedureMgr.StartProcedure(typeof(GameLoadingProcedure), loadingPage);
+            GameEntry.ProcedureMgr.StartProcedure(typeof(GameLoadingProcedure));
         }
 
         private void OnExitGameBtnClicked() {

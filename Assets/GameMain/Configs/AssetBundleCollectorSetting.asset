@@ -20,18 +20,6 @@ MonoBehaviour:
   - PackageName: MainPackage
     PackageDesc: "\u4E3B\u6E38\u620F\u5305"
     Groups:
-    - GroupName: Scenes
-      GroupDesc: "\u573A\u666F\u7EC4"
-      AssetTags: 
-      ActiveRuleName: EnableGroup
-      Collectors:
-      - CollectPath: Assets/GameMain/Scenes
-        CollectorGUID: 30f2c70c56458c549b63c7e4d0aa4571
-        CollectorType: 0
-        AddressRuleName: AddressByFileName
-        PackRuleName: PackGroup
-        FilterRuleName: CollectScene
-        AssetTags: 
     - GroupName: UI
       GroupDesc: "UI\u7EC4"
       AssetTags: 
