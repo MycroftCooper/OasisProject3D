@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using FairyGUI;
+using OasisProject3D.Procedures;
 using OasisProject3D.UI.GameEntryUIPackage;
 using QuickGameFramework.Runtime;
 using QuickGameFramework.Runtime.UI;
 
-namespace UI {
+namespace OasisProject3D.UI {
     public class TitlePageView : View<TitlePageData> {
         private TitlePage _titlePage;
 

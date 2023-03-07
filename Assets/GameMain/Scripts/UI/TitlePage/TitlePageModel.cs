@@ -1,7 +1,7 @@
 using System;
 using QuickGameFramework.Runtime.UI;
 
-namespace UI {
+namespace OasisProject3D.UI {
     public class TitlePageModel : Model<TitlePageData> {
         protected override void OnShow(ValueType extraParams) {
 
@@ -12,9 +12,6 @@ namespace UI {
         }
 
         protected override void ProcessMessage(Message message) {
-            TitlePageCommand command = (TitlePageCommand)message.Command;
-            switch (command) {
-            }
         }
     }
 }
