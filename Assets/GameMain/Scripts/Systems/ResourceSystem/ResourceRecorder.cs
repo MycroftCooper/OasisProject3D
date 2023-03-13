@@ -4,17 +4,21 @@ namespace OasisProject3D.ResourceSystem {
     /// <summary>
     /// 资源操作句柄
     /// </summary>
-    public class ResHandle {
-        private ResHandleData _data;
+    public class ResRecorder {
+        private ResRecordData _data;
         public Dictionary<EResourceType, float> Production => _data.Production;
         public Dictionary<EResourceType, float> Consumption => _data.Production;
 
-        public ResHandle() {
-            _data = new ResHandleData {
+        public ResRecorder() {
+            _data = new ResRecordData {
                 Production = new Dictionary<EResourceType, float>(),
                 Consumption = new Dictionary<EResourceType, float>(),
                 Source = null
             };
+        }
+
+        public ResRecorder(ResRecordData data) {
+            _data = data;
         }
 
         public void AddProduction(EResourceType resType, float num) {

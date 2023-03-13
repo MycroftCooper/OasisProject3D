@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using QuickGameFramework.Runtime;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 namespace OasisProject3D.ResourceSystem {
     public class ResourceManager : IModule  {
@@ -16,8 +14,8 @@ namespace OasisProject3D.ResourceSystem {
             return default;
         }
 
-        public void UpdateRes(ResHandle handle) {
-            var profits = handle.GetProfits();
+        public void UpdateRes(ResRecorder recorder) {
+            var profits = recorder.GetProfits();
             foreach (var kv in profits) {
                 var resType = kv.Key;
                 float resNum = _resDict[resType] + kv.Value;

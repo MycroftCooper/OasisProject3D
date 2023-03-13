@@ -1,11 +1,15 @@
 using UnityEditor;
+using UnityEngine;
 
 public class QuickRunGame : Editor {
-    private const string START_SCENE_PATH = "Assets/GameMain/Scenes/EntryScene.unity";
+    private const string StartScenePath = "Assets/GameMain/Scenes/EntryScene.unity";
 
     [MenuItem("QuickDebug/Run Game _%g")]
     public static void RunGame() {
-        UnityEditor.SceneManagement.EditorSceneManager.OpenScene(START_SCENE_PATH);
+        if (Application.isPlaying) {
+            return;
+        }
+        UnityEditor.SceneManagement.EditorSceneManager.OpenScene(StartScenePath);
         EditorApplication.ExecuteMenuItem("Edit/Play");
     }
 }

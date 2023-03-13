@@ -15,7 +15,7 @@ namespace OasisProject3D.ResourceSystem {
         Lack,       // 缺乏
     }
 
-    public struct ResHandleData {
+    public struct ResRecordData {
         public Dictionary<EResourceType, float> Production;
         public Dictionary<EResourceType, float> Consumption;
         public string Source;
