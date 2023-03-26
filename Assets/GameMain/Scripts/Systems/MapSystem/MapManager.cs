@@ -6,6 +6,8 @@ using MycroftToolkit.QuickCode;
 using MycroftToolkit.MathTool;
 using cfg.MapSystem;
 using cfg;
+using MycroftToolkit.DiscreteGridToolkit;
+using MycroftToolkit.DiscreteGridToolkit.Hex;
 using QuickGameFramework.Runtime;
 
 namespace OasisProject3D.MapSystem {
@@ -127,6 +129,15 @@ namespace OasisProject3D.MapSystem {
         #region 地图工具相关
         public bool HasBlock(Vector2Int pos) => Map.ContainsKey(pos);
         public BlockCtrl GetBlock(Vector2Int pos) => HasBlock(pos) ? Map[pos] : null;
+
+        public Vector2Int WorldPos2LogicPos(Vector3 worldPos) {
+            return HexGridTool.Coordinate_Axial.ContinuityToDiscrete(worldPos.SwapYZ().ToVec2(), BlockFactory.BlockSize, false);
+        }
+        public BlockCtrl GetBlock(Vector3 worldPos) {
+            var logicPos = HexGridTool.Coordinate_Axial.ContinuityToDiscrete(worldPos.SwapYZ().ToVec2(), BlockFactory.BlockSize, false);
+            return GetBlock(logicPos);
+        }
+        
         public List<BlockCtrl> GetBlocks(List<Vector2Int> poses) {
             List<BlockCtrl> output = new List<BlockCtrl>();
             foreach (Vector2Int pos in poses) {

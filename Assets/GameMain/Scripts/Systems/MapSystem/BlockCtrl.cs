@@ -17,6 +17,7 @@ namespace OasisProject3D.MapSystem {
         [LabelText("逻辑坐标")]
         public Vector2Int logicalPos;
         public float height;
+        public Vector3 BuildingPos => worldPos + new Vector3(0,5,0);
 
         [ShowInInspector, LabelText("绿化率")]
         public float VegetationCoverage {

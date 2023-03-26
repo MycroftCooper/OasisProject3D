@@ -178,5 +178,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuickGameFramworkEntry
       objectReference: {fileID: 0}
+    - target: {fileID: 5772741469063862882, guid: ebace9ceacf54ad4b8d228ef3477eecd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233671991093827167, guid: ebace9ceacf54ad4b8d228ef3477eecd, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebace9ceacf54ad4b8d228ef3477eecd, type: 3}

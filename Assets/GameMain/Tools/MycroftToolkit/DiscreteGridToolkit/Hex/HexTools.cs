@@ -285,13 +285,14 @@ namespace MycroftToolkit.DiscreteGridToolkit.Hex {
                 float x, y;
                 if (isFlat) {
                     x = (2f / 3 * point.x) / size;
-                    y = (-1f / 3 * point.x + Mathf.Sqrt(3) / 3 * point.y) / size;
+                    y = (-point.x / 3 + Mathf.Sqrt(3) / 3 * point.y) / size;
                 } else {
-                    x = (Mathf.Sqrt(3) / 3 * point.x - 1f / 3 * point.y) / size;
+                    x = (Mathf.Sqrt(3) / 3 * point.x - point.y / 3 ) / size;
                     y = (2f / 3 * point.y) / size;
                 }
-                Vector3 cube = new Vector3(x, y, -(point.x + point.y));
-                return Round(cube);
+                int roundQ = Mathf.RoundToInt(x);
+                int roundR = Mathf.RoundToInt(y);
+                return new Vector2Int(roundQ, roundR);
             }
 
             public static Vector2 DiscreteToContinuity(Vector2Int hex, float size, bool isFlat) {
