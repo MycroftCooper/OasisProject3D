@@ -12,6 +12,7 @@ namespace QuickGameFramework.Runtime {
         public static AssetManager AssetMgr;
         public static UIManager UIMgr;
         public static ConfigManager ConfigMgr;
+        public static InputManager InputMgr;
 
         private void Awake() {
             IsGlobal = true;
@@ -21,6 +22,7 @@ namespace QuickGameFramework.Runtime {
             DataTableMgr = new DataTableManager();
             ModuleMgr = GetComponent<ModuleManager>();
             ProcedureMgr = ModuleMgr.CreateModule<ProcedureManager>();
+            InputMgr = transform.Find("PlayerInputManager").GetComponent<InputManager>();
             
             AssetMgr = new AssetManager();
             AssetMgr.Init(() => {
