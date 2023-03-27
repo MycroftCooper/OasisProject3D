@@ -49,14 +49,14 @@ namespace OasisProject3D.BuildingSystem {
             
             Vector3 mousePosition = obj.ReadValue<Vector2>();
             Ray mouseRay = camera.ScreenPointToRay(mousePosition);
-            Plane xzPlane = new Plane(Vector3.up, Vector3.zero);
-            if (!xzPlane.Raycast(mouseRay, out var enter)) {
+            LayerMask blockLayerMask = 1 << LayerMask.GetMask("Block");
+            if (!Physics.Raycast(mouseRay, out var hit,50, blockLayerMask)) {
                 return;
             }
-            Vector3 worldPoint = mouseRay.GetPoint(enter);
-            Vector2Int logicPos = GameEntry.ModuleMgr.GetModule<MapManager>().WorldPos2LogicPos(worldPoint);
-            var targetBlock = GameEntry.ModuleMgr.GetModule<MapManager>().GetBlock(worldPoint);
+            var targetBlock = hit.transform.GetComponent<BlockCtrl>();
             if (targetBlock == null) {
+                Vector3 worldPoint = mouseRay.GetPoint(hit.distance);
+                Vector2Int logicPos = GameEntry.ModuleMgr.GetModule<MapManager>().WorldPos2LogicPos(worldPoint);
                 QLog.Error($"BuildingMoveHelper>Error>目标位置{worldPoint}={logicPos}没有地块！");
                 return;
             }

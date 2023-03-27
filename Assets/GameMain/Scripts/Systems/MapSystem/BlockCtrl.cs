@@ -36,7 +36,7 @@ namespace OasisProject3D.MapSystem {
         public bool buildable;
 
         private MapManager MapMgr => GameEntry.ModuleMgr.GetModule<MapManager>();
-        
+
         public void Init(float randomStartRange) {
             Ticker = new TickerAuto(InfectionData.Time);
             Ticker.OnTick += UpdateBlock;

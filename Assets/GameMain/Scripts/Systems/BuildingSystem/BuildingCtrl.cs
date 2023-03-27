@@ -77,12 +77,6 @@ namespace OasisProject3D.BuildingSystem {
             OnMoveStart?.Invoke(this);
             _buildingMoveHelper = new BuildingMoveHelper(this);
         }
-        
-        public virtual void OnMoveUpdateHandler() {
-            if (!IsMoving) {
-                return;
-            }
-        }
 
         public virtual void OnMoveExitHandler() {
             if (IsMoving) {
