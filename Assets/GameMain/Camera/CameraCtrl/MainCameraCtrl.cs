@@ -85,6 +85,10 @@ namespace OasisProject3D.CameraCtrl {
             UpdateVelocity();
             UpdateMovement();
             UpdateZoom();
+            
+            
+            Ray mouseRay = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            Debug.DrawRay(mouseRay.origin, mouseRay.direction * 1000);
         }
         
         private Vector3 _horizontalVelocity;

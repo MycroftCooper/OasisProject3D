@@ -74,7 +74,7 @@ namespace OasisProject3D.MapSystem {
                     element.GetComponent<MeshRenderer>().materials = new []{elemRes.materials.GetRandomObject(_random)};
                     Vector3 pos = QuickRandomInArea.GetRandomPoint_Circular(Vector2.zero, (BlockDistance / 2) - 2, _random).ToVec3().SwapYZ();
                     float rotate = _random.GetFloat(360);
-                    element.transform.localPosition = pos + Vector3.up * 5;
+                    element.transform.localPosition = pos;
                     element.transform.localRotation = Quaternion.Euler(new Vector3(0, rotate, 0));
                     element.transform.localScale = Vector3.one * 2;
                 }

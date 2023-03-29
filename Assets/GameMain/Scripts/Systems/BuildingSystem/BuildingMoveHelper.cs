@@ -7,10 +7,12 @@ namespace OasisProject3D.BuildingSystem {
     public class BuildingMoveHelper {
         private readonly Transform _targetTransform;
         private BuildingCtrl _targetBuilding;
+        private BlockCtrl _lastBlockCtrl;
 
         private InputActionMap _buildingInputActionMap;
 
         private readonly Vector3 _rotateAngle = new (0, 60, 0);
+        private readonly float _rayMaxDistance = 5000f;
 
         private readonly Vector3 _originalPos;
         private readonly Quaternion _originalRotation;
@@ -20,6 +22,7 @@ namespace OasisProject3D.BuildingSystem {
             _targetTransform = _targetBuilding.transform;
             _originalPos = _targetTransform.position;
             _originalRotation = _targetTransform.localRotation;
+            _lastBlockCtrl = null;
             BindPlayerInput();
         }
 
@@ -53,9 +56,8 @@ namespace OasisProject3D.BuildingSystem {
             
             Vector3 mousePosition = obj.ReadValue<Vector2>();
             Ray mouseRay = camera.ScreenPointToRay(mousePosition);
-            LayerMask blockLayerMask = 1 << LayerMask.GetMask("Block");
-            Debug.DrawRay(mouseRay.origin, mouseRay.direction);
-            if (!Physics.Raycast(mouseRay, out var hit,Mathf.Infinity, blockLayerMask, QueryTriggerInteraction.Collide)) {
+            var layerMask = LayerMask.GetMask("Block");
+            if (!Physics.Raycast(mouseRay, out var hit, _rayMaxDistance, layerMask, QueryTriggerInteraction.Collide)) {
                 return;
             }
             var targetBlock = hit.transform.GetComponent<BlockCtrl>();
@@ -65,7 +67,12 @@ namespace OasisProject3D.BuildingSystem {
                 QLog.Error($"BuildingMoveHelper>Error>目标位置{worldPoint}={logicPos}没有地块！");
                 return;
             }
+
+            if (_lastBlockCtrl == targetBlock) {
+                return;
+            }
             _targetTransform.position = targetBlock.worldPos;
+            _lastBlockCtrl = targetBlock;
         }
 
         private void OnBuildingTurnLeftHandler(InputAction.CallbackContext obj) {
@@ -80,13 +87,13 @@ namespace OasisProject3D.BuildingSystem {
 
         private void OnMoveConfirmHandler(InputAction.CallbackContext obj) {
 
-            // UnbindPlayerInput();
+            UnbindPlayerInput();
         }
 
         private void OnMoveCancelHandler(InputAction.CallbackContext obj) {
             _targetTransform.position = _originalPos;
             _targetTransform.localRotation = _originalRotation;
-            // UnbindPlayerInput();
+            UnbindPlayerInput();
         }
     }
 }
