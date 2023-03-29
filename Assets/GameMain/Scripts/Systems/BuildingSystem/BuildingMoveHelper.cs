@@ -12,10 +12,14 @@ namespace OasisProject3D.BuildingSystem {
 
         private readonly Vector3 _rotateAngle = new (0, 60, 0);
 
+        private readonly Vector3 _originalPos;
+        private readonly Quaternion _originalRotation;
+
         public BuildingMoveHelper(BuildingCtrl targetBuilding) {
             _targetBuilding = targetBuilding;
             _targetTransform = _targetBuilding.transform;
-
+            _originalPos = _targetTransform.position;
+            _originalRotation = _targetTransform.localRotation;
             BindPlayerInput();
         }
 
@@ -50,7 +54,8 @@ namespace OasisProject3D.BuildingSystem {
             Vector3 mousePosition = obj.ReadValue<Vector2>();
             Ray mouseRay = camera.ScreenPointToRay(mousePosition);
             LayerMask blockLayerMask = 1 << LayerMask.GetMask("Block");
-            if (!Physics.Raycast(mouseRay, out var hit,50, blockLayerMask)) {
+            Debug.DrawRay(mouseRay.origin, mouseRay.direction);
+            if (!Physics.Raycast(mouseRay, out var hit,Mathf.Infinity, blockLayerMask, QueryTriggerInteraction.Collide)) {
                 return;
             }
             var targetBlock = hit.transform.GetComponent<BlockCtrl>();
@@ -60,7 +65,7 @@ namespace OasisProject3D.BuildingSystem {
                 QLog.Error($"BuildingMoveHelper>Error>目标位置{worldPoint}={logicPos}没有地块！");
                 return;
             }
-            _targetTransform.position = targetBlock.BuildingPos;
+            _targetTransform.position = targetBlock.worldPos;
         }
 
         private void OnBuildingTurnLeftHandler(InputAction.CallbackContext obj) {
@@ -75,13 +80,13 @@ namespace OasisProject3D.BuildingSystem {
 
         private void OnMoveConfirmHandler(InputAction.CallbackContext obj) {
 
-            UnbindPlayerInput();
+            // UnbindPlayerInput();
         }
 
         private void OnMoveCancelHandler(InputAction.CallbackContext obj) {
-            
-            UnbindPlayerInput();
+            _targetTransform.position = _originalPos;
+            _targetTransform.localRotation = _originalRotation;
+            // UnbindPlayerInput();
         }
-
     }
 }
