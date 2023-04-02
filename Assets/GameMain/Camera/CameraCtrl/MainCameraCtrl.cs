@@ -13,41 +13,44 @@ namespace OasisProject3D.CameraCtrl {
         private Transform _cameraTransform;
 
         #region 面板设置相关
-        [BoxGroup("水平移动")]
+        [BoxGroup("平移")]
         [SerializeField]
-        private float maxSpeed = 5f;
+        private float maxSpeed = 20f;
         private float _speed;
-        [BoxGroup("水平移动")]
+        [BoxGroup("平移")]
         [SerializeField]
         private float acceleration = 10f;
-        [BoxGroup("水平移动")]
+        [BoxGroup("平移")]
         [SerializeField]
         private float damping = 15f;
-
-        [BoxGroup("垂直移动")]
+        
+        [BoxGroup("边缘移动")]
         [SerializeField]
-        private float stepSize = 2f;
-        [BoxGroup("垂直移动")]
-        [SerializeField]
-        private float zoomDampening = 7.5f;
-        [BoxGroup("垂直移动")]
-        [SerializeField]
-        private float minHeight = 5f;
-        [BoxGroup("垂直移动")]
-        [SerializeField]
-        private float maxHeight = 50f;
-        [BoxGroup("垂直移动")]
-        [SerializeField]
-        private float zoomSpeed = 2f;
-
+        private bool useEdgeMove;
         [BoxGroup("边缘移动")]
         [SerializeField]
         [Range(0f, 0.1f)]
         private float edgeTolerance = 0.05f;
-
+        
         [BoxGroup("旋转")]
         [SerializeField]
-        private float maxRotationSpeed = 1f;
+        private Vector2 rotationSpeed = new (10f,5f);
+        [BoxGroup("旋转")]
+        [SerializeField] 
+        private Vector2 verticalAngleLimit = new (-45, 40f);
+        
+        [BoxGroup("缩放")]
+        [SerializeField]
+        private float zoomSpeed = 40f;
+        [BoxGroup("缩放")]
+        [SerializeField]
+        private float minHeight = 15f;
+        [BoxGroup("缩放")]
+        [SerializeField]
+        private float maxHeight = 100f;
+        [BoxGroup("缩放")]
+        [SerializeField]
+        private float useRayHeight = 30f;
         #endregion
         
         private void Awake() {
@@ -60,18 +63,12 @@ namespace OasisProject3D.CameraCtrl {
         }
 
         private void OnEnable() {
-            _zoomHeight = _cameraTransform.localPosition.y;
             _cameraTransform.LookAt(transform);
             _lastPosition = transform.position;
-            
-            _rotateAction.performed += RotateCamera;
-            _zoomAction.performed += ZoomCamera;
             _cameraInputActionMap.Enable();
         }
 
         private void OnDisable() {
-            _rotateAction.performed -= RotateCamera;
-            _zoomAction.performed -= ZoomCamera;
             _cameraInputActionMap.Disable();
         }
 
@@ -84,11 +81,9 @@ namespace OasisProject3D.CameraCtrl {
             //move base and camera objects
             UpdateVelocity();
             UpdateMovement();
-            UpdateZoom();
-            
-            
-            Ray mouseRay = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-            Debug.DrawRay(mouseRay.origin, mouseRay.direction * 1000);
+
+            RotateCamera(_rotateAction.ReadValue<Vector2>());
+            ZoomCamera(_zoomAction.ReadValue<Vector2>());
         }
         
         private Vector3 _horizontalVelocity;
@@ -133,6 +128,9 @@ namespace OasisProject3D.CameraCtrl {
         }
 
         private void UpdateMouseAtScreenEdge() {
+            if (!useEdgeMove) {
+                return;
+            }
             //mouse position is in pixels
             Vector2 mousePosition = Mouse.current.position.ReadValue();
             Vector3 moveDirection = Vector3.zero;
@@ -183,40 +181,56 @@ namespace OasisProject3D.CameraCtrl {
         #endregion
 
         #region 旋转相关
-        private void RotateCamera(InputAction.CallbackContext obj) {
-            if (Mouse.current.rightButton.isPressed || Keyboard.current.qKey.isPressed || Keyboard.current.eKey.isPressed) {
-                float inputValue = obj.ReadValue<Vector2>().x;
-                transform.rotation = Quaternion.Euler(0f, inputValue * maxRotationSpeed + transform.rotation.eulerAngles.y, 0f);
-            } else if (Keyboard.current.qKey.wasPressedThisFrame || Keyboard.current.eKey.isPressed) {
+        private void RotateCamera(Vector2 inputValue) {
+            var trans = transform;
+            // 水平旋转
+            float horizontalAngleY = inputValue.x * rotationSpeed.x * Time.deltaTime;
+            // 在世界空间中执行水平旋转
+            trans.Rotate(Vector3.up, horizontalAngleY, Space.World);
+            
+            // 垂直旋转
+            float verticalAngleX = -inputValue.y * rotationSpeed.y * Time.deltaTime;
+            // 在相机的局部空间中执行垂直旋转
+            trans.Rotate(Vector3.right, verticalAngleX, Space.Self);
 
-            }
+            // 修复后的相机角度限制
+            var rotation = trans.rotation.eulerAngles;
+            float finalX = rotation.x > 180f ? rotation.x - 360f : rotation.x;
+            finalX = Mathf.Clamp(finalX, verticalAngleLimit.x, verticalAngleLimit.y);
+            // 重新计算旋转四元数
+            transform.rotation = Quaternion.Euler(finalX, rotation.y, rotation.z);
         }
         #endregion
 
         #region 缩放相关
-        private float _zoomHeight;
-        private void UpdateZoom() {
-            //set zoom target
-            var localPosition = _cameraTransform.localPosition;
-            Vector3 zoomTarget = new Vector3(localPosition.x, _zoomHeight, localPosition.z);
-            //add vector for forward/backward zoom
-            zoomTarget -= zoomSpeed * (_zoomHeight - localPosition.y) * Vector3.forward;
+        private void ZoomCamera(Vector2 inputValue) {
+            if (inputValue.y == 0) {
+                return;
+            }
+            
+            // 获取鼠标滚轮值
+            float scrollValue = inputValue.y;
+            
+            var trans = transform;
+            var pos = trans.position;
+            Vector3 direction = _cameraTransform.forward * scrollValue;
+            // 计算新的相机位置
+            Vector3 newPosition = pos + direction * (zoomSpeed * Time.deltaTime);
 
-            localPosition = Vector3.Lerp(localPosition, zoomTarget, Time.deltaTime * zoomDampening);
-            _cameraTransform.localPosition = localPosition;
-            _cameraTransform.LookAt(this.transform);
-        }
+            if (newPosition.y >= maxHeight) {
+                return;
+            }
 
-        private void ZoomCamera(InputAction.CallbackContext obj) {
-            float inputValue = -obj.ReadValue<Vector2>().y / 100f;
-
-            if (!(Mathf.Abs(inputValue) > 0.1f)) return;
-            _zoomHeight = _cameraTransform.localPosition.y + inputValue * stepSize;
-
-            if (_zoomHeight < minHeight)
-                _zoomHeight = minHeight;
-            else if (_zoomHeight > maxHeight)
-                _zoomHeight = maxHeight;
+            if (newPosition.y < useRayHeight) {
+                Ray cameraRay = new Ray(_cameraTransform.position, direction);
+                var layerMask = LayerMask.GetMask("Block");
+                if (Physics.Raycast(cameraRay, out var hit, maxHeight, layerMask, QueryTriggerInteraction.Collide) &&
+                    hit.distance < minHeight && scrollValue > 0) {
+                    return;
+                }
+            }
+            
+            trans.position = newPosition;
         }
         #endregion
 
