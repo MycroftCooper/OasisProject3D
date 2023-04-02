@@ -63,8 +63,15 @@ MonoBehaviour:
       AssetTags: 
       ActiveRuleName: EnableGroup
       Collectors:
-      - CollectPath: Assets/GameRes/Building/FirePowerStation
-        CollectorGUID: 5ec842e564770c4418878fe79d912b3d
+      - CollectPath: Assets/GameRes/Building
+        CollectorGUID: 840cf4fdc60a0384ca47bdf435328eab
+        CollectorType: 0
+        AddressRuleName: AddressByGroupAndFileName
+        PackRuleName: PackGroup
+        FilterRuleName: CollectAll
+        AssetTags: 
+      - CollectPath: Assets/GameMain/Entities/Building
+        CollectorGUID: 0695d8ab1114ac84e9ad6194d47aa256
         CollectorType: 0
         AddressRuleName: AddressByGroupAndFileName
         PackRuleName: PackGroup

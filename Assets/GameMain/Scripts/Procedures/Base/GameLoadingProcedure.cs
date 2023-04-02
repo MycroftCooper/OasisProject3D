@@ -1,4 +1,5 @@
 using MycroftToolkit.QuickCode;
+using OasisProject3D.BuildingSystem;
 using OasisProject3D.MapSystem;
 using OasisProject3D.UI.GameEntryUIPackage;
 using QuickGameFramework.Procedure;
@@ -14,6 +15,7 @@ namespace OasisProject3D.Procedures {
         protected override void OnEnter(params object[] parameters) {
             _progressBar = GameEntry.UIMgr.GetUIInstance<LoadingPage>(nameof(LoadingPage)).ProgressBar;
             _assetLoadProgress = BlockFactory.Instance.PreLoadAsset();
+            _assetLoadProgress += BuildingFactory.Instance.PreLoadAsset();
             _assetLoadProgress += GameEntry.UIMgr.PreLoadAsset();
             _assetLoadProgress.Completed += () => _isLoadCompleted = true;
 

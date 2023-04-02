@@ -1,13 +1,16 @@
 ﻿using System;
 using MycroftToolkit.QuickCode;
+using OasisProject3D.MapSystem;
+using QuickGameFramework.Runtime;
 using UnityEngine;
 
 namespace OasisProject3D.BuildingSystem {
     public enum BuildingCmd { Build, Move, Open, Close, Upgrade, Demolish }
     
-    public class BuildingCtrl : MonoBehaviour, IEnumCmdReceiver<BuildingCmd> {
-        public BuildingData Data { protected set; get; }
-
+    public class BuildingCtrl : Entity, IEnumCmdReceiver<BuildingCmd>  {
+        public MeshFilter BuildingMeshFilter { get; protected set; }
+        public MeshRenderer BuildingMeshRenderer { get; protected set; }
+        
         public void ExecuteCmd(BuildingCmd cmd) {
             switch (cmd) {
                 case BuildingCmd.Build:
@@ -38,6 +41,8 @@ namespace OasisProject3D.BuildingSystem {
 
         public void Initialize() {
             IsInitialised = true;
+            BuildingMeshFilter = transform.Find("Mesh").GetChild(0).GetComponent<MeshFilter>();
+            BuildingMeshRenderer = BuildingMeshFilter.GetComponent<MeshRenderer>();
         }
         #endregion
         
@@ -90,7 +95,7 @@ namespace OasisProject3D.BuildingSystem {
             OnMoveEnd?.Invoke(this);
         }
 
-        public bool CanSetBuildingHere(Vector3 targetPos, Vector3 targetRotation) {
+        public bool CanSetHere(BlockCtrl targetBlock, Vector3 targetRotation) {
             
             return true;
         }

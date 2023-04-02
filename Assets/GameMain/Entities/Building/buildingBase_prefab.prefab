@@ -40,11 +40,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 904845290525944394}
+  - component: {fileID: -1584010408385646232}
   - component: {fileID: 2902561786923145932}
   - component: {fileID: 8109826740238564904}
-  - component: {fileID: -1584010408385646232}
   m_Layer: 0
-  m_Name: BuildingBase
+  m_Name: buildingBase_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,6 +67,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1584010408385646232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6196590270800372720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2886edc31b969b4c90cc3bab07fffdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2902561786923145932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,18 +124,6 @@ MonoBehaviour:
   _serializedBlackboard: '{"_variables":{}}'
   _objectReferences: []
   _serializedVariables: []
---- !u!114 &-1584010408385646232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6196590270800372720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2886edc31b969b4c90cc3bab07fffdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8221935024212994486
 GameObject:
   m_ObjectHideFlags: 0
