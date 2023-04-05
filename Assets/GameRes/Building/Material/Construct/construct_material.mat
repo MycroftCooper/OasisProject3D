@@ -74,7 +74,7 @@ Material:
     - _Float: 0
     - _METASTATE: 0
     - _Metallic: 0
-    - _Progress: 1
+    - _Progress: 0.996
     - _QueueControl: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 0

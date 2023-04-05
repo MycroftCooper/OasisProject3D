@@ -106,7 +106,9 @@ namespace OasisProject3D.BuildingSystem {
         public bool IsBuilt { get; private set; }
         public Action<BuildingCtrl> OnBuildStart;
         public Action<BuildingCtrl> OnBuildEnd;
-
+        private BuildingConstructHelper _buildingConstructHelper;
+        private float _constructProgress;
+        
         private void BuildCmdHandler() {
             if (IsBuilt) {
                 return;
@@ -117,15 +119,19 @@ namespace OasisProject3D.BuildingSystem {
         public virtual void OnBuildEnterHandler() {
             IsBuilding = true;
             OnBuildStart?.Invoke(this);
+            _buildingConstructHelper = new BuildingConstructHelper(this);
         }
         
         public virtual void OnBuildUpdateHandler() {
-
+            if (_buildingConstructHelper.UpdateBuildingConstructProgress(_constructProgress)) {
+                
+            }
         }
         
         public virtual void OnBuildExitHandler() {
             IsBuilding = false;
             IsBuilt = true;
+            _buildingConstructHelper = null;
             OnBuildEnd?.Invoke(this);
         }
         #endregion
