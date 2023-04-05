@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="152,96" overflow="hidden" extention="Button">
+  <controller name="button" pages="0,up,1,down" selected="1"/>
+  <displayList>
+    <image id="n0_i4mb" name="n0" src="i4mbhc" fileName="Res/MainUI/2_28.png" xy="0,0" color="#bd8447">
+      <gearColor controller="button" pages="1" values="#bd8447" default="#ffffff"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <loader id="n1_i4mb" name="icon" xy="0,0" size="152,96" url="ui://awx3ckgti4mbh4" align="center" vAlign="middle">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <image id="n2_i4mb" name="n2" src="i4mbhk" fileName="Res/MainUI/2_29.png" xy="1,-1" size="151,95">
+      <gearDisplay controller="button" pages="1"/>
+    </image>
+  </displayList>
+  <Button mode="Radio"/>
+</component>

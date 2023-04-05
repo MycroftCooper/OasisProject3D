@@ -290,7 +290,7 @@ MonoBehaviour:
   componentName: TitlePage
   fitScreen: 1
   sortingOrder: 0
-  packagePath: Assets/GameRes/UI/GameEntry/GameEntryUIPackage
+  packagePath: Assets/GameRes/UI/FguiPackages/GameEntryUIPackage
   renderMode: 0
   renderCamera: {fileID: 1518220451}
   position: {x: 0, y: 0, z: 0}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 1518220451}
   - component: {fileID: 1518220450}
   - component: {fileID: 1518220452}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Stage Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1878108582}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}

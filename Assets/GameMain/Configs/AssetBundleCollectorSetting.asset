@@ -25,8 +25,8 @@ MonoBehaviour:
       AssetTags: 
       ActiveRuleName: EnableGroup
       Collectors:
-      - CollectPath: Assets/GameRes/UI/GameEntry
-        CollectorGUID: 1a326d4fc10495c40909fd7b4be9c8b2
+      - CollectPath: Assets/GameRes/UI/FguiPackages
+        CollectorGUID: ff9378e4ffad04a4d8eebe5be9c90d4e
         CollectorType: 0
         AddressRuleName: AddressByGroupAndFileName
         PackRuleName: PackSeparately

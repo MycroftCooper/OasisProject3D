@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1180,1080" overflow="hidden">
+  <controller name="state" pages="0,教程,1,经典模式" selected="0"/>
+  <displayList>
+    <graph id="n2_jlch" name="TabPageBackground" xy="0,0" size="1180,1080" visible="false" touchable="false" type="rect" lineSize="0" fillColor="#ffdd9e62">
+      <relation target="" sidePair="height-height,rightext-right"/>
+    </graph>
+    <text id="n3_jlch" name="title" xy="46,149" size="238,78" fontSize="53" color="#ffffff" autoSize="none" text="教程">
+      <gearText controller="state" pages="0,1" values="教程|经典模式"/>
+    </text>
+    <component id="n0_jlch" name="TabBtn2" src="i4mbi7" fileName="Components/Unit_LadderBtn2.xml" xy="209,30">
+      <Button icon="ui://awx3ckgti4mbhu" controller="state" page="1"/>
+    </component>
+    <component id="n1_jlch" name="TabBtn1" src="i4mbi6" fileName="Components/Unit_LadderBtn1.xml" xy="40,26">
+      <Button checked="true" icon="ui://awx3ckgti4mbh8" controller="state" page="0"/>
+    </component>
+    <image id="n5_jlch" name="n5" src="lzb4fd" fileName="Res/Gaming/loadingBackground_img.png" xy="0,276" size="1448,846" group="n8_jlch"/>
+    <text id="n4_jlch" name="n15" xy="94,246" size="991,167" group="n8_jlch" fontSize="40" color="#ffffff" autoSize="none" text="轻松上手《绿洲计划》！&#xA;通过游玩这个快速教程来了解或重新回顾《绿洲计划》的游玩方式">
+      <gearText controller="state" pages="0,1" values="轻松上手《绿洲计划》！&#xA;通过游玩这个快速教程来了解或重新回顾《绿洲计划》的游玩方式|游戏音效"/>
+    </text>
+    <component id="n7_jlch" name="n7" src="jlchie" fileName="Components/Unit_Btn3.xml" xy="177,464" size="293,55" group="n8_jlch">
+      <Button title="游玩教程" titleColor="#000000"/>
+    </component>
+    <group id="n8_jlch" name="Tutorial" xy="0,246" size="1448,876" advanced="true">
+      <gearDisplay controller="state" pages="0"/>
+    </group>
+    <image id="n9_jlch" name="n9" src="lzb4f7" fileName="Res/MainUI/2_36.png" xy="95,251" size="979,68" group="n12_jlch"/>
+    <text id="n10_jlch" name="n10" xy="171,258" size="238,54" group="n12_jlch" fontSize="40" color="#ffffff" autoSize="none" text="已储存进度"/>
+    <component id="n11_jlch" name="n11" src="i4mbia" fileName="Components/Unit_IconBtn1.xml" xy="159,380" size="117,113" group="n12_jlch">
+      <Button icon="ui://awx3ckgti4mbha"/>
+    </component>
+    <group id="n12_jlch" name="CommonMode" xy="95,251" size="979,242" advanced="true">
+      <gearDisplay controller="state" pages="1"/>
+    </group>
+  </displayList>
+</component>

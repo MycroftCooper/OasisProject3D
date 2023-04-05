@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="t09fsbe0">
-  <resources/>
-  <publish name=""/>
+  <resources>
+    <image id="i4mb0" name="1_21.png" path="/Res/"/>
+    <image id="i4mb8" name="main_picker_0.png" path="/Res/"/>
+    <image id="i4mbb" name="main_picker_11.png" path="/Res/"/>
+    <image id="i4mbd" name="main_picker_13.png" path="/Res/"/>
+    <image id="i4mbf" name="main_picker_15.png" path="/Res/"/>
+    <image id="i4mbg" name="main_picker_16.png" path="/Res/"/>
+    <image id="i4mbh" name="main_picker_17.png" path="/Res/"/>
+    <image id="i4mbi" name="main_picker_18.png" path="/Res/"/>
+    <image id="i4mbj" name="main_picker_19.png" path="/Res/"/>
+    <image id="i4mbk" name="main_picker_2.png" path="/Res/"/>
+    <image id="i4mbm" name="main_picker_21.png" path="/Res/"/>
+    <image id="i4mbo" name="main_picker_23.png" path="/Res/"/>
+    <image id="i4mbs" name="main_picker_27.png" path="/Res/"/>
+    <image id="i4mbv" name="main_picker_3.png" path="/Res/"/>
+    <image id="i4mbz" name="main_picker_33.png" path="/Res/"/>
+    <image id="i4mb12" name="main_picker_36.png" path="/Res/"/>
+    <image id="i4mb13" name="main_picker_37.png" path="/Res/"/>
+    <image id="i4mb19" name="main_picker_42.png" path="/Res/"/>
+    <image id="i4mb1g" name="main_picker_7.png" path="/Res/"/>
+    <image id="i4mb1h" name="main_picker_8.png" path="/Res/"/>
+    <image id="jlch1j" name="建造-工业建筑.jpg" path="/Refer/"/>
+    <component id="jlch1k" name="GameMainUI.xml" path="/" exported="true"/>
+    <component id="jlch1l" name="Unit_IconBtn1.xml" path="/Components/"/>
+    <component id="jlch1o" name="Unit_IconBtn2.xml" path="/Components/"/>
+    <component id="jlch1q" name="Unit_Bar.xml" path="/Components/"/>
+    <component id="jlch1r" name="Unit_BuildComp.xml" path="/Components/"/>
+    <component id="jlch1s" name="Unit_Btn1.xml" path="/Components/"/>
+    <component id="jlch1t" name="Unit_IconBtn3.xml" path="/Components/"/>
+    <component id="jlch1u" name="Unit_SettingWindow.xml" path="/"/>
+    <image id="jlch1v" name="hexagon _img(1).png" path="/Res/" scale="9grid" scale9grid="128,33,256,446"/>
+    <component id="jlch1w" name="btn_2.xml" path="/Components/"/>
+    <component id="jlch1x" name="SettingPageUI.xml" path="/" exported="true"/>
+  </resources>
+  <publish name="" genCode="true" extractAlpha="true"/>
 </packageDescription>

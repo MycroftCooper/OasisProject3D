@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080">
   <displayList>
-    <graph id="n4_lzb4" name="Background2" xy="-9,-3" size="1933,1138" type="rect" fillColor="#ff99cccc"/>
-    <image id="n3_lzb4" name="Background1" src="lzb4fd" fileName="Res/loadingBackground_img.png" xy="-10,-73" size="1938,1278"/>
-    <image id="n1_lzb4" name="Title" src="bmdr0" fileName="Res/gameTitle_img.png" xy="456,173" size="1015,616" aspect="true" alpha="0.786"/>
-    <component id="n0_lzb4" name="ProgressBar" src="lzb4f9" fileName="Components/ProgressBar1.xml" xy="84,985">
-      <ProgressBar value="73" max="100"/>
+    <graph id="n4_lzb4" name="Background2" xy="-9,-3" size="1933,1138" type="rect" fillColor="#ff99cccc">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <image id="n3_lzb4" name="Background1" src="lzb4fd" fileName="Res/Gaming/loadingBackground_img.png" xy="-10,-73" size="1938,1278">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n1_lzb4" name="Title" src="bmdr0" fileName="Res/Gaming/gameTitle_img.png" xy="456,173" size="1015,616" aspect="true" alpha="0.786">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </image>
+    <component id="n0_lzb4" name="ProgressBar" src="i4mbfl" fileName="Components/ProgressBar1.xml" xy="84,985" size="1800,69">
+      <relation target="" sidePair="width-width,height-height"/>
+      <ProgressBar value="66" max="100"/>
     </component>
-    <text id="n2_lzb4" name="LoadingText" xy="1550,984" size="232,77" fontSize="55" color="#ffffff" autoSize="none" bold="true" text="加载中..."/>
+    <text id="n2_lzb4" name="LoadingText" xy="1504,984" size="232,77" fontSize="55" color="#ffffff" autoSize="none" bold="true" text="加载中...">
+      <relation target="n0_lzb4" sidePair="right-right"/>
+    </text>
   </displayList>
 </component>

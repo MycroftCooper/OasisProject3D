@@ -11,7 +11,7 @@
       <relation target="" sidePair="width-width%,height-height"/>
     </image>
     <text id="n3_10tcf" name="title" xy="40,3" size="104,34" fontSize="24" color="#ffffff" align="center" vAlign="middle" bold="true" singleLine="true" text="开始游戏">
-      <relation target="" sidePair="width-width,height-height"/>
+      <relation target="" sidePair="center-center,middle-middle"/>
     </text>
   </displayList>
   <Button mode="Radio"/>

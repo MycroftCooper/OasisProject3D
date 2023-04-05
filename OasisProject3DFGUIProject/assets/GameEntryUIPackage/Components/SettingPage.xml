@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1180,1080" designImage="ui://awx3ckgti4mbh2" designImageOffsetX="-739" designImageAlpha="0" designImageLayer="1">
+  <controller name="state" pages="0,游戏图像,1,游戏音效,2,游戏控制,3,其他" selected="2"/>
+  <displayList>
+    <graph id="n0_i4mb" name="TabPageBackground" xy="0,0" size="1180,1080" visible="false" touchable="false" type="rect" lineSize="0" fillColor="#ffdd9e62">
+      <relation target="" sidePair="height-height,rightext-right"/>
+    </graph>
+    <component id="n29_i4mb" name="TabBtn1" src="i4mbi6" fileName="Components/Unit_LadderBtn1.xml" xy="40,26">
+      <Button icon="ui://awx3ckgti4mbhb" controller="state" page="0"/>
+    </component>
+    <component id="n30_i4mb" name="TabBtn2" src="i4mbi7" fileName="Components/Unit_LadderBtn2.xml" xy="209,30">
+      <Button controller="state" page="1"/>
+    </component>
+    <component id="n31_i4mb" name="TabBtn3" src="i4mbi6" fileName="Components/Unit_LadderBtn1.xml" xy="376,24">
+      <Button checked="true" controller="state" page="2"/>
+    </component>
+    <component id="n32_i4mb" name="TabBtn4" src="i4mbi7" fileName="Components/Unit_LadderBtn2.xml" xy="538,28" visible="false">
+      <Button icon="ui://awx3ckgti4mbi3" controller="state" page="3"/>
+    </component>
+    <text id="n7_i4mb" name="title" xy="46,149" size="238,78" fontSize="53" color="#ffffff" autoSize="none" text="游戏控制">
+      <gearText controller="state" pages="1,2,3" values="游戏音效|游戏控制|其他" default="游戏图像"/>
+    </text>
+    <image id="n8_i4mb" name="n8" src="lzb4f7" fileName="Res/MainUI/2_36.png" xy="91,250" size="979,68" group="n28_i4mb"/>
+    <text id="n12_i4mb" name="n12" xy="167,257" size="238,54" group="n28_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="分辨率"/>
+    <image id="n13_i4mb" name="n13" src="lzb4f7" fileName="Res/MainUI/2_36.png" xy="96,456" size="979,68" group="n28_i4mb"/>
+    <text id="n14_i4mb" name="n14" xy="171,463" size="238,54" group="n28_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="其他"/>
+    <text id="n15_i4mb" name="n15" xy="120,532" size="238,54" group="n28_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="画面质量"/>
+    <text id="n16_i4mb" name="n16" xy="120,777" size="238,54" group="n28_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="垂直同步"/>
+    <text id="n17_i4mb" name="n17" xy="120,698" size="238,54" group="n28_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="网目质量"/>
+    <text id="n18_i4mb" name="n18" xy="120,612" size="238,54" group="n28_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="抗锯齿"/>
+    <text id="n19_i4mb" name="n19" xy="120,861" size="238,54" group="n28_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="UI大小"/>
+    <component id="n6_i4mb" name="PictureQualityCombo" src="i4mbfh" fileName="Components/Unit_SettingComboBox.xml" xy="604,533" size="461,60" group="n28_i4mb">
+      <ComboBox title="高" visibleItemCount="10">
+        <item title="高"/>
+        <item title="中"/>
+        <item title="低"/>
+      </ComboBox>
+    </component>
+    <component id="n20_i4mb" name="AntiAliasingCombo" src="i4mbfh" fileName="Components/Unit_SettingComboBox.xml" xy="604,618" size="461,60" group="n28_i4mb">
+      <ComboBox title="8x" visibleItemCount="10">
+        <item title="8X"/>
+        <item title="4X"/>
+        <item title="2X"/>
+      </ComboBox>
+    </component>
+    <component id="n21_i4mb" name="MeshQualityCombo" src="i4mbfh" fileName="Components/Unit_SettingComboBox.xml" xy="604,698" size="461,60" group="n28_i4mb">
+      <ComboBox title="高" visibleItemCount="10">
+        <item title="高"/>
+        <item title="中"/>
+        <item title="低"/>
+      </ComboBox>
+    </component>
+    <component id="n22_i4mb" name="VSyncCombo" src="i4mbfh" fileName="Components/Unit_SettingComboBox.xml" xy="604,782" size="461,60" group="n28_i4mb">
+      <ComboBox title="开" visibleItemCount="10">
+        <item title="开"/>
+        <item title="关"/>
+      </ComboBox>
+    </component>
+    <component id="n23_i4mb" name="UISizeCombo" src="i4mbfh" fileName="Components/Unit_SettingComboBox.xml" xy="604,865" size="461,60" group="n28_i4mb">
+      <ComboBox title="100%" visibleItemCount="10">
+        <item title="100%"/>
+        <item title="50%"/>
+        <item title="10%"/>
+      </ComboBox>
+    </component>
+    <component id="n24_i4mb" name="ScreenResolutionCombo" src="i4mbfh" fileName="Components/Unit_SettingComboBox.xml" xy="98,335" size="461,60" group="n28_i4mb">
+      <ComboBox title="1920 X 1080" visibleItemCount="10">
+        <item title="1920 X 1080"/>
+        <item title="720P"/>
+        <item title="480P"/>
+      </ComboBox>
+    </component>
+    <component id="n25_i4mb" name="ScreenModeCombo" src="i4mbfh" fileName="Components/Unit_SettingComboBox.xml" xy="601,335" size="461,60" group="n28_i4mb">
+      <ComboBox title="全屏" visibleItemCount="10">
+        <item title="全屏"/>
+        <item title="窗口"/>
+        <item title="无边框"/>
+      </ComboBox>
+    </component>
+    <component id="n26_i4mb" name="PostProcessCombo" src="i4mbfh" fileName="Components/Unit_SettingComboBox.xml" xy="103,950" size="461,60" group="n28_i4mb">
+      <ComboBox title="后处理" visibleItemCount="10">
+        <item title="高"/>
+        <item title="中"/>
+        <item title="低"/>
+      </ComboBox>
+    </component>
+    <component id="n27_i4mb" name="TerrainDetailCombo" src="i4mbfh" fileName="Components/Unit_SettingComboBox.xml" xy="600,948" size="461,60" group="n28_i4mb">
+      <ComboBox title="地形细节" visibleItemCount="10">
+        <item title="高"/>
+        <item title="中"/>
+        <item title="低"/>
+      </ComboBox>
+    </component>
+    <group id="n28_i4mb" name="ViewSetting" xy="91,250" size="984,760" advanced="true">
+      <gearDisplay controller="state" pages="0"/>
+    </group>
+    <component id="n35_i4mb" name="slider1" src="i4mbi9" fileName="Components/Unit_Slider1.xml" xy="547,270" size="598,50" group="n38_i4mb">
+      <Slider value="50" max="100"/>
+    </component>
+    <text id="n37_i4mb" name="n37" xy="97,264" size="238,54" group="n38_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="主音量"/>
+    <component id="n39_i4mb" name="slider2" src="i4mbi9" fileName="Components/Unit_Slider1.xml" xy="546,362" size="598,50" group="n38_i4mb">
+      <Slider value="50" max="100"/>
+    </component>
+    <text id="n40_i4mb" name="n40" xy="96,356" size="238,54" group="n38_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="背景音量"/>
+    <component id="n41_i4mb" name="slider3" src="i4mbi9" fileName="Components/Unit_Slider1.xml" xy="546,453" size="598,50" group="n38_i4mb">
+      <Slider value="50" max="100"/>
+    </component>
+    <text id="n42_i4mb" name="n42" xy="96,447" size="238,54" group="n38_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="特效音量"/>
+    <group id="n38_i4mb" name="AudioSetting" xy="96,264" size="1049,239" advanced="true">
+      <gearDisplay controller="state" pages="1"/>
+    </group>
+    <image id="n43_i4mb" name="n43" src="lzb4f7" fileName="Res/MainUI/2_36.png" xy="109,250" size="979,68" group="n46_i4mb"/>
+    <text id="n44_i4mb" name="n44" xy="185,257" size="238,54" group="n46_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="通用"/>
+    <text id="n45_i4mb" name="n45" xy="217,341" size="238,54" group="n46_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="移动镜头"/>
+    <text id="n47_i4mb" name="n47" xy="219,440" size="281,54" group="n46_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="提升镜头移动速度"/>
+    <text id="n48_i4mb" name="n48" xy="221,531" size="238,54" group="n46_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="旋转镜头"/>
+    <text id="n49_i4mb" name="n49" xy="223,615" size="238,54" group="n46_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="缩放镜头"/>
+    <text id="n50_i4mb" name="n50" xy="221,712" size="238,54" group="n46_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="镜头视角复位"/>
+    <text id="n51_i4mb" name="n51" xy="223,805" size="238,54" group="n46_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="放置板块"/>
+    <text id="n52_i4mb" name="n52" xy="223,900" size="238,54" group="n46_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="旋转板块"/>
+    <text id="n53_i4mb" name="n53" xy="223,983" size="238,54" group="n46_i4mb" fontSize="40" color="#ffffff" autoSize="none" text="用户界面"/>
+    <component id="n54_i4mb" name="CtrlBtn1" src="i4mbib" fileName="Components/Unit_TabBtn1.xml" xy="695,333" size="277,60" group="n46_i4mb"/>
+    <component id="n55_i4mb" name="ResetBtn1" src="i4mbia" fileName="Components/Unit_IconBtn1.xml" xy="990,341" group="n46_i4mb"/>
+    <component id="n56_i4mb" name="CtrlBtn2" src="i4mbib" fileName="Components/Unit_TabBtn1.xml" xy="699,431" size="277,60" group="n46_i4mb"/>
+    <component id="n57_i4mb" name="ResetBtn2" src="i4mbia" fileName="Components/Unit_IconBtn1.xml" xy="994,439" group="n46_i4mb"/>
+    <component id="n58_i4mb" name="CtrlBtn3" src="i4mbib" fileName="Components/Unit_TabBtn1.xml" xy="701,523" size="277,60" group="n46_i4mb"/>
+    <component id="n59_i4mb" name="ResetBtn3" src="i4mbia" fileName="Components/Unit_IconBtn1.xml" xy="996,531" group="n46_i4mb"/>
+    <component id="n60_i4mb" name="CtrlBtn4" src="i4mbib" fileName="Components/Unit_TabBtn1.xml" xy="706,610" size="277,60" group="n46_i4mb"/>
+    <component id="n61_i4mb" name="ResetBtn4" src="i4mbia" fileName="Components/Unit_IconBtn1.xml" xy="1001,618" group="n46_i4mb"/>
+    <component id="n62_i4mb" name="CtrlBtn5" src="i4mbib" fileName="Components/Unit_TabBtn1.xml" xy="701,704" size="277,60" group="n46_i4mb"/>
+    <component id="n63_i4mb" name="ResetBtn5" src="i4mbia" fileName="Components/Unit_IconBtn1.xml" xy="996,712" group="n46_i4mb"/>
+    <component id="n64_i4mb" name="CtrlBtn6" src="i4mbib" fileName="Components/Unit_TabBtn1.xml" xy="704,799" size="277,60" group="n46_i4mb"/>
+    <component id="n65_i4mb" name="ResetBtn6" src="i4mbia" fileName="Components/Unit_IconBtn1.xml" xy="999,807" group="n46_i4mb"/>
+    <component id="n66_i4mb" name="CtrlBtn7" src="i4mbib" fileName="Components/Unit_TabBtn1.xml" xy="707,895" size="277,60" group="n46_i4mb"/>
+    <component id="n67_i4mb" name="ResetBtn7" src="i4mbia" fileName="Components/Unit_IconBtn1.xml" xy="1002,903" group="n46_i4mb"/>
+    <component id="n68_i4mb" name="CtrlBtn8" src="i4mbib" fileName="Components/Unit_TabBtn1.xml" xy="707,981" size="277,60" group="n46_i4mb"/>
+    <component id="n69_i4mb" name="ResetBtn8" src="i4mbia" fileName="Components/Unit_IconBtn1.xml" xy="1002,989" group="n46_i4mb"/>
+    <group id="n46_i4mb" name="ControlSetting" xy="109,250" size="979,791" advanced="true">
+      <gearDisplay controller="state" pages="2"/>
+    </group>
+  </displayList>
+</component>

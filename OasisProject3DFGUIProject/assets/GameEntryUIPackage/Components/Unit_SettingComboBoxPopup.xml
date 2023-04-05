@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="311,150" overflow="hidden">
+  <displayList>
+    <image id="n0_i4mb" name="n0" src="bmdrf1" fileName="Res/mainLab_img.png" xy="0,0" size="353,150">
+      <relation target="n1_i4mb" sidePair="width-width,height-height"/>
+    </image>
+    <list id="n1_i4mb" name="list" xy="0,0" size="311,150" overflow="scroll" defaultItem="ui://awx3ckgti4mbfp">
+      <relation target="" sidePair="width-width,height-height"/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

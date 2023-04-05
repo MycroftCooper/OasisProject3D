@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,255">
+  <controller name="tab" pages="0,,1,,2," selected="0"/>
+  <displayList>
+    <image id="n0_jlch" name="n0" src="i4mb19" fileName="Res/Gaming/main_picker_42.png" xy="0,0"/>
+    <component id="n1_jlch" name="BuildTabBtn1" src="jlch1s" fileName="Componenets/Unit_Btn1.xml" xy="999,-25">
+      <relation target="" sidePair="right-right"/>
+      <Button checked="true" controller="tab" page="0"/>
+    </component>
+    <component id="n2_jlch" name="BuildTabBtn2" src="jlch1s" fileName="Componenets/Unit_Btn1.xml" xy="1280,-26" controller="type,1">
+      <relation target="" sidePair="right-right"/>
+      <Button controller="tab" page="1"/>
+    </component>
+    <component id="n3_jlch" name="BuildTabBtn3" src="jlch1s" fileName="Componenets/Unit_Btn1.xml" xy="1553,-28" controller="type,2">
+      <relation target="" sidePair="right-right"/>
+      <Button controller="tab" page="2"/>
+    </component>
+    <list id="n8_jlch" name="BuildList" xy="22,40" size="1894,203" layout="row" overflow="scroll" scroll="horizontal" colGap="50" defaultItem="ui://t09fsbe0jlch1t">
+      <relation target="" sidePair="width-width,height-height"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

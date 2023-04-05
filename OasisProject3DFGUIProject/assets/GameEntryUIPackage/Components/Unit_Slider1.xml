@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="959,50" extention="Slider">
+  <displayList>
+    <image id="n0_i4mb" name="n0" src="lzb4f7" fileName="Res/MainUI/2_36.png" xy="0,0" size="936,50" color="#bd8447">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n1_i4mb" name="bar" src="lzb4f7" fileName="Res/MainUI/2_36.png" xy="0,0" size="936,50">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <component id="n2_i4mb" name="grip" src="i4mbi8" fileName="Components/Unit_SliderBtn1.xml" xy="886,-5" size="40,30" scale="2,2">
+      <relation target="n1_i4mb" sidePair="height-height,right-right"/>
+    </component>
+  </displayList>
+  <Slider/>
+</component>
