@@ -8,9 +8,10 @@ namespace OasisProject3D.UI.GameMainUIPackage
     {
         public static void BindAll()
         {
-            UIObjectFactory.SetPackageItemExtension(GameMainUI.URL, typeof(GameMainUI));
-            UIObjectFactory.SetPackageItemExtension(Unit_BuildComp.URL, typeof(Unit_BuildComp));
-            UIObjectFactory.SetPackageItemExtension(Unit_Btn1.URL, typeof(Unit_Btn1));
+            UIObjectFactory.SetPackageItemExtension(MainPage.URL, typeof(MainPage));
+            UIObjectFactory.SetPackageItemExtension(BuildingTab.URL, typeof(BuildingTab));
+            UIObjectFactory.SetPackageItemExtension(BuildingTypeBtn.URL, typeof(BuildingTypeBtn));
+            UIObjectFactory.SetPackageItemExtension(BuildingIconCase.URL, typeof(BuildingIconCase));
             UIObjectFactory.SetPackageItemExtension(Unit_SettingWindow.URL, typeof(Unit_SettingWindow));
         }
     }

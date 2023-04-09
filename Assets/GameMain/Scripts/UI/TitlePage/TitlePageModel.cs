@@ -1,8 +1,8 @@
 using System;
 using QuickGameFramework.Runtime.UI;
 
-namespace OasisProject3D.UI {
-    public class TitlePageModel : Model<TitlePageData> {
+namespace OasisProject3D.UI.GameEntryUIPackage {
+    internal class TitlePageModel : Model<TitlePageUIData> {
         protected override void OnShow(ValueType extraParams) {
 
         }

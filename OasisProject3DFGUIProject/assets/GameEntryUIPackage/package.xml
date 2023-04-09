@@ -45,6 +45,8 @@
     <component id="jlchic" name="ModeSelectPage.xml" path="/Components/"/>
     <component id="jlchie" name="Unit_Btn3.xml" path="/Components/"/>
     <image id="dd23if" name="1_23.png" path="/Res/"/>
+    <image id="oii5ig" name="00001-253694056.png" path="/Res/"/>
+    <image id="oii5ih" name="LoadingBG.png" path="/Res/"/>
   </resources>
   <publish name="" genCode="true" extractAlpha="true"/>
 </packageDescription>

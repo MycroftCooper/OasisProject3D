@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080" designImage="ui://t09fsbe0jlch1j" designImageAlpha="0" designImageLayer="1">
+  <controller name="BuildingListCtrl" pages="0,close,1,open" selected="0"/>
+  <displayList>
+    <component id="n21_jlch" name="GreenRateBar" src="jlch1q" fileName="Components/GreenRateBar.xml" xy="725,64">
+      <ProgressBar value="42" max="100"/>
+    </component>
+    <component id="n23_jlch" name="BuildingList" src="jlch1r" fileName="Components/BuildingTab.xml" xy="0,1160">
+      <gearXY controller="BuildingListCtrl" pages="0,1" values="0,1160|0,825" tween="true"/>
+    </component>
+    <component id="n19_jlch" name="BuildBtn" src="jlch1o" fileName="Components/Unit_IconBtn2.xml" xy="1783,952" size="127,121" aspect="true">
+      <gearXY controller="BuildingListCtrl" pages="0,1" values="1783,952|1752,890" tween="true"/>
+      <Button icon="ui://t09fsbe0i4mbv" controller="BuildingListCtrl" page="1"/>
+    </component>
+    <image id="n1_jlch" name="TopBarBackground" src="i4mb8" fileName="Res/main_picker_0.png" xy="362,0" size="1171,56" group="n26_9pco"/>
+    <image id="n8_jlch" name="n8" src="i4mbg" fileName="Res/main_picker_16.png" xy="555,16" size="24,27" group="n25_9pco"/>
+    <image id="n9_jlch" name="n9" src="i4mbh" fileName="Res/main_picker_17.png" xy="659,18" size="22,26" group="n25_9pco"/>
+    <image id="n10_jlch" name="n10" src="i4mbi" fileName="Res/main_picker_18.png" xy="755,18" size="38,24" group="n25_9pco"/>
+    <image id="n11_jlch" name="n11" src="i4mbf" fileName="Res/main_picker_15.png" xy="425,12" size="27,32" group="n25_9pco"/>
+    <text id="n12_jlch" name="PeopleNum" xy="456,11" size="32,34" group="n25_9pco" fontSize="24" color="#ffffff" align="center" vAlign="middle" text="45"/>
+    <text id="n16_jlch" name="SaplingNum" xy="591,14" size="32,34" group="n25_9pco" fontSize="24" color="#ffffff" align="center" vAlign="middle" text="45"/>
+    <text id="n17_jlch" name="WaterNum" xy="697,11" size="32,34" group="n25_9pco" fontSize="24" color="#ffffff" align="center" vAlign="middle" text="45"/>
+    <text id="n18_jlch" name="WoodNum" xy="807,12" size="32,34" group="n25_9pco" fontSize="24" color="#ffffff" align="center" vAlign="middle" text="45"/>
+    <group id="n25_9pco" name="ResList" xy="425,11" size="414,37" group="n26_9pco"/>
+    <component id="n5_jlch" name="StopBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="1118,8" size="39,40" group="n24_9pco">
+      <Button icon="ui://t09fsbe0i4mbz"/>
+    </component>
+    <component id="n3_jlch" name="Speed2XBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="1315,7" size="39,40" group="n24_9pco">
+      <Button icon="ui://t09fsbe0i4mb13"/>
+    </component>
+    <component id="n4_jlch" name="Speed1XBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="1223,8" size="39,40" group="n24_9pco">
+      <Button icon="ui://t09fsbe0i4mb12"/>
+    </component>
+    <group id="n24_9pco" name="SpeedBtn" xy="1118,7" size="236,41" group="n26_9pco"/>
+    <component id="n6_jlch" name="WeatherBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="944,8" size="39,40" group="n26_9pco">
+      <Button icon="ui://t09fsbe0i4mbs"/>
+    </component>
+    <component id="n2_jlch" name="SettingBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="1458,9" size="37,43" group="n26_9pco">
+      <Button icon="ui://t09fsbe0i4mbj"/>
+    </component>
+    <group id="n26_9pco" name="TopBar" xy="362,0" size="1171,56"/>
+  </displayList>
+</component>

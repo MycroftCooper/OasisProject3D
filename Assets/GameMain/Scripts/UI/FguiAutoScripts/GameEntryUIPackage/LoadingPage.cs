@@ -7,8 +7,7 @@ namespace OasisProject3D.UI.GameEntryUIPackage
 {
     public partial class LoadingPage : GComponent
     {
-        public GGraph Background2;
-        public GImage Background1;
+        public GImage BackGround;
         public GImage Title;
         public ProgressBar1 ProgressBar;
         public GTextField LoadingText;
@@ -23,11 +22,10 @@ namespace OasisProject3D.UI.GameEntryUIPackage
         {
             base.ConstructFromXML(xml);
 
-            Background2 = (GGraph)GetChildAt(0);
-            Background1 = (GImage)GetChildAt(1);
-            Title = (GImage)GetChildAt(2);
-            ProgressBar = (ProgressBar1)GetChildAt(3);
-            LoadingText = (GTextField)GetChildAt(4);
+            BackGround = (GImage)GetChildAt(0);
+            Title = (GImage)GetChildAt(1);
+            ProgressBar = (ProgressBar1)GetChildAt(2);
+            LoadingText = (GTextField)GetChildAt(3);
         }
     }
 }

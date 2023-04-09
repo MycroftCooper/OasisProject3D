@@ -15,19 +15,19 @@ namespace cfg
         /// <summary>
         /// 功能建筑
         /// </summary>
-        Functional = 1,
+        Function = 1,
         /// <summary>
         /// 生产建筑
         /// </summary>
-        Production = 2,
+        Product = 2,
         /// <summary>
         /// 仓储建筑
         /// </summary>
         Storage = 4,
         /// <summary>
-        /// 治沙建筑
+        /// 生态建筑
         /// </summary>
-        SandCtrl = 8,
+        Eco = 8,
     }
 
 } 

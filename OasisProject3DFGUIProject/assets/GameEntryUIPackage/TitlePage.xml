@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080">
-  <controller name="IsSelectBtn" pages="6,title,0,start,4,continue,1,setting,2,about,3,exit" selected="2"/>
+  <controller name="IsSelectBtn" pages="6,title,0,start,4,continue,1,setting,2,about,3,exit" selected="0"/>
   <displayList>
+    <image id="n27_oii5" name="n27" src="oii5ig" fileName="Res/00001-253694056.png" xy="414,0"/>
     <graph id="n15_bmdr" name="TabPageBackground" xy="739,0" size="1180,1080" type="rect" lineSize="0" fillColor="#ffdd9e62">
       <gearDisplay controller="IsSelectBtn" pages="0,4,1,2,3"/>
       <relation target="" sidePair="height-height,rightext-right"/>
     </graph>
-    <image id="n13_bmdr" name="TabBtnBackground" src="bmdrf1" fileName="Res/Gaming/mainLab_img.png" xy="0,0" group="n12_bmdr">
+    <image id="n13_bmdr" name="TabBtnBackground" src="bmdrf1" fileName="Res/mainLab_img.png" xy="0,0" group="n12_bmdr">
       <relation target="" sidePair="height-height,left-left"/>
     </image>
     <component id="n11_bmdr" name="TitleBtn" src="bmdrf2" fileName="Components/title_btn.xml" xy="38,100" size="658,400" group="n12_bmdr" aspect="true">
@@ -20,36 +21,36 @@
       <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,120,1,1|700,80,1,1|700,80,1,1|700,80,1,1|700,80,1,1" ease="Linear" duration="1"/>
       <Button title="开始游戏" titleFontSize="60" controller="IsSelectBtn" page="0"/>
     </component>
-    <component id="n14_bmdr" name="ContinueBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,667" size="700,120" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
+    <component id="n14_bmdr" name="ContinueBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,667" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
       <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,80,1,1|700,120,1,1|700,80,1,1|700,80,1,1|700,80,1,1" ease="Linear" duration="1"/>
-      <Button checked="true" title="继续游戏" titleFontSize="60" controller="IsSelectBtn" page="4"/>
+      <Button title="继续游戏" titleFontSize="60" controller="IsSelectBtn" page="4"/>
     </component>
-    <component id="n4_10tcf" name="SettingBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,787" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
+    <component id="n4_10tcf" name="SettingBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,747" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
       <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,80,1,1|700,80,1,1|700,120,1,1|700,80,1,1|700,80,1,1" ease="Linear" duration="1"/>
       <Button title="游戏设置" titleFontSize="60" controller="IsSelectBtn" page="1"/>
     </component>
-    <component id="n7_10tcf" name="AboutBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,867" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
+    <component id="n7_10tcf" name="AboutBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,827" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
       <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,80,1,1|700,80,1,1|700,80,1,1|700,120,1,1|700,80,1,1" ease="Linear" duration="1"/>
       <Button title="关于游戏" titleFontSize="60" controller="IsSelectBtn" page="2"/>
     </component>
-    <component id="n6_10tcf" name="ExitBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,947" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
+    <component id="n6_10tcf" name="ExitBtn" src="10tcf0" fileName="Components/btn_1.xml" xy="19,907" size="700,80" group="n16_cgmu" alpha="0.85" pageController="IsSelectBtn">
       <gearSize controller="IsSelectBtn" pages="6,0,4,1,2,3" values="700,80,1,1|700,80,1,1|700,80,1,1|700,80,1,1|700,80,1,1|700,120,1,1" ease="Linear" duration="1"/>
       <Button title="退出游戏" titleFontSize="60" controller="IsSelectBtn" page="3"/>
     </component>
-    <group id="n16_cgmu" name="TabBtns" xy="19,587" size="700,440" advanced="true" layout="vt" excludeInvisibles="true"/>
-    <image id="n19_jlch" name="n19" src="i4mbhv" fileName="Res/MainUI/2_18.png" xy="848,140" size="175,203" group="n25_jlch"/>
-    <image id="n20_jlch" name="n20" src="i4mbhv" fileName="Res/MainUI/2_18.png" xy="921,474" size="103,116" group="n25_jlch"/>
+    <group id="n16_cgmu" name="TabBtns" xy="19,587" size="700,400" advanced="true" layout="vt" excludeInvisibles="true"/>
+    <image id="n19_jlch" name="n19" src="i4mbhv" fileName="Res/2_18.png" xy="848,140" size="175,203" group="n25_jlch"/>
+    <image id="n20_jlch" name="n20" src="i4mbhv" fileName="Res/2_18.png" xy="921,474" size="103,116" group="n25_jlch"/>
     <text id="n21_jlch" name="n21" xy="1140,195" size="499,105" group="n25_jlch" fontSize="77" color="#ffffff" autoSize="none" text="主创: 刘一凡"/>
     <text id="n22_jlch" name="n22" xy="1158,502" size="336,75" group="n25_jlch" fontSize="56" color="#ffffff" autoSize="shrink" text="帮助: 冯安蒙"/>
-    <image id="n23_jlch" name="n23" src="i4mbhv" fileName="Res/MainUI/2_18.png" xy="925,663" size="103,116" group="n25_jlch"/>
+    <image id="n23_jlch" name="n23" src="i4mbhv" fileName="Res/2_18.png" xy="925,663" size="103,116" group="n25_jlch"/>
     <text id="n24_jlch" name="n24" xy="1162,691" size="336,75" group="n25_jlch" fontSize="56" color="#ffffff" autoSize="shrink" text="帮助: 风徐"/>
     <group id="n25_jlch" name="n25" xy="848,140" size="791,639" advanced="true">
       <gearDisplay controller="IsSelectBtn" pages="2"/>
     </group>
-    <component id="n18_jlch" name="Setting" src="i4mbfg" fileName="Unit_SettingPage.xml" xy="740,0">
+    <component id="n18_jlch" name="Setting" src="i4mbfg" fileName="Components/SettingPage.xml" xy="740,0">
       <gearDisplay controller="IsSelectBtn" pages="1"/>
     </component>
-    <component id="n26_jlch" name="ModeSelect" src="jlchic" fileName="Unit_ModeSelect.xml" xy="740,0">
+    <component id="n26_jlch" name="ModeSelect" src="jlchic" fileName="Components/ModeSelectPage.xml" xy="740,0">
       <gearDisplay controller="IsSelectBtn" pages="4"/>
     </component>
   </displayList>

@@ -10,7 +10,7 @@ namespace QuickGameFramework.Runtime.UI {
 
         protected abstract void OnShow(T data);
         protected abstract void OnHide(T data);
-        protected abstract void OnRefresh(T data);
+        protected virtual void OnRefresh(T data) { }
         protected abstract void ProcessMessage(ValueType command, T data);
         protected abstract bool OnBackButtonClicked();
 

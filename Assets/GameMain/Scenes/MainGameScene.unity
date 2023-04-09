@@ -1050,6 +1050,9 @@ GameObject:
   m_Component:
   - component: {fileID: 980304565}
   - component: {fileID: 980304566}
+  - component: {fileID: 980304569}
+  - component: {fileID: 980304568}
+  - component: {fileID: 980304567}
   m_Layer: 5
   m_Name: GameMainUI
   m_TagString: Untagged
@@ -1085,7 +1088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   packageName: GameMainUIPackage
-  componentName: GameMainUI
+  componentName: MainPage
   fitScreen: 1
   sortingOrder: 0
   packagePath: Assets/GameRes/UI/FguiPackages/GameMainUIPackage
@@ -1099,6 +1102,45 @@ MonoBehaviour:
   cachedUISize: {x: 1920, y: 1080}
   hitTestMode: 0
   setNativeChildrenOrder: 0
+--- !u!114 &980304567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980304564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea74375cf2ec6644daf1e62e3fad8214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiID: MainPage
+  useFgui: 1
+  fguiBinderName: OasisProject3D.UI.GameMainUIPackage.GameMainUIPackageBinder
+--- !u!114 &980304568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980304564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b60e3639bb3ed45a910d8013cf7319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &980304569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980304564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e901b98aefdea44fa6f9376e2cd584b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1217710232
 GameObject:
   m_ObjectHideFlags: 0

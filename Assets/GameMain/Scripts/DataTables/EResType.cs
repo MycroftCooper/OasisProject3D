@@ -20,13 +20,13 @@ namespace cfg
         /// </summary>
         Water = 1,
         /// <summary>
-        /// 能量
+        /// 电力
         /// </summary>
-        Power = 2,
+        Electricity = 2,
         /// <summary>
         /// 建筑材料
         /// </summary>
-        BuildingRes = 3,
+        BuildingMaterial = 3,
         /// <summary>
         /// 幼苗
         /// </summary>

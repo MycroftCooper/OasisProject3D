@@ -32,18 +32,18 @@ namespace OasisProject3D.UI.GameEntryUIPackage
             base.ConstructFromXML(xml);
 
             IsSelectBtn = GetControllerAt(0);
-            TabPageBackground = (GGraph)GetChildAt(0);
-            TabBtnBackground = (GImage)GetChildAt(1);
-            TitleBtn = (GButton)GetChildAt(2);
-            TabHead = (GGroup)GetChildAt(3);
-            StartBtn = (GButton)GetChildAt(4);
-            ContinueBtn = (GButton)GetChildAt(5);
-            SettingBtn = (GButton)GetChildAt(6);
-            AboutBtn = (GButton)GetChildAt(7);
-            ExitBtn = (GButton)GetChildAt(8);
-            TabBtns = (GGroup)GetChildAt(9);
-            Setting = (SettingPage)GetChildAt(17);
-            ModeSelect = (ModeSelectPage)GetChildAt(18);
+            TabPageBackground = (GGraph)GetChildAt(1);
+            TabBtnBackground = (GImage)GetChildAt(2);
+            TitleBtn = (GButton)GetChildAt(3);
+            TabHead = (GGroup)GetChildAt(4);
+            StartBtn = (GButton)GetChildAt(5);
+            ContinueBtn = (GButton)GetChildAt(6);
+            SettingBtn = (GButton)GetChildAt(7);
+            AboutBtn = (GButton)GetChildAt(8);
+            ExitBtn = (GButton)GetChildAt(9);
+            TabBtns = (GGroup)GetChildAt(10);
+            Setting = (SettingPage)GetChildAt(18);
+            ModeSelect = (ModeSelectPage)GetChildAt(19);
         }
     }
 }

@@ -2,33 +2,31 @@ using System;
 using System.Collections.Generic;
 using FairyGUI;
 using OasisProject3D.Procedures;
-using OasisProject3D.UI.GameEntryUIPackage;
 using QuickGameFramework.Runtime;
 using QuickGameFramework.Runtime.UI;
 
-namespace OasisProject3D.UI {
-    public class TitlePageView : View<TitlePageData> {
+namespace OasisProject3D.UI.GameEntryUIPackage {
+    internal class TitlePageView : View<TitlePageUIData> {
         private TitlePage _titlePage;
 
-        protected override void OnShow(TitlePageData data) {
+        protected override void OnShow(TitlePageUIData uiData) {
             _titlePage = (TitlePage)UIPanel.ui;
             BindBtnClickedHandler();
         }
 
-        protected override void OnHide(TitlePageData data) {
+        protected override void OnHide(TitlePageUIData uiData) {
             throw new NotImplementedException();
         }
 
-        protected override void OnRefresh(TitlePageData data) {
+        protected override void OnRefresh(TitlePageUIData uiData) {
             throw new NotImplementedException();
         }
 
-        protected override void ProcessMessage(ValueType command, TitlePageData data) {
+        protected override void ProcessMessage(ValueType command, TitlePageUIData uiData) {
             
         }
 
         #region 按钮
-
         private List<GButton> _buttons;
         public int defaultBtnTextSize = 60;
         public int selectBtnTextSize = 80;

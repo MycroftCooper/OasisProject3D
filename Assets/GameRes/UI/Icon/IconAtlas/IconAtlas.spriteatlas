@@ -40,8 +40,22 @@ SpriteAtlas:
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 260c5b020a0fa164295bea8a86a142f0, type: 3}
+  - {fileID: 21300000, guid: 7526c5c4830e5ba4e9a157d2f9770159, type: 3}
+  - {fileID: 21300000, guid: fcc52665f1d80b646914436301ea87b6, type: 3}
+  - {fileID: 21300000, guid: 277acdf9fc98ad046b6cb6a7ba1077ae, type: 3}
+  - {fileID: 21300000, guid: 2dd78a2b8ba018f4688f701bf440569d, type: 3}
+  - {fileID: 21300000, guid: 49898aabe9fd19446ad3a12cec7f6fea, type: 3}
+  - {fileID: 21300000, guid: fc28bccfb5761c3488afb1c7cd1119a0, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - centerTower_icon
+  - sandControlGrass_icon
+  - windbreakTree_icon
+  - solarPowerStation_icon
+  - windPowerStation_icon
+  - firePowerStation_icon
+  - field_icon
   m_RenderDataMap: {}
   m_Tag: IconAtlas
   m_IsVariant: 0

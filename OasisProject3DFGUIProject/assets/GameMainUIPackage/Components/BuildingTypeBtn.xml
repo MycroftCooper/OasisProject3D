@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="226,59" pivot="0.5,0.5" extention="Button">
+  <controller name="button" pages="0,up,1,down" selected="0"/>
+  <controller name="TypeCtrl" exported="true" pages="4,All,0,Eco,1,Storage,2,Product,3,Function" selected="4"/>
+  <displayList>
+    <image id="n5_oii5" name="n5" src="i4mb1g" fileName="Res/main_picker_7.png" xy="0,0" color="#ffff00">
+      <gearDisplay controller="button" pages="0,1"/>
+      <gearColor controller="TypeCtrl" pages="4,0,1,2,3" values="#ff9933|#63db60|#609bdb|#db617b|#ffff00"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n2_jlch" name="title" xy="0,0" size="226,59" fontSize="29" color="#ffffff" align="center" vAlign="middle" autoSize="none" singleLine="true" text="生态建筑">
+      <relation target="" sidePair="width-width,height-height"/>
+    </text>
+  </displayList>
+  <Button mode="Radio" downEffect="scale" downEffectValue="1.25"/>
+</component>
