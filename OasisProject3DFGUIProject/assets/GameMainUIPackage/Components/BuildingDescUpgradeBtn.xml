@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="512,136" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <image id="n0_lzb4" name="n0" src="jlch1v" fileName="Res/hexagon _img(1).png" xy="1,-32" size="1022,200" scale="0.5,1" color="#ffcc66">
+      <gearDisplay controller="button" pages="0"/>
+      <relation target="" sidePair="width-width%,height-height"/>
+    </image>
+    <image id="n1_lzb4" name="n1" src="jlch1v" fileName="Res/hexagon _img(1).png" xy="0,-32" size="1022,200" scale="0.5,1" color="#669900">
+      <gearDisplay controller="button" pages="1"/>
+      <relation target="" sidePair="width-width%,height-height"/>
+    </image>
+    <image id="n2_lzb4" name="n2" src="jlch1v" fileName="Res/hexagon _img(1).png" xy="0,-32" size="1022,200" scale="0.5,1" color="#ecbc92">
+      <gearDisplay controller="button" pages="2"/>
+      <relation target="" sidePair="width-width%,height-height"/>
+    </image>
+    <image id="n3_lzb4" name="n3" src="jlch1v" fileName="Res/hexagon _img(1).png" xy="0,-32" size="1022,200" scale="0.5,1" color="#ecbc92">
+      <gearDisplay controller="button" pages="3"/>
+      <relation target="" sidePair="width-width%,height-height"/>
+    </image>
+    <text id="n4_lzb4" name="title" xy="68,6" size="378,125" fontSize="60" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="升级&#xA;">
+      <gearColor controller="button" pages="0" values="#ffffff,#000000" default="#000000,#000000"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </text>
+  </displayList>
+  <Button/>
+</component>

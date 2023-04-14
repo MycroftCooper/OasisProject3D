@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="470,880" bgColor="#ffcc33">
+  <displayList>
+    <image id="n0_jobk" name="n0" src="i4mb19" fileName="Res/main_picker_42.png" xy="3,-10" size="467,891" group="n40_n7q6"/>
+    <image id="n27_jobk" name="n27" src="i4mb1g" fileName="Res/main_picker_7.png" xy="130,11" size="216,59" group="n40_n7q6"/>
+    <group id="n40_n7q6" name="n40" xy="3,-10" size="467,891"/>
+    <text id="n4_jobk" name="n4" xy="16,823" size="440,50" group="n15_jobk" fontSize="18" color="#ffffff" align="center" autoSize="none" text="用於種植和飼養的農業土地和設施，以生產食物和其他產品"/>
+    <text id="n3_jobk" name="n3" xy="148,22" size="177,48" group="n15_jobk" fontSize="26" color="#ffffff" align="center" autoSize="none" text="农场&#xA;"/>
+    <group id="n15_jobk" name="n15" xy="16,22" size="440,851"/>
+    <component id="n30_jobk" name="n30" src="jlch1w" fileName="Components/BuildingDescUpgradeBtn.xml" xy="105,752" group="n14_jobk" scale="0.5,0.5"/>
+    <component id="n2_jobk" name="n2" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="412,20" group="n14_jobk"/>
+    <component id="n33_jobk" name="n33" src="jobk2g" fileName="Components/BuildingDescSwitchBtn.xml" xy="23,-6" group="n14_jobk"/>
+    <component id="n34_n7q6" name="n34" src="n7q62i" fileName="Components/BuildingDescNextBtn.xml" xy="249,330" group="n14_jobk" scale="1.5,1.5"/>
+    <component id="n35_n7q6" name="n35" src="n7q62h" fileName="Components/BuildingDescPrevBtn.xml" xy="164,329" group="n14_jobk" scale="1.5,1.5"/>
+    <component id="n36_n7q6" name="n36" src="n7q62k" fileName="Components/BuildingDescDestructBtn.xml" xy="31,296" group="n14_jobk" scale="0.8,0.8"/>
+    <component id="n37_n7q6" name="n37" src="n7q62j" fileName="Components/BuildingDescEditBtn.xml" xy="393,308" group="n14_jobk" scale="0.8,0.8"/>
+    <component id="n38_n7q6" name="n38" src="n7q62l" fileName="Components/BuildingDescFocusBtn.xml" xy="13,50" group="n14_jobk" scale="0.6,0.6"/>
+    <group id="n14_jobk" name="n14" xy="13,-6" size="604,894"/>
+    <image id="n7_jobk" name="n7" src="i4mbs" fileName="Res/main_picker_27.png" xy="132,134" size="212,193" group="n39_n7q6"/>
+    <image id="n8_jobk" name="n8" src="i4mbg" fileName="Res/main_picker_16.png" xy="81,381" size="24,36" group="n39_n7q6"/>
+    <text id="n9_jobk" name="n9" xy="124,381" size="24,38" group="n39_n7q6" fontSize="27" color="#ffffff" align="center" autoSize="none" bold="true" text="6"/>
+    <text id="n10_jobk" name="n10" xy="286,381" size="115,38" group="n39_n7q6" fontSize="27" color="#ffffff" align="center" autoSize="none" text="每小时"/>
+    <image id="n11_jobk" name="n11" src="i4mbh" fileName="Res/main_picker_17.png" xy="81,442" size="27,36" group="n39_n7q6"/>
+    <text id="n12_jobk" name="n12" xy="124,441" size="24,38" group="n39_n7q6" fontSize="27" color="#ff0000" align="center" autoSize="none" bold="true" text="6"/>
+    <text id="n13_jobk" name="n13" xy="286,441" size="115,38" group="n39_n7q6" fontSize="27" color="#ffffff" align="center" autoSize="none" text="每小时"/>
+    <text id="n17_jobk" name="n17" xy="4,441" size="78,38" group="n39_n7q6" fontSize="27" color="#ff0000" align="center" autoSize="none" text="消耗"/>
+    <group id="n39_n7q6" name="n39" xy="4,134" size="397,345"/>
+  </displayList>
+</component>
