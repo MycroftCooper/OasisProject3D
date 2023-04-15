@@ -9,7 +9,7 @@ namespace OasisProject3D.UI.GameMainUIPackage
     {
         public Controller TabSelected;
         public GImage BuildingListBackground;
-        public GList BuildList;
+        public GList BuildingCaseList;
         public BuildingTypeBtn BuildingTabAnyBtn;
         public BuildingTypeBtn BuildingTabFunctionBtn;
         public BuildingTypeBtn BuildingTabEcoBtn;
@@ -29,7 +29,7 @@ namespace OasisProject3D.UI.GameMainUIPackage
 
             TabSelected = GetControllerAt(0);
             BuildingListBackground = (GImage)GetChildAt(0);
-            BuildList = (GList)GetChildAt(1);
+            BuildingCaseList = (GList)GetChildAt(1);
             BuildingTabAnyBtn = (BuildingTypeBtn)GetChildAt(2);
             BuildingTabFunctionBtn = (BuildingTypeBtn)GetChildAt(3);
             BuildingTabEcoBtn = (BuildingTypeBtn)GetChildAt(4);

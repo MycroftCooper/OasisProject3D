@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="180,180" overflow="hidden" extention="Button">
+<component size="180,180" pivot="0.5,0.5" overflow="hidden" extention="Button">
   <controller name="button" pages="0,up,1,down" selected="0"/>
   <displayList>
     <graph id="n4_oii5" name="n4" xy="0,0" size="180,180" type="rect" lineColor="#ff999999" fillColor="#ffac8a47" corner="5"/>
-    <loader id="n1_jlch" name="BuildingIcon" xy="0,0" size="180,180" url="ui://t09fsbe0i4mbs" align="center" vAlign="middle" fill="scaleNoBorder" clearOnPublish="true">
+    <loader id="n1_jlch" name="BuildingIcon" xy="0,0" size="180,180" url="ui://t09fsbe0i4mbs" align="center" vAlign="middle" fill="scale" clearOnPublish="true">
       <relation target="" sidePair="width-width,height-height"/>
     </loader>
+    <text id="n5_rw9t" name="BuildingName" xy="0,140" size="181,35" fontSize="25" align="center" vAlign="middle" autoSize="none" autoClearText="true" text="中央水塔"/>
   </displayList>
-  <Button downEffect="dark" downEffectValue=".8"/>
+  <Button downEffect="scale" downEffectValue=".8"/>
 </component>

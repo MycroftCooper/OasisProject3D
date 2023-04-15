@@ -11,18 +11,21 @@ namespace QuickGameFramework.Runtime {
                     return 0;
                 }
 
-                float totalProgress = Handles.Sum(assetOperationHandle => assetOperationHandle.Progress);
-                return totalProgress / Handles.Count;
+                var totalProgress = Handles.Sum(assetOperationHandle => assetOperationHandle.Progress) + 
+                                    SubHandles.Sum(assetOperationHandle => assetOperationHandle.Progress);
+                return totalProgress / (Handles.Count + SubHandles.Count);
             }
         }
         public bool IsComplete => _completeHandleNum == Handles.Count;
         public Action Completed;
         
         public List<AssetOperationHandle> Handles { get; }
+        public List<SubAssetsOperationHandle> SubHandles { get; }
         private int _completeHandleNum;
 
         public AssetLoadProgress() {
             Handles = new List<AssetOperationHandle>();
+            SubHandles = new List<SubAssetsOperationHandle>();
             _completeHandleNum = 0;
         }
 
@@ -34,6 +37,11 @@ namespace QuickGameFramework.Runtime {
         
         public static AssetLoadProgress operator +(AssetLoadProgress a, AssetOperationHandle b) {
             a.AddHandle(b);
+            return a;
+        }
+        
+        public static AssetLoadProgress operator +(AssetLoadProgress a, SubAssetsOperationHandle b) {
+            a.AddSubHandle(b);
             return a;
         }
 
@@ -57,8 +65,21 @@ namespace QuickGameFramework.Runtime {
             Handles.Add(handle);
             handle.Completed += OnHandleComplete;
         }
+        
+        public void AddSubHandle(SubAssetsOperationHandle handle) {
+            if (handle == null) {
+                QLog.Error("QuickGameFramework>Asset> handle为空，加入加载队列失败！");
+                return;
+            }
+            if (SubHandles.Contains(handle)) {
+                QLog.Error("QuickGameFramework>Asset> 该handle已存在，加入加载队列失败！");
+                return;
+            }
+            SubHandles.Add(handle);
+            handle.Completed += OnHandleComplete;
+        }
 
-        public void OnHandleComplete(AssetOperationHandle handle) {
+        public void OnHandleComplete(OperationHandleBase handle) {
             _completeHandleNum += 1;
             if (IsComplete) {
                 Completed?.Invoke();

@@ -34,6 +34,19 @@ namespace QuickGameFramework.Runtime {
 			return handle;
 		}
 
+		public SubAssetsOperationHandle LoadSubAssetsAsync<T>(string path, Action<T[]> callback, string packageName = null) where T : Object {
+			if (!GetAssetPackage(packageName, out AssetsPackage package)) {
+				QLog.Error($"QuickGameFramework>Asset>资源<{path}>异步加载失败!");
+				return null;
+			}
+			var handle = package.LoadSubAssetsAsync<Sprite>(path);
+			if (callback != null) {
+				handle.Completed += _ => callback(handle.GetSubAssetObjects<T>());
+			}
+
+			return handle;
+		}
+
 		public AssetOperationHandle[] LoadAssetsAsyncByTag<T>(string tag, Action<T> callback, string packageName = null)
 			where T : Object {
 			if (!GetAssetPackage(packageName, out AssetsPackage package)) {

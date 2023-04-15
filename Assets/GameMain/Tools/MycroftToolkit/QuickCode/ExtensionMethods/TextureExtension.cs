@@ -74,18 +74,42 @@ namespace MycroftToolkit.QuickCode {
         public static RectInt GetRectInt(this Texture target) => new RectInt(Vector2Int.zero, target.GetSize());
 
         public static Texture2D GetSlicedTexture(this Sprite sprite) {
-            Texture2D source = sprite.texture;
-            RectInt rect = new RectInt(sprite.rect.position.ToVec2Int(), sprite.rect.size.ToVec2Int());
-            Texture2D output = new Texture2D(rect.width, rect.height);
-            for (int x = 0; x < rect.width; x++) {
-                for (int y = 0; y < rect.height; y++) {
-                    Color targetColor = source.GetPixel(rect.x + x, rect.y + y);
-                    output.SetPixel(x, y, targetColor);
-                }
-            }
+            // 确保宽度和高度是4的倍数
+            int width = ((int)sprite.rect.width + 3) & ~3;
+            int height = ((int)sprite.rect.height + 3) & ~3;
 
-            output.Apply();
-            return output;
+            // 创建一个新的Texture2D，大小为宽度和高度的4的倍数
+            Texture2D tempTexture = new Texture2D(width, height) {
+                filterMode = sprite.texture.filterMode,
+                wrapMode = sprite.texture.wrapMode
+            };
+
+            // 从Sprite的原始纹理中读取像素
+            Color[] colors = sprite.texture.GetPixels(
+                (int)sprite.textureRect.x,
+                (int)sprite.textureRect.y,
+                (int)sprite.textureRect.width,
+                (int)sprite.textureRect.height
+            );
+
+            // 将像素设置到临时的Texture2D中
+            tempTexture.SetPixels(0, 0, (int)sprite.textureRect.width, (int)sprite.textureRect.height, colors);
+            tempTexture.Apply(); // 应用更改
+
+            // 创建一个新的Texture2D，大小与Sprite相同
+            Texture2D finalTexture = new Texture2D((int)sprite.rect.width, (int)sprite.rect.height) {
+                filterMode = sprite.texture.filterMode,
+                wrapMode = sprite.texture.wrapMode
+            };
+
+            // 从临时Texture2D中复制像素到最终Texture2D中
+            finalTexture.SetPixels(tempTexture.GetPixels(0, 0, (int)sprite.rect.width, (int)sprite.rect.height));
+            finalTexture.Apply(); // 应用更改
+
+            // 销毁临时Texture2D
+            Object.Destroy(tempTexture);
+
+            return finalTexture;
         }
 
         public static Texture2D ExtendTexture(this Texture2D target, int extendWidth, bool scanPixels = false) {

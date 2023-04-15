@@ -1,0 +1,19 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:db21729f4c4f3575335e30b77f56d7be:40bd2025030737e0455c2213acd6b6ed:891586cbe283181a2336ed1f25caa5d6$
+#
+:format=40300
+:texture=BuildingIcons_2.png
+:size=2048x2048
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+field_icon;1012;567;987;692; 0.5;0.5; 0;0;0;0
+sandControlGrass_icon;0;1024;1012;1024; 0.5;0.5; 0;0;0;0
+windbreakTree_icon;0;264;980;760; 0.5;0.5; 0;0;0;0
+windPowerStation_icon;1012;1259;1003;789; 0.5;0.5; 0;0;0;0

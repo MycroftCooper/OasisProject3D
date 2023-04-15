@@ -2,15 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using cfg;
+using FairyGUI;
+using MycroftToolkit.QuickCode;
+using OasisProject3D.BuildingSystem;
 using QuickGameFramework.Runtime.UI;
+using UnityEngine;
 
 namespace OasisProject3D.UI.GameMainUIPackage {
     internal class MainPageView : View<MainPageUIData> {
         private MainPage _mainPage;
 
-        protected override void OnShow(MainPageUIData uiData) {
+        protected override void Start() {
+            base.Start();
             _mainPage = (MainPage)UIPanel.ui;
         }
+
+        protected override void OnShow(MainPageUIData uiData) { }
 
         protected override void OnHide(MainPageUIData uiData) {
             throw new NotImplementedException();
@@ -47,7 +54,19 @@ namespace OasisProject3D.UI.GameMainUIPackage {
         }
         
         protected void OnBuildingListRefresh(MainPageUIData uiData) {
-            throw new NotImplementedException();
+            GList buildingList = _mainPage.BuildingList.BuildingCaseList;
+            buildingList.RemoveChildrenToPool();
+            List<string> buildingKeys = BuildingManager.Instance.GetBuildingKeys(uiData.SelectedBuildingType);
+            foreach (var buildingKey in buildingKeys) {
+                Sprite buildingIcon = BuildingFactory.Instance.GetBuildingIcon(buildingKey);
+                if (buildingIcon == null) {
+                    continue;
+                }
+                BuildingIconCase buildingIconCase = (BuildingIconCase)buildingList.AddItemFromPool();
+                buildingIconCase.BuildingIcon.texture = new NTexture(buildingIcon);
+                buildingIconCase.BuildingName.text = buildingKey;
+                buildingIconCase.name = buildingKey;
+            }
         }
         #endregion
 

@@ -3,7 +3,7 @@
   <controller name="TabSelected" pages="4,All,0,Function,1,Product,2,Storage,3,Eco" selected="0"/>
   <displayList>
     <image id="n0_jlch" name="BuildingListBackground" src="i4mb19" fileName="Res/main_picker_42.png" xy="0,0"/>
-    <list id="n8_jlch" name="BuildList" xy="22,40" size="1676,203" pageController="TabSelected" layout="row" overflow="scroll" scroll="horizontal" colGap="60" defaultItem="ui://t09fsbe0jlch1t">
+    <list id="n8_jlch" name="BuildingCaseList" xy="22,40" size="1676,203" pageController="TabSelected" layout="row" overflow="scroll" scroll="horizontal" colGap="60" defaultItem="ui://t09fsbe0jlch1t">
       <relation target="" sidePair="width-width,height-height"/>
       <item/>
       <item/>

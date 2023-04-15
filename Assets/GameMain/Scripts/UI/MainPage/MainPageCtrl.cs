@@ -12,11 +12,15 @@ namespace OasisProject3D.UI.GameMainUIPackage {
         private void Start() {
             _mainPage = (MainPage)UIPanel.ui;
             _mainPage.BuildBtn.onClick.Add(OnBuildBtnClicked);
-            _mainPage.BuildingList.BuildingTabAnyBtn.onClick.Add(OnBuildTypeBtnClicked);
-            _mainPage.BuildingList.BuildingTabFunctionBtn.onClick.Add(OnBuildTypeBtnClicked);
-            _mainPage.BuildingList.BuildingTabEcoBtn.onClick.Add(OnBuildTypeBtnClicked);
-            _mainPage.BuildingList.BuildingTabProductBtn.onClick.Add(OnBuildTypeBtnClicked);
-            _mainPage.BuildingList.BuildingTabStorageBtn.onClick.Add(OnBuildTypeBtnClicked);
+            _mainPage.BuildingList.BuildingTabAnyBtn.onClick.Add(OnBuildingTypeBtnClicked);
+            _mainPage.BuildingList.BuildingTabFunctionBtn.onClick.Add(OnBuildingTypeBtnClicked);
+            _mainPage.BuildingList.BuildingTabEcoBtn.onClick.Add(OnBuildingTypeBtnClicked);
+            _mainPage.BuildingList.BuildingTabProductBtn.onClick.Add(OnBuildingTypeBtnClicked);
+            _mainPage.BuildingList.BuildingTabStorageBtn.onClick.Add(OnBuildingTypeBtnClicked);
+            _mainPage.BuildingList.BuildingCaseList.onClickItem.Add(OnBuildingBtnClicked);
+
+            _isBuildingListOpen = false;
+            
             DispatchMessage(new Message{Command =  Message.CommonCommand.Show});
         }
 
@@ -24,18 +28,37 @@ namespace OasisProject3D.UI.GameMainUIPackage {
         private bool _isBuildingListOpen;
         private EBuildingType _nowSelectType;
         
-        public void OnBuildBtnClicked() {
+        private void OnBuildBtnClicked() {
+            _isBuildingListOpen = !_isBuildingListOpen;
+            if (!_isBuildingListOpen) {
+                return;
+            }
             
+            _nowSelectType = EBuildingType.Any;
+            DispatchMessage(new Message {
+                Command =  MainPageUICommand.UpdateBuildingList,
+                ExtraParams = _nowSelectType
+            });
         }
 
-        public void OnBuildTypeBtnClicked(EventContext context) {
+        private void OnBuildingTypeBtnClicked(EventContext context) {
             string btnName = ((BuildingTypeBtn)context.sender).name;
             string buildingTypeStr = btnName.Replace("BuildingTab", "").Replace("Btn", "");
             EBuildingType buildingType = Enum.Parse<EBuildingType>(buildingTypeStr);
             if (_nowSelectType == buildingType) {
                 return;
             }
-            QLog.Error(buildingType);
+
+            _nowSelectType = buildingType;
+            DispatchMessage(new Message {
+                Command =  MainPageUICommand.UpdateBuildingList,
+                ExtraParams = buildingType
+            });
+        }
+
+        public void OnBuildingBtnClicked(EventContext context) {
+            string buildingKey = ((BuildingIconCase)context.sender).BuildingIcon.name;
+            QLog.Error(buildingKey);
         }
         #endregion
 

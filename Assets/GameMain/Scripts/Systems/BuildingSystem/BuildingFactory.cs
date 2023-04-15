@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using cfg;
 using QuickGameFramework.Runtime;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -9,8 +10,7 @@ namespace OasisProject3D.BuildingSystem {
         private Dictionary<string, GameObject> _prefabs;
         private Dictionary<string, Material> _materials;
         private Dictionary<string, Sprite> _icons;
-        private SpriteAtlas _iconAtlas;
-        
+
         public AssetLoadProgress PreLoadAsset() {
             var output = new AssetLoadProgress();
             _prefabs = new Dictionary<string, GameObject>();
@@ -23,16 +23,17 @@ namespace OasisProject3D.BuildingSystem {
 
             var projectAssetSetting = GameEntry.ConfigMgr.ProjectAssetSetting;
             _icons = new Dictionary<string, Sprite>();
-            output += GameEntry.AssetMgr.LoadAssetAsync<SpriteAtlas>($"{projectAssetSetting.uiResPath}BuildingIconAtlas",
-                _ => {
-                    _iconAtlas = _;
-                    var result = new Sprite[_iconAtlas.spriteCount];
-                    _iconAtlas.GetSprites(result);
-                    foreach (var icon in result) {
-                        _icons.Add(icon.name.Replace("_icon","") , icon);
-                    }
-                }, projectAssetSetting.uiAssetsPackageName);
+            output += GameEntry.AssetMgr.LoadSubAssetsAsync<Sprite>($"{projectAssetSetting.uiResPath}BuildingIcons_1",
+                LoadBuildingIcon, projectAssetSetting.uiAssetsPackageName);
+            output += GameEntry.AssetMgr.LoadSubAssetsAsync<Sprite>($"{projectAssetSetting.uiResPath}BuildingIcons_2",
+                LoadBuildingIcon, projectAssetSetting.uiAssetsPackageName);
             return output;
+        }
+
+        private void LoadBuildingIcon(Sprite[] icons) {
+            foreach (var icon in icons) {
+                _icons.Add(icon.name.Replace("_icon","") , icon);
+            }
         }
 
         public void Init() {
@@ -47,18 +48,37 @@ namespace OasisProject3D.BuildingSystem {
             throw new System.NotImplementedException();
         }
 
+        #region 获取资源相关
         public Material GetBuildingMaterial(string key) {
             if (!_materials.TryGetValue(key, out var output)) {
-                QLog.Error($"BuildingFactory>Error> 材质 {key}不存在，可能是没加载，也可能真的不存在!");
+                QLog.Error($"BuildingFactory>Error> 材质<{key}>不存在，可能是没加载，也可能真的不存在!");
             }
             return output;
         }
         
         public Sprite GetBuildingIcon(string key){
             if (!_icons.TryGetValue(key, out var output)) {
-                QLog.Error($"BuildingFactory>Error> Icon {key}不存在，可能是没加载，也可能真的不存在!");
+                QLog.Warning($"BuildingFactory>Error> Icon<{key}>不存在，可能是没加载，也可能真的不存在!");
             }
             return output;
         }
+
+        public List<Sprite> GetBuildingIcon(EBuildingType buildingType) {
+            List<string> buildingKeys = BuildingManager.Instance.GetBuildingKeys(buildingType);
+            if (buildingKeys.Count == 0) {
+                QLog.Error($"BuildingFactory> 未找到<{buildingType}>类型的建筑Key!请检查建筑配表!");
+                return null;
+            }
+
+            List<Sprite> output = new List<Sprite>();
+            foreach (var key in buildingKeys) {
+                var icon = GetBuildingIcon(key);
+                output.Add(icon); 
+            }
+
+            return output;
+        }
+        #endregion
+        
     }
 }
