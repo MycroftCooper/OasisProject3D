@@ -13,21 +13,25 @@ namespace cfg
     public enum EBuildingType
     {
         /// <summary>
+        /// 任意类型
+        /// </summary>
+        Any = 1,
+        /// <summary>
         /// 功能建筑
         /// </summary>
-        Function = 1,
+        Function = 2,
         /// <summary>
         /// 生产建筑
         /// </summary>
-        Product = 2,
+        Product = 4,
         /// <summary>
         /// 仓储建筑
         /// </summary>
-        Storage = 4,
+        Storage = 8,
         /// <summary>
         /// 生态建筑
         /// </summary>
-        Eco = 8,
+        Eco = 16,
     }
 
 } 

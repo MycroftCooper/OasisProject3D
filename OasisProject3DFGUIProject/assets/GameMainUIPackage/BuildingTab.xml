@@ -11,7 +11,7 @@
       <item/>
       <item/>
     </list>
-    <component id="n11_oii5" name="BuildingTabAllBtn" src="jlch1s" fileName="Components/BuildingTypeBtn.xml" xy="35,-28" group="n9_oii5" controller="TypeCtrl,4">
+    <component id="n11_oii5" name="BuildingTabAnyBtn" src="jlch1s" fileName="Components/BuildingTypeBtn.xml" xy="35,-28" group="n9_oii5" controller="TypeCtrl,4">
       <relation target="" sidePair="right-right"/>
       <Button checked="true" title="全部建筑" controller="TabSelected" page="4"/>
     </component>
@@ -19,11 +19,11 @@
       <relation target="" sidePair="right-right"/>
       <Button title="功能建筑" controller="TabSelected" page="0"/>
     </component>
-    <component id="n1_jlch" name="BuildingEcoTabBtn" src="jlch1s" fileName="Components/BuildingTypeBtn.xml" xy="567,-28" size="226,59" group="n9_oii5" controller="TypeCtrl,0">
+    <component id="n1_jlch" name="BuildingTabEcoBtn" src="jlch1s" fileName="Components/BuildingTypeBtn.xml" xy="567,-28" size="226,59" group="n9_oii5" controller="TypeCtrl,0">
       <relation target="" sidePair="right-right"/>
       <Button title="生态建筑" controller="TabSelected" page="3"/>
     </component>
-    <component id="n2_jlch" name="BuildingTabProductionBtn" src="jlch1s" fileName="Components/BuildingTypeBtn.xml" xy="833,-28" size="226,59" group="n9_oii5" controller="TypeCtrl,2">
+    <component id="n2_jlch" name="BuildingTabProductBtn" src="jlch1s" fileName="Components/BuildingTypeBtn.xml" xy="833,-28" size="226,59" group="n9_oii5" controller="TypeCtrl,2">
       <relation target="" sidePair="right-right"/>
       <Button title="生产建筑" controller="TabSelected" page="1"/>
     </component>

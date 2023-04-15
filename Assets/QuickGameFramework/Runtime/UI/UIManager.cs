@@ -19,13 +19,6 @@ namespace QuickGameFramework.Runtime {
             _uiCtrlDict = new GeneralDictionary<string>();
         }
 
-        public AssetLoadProgress PreLoadAsset() {
-            var output = new AssetLoadProgress();
-            output += GameEntry.AssetMgr.LoadAssetAsync<SpriteAtlas>($"{_projectAssetSetting.uiResPath}IconAtlas",
-                _ => { _iconAtlas = _; }, _projectAssetSetting.uiAssetsPackageName);
-            return output;
-        }
-
         #region UI资源预加载相关
         public bool HasPreloadPackage(string uiPackageName) {
             return _handleDict.ContainsKey(uiPackageName);

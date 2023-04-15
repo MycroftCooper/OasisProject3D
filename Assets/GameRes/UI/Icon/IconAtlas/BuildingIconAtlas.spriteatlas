@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IconAtlas
+  m_Name: BuildingIconAtlas
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -32,10 +32,7 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 102900000, guid: 655c0494c6234cc46b0b6485eaed5121, type: 3}
     - {fileID: 102900000, guid: 5e87fa1c96896504085542c5551e6f8d, type: 3}
-    - {fileID: 102900000, guid: de29a2d271608554d81dcbbd3a63880c, type: 3}
-    - {fileID: 102900000, guid: 3cddd1ce79d9e074a9958d4cce9dcbbf, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -57,5 +54,5 @@ SpriteAtlas:
   - firePowerStation_icon
   - field_icon
   m_RenderDataMap: {}
-  m_Tag: IconAtlas
+  m_Tag: BuildingIconAtlas
   m_IsVariant: 0

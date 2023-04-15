@@ -12,25 +12,29 @@ namespace cfg
     public enum EResType
     {
         /// <summary>
+        /// 任意类型
+        /// </summary>
+        Any = 0,
+        /// <summary>
         /// 货币
         /// </summary>
-        Money = 0,
+        Money = 1,
         /// <summary>
         /// 水
         /// </summary>
-        Water = 1,
+        Water = 2,
         /// <summary>
         /// 电力
         /// </summary>
-        Electricity = 2,
+        Electricity = 3,
         /// <summary>
         /// 建筑材料
         /// </summary>
-        BuildingMaterial = 3,
+        BuildingMaterial = 4,
         /// <summary>
         /// 幼苗
         /// </summary>
-        Seedling = 4,
+        Seedling = 5,
     }
 
 } 

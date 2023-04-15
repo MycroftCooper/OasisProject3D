@@ -1,4 +1,5 @@
 using System;
+using FairyGUI;
 using MycroftToolkit.QuickCode;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace QuickGameFramework.Runtime.UI {
     public class Controller : MonoBehaviour {
         private MonoBehaviour _model;
         private MonoBehaviour _view;
+        protected UIPanel UIPanel;
 
         public bool IsShowing { get; private set; }
 
@@ -18,6 +20,7 @@ namespace QuickGameFramework.Runtime.UI {
                     _view = component;
                 }
             }
+            UIPanel = GetComponent<UIPanel>();
         }
 
         public void DispatchMessage(Message message) {

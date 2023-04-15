@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using cfg;
-using OasisProject3D.ResourceSystem;
 using UnityEngine;
 
 namespace OasisProject3D.UI.GameMainUIPackage {
@@ -8,7 +7,7 @@ namespace OasisProject3D.UI.GameMainUIPackage {
     
     internal struct MainPageUIData {
         public float GreenRate;
-        public Dictionary<EResourceType, float> ResData;
+        public Dictionary<EResType, float> ResData;
         public EBuildingType SelectedBuildingType;
         public Dictionary<EBuildingType, List<BuildingUIData>> BuildingUIDataList;
     }

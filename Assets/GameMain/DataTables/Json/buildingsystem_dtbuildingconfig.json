@@ -2,32 +2,32 @@
   {
     "id": "centerTower",
     "name": "中央水塔",
-    "buildingType": 7,
+    "buildingType": 14,
     "canBulidBlockType": [
       2
     ],
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -36,7 +36,7 @@
   {
     "id": "buildingBase",
     "name": "稳固地桩",
-    "buildingType": 1,
+    "buildingType": 2,
     "canBulidBlockType": [
       0,
       1,
@@ -45,25 +45,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -72,7 +72,7 @@
   {
     "id": "weatherStation",
     "name": "气象站",
-    "buildingType": 1,
+    "buildingType": 2,
     "canBulidBlockType": [
       0,
       1,
@@ -81,25 +81,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -108,7 +108,7 @@
   {
     "id": "researchStation",
     "name": "科研站",
-    "buildingType": 1,
+    "buildingType": 2,
     "canBulidBlockType": [
       0,
       1,
@@ -117,25 +117,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -144,32 +144,32 @@
   {
     "id": "waterPump",
     "name": "水泵",
-    "buildingType": 2,
+    "buildingType": 4,
     "canBulidBlockType": [
       2
     ],
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -178,7 +178,7 @@
   {
     "id": "greenhouse",
     "name": "大棚",
-    "buildingType": 2,
+    "buildingType": 4,
     "canBulidBlockType": [
       0,
       1,
@@ -187,25 +187,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -214,32 +214,32 @@
   {
     "id": "field",
     "name": "耕田",
-    "buildingType": 2,
+    "buildingType": 4,
     "canBulidBlockType": [
       2
     ],
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -248,7 +248,7 @@
   {
     "id": "firePowerStation",
     "name": "火力发电站",
-    "buildingType": 2,
+    "buildingType": 4,
     "canBulidBlockType": [
       1,
       2
@@ -256,25 +256,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -283,7 +283,7 @@
   {
     "id": "solarPowerStation",
     "name": "太阳能发电站",
-    "buildingType": 2,
+    "buildingType": 4,
     "canBulidBlockType": [
       0,
       1,
@@ -292,25 +292,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -319,7 +319,7 @@
   {
     "id": "windPowerStation",
     "name": "风力发电站",
-    "buildingType": 2,
+    "buildingType": 4,
     "canBulidBlockType": [
       0,
       1,
@@ -328,25 +328,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -355,32 +355,32 @@
   {
     "id": "mobileMiningStation",
     "name": "移动矿站",
-    "buildingType": 2,
+    "buildingType": 4,
     "canBulidBlockType": [
       0
     ],
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -389,32 +389,32 @@
   {
     "id": "sandControlGrass",
     "name": "固沙草格",
-    "buildingType": 8,
+    "buildingType": 16,
     "canBulidBlockType": [
       0
     ],
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -423,7 +423,7 @@
   {
     "id": "windbreakFences",
     "name": "防风栅栏",
-    "buildingType": 8,
+    "buildingType": 16,
     "canBulidBlockType": [
       0,
       1
@@ -431,25 +431,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -458,32 +458,32 @@
   {
     "id": "sandControlShrub",
     "name": "治沙灌木",
-    "buildingType": 8,
+    "buildingType": 16,
     "canBulidBlockType": [
       1
     ],
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -492,32 +492,32 @@
   {
     "id": "windbreakTree",
     "name": "防风林",
-    "buildingType": 8,
+    "buildingType": 16,
     "canBulidBlockType": [
       2
     ],
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -526,7 +526,7 @@
   {
     "id": "rangerStation",
     "name": "护林工作站",
-    "buildingType": 10,
+    "buildingType": 20,
     "canBulidBlockType": [
       0,
       1,
@@ -535,25 +535,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -562,7 +562,7 @@
   {
     "id": "warehouse",
     "name": "仓库",
-    "buildingType": 4,
+    "buildingType": 8,
     "canBulidBlockType": [
       0,
       1,
@@ -571,25 +571,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -598,7 +598,7 @@
   {
     "id": "house",
     "name": "住房",
-    "buildingType": 4,
+    "buildingType": 8,
     "canBulidBlockType": [
       0,
       1,
@@ -607,25 +607,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -634,7 +634,7 @@
   {
     "id": "capacitorStation",
     "name": "电容列阵",
-    "buildingType": 4,
+    "buildingType": 8,
     "canBulidBlockType": [
       0,
       1,
@@ -643,25 +643,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],
@@ -670,7 +670,7 @@
   {
     "id": "waterTower",
     "name": "水塔",
-    "buildingType": 4,
+    "buildingType": 8,
     "canBulidBlockType": [
       0,
       1,
@@ -679,25 +679,25 @@
     "HP": 100,
     "bulidCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "keepCost": [
       [
-        0,
+        1,
         5
       ]
     ],
     "produce": [
       [
-        0,
+        1,
         5
       ]
     ],
     "storage": [
       [
-        0,
+        1,
         5
       ]
     ],

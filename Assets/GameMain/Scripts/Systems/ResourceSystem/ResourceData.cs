@@ -1,14 +1,7 @@
 using System.Collections.Generic;
+using cfg;
 
 namespace OasisProject3D.ResourceSystem {
-    public enum EResourceType {
-        BuildingMaterials,  // 建筑材料
-        Water,              // 水
-        Electricity,        // 电力
-        Seedlings,          // 幼苗
-        Money,              // 金币
-    }
-    
     public enum EStorageStatus {
         Normal,    // 成功
         Overflow,   // 溢出
@@ -16,8 +9,8 @@ namespace OasisProject3D.ResourceSystem {
     }
 
     public struct ResRecordData {
-        public Dictionary<EResourceType, float> Production;
-        public Dictionary<EResourceType, float> Consumption;
+        public Dictionary<EResType, float> Production;
+        public Dictionary<EResType, float> Consumption;
         public string Source;
     }
     

@@ -10,10 +10,10 @@ namespace OasisProject3D.UI.GameMainUIPackage
         public Controller TabSelected;
         public GImage BuildingListBackground;
         public GList BuildList;
-        public BuildingTypeBtn BuildingTabAllBtn;
+        public BuildingTypeBtn BuildingTabAnyBtn;
         public BuildingTypeBtn BuildingTabFunctionBtn;
-        public BuildingTypeBtn BuildingEcoTabBtn;
-        public BuildingTypeBtn BuildingTabProductionBtn;
+        public BuildingTypeBtn BuildingTabEcoBtn;
+        public BuildingTypeBtn BuildingTabProductBtn;
         public BuildingTypeBtn BuildingTabStorageBtn;
         public GGroup BuildingTypeBtnList;
         public const string URL = "ui://t09fsbe0jlch1r";
@@ -30,10 +30,10 @@ namespace OasisProject3D.UI.GameMainUIPackage
             TabSelected = GetControllerAt(0);
             BuildingListBackground = (GImage)GetChildAt(0);
             BuildList = (GList)GetChildAt(1);
-            BuildingTabAllBtn = (BuildingTypeBtn)GetChildAt(2);
+            BuildingTabAnyBtn = (BuildingTypeBtn)GetChildAt(2);
             BuildingTabFunctionBtn = (BuildingTypeBtn)GetChildAt(3);
-            BuildingEcoTabBtn = (BuildingTypeBtn)GetChildAt(4);
-            BuildingTabProductionBtn = (BuildingTypeBtn)GetChildAt(5);
+            BuildingTabEcoBtn = (BuildingTypeBtn)GetChildAt(4);
+            BuildingTabProductBtn = (BuildingTypeBtn)GetChildAt(5);
             BuildingTabStorageBtn = (BuildingTypeBtn)GetChildAt(6);
             BuildingTypeBtnList = (GGroup)GetChildAt(7);
         }

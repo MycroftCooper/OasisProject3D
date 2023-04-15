@@ -16,7 +16,6 @@ namespace OasisProject3D.Procedures {
             _loadingPage = GameEntry.UIMgr.GetUIInstance<LoadingPage>(nameof(LoadingPage));
             _assetLoadProgress = BlockFactory.Instance.PreLoadAsset();
             _assetLoadProgress += BuildingFactory.Instance.PreLoadAsset();
-            _assetLoadProgress += GameEntry.UIMgr.PreLoadAsset();
             _assetLoadProgress.Completed += () => _isLoadCompleted = true;
 
             _loadingPage.ProgressBar.value = 0;

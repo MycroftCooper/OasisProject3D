@@ -17,7 +17,7 @@ namespace OasisProject3D.BuildingSystem {
         }
         
         private void SetConstructMoveMaterial() {
-            _buildingConstructMat = new Material(BuildingFactory.Instance.GetMaterial("construct_material"));
+            _buildingConstructMat = new Material(BuildingFactory.Instance.GetBuildingMaterial("construct_material"));
             _buildingConstructMat.name = _buildingConstructMat.name.Replace("(Instance)","");
             _buildingDefaultMat = new Material(_targetBuilding.BuildingMeshRenderer.material);
             _buildingDefaultMat.name = _buildingDefaultMat.name.Replace("(Instance)","");

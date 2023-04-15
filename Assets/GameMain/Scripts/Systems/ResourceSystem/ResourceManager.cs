@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using cfg;
 using QuickGameFramework.Runtime;
 using UnityEngine;
 
@@ -7,10 +8,10 @@ namespace OasisProject3D.ResourceSystem {
         public int Priority { get; set; }
         public bool IsFrameworkModule => false;
 
-        private Dictionary<EResourceType, float> _resDict;
-        private Dictionary<EResourceType, float> _storageSpaceDict;
+        private Dictionary<EResType, float> _resDict;
+        private Dictionary<EResType, float> _storageSpaceDict;
 
-        public EStorageStatus GetStorageStatus(EResourceType resType) {
+        public EStorageStatus GetStorageStatus(EResType resType) {
             return default;
         }
 

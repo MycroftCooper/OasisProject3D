@@ -57,7 +57,7 @@ namespace OasisProject3D.BuildingSystem {
         }
 
         private void SetBuildingMoveMaterial() {
-            _buildingMoveMat = new Material(BuildingFactory.Instance.GetMaterial("transColor_material"));
+            _buildingMoveMat = new Material(BuildingFactory.Instance.GetBuildingMaterial("transColor_material"));
             _buildingMoveMat.name = _buildingMoveMat.name.Replace("(Instance)","");
             _buildingDefaultMat = new Material(_targetBuilding.BuildingMeshRenderer.material);
             _buildingDefaultMat.name = _buildingDefaultMat.name.Replace("(Instance)","");

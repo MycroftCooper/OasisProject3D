@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using OasisProject3D.ResourceSystem;
+using cfg;
 using QuickGameFramework.Runtime.UI;
 
 namespace OasisProject3D.UI.GameMainUIPackage {
     internal class MainPageView : View<MainPageUIData> {
         private MainPage _mainPage;
-        
+
         protected override void OnShow(MainPageUIData uiData) {
             _mainPage = (MainPage)UIPanel.ui;
         }
@@ -22,23 +22,23 @@ namespace OasisProject3D.UI.GameMainUIPackage {
         }
         
         protected void OnResDataRefresh(MainPageUIData uiData) {
-            Dictionary<EResourceType, float> resDict = uiData.ResData;
+            Dictionary<EResType, float> resDict = uiData.ResData;
             foreach (var kv in resDict) {
-                EResourceType resType = kv.Key;
+                EResType resType = kv.Key;
                 string numText = kv.Value.ToString("F1", CultureInfo.InvariantCulture);
                 switch (resType) {
-                    case EResourceType.BuildingMaterials:
+                    case EResType.BuildingMaterial:
                         _mainPage.WoodNum.text = numText;
                         break;
-                    case EResourceType.Water:
+                    case EResType.Water:
                         _mainPage.WaterNum.text = numText;
                         break;
-                    case EResourceType.Electricity:
+                    case EResType.Electricity:
                         break;
-                    case EResourceType.Seedlings:
+                    case EResType.Seedling:
                         _mainPage.SaplingNum.text = numText;
                         break;
-                    case EResourceType.Money:
+                    case EResType.Money:
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
