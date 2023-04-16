@@ -4,7 +4,8 @@ namespace QuickGameFramework.Runtime {
 	public interface IModule {
 		public int Priority { get; set; }
 		public bool IsFrameworkModule { get; }
-		
+		public bool IsManualUpdate { get; }
+
 		/// <summary>
 		/// 创建模块
 		/// </summary>

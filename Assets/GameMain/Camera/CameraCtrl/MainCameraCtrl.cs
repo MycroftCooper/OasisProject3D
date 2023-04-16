@@ -1,4 +1,5 @@
-﻿using QuickGameFramework.Runtime;
+﻿using MycroftToolkit.DiscreteGridToolkit;
+using QuickGameFramework.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Sirenix.OdinInspector;
@@ -76,7 +77,7 @@ namespace OasisProject3D.CameraCtrl {
             //inputs
             UpdateKeyboardMoveAction();
             UpdateMouseAtScreenEdge();
-            UpdateMouseMoveAction();
+            // UpdateMouseMoveAction();
 
             //move base and camera objects
             UpdateVelocity();
@@ -106,25 +107,6 @@ namespace OasisProject3D.CameraCtrl {
 
             if (inputValue.sqrMagnitude > 0.1f)
                 _targetPosition += inputValue;
-        }
-
-        private void UpdateMouseMoveAction() {
-            if (!Mouse.current.middleButton.isPressed)
-                return;
-
-            //create plane to raycast to
-            Plane plane = new Plane(Vector3.up, Vector3.zero);
-            if (Camera.main == null) {
-                QLog.Error("InputSystem>CameraCtrl>主相机缺失！");
-                return;
-            }
-            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-
-            if (!plane.Raycast(ray, out float distance)) return;
-            if (Mouse.current.middleButton.wasPressedThisFrame)
-                _startDrag = ray.GetPoint(distance);
-            else
-                _targetPosition += _startDrag - ray.GetPoint(distance);
         }
 
         private void UpdateMouseAtScreenEdge() {
@@ -213,7 +195,7 @@ namespace OasisProject3D.CameraCtrl {
             
             var trans = transform;
             var pos = trans.position;
-            Vector3 direction = _cameraTransform.forward * scrollValue;
+            Vector3 direction = Vector3.up;
             // 计算新的相机位置
             Vector3 newPosition = pos + direction * (zoomSpeed * Time.deltaTime);
 
@@ -228,6 +210,10 @@ namespace OasisProject3D.CameraCtrl {
                     hit.distance < minHeight && scrollValue > 0) {
                     return;
                 }
+            }
+
+            if (newPosition.y < 5f) {
+                return;
             }
             
             trans.position = newPosition;

@@ -3,7 +3,7 @@ using cfg.BuildingSystem;
 using UnityEngine;
 
 namespace OasisProject3D.BuildingSystem {
-    public class BuildingData {
+    public struct BuildingData {
         public EBuildingType BuildingType;
         public BuildingConfig BaseConf;
         public Vector2Int BlockPos;

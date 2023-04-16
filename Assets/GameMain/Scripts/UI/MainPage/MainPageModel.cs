@@ -36,8 +36,6 @@ namespace OasisProject3D.UI.GameMainUIPackage {
                 case MainPageUICommand.UpdateBuildingList:
                     data.SelectedBuildingType = (EBuildingType)message.ExtraParams;
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
         }
     }

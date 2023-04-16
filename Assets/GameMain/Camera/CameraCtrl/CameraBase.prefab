@@ -163,13 +163,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88ec13c99ece58429c4c5e91d816a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 20
+  maxSpeed: 80
   acceleration: 10
   damping: 15
+  useEdgeMove: 0
   edgeTolerance: 0.05
-  rotationSpeed: {x: 10, y: 5}
+  rotationSpeed: {x: 15, y: 10}
   verticalAngleLimit: {x: -45, y: 40}
-  zoomSpeed: 40
+  zoomSpeed: 200
   minHeight: 15
   maxHeight: 100
   useRayHeight: 30

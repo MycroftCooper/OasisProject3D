@@ -18,6 +18,7 @@ namespace QuickGameFramework.Procedure {
         }
 
         public bool IsFrameworkModule => true;
+        public bool IsManualUpdate => false;
 
         public void OnModuleCreate(params object[] createParam) {
             _procedures = new Dictionary<Type, Procedure>();

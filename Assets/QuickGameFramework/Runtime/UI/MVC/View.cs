@@ -27,7 +27,7 @@ namespace QuickGameFramework.Runtime.UI {
 
         protected virtual void Start() {
             _controller = transform.GetComponent<Controller>();
-            GameEntry.UIMgr.AddUIInstance(uiID, this);
+            GameEntry.UIMgr.AddUIInstance(uiID, _controller);
         }
 
         protected void OnDestroy() {

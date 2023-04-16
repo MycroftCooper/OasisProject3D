@@ -7,6 +7,7 @@ namespace OasisProject3D.ResourceSystem {
     public class ResourceManager : IModule  {
         public int Priority { get; set; }
         public bool IsFrameworkModule => false;
+        public bool IsManualUpdate => true;
 
         private Dictionary<EResType, float> _resDict;
         private Dictionary<EResType, float> _storageSpaceDict;

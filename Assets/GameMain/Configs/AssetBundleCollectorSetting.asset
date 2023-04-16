@@ -38,7 +38,7 @@ MonoBehaviour:
         AddressRuleName: AddressByGroupAndFileName
         PackRuleName: PackSeparately
         FilterRuleName: CollectSprite
-        AssetTags: BuildingIcons
+        AssetTags: BuildingIcon
     - GroupName: Block
       GroupDesc: "\u5730\u5757\u7EC4"
       AssetTags: Block
@@ -75,5 +75,5 @@ MonoBehaviour:
         CollectorType: 0
         AddressRuleName: AddressByGroupAndFileName
         PackRuleName: PackGroup
-        FilterRuleName: CollectAll
-        AssetTags: 
+        FilterRuleName: CollectPrefab
+        AssetTags: BuildingPrefab

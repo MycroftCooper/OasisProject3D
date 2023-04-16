@@ -28,7 +28,7 @@ namespace OasisProject3D.MapSystem {
         
         public Dictionary<EBlockType, BlockConfig> BlockConf;
         
-        private MapManager MapMgr => GameEntry.ModuleMgr.GetModule<MapManager>();
+        private MapManager MapMgr => GameEntry.GamePlayModuleMgr.GetModule<MapManager>();
 
         public AssetLoadProgress PreLoadAsset() {
             var output = new AssetLoadProgress();
@@ -58,9 +58,9 @@ namespace OasisProject3D.MapSystem {
                 return default;
             }
             ValueTuple <Vector2Int, EBlockType> info =(ValueTuple<Vector2Int, EBlockType>) data;
-            BlockCtrl output = addBlock_Base(info.Item1);
-            addBlock_Type(output, info.Item2);
-            AddBlock_Element(output, info.Item2);
+            BlockCtrl output = AddBlockBase(info.Item1);
+            AddBlockType(output, info.Item2);
+            AddBlockElement(output, info.Item2);
             
             output.Init(entityID, this);
             return output;
@@ -68,7 +68,7 @@ namespace OasisProject3D.MapSystem {
 
         public void RecycleEntity(Entity entity) { }
 
-        private BlockCtrl addBlock_Base(Vector2Int logicalPos) {
+        private BlockCtrl AddBlockBase(Vector2Int logicalPos) {
             GameObject block = Object.Instantiate(BlockPrefab, BlockParent.transform);
             BlockCtrl output = block.GetComponent<BlockCtrl>();
             output.logicalPos = logicalPos;
@@ -82,7 +82,7 @@ namespace OasisProject3D.MapSystem {
             return output;
         }
 
-        private void addBlock_Type(BlockCtrl blockCtrl, EBlockType blockType) {
+        private void AddBlockType(BlockCtrl blockCtrl, EBlockType blockType) {
             blockCtrl.blockType = blockType;
             Vector2 vcRange = BlockConf[blockType].GreennessRange;
             blockCtrl.vegetationCoverage = _random.GetFloat(vcRange.x, vcRange.y);

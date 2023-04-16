@@ -6,8 +6,11 @@ using UnityEngine;
 
 namespace QuickGameFramework.Runtime {
 	public class ModuleManager : MonoBehaviour {
+		public int updateSpeed = 1;
+		
 		[ShowInInspector] private readonly SortedSet<IModule> _modules = new SortedSet<IModule>(new ModuleComparer());
 		private void Awake() {
+			_updateDeltaTime = 0f;
 			QLog.Log($"QuickGameFramework>Module> 模块化系统成功初始化!");
 		}
 
@@ -21,11 +24,29 @@ namespace QuickGameFramework.Runtime {
 			QLog.Log($"QuickGameFramework>Module> 所有模块成功销毁!");
 		}
 
+		private float _updateDeltaTime;
 		/// <summary>
 		/// 更新模块系统
 		/// </summary>
 		private void Update() {
-			_modules.ForEach((module)=>module.OnModuleUpdate(Time.deltaTime));
+			if (updateSpeed == 0) {
+				return;
+			}
+
+			_updateDeltaTime++;
+			int updateTimes = (int)(_updateDeltaTime /(1f/updateSpeed));
+			if (updateTimes < 1) {
+				return;
+			}
+			_updateDeltaTime = 0f;
+			
+			for(int i = 0; i< updateTimes;i++) {
+				_modules.ForEach((module)=> {
+					if (!module.IsManualUpdate) {
+						module.OnModuleUpdate(_updateDeltaTime);
+					}
+				});
+			}
 		}
 
 		/// <summary>

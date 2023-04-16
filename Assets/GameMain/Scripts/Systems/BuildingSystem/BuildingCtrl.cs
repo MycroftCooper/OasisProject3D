@@ -1,21 +1,27 @@
 ﻿using System;
 using MycroftToolkit.QuickCode;
+using NodeCanvas.Framework;
 using OasisProject3D.MapSystem;
 using QuickGameFramework.Runtime;
 using UnityEngine;
 
 namespace OasisProject3D.BuildingSystem {
-    public enum BuildingCmd { Build, Move, Open, Close, Upgrade, Demolish }
+    public enum BuildingCmd { Move, Open, Close, Upgrade, Demolish }
     
     public class BuildingCtrl : Entity, IEnumCmdReceiver<BuildingCmd>  {
+        public BuildingData BuildingData { get => (BuildingData)Data; set => Data = value; }
+        public GraphOwner FsmCtrl { get; protected set; }
         public MeshFilter BuildingMeshFilter { get; protected set; }
         public MeshRenderer BuildingMeshRenderer { get; protected set; }
+
+        public void UpdateBuilding() {
+            if (IsBuilding) {
+                OnBuildUpdateHandler();
+            }
+        }
         
         public void ExecuteCmd(BuildingCmd cmd) {
             switch (cmd) {
-                case BuildingCmd.Build:
-                    BuildCmdHandler();
-                    break;
                 case BuildingCmd.Move:
                     OnMoveCmdCall();
                     break;
@@ -39,10 +45,15 @@ namespace OasisProject3D.BuildingSystem {
         #region 初始化建筑相关
         public bool IsInitialised { get; private set; }
 
-        public void Initialize() {
-            IsInitialised = true;
+        public void Initialize(BuildingData data = default) {
+            Data ??= new BuildingData();
+            Data = data;
+
+            FsmCtrl = GetComponent<GraphOwner>();
             BuildingMeshFilter = transform.Find("Mesh").GetChild(0).GetComponent<MeshFilter>();
             BuildingMeshRenderer = BuildingMeshFilter.GetComponent<MeshRenderer>();
+        
+            IsInitialised = true;
         }
         #endregion
         
@@ -83,20 +94,17 @@ namespace OasisProject3D.BuildingSystem {
             _buildingMoveHelper = new BuildingMoveHelper(this);
         }
 
-        public virtual void OnMoveUpdateHandler() {
-            
-        }
-
-        public virtual void OnMoveExitHandler() {
-            if (IsMoving) {
-                return;
-            }
+        public virtual void EndMove(bool isSuccess) {
+            IsMoving = false;
             _buildingMoveHelper = null;
             OnMoveEnd?.Invoke(this);
+
+            if (isSuccess || IsBuilt) return;
+            OnBuildEnd?.Invoke(this, false);
         }
 
         public bool CanSetHere(BlockCtrl targetBlock, Vector3 targetRotation) {
-            
+            // todo:判断建筑是否可以在此处建造
             return true;
         }
         #endregion
@@ -105,21 +113,17 @@ namespace OasisProject3D.BuildingSystem {
         public bool IsBuilding { get; private set; }
         public bool IsBuilt { get; private set; }
         public Action<BuildingCtrl> OnBuildStart;
-        public Action<BuildingCtrl> OnBuildEnd;
+        public Action<BuildingCtrl, bool> OnBuildEnd;
         private BuildingConstructHelper _buildingConstructHelper;
         private float _constructProgress;
-        
-        private void BuildCmdHandler() {
-            if (IsBuilt) {
-                return;
-            }
-            
-        }
-        
         public virtual void OnBuildEnterHandler() {
             IsBuilding = true;
             OnBuildStart?.Invoke(this);
             _buildingConstructHelper = new BuildingConstructHelper(this);
+            
+            // 假的建造进度条
+            Timer.Register(5f, OnBuildExitHandler, _ => {
+                _buildingConstructHelper.UpdateBuildingConstructProgress(_ / 5f);});
         }
         
         public virtual void OnBuildUpdateHandler() {
@@ -132,7 +136,7 @@ namespace OasisProject3D.BuildingSystem {
             IsBuilding = false;
             IsBuilt = true;
             _buildingConstructHelper = null;
-            OnBuildEnd?.Invoke(this);
+            OnBuildEnd?.Invoke(this, true);
         }
         #endregion
         

@@ -7,8 +7,8 @@ namespace OasisProject3D.BuildingSystem {
         private Material _buildingDefaultMat;
         private Material _buildingConstructMat;
         private Texture _buildingTex;
-        private static readonly int BaseMapKey = Shader.PropertyToID("BaseMap");
-        private static readonly int ProgressKey = Shader.PropertyToID("Progress");
+        private static readonly int BaseMapKey = Shader.PropertyToID("_BaseMap");
+        private static readonly int ProgressKey = Shader.PropertyToID("_Progress");
         private static readonly int HeightKey = Shader.PropertyToID("_Height");
 
         public BuildingConstructHelper(BuildingCtrl targetBuilding) {
@@ -21,6 +21,7 @@ namespace OasisProject3D.BuildingSystem {
             _buildingConstructMat.name = _buildingConstructMat.name.Replace("(Instance)","");
             _buildingDefaultMat = new Material(_targetBuilding.BuildingMeshRenderer.material);
             _buildingDefaultMat.name = _buildingDefaultMat.name.Replace("(Instance)","");
+            _buildingTex = _buildingDefaultMat.mainTexture;
             _buildingConstructMat.SetTexture(BaseMapKey, _buildingTex);
             float buildingHeight = _targetBuilding.BuildingMeshFilter.sharedMesh.bounds.size.y;
             _buildingConstructMat.SetFloat(HeightKey, buildingHeight);

@@ -3,8 +3,14 @@ using cfg;
 using UnityEngine;
 
 namespace OasisProject3D.UI.GameMainUIPackage {
-    internal enum MainPageUICommand { UpdateVegetationCoverage, UpdateResData, UpdateBuildingList }
-    
+    internal enum MainPageUICommand {
+        UpdateVegetationCoverage,
+        UpdateResData,
+        UpdateBuildingList,
+        CloseBuildingList,
+        OpenBuildingList
+    }
+
     internal struct MainPageUIData {
         public float GreenRate;
         public Dictionary<EResType, float> ResData;

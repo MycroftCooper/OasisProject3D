@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 namespace QuickGameFramework.Runtime {
     public class GameEntry : MonoSingleton<GameEntry> {
-        public static ModuleManager ModuleMgr;
+        public static ModuleManager FrameworkModuleMgr;
+        public static ModuleManager GamePlayModuleMgr;
         public static ProcedureManager ProcedureMgr;
         public static CoroutineManager CoroutineMgr;
         public static DataTableManager DataTableMgr;
@@ -20,8 +21,9 @@ namespace QuickGameFramework.Runtime {
             CoroutineMgr = GetComponent<CoroutineManager>();
             ConfigMgr = new ConfigManager();
             DataTableMgr = new DataTableManager();
-            ModuleMgr = GetComponent<ModuleManager>();
-            ProcedureMgr = ModuleMgr.CreateModule<ProcedureManager>();
+            FrameworkModuleMgr = GetComponent<ModuleManager>();
+            GamePlayModuleMgr = gameObject.AddComponent<ModuleManager>();
+            ProcedureMgr = FrameworkModuleMgr.CreateModule<ProcedureManager>();
             InputMgr = transform.Find("PlayerInputManager").GetComponent<InputManager>();
             
             AssetMgr = new AssetManager();

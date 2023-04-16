@@ -22,14 +22,14 @@
     <text id="n17_jlch" name="WaterNum" xy="697,11" size="32,34" group="n25_9pco" fontSize="24" color="#ffffff" align="center" vAlign="middle" text="45"/>
     <text id="n18_jlch" name="WoodNum" xy="807,12" size="32,34" group="n25_9pco" fontSize="24" color="#ffffff" align="center" vAlign="middle" text="45"/>
     <group id="n25_9pco" name="ResList" xy="425,11" size="414,37" group="n26_9pco"/>
-    <component id="n5_jlch" name="StopBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="1118,8" size="39,40" group="n24_9pco">
+    <component id="n5_jlch" name="Speed1XBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="1118,8" size="39,40" group="n24_9pco">
       <Button icon="ui://t09fsbe0i4mbz"/>
     </component>
-    <component id="n3_jlch" name="Speed2XBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="1315,7" size="39,40" group="n24_9pco">
-      <Button icon="ui://t09fsbe0i4mb13"/>
-    </component>
-    <component id="n4_jlch" name="Speed1XBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="1223,8" size="39,40" group="n24_9pco">
+    <component id="n4_jlch" name="Speed2XBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="1223,8" size="39,40" group="n24_9pco">
       <Button icon="ui://t09fsbe0i4mb12"/>
+    </component>
+    <component id="n3_jlch" name="Speed3XBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="1315,7" size="39,40" group="n24_9pco">
+      <Button icon="ui://t09fsbe0i4mb13"/>
     </component>
     <group id="n24_9pco" name="SpeedBtn" xy="1118,7" size="236,41" group="n26_9pco"/>
     <component id="n6_jlch" name="WeatherBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="944,8" size="39,40" group="n26_9pco">

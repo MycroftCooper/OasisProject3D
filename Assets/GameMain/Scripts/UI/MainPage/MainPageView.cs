@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using cfg;
 using FairyGUI;
-using MycroftToolkit.QuickCode;
 using OasisProject3D.BuildingSystem;
 using QuickGameFramework.Runtime.UI;
 using UnityEngine;
@@ -53,10 +52,15 @@ namespace OasisProject3D.UI.GameMainUIPackage {
             }
         }
         
+        
+        #endregion
+
+        #region 建筑列表相关
         protected void OnBuildingListRefresh(MainPageUIData uiData) {
             GList buildingList = _mainPage.BuildingList.BuildingCaseList;
             buildingList.RemoveChildrenToPool();
-            List<string> buildingKeys = BuildingManager.Instance.GetBuildingKeys(uiData.SelectedBuildingType);
+            var buildingMgr = BuildingManager.Instance;
+            List<string> buildingKeys = buildingMgr.GetBuildingKeys(uiData.SelectedBuildingType);
             foreach (var buildingKey in buildingKeys) {
                 Sprite buildingIcon = BuildingFactory.Instance.GetBuildingIcon(buildingKey);
                 if (buildingIcon == null) {
@@ -64,11 +68,21 @@ namespace OasisProject3D.UI.GameMainUIPackage {
                 }
                 BuildingIconCase buildingIconCase = (BuildingIconCase)buildingList.AddItemFromPool();
                 buildingIconCase.BuildingIcon.texture = new NTexture(buildingIcon);
-                buildingIconCase.BuildingName.text = buildingKey;
+                buildingIconCase.BuildingName.text = buildingMgr.GetBuildingName(buildingKey);
                 buildingIconCase.name = buildingKey;
             }
         }
+        
+        private void OnOpenOrCloseBuildingList(bool isOpen) {
+            if (isOpen) {
+                _mainPage.BuildingListCtrl.SetSelectedPage("open");
+                return;
+            }
+            _mainPage.BuildingList.BuildingCaseList.ClearSelection();
+            _mainPage.BuildingListCtrl.SetSelectedPage("close");
+        }
         #endregion
+        
 
         protected override void ProcessMessage(ValueType command, MainPageUIData uiData) {
             MainPageUICommand cmd = (MainPageUICommand)command;
@@ -81,6 +95,12 @@ namespace OasisProject3D.UI.GameMainUIPackage {
                     break;
                 case MainPageUICommand.UpdateBuildingList:
                     OnBuildingListRefresh(uiData);
+                    break;
+                case MainPageUICommand.CloseBuildingList:
+                    OnOpenOrCloseBuildingList(false);
+                    break;
+                case MainPageUICommand.OpenBuildingList:
+                    OnOpenOrCloseBuildingList(true);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

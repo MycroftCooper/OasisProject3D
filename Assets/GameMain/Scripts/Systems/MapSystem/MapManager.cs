@@ -58,11 +58,11 @@ namespace OasisProject3D.MapSystem {
 
         public int Priority { get; set; }
         public bool IsFrameworkModule => false;
+        public bool IsManualUpdate => false;
         public void OnModuleCreate(params object[] createParam) {
             Init();
             InitMap();
             MapBlockForEach_Y((x) => x.Init(randomStartRange));
-            Time.timeScale = 10;
             SkyboxDayNightCycle​.Instance.TimeOfDay = 50;
         }
 

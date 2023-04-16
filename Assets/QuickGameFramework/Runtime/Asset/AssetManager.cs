@@ -90,7 +90,7 @@ namespace QuickGameFramework.Runtime {
 				var path = info.Address;
 				var handle = package.LoadAssetAsync<T>(path);
 				if (callback != null) {
-					handle.Completed += _=> callback((T)handle.AssetObject);
+					handle.Completed += _=> callback((T)_.AssetObject);
 				}
 				handle.Completed += LogLoadSuccess;
 				output.Add(handle);

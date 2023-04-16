@@ -34,7 +34,7 @@ namespace OasisProject3D.MapSystem {
 
         public bool buildable;
 
-        private MapManager MapMgr => GameEntry.ModuleMgr.GetModule<MapManager>();
+        private MapManager MapMgr => GameEntry.GamePlayModuleMgr.GetModule<MapManager>();
 
         public void Init(float randomStartRange) {
             Ticker = new TickerAuto(InfectionData.Time);
@@ -58,7 +58,7 @@ namespace OasisProject3D.MapSystem {
                 return;
             BlockAnimaPlayer.Instance.OnTypeChange(this, () => {
                 BlockFactory.Instance.ChangeBlockMaterials(this, newType);
-                BlockFactory.Instance.AddBlock_Element(this, newType);
+                BlockFactory.Instance.AddBlockElement(this, newType);
                 blockType = newType;
             });
         }

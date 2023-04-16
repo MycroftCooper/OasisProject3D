@@ -12,8 +12,8 @@ namespace OasisProject3D.BuildingSystem {
         private Material _buildingDefaultMat;
         private Material _buildingMoveMat;
         private Texture _buildingTex;
-        private static readonly int ColorKey = Shader.PropertyToID("Color");
-        private static readonly int BaseMapKey = Shader.PropertyToID("BaseMap");
+        private static readonly int ColorKey = Shader.PropertyToID("_Color");
+        private static readonly int BaseMapKey = Shader.PropertyToID("_BaseMap");
         private readonly Color _canSetColor = new (0,0.8f,0,0.4f);
         private readonly Color _cantSetColor = new (0.8f,0,0,0.4f);
 
@@ -94,7 +94,7 @@ namespace OasisProject3D.BuildingSystem {
             var targetBlock = hit.transform.GetComponent<BlockCtrl>();
             if (targetBlock == null) {
                 Vector3 worldPoint = mouseRay.GetPoint(hit.distance);
-                Vector2Int logicPos = GameEntry.ModuleMgr.GetModule<MapManager>().WorldPos2LogicPos(worldPoint);
+                Vector2Int logicPos = GameEntry.FrameworkModuleMgr.GetModule<MapManager>().WorldPos2LogicPos(worldPoint);
                 QLog.Error($"BuildingMoveHelper>Error>目标位置{worldPoint}={logicPos}没有地块！");
                 return;
             }
@@ -121,9 +121,9 @@ namespace OasisProject3D.BuildingSystem {
         }
 
         private void OnMoveConfirmHandler(InputAction.CallbackContext obj) {
-
             UnbindPlayerInput();
             UnsetBuildingMoveMaterial();
+            _targetBuilding.EndMove(true);
         }
 
         private void OnMoveCancelHandler(InputAction.CallbackContext obj) {
@@ -131,6 +131,7 @@ namespace OasisProject3D.BuildingSystem {
             _targetTransform.localRotation = _originalRotation;
             UnbindPlayerInput();
             UnsetBuildingMoveMaterial();
+            _targetBuilding.EndMove(false);
         }
     }
 }

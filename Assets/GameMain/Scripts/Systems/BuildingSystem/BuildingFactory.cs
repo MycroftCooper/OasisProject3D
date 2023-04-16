@@ -13,8 +13,9 @@ namespace OasisProject3D.BuildingSystem {
         public AssetLoadProgress PreLoadAsset() {
             var output = new AssetLoadProgress();
             _prefabs = new Dictionary<string, GameObject>();
-            output += AssetMgr.LoadAssetAsync<GameObject>("Building_centerTower_prefab", target => { _prefabs.Add(target.name, target);});
-            output += AssetMgr.LoadAssetAsync<GameObject>("Building_firePowerStation_prefab", target => { _prefabs.Add(target.name, target);});
+            output += AssetMgr.LoadAssetsAsyncByTag<GameObject>("BuildingPrefab", prefab => {
+                _prefabs.Add(prefab.name.Replace("_prefab", ""), prefab);
+            });
 
             _materials = new Dictionary<string, Material>();
             output += AssetMgr.LoadAssetAsync<Material>("Building_transColor_material", target => { _materials.Add(target.name, target);});
@@ -22,7 +23,11 @@ namespace OasisProject3D.BuildingSystem {
 
             var projectAssetSetting = GameEntry.ConfigMgr.ProjectAssetSetting;
             _icons = new Dictionary<string, Sprite>();
-            output += GameEntry.AssetMgr.LoadSubAssetsAsyncByTag<Sprite>("BuildingIcons", LoadBuildingIcon, projectAssetSetting.uiAssetsPackageName);
+            output += GameEntry.AssetMgr.LoadSubAssetsAsyncByTag<Sprite>("BuildingIcon", icons => {
+                foreach (var icon in icons) {
+                    _icons.Add(icon.name.Replace("_icon", ""), icon);
+                }
+            }, projectAssetSetting.uiAssetsPackageName);
             return output;
         }
         
@@ -31,7 +36,20 @@ namespace OasisProject3D.BuildingSystem {
         }
 
         public BuildingCtrl CreateEntity(string entityID, object data = null) {
-            throw new System.NotImplementedException();
+            if (!_prefabs.TryGetValue(entityID, out var buildingPrefab)) {
+                QLog.Error($"BuildingFactory>创建实例失败！key:<{entityID}>的建筑预制体不存在!");
+                return null;
+            }
+
+            GameObject buildingGo = Object.Instantiate(buildingPrefab);
+            var output = buildingGo.GetComponent<BuildingCtrl>();
+            if (data == null) {
+                output.Initialize();
+            } else {
+                output.Initialize((BuildingData)data);
+            }
+            
+            return output;
         }
 
         public void RecycleEntity(Entity entity) {
@@ -69,12 +87,6 @@ namespace OasisProject3D.BuildingSystem {
             }
 
             return output;
-        }
-        
-        private void LoadBuildingIcon(Sprite[] icons) {
-            foreach (var icon in icons) {
-                _icons.Add(icon.name.Replace("_icon","") , icon);
-            }
         }
         #endregion
         

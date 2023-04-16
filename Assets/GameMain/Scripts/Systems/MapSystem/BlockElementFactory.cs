@@ -54,7 +54,7 @@ namespace OasisProject3D.MapSystem {
             ElementPool.InitPool(ElementPrefab, 1000, ElementParent);
         }
 
-        public void AddBlock_Element(BlockCtrl blockCtrl, EBlockType blockType) {
+        public void AddBlockElement(BlockCtrl blockCtrl, EBlockType blockType) {
             Transform parent = blockCtrl.transform.Find("Elements");
             for (int i = parent.childCount - 1; i >= 0; i--) {
                 ElementPool.Recycle(parent.GetChild(i).gameObject);
