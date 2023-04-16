@@ -2,12 +2,14 @@
 
 using FairyGUI;
 using FairyGUI.Utils;
+using OasisProject3D.UI.GameEntryUIPackage;
 
 namespace OasisProject3D.UI.GameMainUIPackage
 {
     public partial class MainPage : GComponent
     {
         public Controller BuildingListCtrl;
+        public Controller SettingPanelCtrl;
         public GProgressBar GreenRateBar;
         public BuildingTab BuildingList;
         public GButton BuildBtn;
@@ -21,6 +23,7 @@ namespace OasisProject3D.UI.GameMainUIPackage
         public GButton Speed3XBtn;
         public GButton WeatherBtn;
         public GButton SettingBtn;
+        public ConfirmWindow SettingPanel;
         public const string URL = "ui://t09fsbe0jlch1k";
 
         public static MainPage CreateInstance()
@@ -33,6 +36,7 @@ namespace OasisProject3D.UI.GameMainUIPackage
             base.ConstructFromXML(xml);
 
             BuildingListCtrl = GetControllerAt(0);
+            SettingPanelCtrl = GetControllerAt(1);
             GreenRateBar = (GProgressBar)GetChildAt(0);
             BuildingList = (BuildingTab)GetChildAt(1);
             BuildBtn = (GButton)GetChildAt(2);
@@ -46,6 +50,7 @@ namespace OasisProject3D.UI.GameMainUIPackage
             Speed3XBtn = (GButton)GetChildAt(14);
             WeatherBtn = (GButton)GetChildAt(15);
             SettingBtn = (GButton)GetChildAt(16);
+            SettingPanel = (ConfirmWindow)GetChildAt(17);
         }
     }
 }

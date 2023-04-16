@@ -29,6 +29,9 @@ namespace OasisProject3D.UI.GameMainUIPackage {
             _mainPage.Speed2XBtn.onClick.Add(OnGameSpeedBtnClicked);
             _mainPage.Speed3XBtn.onClick.Add(OnGameSpeedBtnClicked);
             
+            _mainPage.SettingPanel.YesBtn.onClick.Add(GameEntry.ExitGame);
+            _mainPage.SettingPanel.NoBtn.onClick.Add(()=>_mainPage.SettingPanelCtrl.SetSelectedPage("close"));
+            
             DispatchMessage(new Message{Command =  Message.CommonCommand.Show});
         }
 

@@ -25,10 +25,11 @@
     <component id="jlch1r" name="BuildingTab.xml" path="/Components/" exported="true"/>
     <component id="jlch1s" name="BuildingTypeBtn.xml" path="/Components/"/>
     <component id="jlch1t" name="BuildingIconCase.xml" path="/Components/" exported="true"/>
-    <component id="jlch1u" name="Unit_SettingWindow.xml" path="/"/>
-    <image id="jlch1v" name="hexagon _img(1).png" path="/Res/" scale="9grid" scale9grid="128,33,256,446"/>
     <component id="jlch1w" name="btn_2.xml" path="/Components/"/>
     <component id="jlch1x" name="SettingPageUI.xml" path="/" exported="true"/>
+    <component id="lhyb1y" name="ConfirmWindow.xml" path="/" exported="true"/>
+    <image id="lhyb1z" name="hexagon _img.png" path="/Res/" scale="9grid" scale9grid="128,33,256,446"/>
+    <component id="lhyb20" name="btn_2(1).xml" path="/Components/"/>
   </resources>
   <publish name="" genCode="true" extractAlpha="true"/>
 </packageDescription>

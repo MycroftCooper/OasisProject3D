@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="800,340" pivot="0.5,0.5" anchor="true">
+  <displayList>
+    <image id="n0_lzb4" name="Background" src="lhyb1z" fileName="Res/hexagon _img.png" xy="0,-33" size="800,406" color="#ce8d4f">
+      <relation target="" sidePair=""/>
+    </image>
+    <text id="n1_lzb4" name="TitleText" xy="141,71" size="458,77" fontSize="57" color="#ffffff" autoSize="shrink" bold="true" text="确认离开游戏？"/>
+    <component id="n3_lzb4" name="YesBtn" src="lhyb20" fileName="Components/btn_2.xml" xy="87,200" size="296,94">
+      <Button title="是"/>
+    </component>
+    <component id="n4_lzb4" name="NoBtn" src="lhyb20" fileName="Components/btn_2.xml" xy="414,199" size="296,94">
+      <Button title="否"/>
+    </component>
+  </displayList>
+  <customProperty target="提示文本" propertyId="0"/>
+</component>

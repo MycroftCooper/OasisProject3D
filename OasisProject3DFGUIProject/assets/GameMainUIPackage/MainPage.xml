@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080" designImage="ui://t09fsbe0jlch1j" designImageAlpha="0" designImageLayer="1">
   <controller name="BuildingListCtrl" pages="0,close,1,open" selected="0"/>
+  <controller name="SettingPanelCtrl" pages="0,close,1,open" selected="0"/>
   <displayList>
     <component id="n21_jlch" name="GreenRateBar" src="jlch1q" fileName="Components/GreenRateBar.xml" xy="725,64">
       <ProgressBar value="42" max="100"/>
@@ -36,8 +37,11 @@
       <Button icon="ui://t09fsbe0i4mbs"/>
     </component>
     <component id="n2_jlch" name="SettingBtn" src="jlch1l" fileName="Components/Unit_IconBtn1.xml" xy="1458,9" size="37,43" group="n26_9pco">
-      <Button icon="ui://t09fsbe0i4mbj"/>
+      <Button icon="ui://t09fsbe0i4mbj" controller="SettingPanelCtrl" page="1"/>
     </component>
-    <group id="n26_9pco" name="TopBar" xy="362,0" size="1171,56"/>
+    <component id="n27_lhyb" name="SettingPanel" src="lhyb1y" fileName="ConfirmWindow.xml" xy="960,540" group="n26_9pco">
+      <gearDisplay controller="SettingPanelCtrl" pages="1"/>
+    </component>
+    <group id="n26_9pco" name="TopBar" xy="362,0" size="1171,710"/>
   </displayList>
 </component>

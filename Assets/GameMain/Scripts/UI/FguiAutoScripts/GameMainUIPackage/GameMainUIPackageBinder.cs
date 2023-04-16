@@ -12,7 +12,7 @@ namespace OasisProject3D.UI.GameMainUIPackage
             UIObjectFactory.SetPackageItemExtension(BuildingTab.URL, typeof(BuildingTab));
             UIObjectFactory.SetPackageItemExtension(BuildingTypeBtn.URL, typeof(BuildingTypeBtn));
             UIObjectFactory.SetPackageItemExtension(BuildingIconCase.URL, typeof(BuildingIconCase));
-            UIObjectFactory.SetPackageItemExtension(Unit_SettingWindow.URL, typeof(Unit_SettingWindow));
+            UIObjectFactory.SetPackageItemExtension(ConfirmWindow.URL, typeof(ConfirmWindow));
         }
     }
 }
