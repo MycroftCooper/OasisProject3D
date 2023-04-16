@@ -44,7 +44,7 @@ Material:
     m_Floats:
     - _BottomExponent: 1
     - _CloudsHeight: 0
-    - _CloudsRotation: 51.967117
+    - _CloudsRotation: 31.696585
     - _Exponent: 1
     - _Exposure: 1
     - _MoonHalo: 1
@@ -55,10 +55,10 @@ Material:
     - _SunSize: 0.75
     - _TopExponent: 1
     m_Colors:
-    - _BottomColor: {r: 0, g: 0, b: 0.007843138, a: 1}
-    - _CloudsTint: {r: 0.3681773, g: 0.42449367, b: 0.6804673, a: 1}
-    - _MiddleColor: {r: 0.0015857627, g: 0.22374362, b: 0.5106825, a: 1}
-    - _MoonTint: {r: 0.47275272, g: 0.53708357, b: 0.5919855, a: 1}
+    - _BottomColor: {r: 0.10363339, g: 0.13731425, b: 0.24101827, a: 1}
+    - _CloudsTint: {r: 0.58262986, g: 0.48760527, b: 0.77821386, a: 1}
+    - _MiddleColor: {r: 0.72737473, g: 0.4429254, b: 0.6651947, a: 1}
+    - _MoonTint: {r: 0.4039216, g: 0.47125363, b: 0.5294118, a: 0.16966859}
     - _SkyBottomColor: {r: 0.016868481, g: 0, b: 0.47794116, a: 0}
     - _SkyColor: {r: 0.03529412, g: 0.41960788, b: 0.59607846, a: 1}
     - _SkyColorBottom: {r: 0, g: 0, b: 0, a: 0}
@@ -66,7 +66,7 @@ Material:
     - _SkyMiddleColor: {r: 1, g: 0.61764705, b: 0.9578093, a: 0}
     - _SkyTint: {r: 0.034482475, g: 0, b: 1, a: 1}
     - _SkyTopColor: {r: 0.2794118, g: 0.6421905, b: 1, a: 0}
-    - _StarsTint: {r: 0.6768246, g: 0.6768246, b: 0.6768246, a: 1}
-    - _SunTint: {r: 0.7386853, g: 0.45656544, b: 0.50317407, a: 0}
-    - _TopColor: {r: 0.028243864, g: 0.04705883, b: 0.2007929, a: 1}
+    - _StarsTint: {r: 0.44267017, g: 0.44267017, b: 0.44267017, a: 0}
+    - _SunTint: {r: 0.92148674, g: 0.4989462, b: 0.57346725, a: 0.66066283}
+    - _TopColor: {r: 0.17127763, g: 0.22841726, b: 0.43709671, a: 1}
   m_BuildTextureStacks: []

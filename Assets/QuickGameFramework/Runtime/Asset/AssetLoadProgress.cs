@@ -40,8 +40,22 @@ namespace QuickGameFramework.Runtime {
             return a;
         }
         
+        public static AssetLoadProgress operator +(AssetLoadProgress a, AssetOperationHandle[] b) {
+            foreach (var handle in b) {
+                a.AddHandle(handle);
+            }
+            return a;
+        }
+        
         public static AssetLoadProgress operator +(AssetLoadProgress a, SubAssetsOperationHandle b) {
             a.AddSubHandle(b);
+            return a;
+        }
+        
+        public static AssetLoadProgress operator +(AssetLoadProgress a, SubAssetsOperationHandle[] b) {
+            foreach (var subHandle in b) {
+                a.AddSubHandle(subHandle);
+            }
             return a;
         }
 

@@ -39,12 +39,37 @@ namespace QuickGameFramework.Runtime {
 				QLog.Error($"QuickGameFramework>Asset>资源<{path}>异步加载失败!");
 				return null;
 			}
-			var handle = package.LoadSubAssetsAsync<Sprite>(path);
+			var handle = package.LoadSubAssetsAsync<T>(path);
 			if (callback != null) {
-				handle.Completed += _ => callback(handle.GetSubAssetObjects<T>());
+				handle.Completed += _ => callback(_.GetSubAssetObjects<T>());
 			}
 
 			return handle;
+		}
+
+		public SubAssetsOperationHandle[] LoadSubAssetsAsyncByTag<T>(string tag, Action<T[]> callback, string packageName = null) where T : Object {
+			if (!GetAssetPackage(packageName, out AssetsPackage package)) {
+				QLog.Error($"QuickGameFramework>Asset>Tag:<{tag}>相关资源异步加载失败!");
+				return null;
+			}
+			
+			AssetInfo[] infos = package.GetAssetInfos(tag);
+			if (infos == null || infos.Length == 0) {
+				QLog.Error($"QuickGameFramework>Asset>Tag:<{tag}>相关资源异步加载失败!tag不存在或该tag下无资源!");
+				return null;
+			}
+			
+			var output = new List<SubAssetsOperationHandle>();
+			foreach (var info in infos) {
+				var path = info.Address;
+				var handle = package.LoadSubAssetsAsync<T>(path);
+				if (callback != null) {
+					handle.Completed += _=> callback(_.GetSubAssetObjects<T>());
+				}
+				handle.Completed += LogLoadSuccess;
+				output.Add(handle);
+			}
+			return output.ToArray();
 		}
 
 		public AssetOperationHandle[] LoadAssetsAsyncByTag<T>(string tag, Action<T> callback, string packageName = null)
@@ -62,9 +87,6 @@ namespace QuickGameFramework.Runtime {
 
 			var output = new List<AssetOperationHandle>();
 			foreach (var info in infos) {
-				if (info.AssetType != typeof(T)) {
-					continue;
-				}
 				var path = info.Address;
 				var handle = package.LoadAssetAsync<T>(path);
 				if (callback != null) {
@@ -104,9 +126,6 @@ namespace QuickGameFramework.Runtime {
 
 			var output = new List<AssetOperationHandle>();
 			foreach (var info in infos) {
-				if (info.AssetType != typeof(T)) {
-					continue;
-				}
 				var path = info.Address;
 				var handle = package.LoadAssetSync<T>(path);
 				if (callback != null) {
@@ -190,11 +209,13 @@ namespace QuickGameFramework.Runtime {
 			UpdatePackageDict();
 		}
 
-		public static void LogLoadSuccess(AssetOperationHandle handle) {
-			if (handle.AssetObject != null) {
-				QLog.Log($"QuickGameFramework>Asset>资源<{handle.AssetObject.name}>加载成功!");
+		public static void LogLoadSuccess(OperationHandleBase handle) {
+			AssetInfo targetInfo = handle.GetAssetInfo();
+			string logStr = $"\n寻址:<{targetInfo.Address}>\n类型:<{targetInfo.AssetType}>\n路径:<{targetInfo.AssetPath}>";
+			if (handle.Status == EOperationStatus.Succeed) {
+				QLog.Log($"QuickGameFramework>Asset>资源加载成功!{logStr}");
 			} else {
-				QLog.Error($"QuickGameFramework>Asset>资源<{handle.AssetObject.name}>加载失败!");
+				QLog.Error($"QuickGameFramework>Asset>资源加载失败!{logStr}");
 			}
 		}
 		
@@ -211,15 +232,13 @@ namespace QuickGameFramework.Runtime {
 			if (string.IsNullOrEmpty(packageName)) {
 				packageName = _projectAssetSetting.defaultPackageName;
 			}
-			if (_packages.ContainsKey(packageName)) {
-				package = _packages[packageName];
+			if (_packages.TryGetValue(packageName, out var packageT)) {
+				package = packageT;
 				return true;
 			}
 			package = YooAssets.TryGetAssetsPackage(packageName);
 			if (package != null) {
-				if (!_packages.ContainsKey(packageName)) {
-					_packages.Add(packageName, package);
-				}
+				_packages.TryAdd(packageName, package);
 				return true;
 			}
 			QLog.Warning($"QuickGameFramework>Asset>资源包<{packageName}>不存在!");

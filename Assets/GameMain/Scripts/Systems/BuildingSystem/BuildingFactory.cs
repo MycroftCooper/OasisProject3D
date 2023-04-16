@@ -2,7 +2,6 @@
 using cfg;
 using QuickGameFramework.Runtime;
 using UnityEngine;
-using UnityEngine.U2D;
 
 namespace OasisProject3D.BuildingSystem {
     public class BuildingFactory : Singleton<BuildingFactory>, IEntityFactory<BuildingCtrl> {
@@ -23,19 +22,10 @@ namespace OasisProject3D.BuildingSystem {
 
             var projectAssetSetting = GameEntry.ConfigMgr.ProjectAssetSetting;
             _icons = new Dictionary<string, Sprite>();
-            output += GameEntry.AssetMgr.LoadSubAssetsAsync<Sprite>($"{projectAssetSetting.uiResPath}BuildingIcons_1",
-                LoadBuildingIcon, projectAssetSetting.uiAssetsPackageName);
-            output += GameEntry.AssetMgr.LoadSubAssetsAsync<Sprite>($"{projectAssetSetting.uiResPath}BuildingIcons_2",
-                LoadBuildingIcon, projectAssetSetting.uiAssetsPackageName);
+            output += GameEntry.AssetMgr.LoadSubAssetsAsyncByTag<Sprite>("BuildingIcons", LoadBuildingIcon, projectAssetSetting.uiAssetsPackageName);
             return output;
         }
-
-        private void LoadBuildingIcon(Sprite[] icons) {
-            foreach (var icon in icons) {
-                _icons.Add(icon.name.Replace("_icon","") , icon);
-            }
-        }
-
+        
         public void Init() {
             throw new System.NotImplementedException();
         }
@@ -73,10 +63,18 @@ namespace OasisProject3D.BuildingSystem {
             List<Sprite> output = new List<Sprite>();
             foreach (var key in buildingKeys) {
                 var icon = GetBuildingIcon(key);
-                output.Add(icon); 
+                if (icon != null) {
+                    output.Add(icon); 
+                }
             }
 
             return output;
+        }
+        
+        private void LoadBuildingIcon(Sprite[] icons) {
+            foreach (var icon in icons) {
+                _icons.Add(icon.name.Replace("_icon","") , icon);
+            }
         }
         #endregion
         

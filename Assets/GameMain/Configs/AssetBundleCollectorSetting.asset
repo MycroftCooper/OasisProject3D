@@ -36,9 +36,9 @@ MonoBehaviour:
         CollectorGUID: 5e87fa1c96896504085542c5551e6f8d
         CollectorType: 0
         AddressRuleName: AddressByGroupAndFileName
-        PackRuleName: PackDirectory
-        FilterRuleName: CollectAll
-        AssetTags: 
+        PackRuleName: PackSeparately
+        FilterRuleName: CollectSprite
+        AssetTags: BuildingIcons
     - GroupName: Block
       GroupDesc: "\u5730\u5757\u7EC4"
       AssetTags: Block

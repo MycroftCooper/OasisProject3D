@@ -20,7 +20,7 @@ namespace OasisProject3D.UI.GameMainUIPackage
         {
             base.ConstructFromXML(xml);
 
-            BuildingIcon = (GLoader)GetChildAt(1);
+            BuildingIcon = (GLoader)GetChildAt(0);
             BuildingName = (GTextField)GetChildAt(2);
         }
     }

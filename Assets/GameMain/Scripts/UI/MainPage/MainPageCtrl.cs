@@ -1,9 +1,9 @@
 using System;
 using cfg;
 using FairyGUI;
+using OasisProject3D.BuildingSystem;
 using QuickGameFramework.Runtime;
 using QuickGameFramework.Runtime.UI;
-using UnityEngine;
 using Controller = QuickGameFramework.Runtime.UI.Controller;
 
 namespace OasisProject3D.UI.GameMainUIPackage {
@@ -12,14 +12,16 @@ namespace OasisProject3D.UI.GameMainUIPackage {
         private void Start() {
             _mainPage = (MainPage)UIPanel.ui;
             _mainPage.BuildBtn.onClick.Add(OnBuildBtnClicked);
-            _mainPage.BuildingList.BuildingTabAnyBtn.onClick.Add(OnBuildingTypeBtnClicked);
-            _mainPage.BuildingList.BuildingTabFunctionBtn.onClick.Add(OnBuildingTypeBtnClicked);
-            _mainPage.BuildingList.BuildingTabEcoBtn.onClick.Add(OnBuildingTypeBtnClicked);
-            _mainPage.BuildingList.BuildingTabProductBtn.onClick.Add(OnBuildingTypeBtnClicked);
-            _mainPage.BuildingList.BuildingTabStorageBtn.onClick.Add(OnBuildingTypeBtnClicked);
-            _mainPage.BuildingList.BuildingCaseList.onClickItem.Add(OnBuildingBtnClicked);
+            var buildingList = _mainPage.BuildingList;
+            buildingList.BuildingTabAnyBtn.onClick.Add(OnBuildingTypeBtnClicked);
+            buildingList.BuildingTabFunctionBtn.onClick.Add(OnBuildingTypeBtnClicked);
+            buildingList.BuildingTabEcoBtn.onClick.Add(OnBuildingTypeBtnClicked);
+            buildingList.BuildingTabProductBtn.onClick.Add(OnBuildingTypeBtnClicked);
+            buildingList.BuildingTabStorageBtn.onClick.Add(OnBuildingTypeBtnClicked);
+            buildingList.BuildingCaseList.onClickItem.Add(OnBuildingBtnClicked);
 
             _isBuildingListOpen = false;
+            _buildingCaseList = buildingList.BuildingCaseList;
             
             DispatchMessage(new Message{Command =  Message.CommonCommand.Show});
         }
@@ -27,10 +29,13 @@ namespace OasisProject3D.UI.GameMainUIPackage {
         #region 建筑相关按钮响应函数
         private bool _isBuildingListOpen;
         private EBuildingType _nowSelectType;
+        private GList _buildingCaseList;
+        private BuildingManager BuildingMgr => BuildingManager.Instance;
         
         private void OnBuildBtnClicked() {
             _isBuildingListOpen = !_isBuildingListOpen;
             if (!_isBuildingListOpen) {
+                _buildingCaseList.ClearSelection();
                 return;
             }
             
@@ -56,9 +61,16 @@ namespace OasisProject3D.UI.GameMainUIPackage {
             });
         }
 
-        public void OnBuildingBtnClicked(EventContext context) {
-            string buildingKey = ((BuildingIconCase)context.sender).BuildingIcon.name;
-            QLog.Error(buildingKey);
+        public void OnBuildingBtnClicked() {
+            int selectedIndex = _buildingCaseList.selectedIndex;
+            BuildingIconCase targetCase = (BuildingIconCase)_buildingCaseList.GetChildAt(selectedIndex);
+            string buildingKey = targetCase.name;
+            if (!BuildingMgr.CanAffordConstructCosts(buildingKey)) {
+                // todo: 显示<没有足够的材料用以建筑>的提示UI
+                return;
+            }
+
+            BuildingMgr.ConstructNewBuilding(buildingKey);
         }
         #endregion
 
