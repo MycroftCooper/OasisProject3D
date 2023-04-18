@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2789892815362909128
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 904845290525944394, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 904845290525944394, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 904845290525944394, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 904845290525944394, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 904845290525944394, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 904845290525944394, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 904845290525944394, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 904845290525944394, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 904845290525944394, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 904845290525944394, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 904845290525944394, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196590270800372720, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Name
+      value: sandControlShrub_prefab
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+--- !u!4 &4874255186454280494 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7283277170563652326, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+  m_PrefabInstance: {fileID: 2789892815362909128}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5025224120549108171
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4874255186454280494}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
+      propertyPath: m_Name
+      value: sandControlShrub_fbx
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}

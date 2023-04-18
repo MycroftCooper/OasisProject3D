@@ -80,27 +80,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: field_icon
-      rect:
-        serializedVersion: 2
-        x: 1012
-        y: 567
-        width: 987
-        height: 692
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54a7aa2b200c0a447941296e0d88fffc
-      internalID: -1293723744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: sandControlGrass_icon
       rect:
         serializedVersion: 2
@@ -163,6 +142,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: sandControlShrub
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 567
+        width: 987
+        height: 692
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54af202620ff3d047b38ee7a15d96798
+      internalID: -1351881599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -174,10 +174,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      sandControlShrub: -1351881599
       windbreakTree_icon: 1578020473
       sandControlGrass_icon: -1610901369
       windPowerStation_icon: -708779554
-      field_icon: -1293723744
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
