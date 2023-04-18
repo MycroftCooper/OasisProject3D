@@ -191,11 +191,11 @@ namespace OasisProject3D.CameraCtrl {
             }
             
             // 获取鼠标滚轮值
-            float scrollValue = inputValue.y;
+            float scrollValue = -inputValue.y;
             
             var trans = transform;
             var pos = trans.position;
-            Vector3 direction = Vector3.up;
+            Vector3 direction = Vector3.up * scrollValue;
             // 计算新的相机位置
             Vector3 newPosition = pos + direction * (zoomSpeed * Time.deltaTime);
 
