@@ -2,7 +2,6 @@
 
 using FairyGUI;
 using FairyGUI.Utils;
-using OasisProject3D.UI.GameEntryUIPackage;
 
 namespace OasisProject3D.UI.GameMainUIPackage
 {
