@@ -25,11 +25,25 @@
     <component id="jlch1r" name="BuildingTab.xml" path="/Components/" exported="true"/>
     <component id="jlch1s" name="BuildingTypeBtn.xml" path="/Components/"/>
     <component id="jlch1t" name="BuildingIconCase.xml" path="/Components/" exported="true"/>
-    <component id="jlch1w" name="btn_2.xml" path="/Components/"/>
     <component id="jlch1x" name="SettingPageUI.xml" path="/" exported="true"/>
     <component id="lhyb1y" name="ConfirmWindow.xml" path="/" exported="true"/>
     <image id="lhyb1z" name="hexagon _img.png" path="/Res/" scale="9grid" scale9grid="128,33,256,446"/>
     <component id="lhyb20" name="btn_2(1).xml" path="/Components/"/>
+    <image id="jobk1z" name="img_v2_79b781f1-5eda-4e8f-bd17-bb20b927e23g.jpg" path="/Refer/"/>
+    <component id="jobk20" name="BuildingDescTab.xml" path="/" exported="true"/>
+    <image id="jobk21" name="arrow-left.png" path="/Res/"/>
+    <image id="jobk22" name="arrow-right.png" path="/Res/"/>
+    <image id="jobk27" name="pen@4x.png" path="/Res/"/>
+    <image id="jobk28" name="search@4x.png" path="/Res/"/>
+    <component id="jobk2a" name="btn_3.xml" path="/Components/"/>
+    <image id="jobk2b" name="toggle_on@4x.png" path="/Res/"/>
+    <image id="jobk2c" name="toggle_on-2@4x.png" path="/Res/"/>
+    <component id="jobk2g" name="BuildingDescSwitchBtn.xml" path="/Components/"/>
+    <component id="n7q62h" name="BuildingDescPrevBtn.xml" path="/Components/"/>
+    <component id="n7q62i" name="BuildingDescNextBtn.xml" path="/Components/"/>
+    <component id="n7q62j" name="BuildingDescEditBtn.xml" path="/Components/"/>
+    <component id="n7q62k" name="BuildingDescDestructBtn.xml" path="/Components/"/>
+    <component id="n7q62l" name="BuildingDescFocusBtn.xml" path="/Components/"/>
   </resources>
   <publish name="" genCode="true" extractAlpha="true"/>
 </packageDescription>
