@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97ca6b3f4d4db34493158d1dfad2f36, type: 3}
   m_Name: ProjectAssetSetting
   m_EditorClassIdentifier: 
-  playMode: 0
+  playMode: 1
+  editorPlayMode: 0
   defaultPackageName: MainPackage
   uiResPath: UI_
   uiAssetsPackageName: MainPackage

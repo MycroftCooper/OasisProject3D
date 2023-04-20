@@ -44,3 +44,9 @@ OasisProject3D.sln.DotSettings
 NodeCanvas.csproj
 
 ParadoxNotion.csproj
+
+Assets/StreamingAssets/
+
+Assets/StreamingAssets.meta
+
+Assets/GameRes/Weather/Sky/LowPolySkybox.mat

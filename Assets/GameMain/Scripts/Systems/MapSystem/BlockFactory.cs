@@ -76,9 +76,6 @@ namespace OasisProject3D.MapSystem {
             output.worldPos = HexGridTool.Coordinate_Axial.DiscreteToContinuity(logicalPos, BlockSize, false).ToVec3().SwapYZ();
             output.worldPos += Vector3.up * output.height;
             output.transform.position = output.worldPos;
-            var collider = output.GetComponent<MeshCollider>();
-            var mesh = output.transform.Find("Base").GetComponent<MeshFilter>().mesh;
-            collider.sharedMesh = mesh;
             return output;
         }
 

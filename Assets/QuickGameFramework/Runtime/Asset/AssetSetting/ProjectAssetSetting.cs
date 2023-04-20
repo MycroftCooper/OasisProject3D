@@ -5,6 +5,7 @@ namespace QuickGameFramework.Runtime {
     [CreateAssetMenu(fileName = "ProjectAssetSetting", menuName = "YooAsset/Create Project Asset Setting")]
     public class ProjectAssetSetting : ScriptableObject {
         public EPlayMode playMode;
+        public EPlayMode editorPlayMode;
         public string defaultPackageName = "DefaultPackage";
         public string uiResPath;
         public string uiAssetsPackageName;

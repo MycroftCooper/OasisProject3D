@@ -20,7 +20,6 @@ namespace QuickGameFramework.Runtime {
             
             CoroutineMgr = GetComponent<CoroutineManager>();
             ConfigMgr = new ConfigManager();
-            DataTableMgr = new DataTableManager();
             FrameworkModuleMgr = GetComponent<ModuleManager>();
             GamePlayModuleMgr = gameObject.AddComponent<ModuleManager>();
             ProcedureMgr = FrameworkModuleMgr.CreateModule<ProcedureManager>();
@@ -28,6 +27,7 @@ namespace QuickGameFramework.Runtime {
             
             AssetMgr = new AssetManager();
             AssetMgr.Init(() => {
+                DataTableMgr = new DataTableManager();
                 UIMgr = new UIManager();
                 ChangeScene("StartScene");
             });
@@ -42,9 +42,11 @@ namespace QuickGameFramework.Runtime {
         }
 
         public static void ExitGame() {
+#if UNITY_EDITOR
             if (Application.isEditor) {
                 UnityEditor.EditorApplication.isPlaying = false;
             }
+#endif
             Application.Quit();
         }
     }

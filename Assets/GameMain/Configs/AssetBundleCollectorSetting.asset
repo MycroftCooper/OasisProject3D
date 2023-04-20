@@ -32,6 +32,7 @@ MonoBehaviour:
         PackRuleName: PackSeparately
         FilterRuleName: CollectAll
         AssetTags: 
+        UserData: 
       - CollectPath: Assets/GameRes/UI/Icon/BuildingIcons
         CollectorGUID: 5e87fa1c96896504085542c5551e6f8d
         CollectorType: 0
@@ -39,6 +40,7 @@ MonoBehaviour:
         PackRuleName: PackSeparately
         FilterRuleName: CollectSprite
         AssetTags: BuildingIcon
+        UserData: 
     - GroupName: Block
       GroupDesc: "\u5730\u5757\u7EC4"
       AssetTags: Block
@@ -51,6 +53,7 @@ MonoBehaviour:
         PackRuleName: PackGroup
         FilterRuleName: CollectAll
         AssetTags: 
+        UserData: 
       - CollectPath: Assets/GameMain/Entities/Block
         CollectorGUID: f8cc8c2b1af17c5418fad7dc2119a34c
         CollectorType: 0
@@ -58,6 +61,7 @@ MonoBehaviour:
         PackRuleName: PackGroup
         FilterRuleName: CollectAll
         AssetTags: 
+        UserData: 
     - GroupName: Building
       GroupDesc: "\u5EFA\u7B51\u7EC4"
       AssetTags: 
@@ -70,6 +74,7 @@ MonoBehaviour:
         PackRuleName: PackGroup
         FilterRuleName: CollectAll
         AssetTags: 
+        UserData: 
       - CollectPath: Assets/GameMain/Entities/Building
         CollectorGUID: 0695d8ab1114ac84e9ad6194d47aa256
         CollectorType: 0
@@ -77,3 +82,17 @@ MonoBehaviour:
         PackRuleName: PackGroup
         FilterRuleName: CollectPrefab
         AssetTags: BuildingPrefab
+        UserData: 
+    - GroupName: DataTable
+      GroupDesc: "\u914D\u8868\u6587\u4EF6"
+      AssetTags: 
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/GameMain/DataTables/Json
+        CollectorGUID: 023f7eb99d83a5d4cb6fb6420ab5f1a0
+        CollectorType: 0
+        AddressRuleName: AddressByGroupAndFileName
+        PackRuleName: PackGroup
+        FilterRuleName: CollectAll
+        AssetTags: DataTable
+        UserData: 

@@ -38,7 +38,7 @@ namespace QuickGameFramework.Runtime {
         private object LoadFunc(string packageName, string extension, Type type, out DestroyMethod method) {
             method = DestroyMethod.None;
             string location = GameEntry.ConfigMgr.ProjectAssetSetting.uiResPath + packageName;
-            var assetPackage = YooAssets.GetAssetsPackage(GameEntry.ConfigMgr.ProjectAssetSetting.uiAssetsPackageName);
+            var assetPackage = YooAssets.GetPackage(GameEntry.ConfigMgr.ProjectAssetSetting.uiAssetsPackageName);
             var handle = assetPackage.LoadAssetSync(location, type);
             handle.Completed += AssetManager.LogLoadSuccess;
             _fguiAssetHandles.Add(handle);

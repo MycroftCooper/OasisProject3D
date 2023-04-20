@@ -13,7 +13,7 @@ namespace OasisProject3D.BuildingSystem {
         public AssetLoadProgress PreLoadAsset() {
             var output = new AssetLoadProgress();
             _prefabs = new Dictionary<string, GameObject>();
-            output += AssetMgr.LoadAssetsAsyncByTag<GameObject>("BuildingPrefab", prefab => {
+            output += AssetMgr.LoadAssetsAsyncByTag<GameObject>("BuildingPrefab", (prefab,path) => {
                 _prefabs.Add(prefab.name.Replace("_prefab", ""), prefab);
             });
 
