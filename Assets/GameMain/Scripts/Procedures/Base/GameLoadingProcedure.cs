@@ -1,4 +1,5 @@
 using MycroftToolkit.QuickCode;
+using OasisProject3D.BlockSystem;
 using OasisProject3D.BuildingSystem;
 using OasisProject3D.MapSystem;
 using OasisProject3D.UI.GameEntryUIPackage;
@@ -14,9 +15,8 @@ namespace OasisProject3D.Procedures {
 
         protected override void OnEnter(params object[] parameters) {
             _loadingPage = GameEntry.UIMgr.GetUIInstance<LoadingPage>(nameof(LoadingPage));
-            _assetLoadProgress = BlockFactory.Instance.PreLoadAsset();
-            _assetLoadProgress += BuildingFactory.Instance.PreLoadAsset();
-            _assetLoadProgress.Completed += () => _isLoadCompleted = true;
+            InitGamePlayModule();
+            LoadAssets();
 
             _loadingPage.ProgressBar.value = 0;
             _timer = Timer.Register(3, null);
@@ -42,5 +42,17 @@ namespace OasisProject3D.Procedures {
         }
 
         protected override void OnDestroy() { }
+
+        private void InitGamePlayModule() {
+            GameEntry.GamePlayModuleMgr.CreateModule<MapManager>();
+            GameEntry.GamePlayModuleMgr.CreateModule<BlockManager>();
+            GameEntry.GamePlayModuleMgr.fixedUpdateInterval = 10;
+        }
+
+        private void LoadAssets() {
+            _assetLoadProgress = GamePlayEnter.BlockMgr.Factory.PreLoadAsset();
+            _assetLoadProgress += BuildingFactory.Instance.PreLoadAsset();
+            _assetLoadProgress.Completed += () => _isLoadCompleted = true;
+        }
     }
 }

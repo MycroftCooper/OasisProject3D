@@ -6,9 +6,7 @@ using UnityEngine;
 
 namespace QuickGameFramework.Runtime {
 	public class ModuleManager : MonoBehaviour {
-		public int updateSpeed = 1;
-		
-		[ShowInInspector] private readonly SortedSet<IModule> _modules = new SortedSet<IModule>(new ModuleComparer());
+		[ShowInInspector] private readonly SortedSet<IModule> _modules = new (new ModuleComparer());
 		private void Awake() {
 			_updateDeltaTime = 0f;
 			QLog.Log($"QuickGameFramework>Module> 模块化系统成功初始化!");
@@ -24,12 +22,16 @@ namespace QuickGameFramework.Runtime {
 			QLog.Log($"QuickGameFramework>Module> 所有模块成功销毁!");
 		}
 
+		/// <summary>
+		/// update速度(每次update轮询几次)
+		/// </summary>
+		public int updateSpeed = 1;
 		private float _updateDeltaTime;
 		/// <summary>
 		/// 更新模块系统
 		/// </summary>
 		private void Update() {
-			if (updateSpeed == 0) {
+			if (updateSpeed <= 0) {
 				return;
 			}
 
@@ -39,14 +41,38 @@ namespace QuickGameFramework.Runtime {
 				return;
 			}
 			_updateDeltaTime = 0f;
-			
+			var dTime = Time.deltaTime;
 			for(int i = 0; i< updateTimes;i++) {
 				_modules.ForEach((module)=> {
 					if (!module.IsManualUpdate) {
-						module.OnModuleUpdate(_updateDeltaTime);
+						module.OnModuleUpdate(dTime);
 					}
 				});
 			}
+		}
+
+		/// <summary>
+		/// FixedUpdate间隔(间隔多少秒FixedUpdate一次)
+		/// </summary>
+		public float fixedUpdateInterval;
+		private float _fixedUpdateDeltaTime;
+
+		private void FixedUpdate() {
+			if (fixedUpdateInterval == -1) {
+				return;
+			}
+
+			_fixedUpdateDeltaTime += Time.fixedUnscaledDeltaTime;
+			if (_fixedUpdateDeltaTime < fixedUpdateInterval) {
+				return;
+			}
+
+			_fixedUpdateDeltaTime = 0;
+			_modules.ForEach((module) => {
+				if (!module.IsManualUpdate) {
+					module.OnModuleFixedUpdate(fixedUpdateInterval);
+				}
+			});
 		}
 
 		/// <summary>

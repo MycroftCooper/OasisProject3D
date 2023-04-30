@@ -31,7 +31,11 @@ namespace OasisProject3D.ResourceSystem {
         }
 
         public void OnModuleUpdate(float intervalSeconds) {
-            throw new System.NotImplementedException();
+
+        }
+
+        public void OnModuleFixedUpdate(float intervalSeconds) {
+
         }
 
         public void OnModuleDestroy() {

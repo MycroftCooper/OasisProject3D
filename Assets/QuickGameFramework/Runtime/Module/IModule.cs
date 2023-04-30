@@ -15,6 +15,11 @@ namespace QuickGameFramework.Runtime {
 		/// 更新模块
 		/// </summary>
 		public void OnModuleUpdate(float intervalSeconds);
+		
+		/// <summary>
+		/// 更新模块
+		/// </summary>
+		public void OnModuleFixedUpdate(float intervalSeconds);
 
 		/// <summary>
 		/// 销毁模块

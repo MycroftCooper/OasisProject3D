@@ -16,18 +16,24 @@ namespace OasisProject3D.UI.GameMainUIPackage {
             _mainPage = (MainPage)UIPanel.ui;
         }
 
-        protected override void OnShow(MainPageUIData uiData) { }
+        protected override void OnShow(MainPageUIData uiData) {
+            OnGreenRateRefresh(uiData);
+            OnResDataRefresh(uiData);
+        }
 
         protected override void OnHide(MainPageUIData uiData) {
             throw new NotImplementedException();
         }
 
         #region 页面刷新相关
-        protected void OnVegetationCoverageRefresh(MainPageUIData uiData) {
+        protected void OnGreenRateRefresh(MainPageUIData uiData) {
             _mainPage.GreenRateBar.value = uiData.GreenRate;
         }
         
         protected void OnResDataRefresh(MainPageUIData uiData) {
+            if (uiData.ResData == null) {
+                return;
+            }
             Dictionary<EResType, float> resDict = uiData.ResData;
             foreach (var kv in resDict) {
                 EResType resType = kv.Key;
@@ -87,8 +93,8 @@ namespace OasisProject3D.UI.GameMainUIPackage {
         protected override void ProcessMessage(ValueType command, MainPageUIData uiData) {
             MainPageUICommand cmd = (MainPageUICommand)command;
             switch (cmd) {
-                case MainPageUICommand.UpdateVegetationCoverage:
-                    OnVegetationCoverageRefresh(uiData);
+                case MainPageUICommand.UpdateGreenRate:
+                    OnGreenRateRefresh(uiData);
                     break;
                 case MainPageUICommand.UpdateResData:
                     OnResDataRefresh(uiData);

@@ -31,6 +31,8 @@ namespace QuickGameFramework.Procedure {
             }
         }
 
+        public void OnModuleFixedUpdate(float intervalSeconds) { }
+
         public void OnModuleDestroy() {
             _procedures.Values.ForEach((x) => { x.Destroy(); });
             _procedures.Clear();

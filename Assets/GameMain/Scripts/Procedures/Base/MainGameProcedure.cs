@@ -5,7 +5,9 @@ using QuickGameFramework.Runtime;
 namespace OasisProject3D.Procedures {
     public class MainGameProcedure : Procedure {
         protected override void OnEnter(params object[] parameters) {
-            GameEntry.GamePlayModuleMgr.CreateModule<MapManager>();
+            GamePlayEnter.MapMgr.Init();
+            GamePlayEnter.BlockMgr.Init();
+            GamePlayEnter.MapMgr.InitMap();
         }
 
         protected override void OnUpdate(float intervalSeconds) {

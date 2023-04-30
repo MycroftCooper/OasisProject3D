@@ -1,14 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using cfg;
 using QuickGameFramework.Runtime.UI;
-using UnityEngine;
 
 namespace OasisProject3D.UI.GameMainUIPackage {
     internal class MainPageModel:Model<MainPageUIData> {
         protected override void OnShow(ValueType extraParams) {
-            OnVegetationCoverageRefresh();
+            OnGreenRateRefresh();
             OnResDataRefresh();
         }
 
@@ -16,8 +13,8 @@ namespace OasisProject3D.UI.GameMainUIPackage {
             throw new NotImplementedException();
         }
 
-        private void OnVegetationCoverageRefresh() {
-            
+        private void OnGreenRateRefresh() {
+            data.GreenRate = GamePlayEnter.MapMgr.GreenRate;
         }
         
         private void OnResDataRefresh() {
@@ -27,8 +24,8 @@ namespace OasisProject3D.UI.GameMainUIPackage {
         protected override void ProcessMessage(Message message) {
             MainPageUICommand cmd = (MainPageUICommand)message.Command;
             switch (cmd) {
-                case MainPageUICommand.UpdateVegetationCoverage:
-                    OnVegetationCoverageRefresh();
+                case MainPageUICommand.UpdateGreenRate:
+                    OnGreenRateRefresh();
                     break;
                 case MainPageUICommand.UpdateResData:
                     OnResDataRefresh();

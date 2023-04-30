@@ -2,10 +2,8 @@ using System;
 using cfg;
 using FairyGUI;
 using OasisProject3D.BuildingSystem;
-using OasisProject3D.MapSystem;
 using QuickGameFramework.Runtime;
 using QuickGameFramework.Runtime.UI;
-using UnityEngine;
 using Controller = QuickGameFramework.Runtime.UI.Controller;
 
 namespace OasisProject3D.UI.GameMainUIPackage {
@@ -33,6 +31,11 @@ namespace OasisProject3D.UI.GameMainUIPackage {
             _mainPage.SettingPanel.NoBtn.onClick.Add(()=>_mainPage.SettingPanelCtrl.SetSelectedPage("close"));
             
             DispatchMessage(new Message{Command =  Message.CommonCommand.Show});
+
+            GamePlayEnter.MapMgr.OnMapUpdate += () => {
+                DispatchMessage(new Message { Command = MainPageUICommand.UpdateGreenRate });
+                DispatchMessage(new Message { Command = MainPageUICommand.UpdateResData });
+            };
         }
 
         #region 建筑相关按钮响应函数
@@ -97,24 +100,21 @@ namespace OasisProject3D.UI.GameMainUIPackage {
         #endregion
 
         #region 游戏速度相关按钮响应函数
-
-        // todo: 游戏速度相关按钮响应函数实现
         private void OnGameSpeedBtnClicked(EventContext context) {
             var btnName = ((GButton)context.sender).name;
             var gamePlayMgr = GameEntry.GamePlayModuleMgr;
             switch (btnName) {
                 case "Speed1XBtn":
-                    gamePlayMgr.updateSpeed = gamePlayMgr.updateSpeed == 1 ? 0 : 1;
+                    gamePlayMgr.fixedUpdateInterval = gamePlayMgr.fixedUpdateInterval == 1 ? -1 : 0;
                     break;
                 case "Speed2XBtn":
-                    gamePlayMgr.updateSpeed = 3;
+                    gamePlayMgr.fixedUpdateInterval = 0.5f;
                     break;
                 case "Speed3XBtn":
-                    gamePlayMgr.updateSpeed = 6;
+                    gamePlayMgr.fixedUpdateInterval = 0.25f;
                     break;
             }
         }
-        
         #endregion
 
         #region 天气相关按钮响应函数

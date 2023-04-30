@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace OasisProject3D.UI.GameMainUIPackage {
     internal enum MainPageUICommand {
-        UpdateVegetationCoverage,
+        UpdateGreenRate,
         UpdateResData,
         UpdateBuildingList,
         CloseBuildingList,

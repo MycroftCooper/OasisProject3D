@@ -7,7 +7,7 @@ using MycroftToolkit.QuickCode;
 using QuickGameFramework.Runtime;
 using UnityEngine;
 
-namespace OasisProject3D.MapSystem {
+namespace OasisProject3D.BlockSystem {
     public partial class BlockFactory{
         public GameObject ElementPrefab;
 
@@ -29,8 +29,8 @@ namespace OasisProject3D.MapSystem {
             foreach (var config in _elementConfDict) {
                 string elementName = config.Key;
                 EBlockType valueBlockType =config.Value.BlockType;
-                if (_blockElementDict.ContainsKey(valueBlockType)) {
-                    _blockElementDict[valueBlockType].Add(elementName);
+                if (_blockElementDict.TryGetValue(valueBlockType, out var value)) {
+                    value.Add(elementName);
                 } else {
                     _blockElementDict.Add(valueBlockType, new List<string>{elementName});
                 }
@@ -64,16 +64,16 @@ namespace OasisProject3D.MapSystem {
             foreach (string elemName in elementsName) {
                 BlockElementConfig conf = _elementConfDict[elemName];
                 (List<Mesh> meshes, List<Material> materials) elemRes = _elementResDict[elemName];
-                if (!_random.GetBool(conf.GenerateRate)) continue;
+                if (!BlockRandom.GetBool(conf.GenerateRate)) continue;
             
-                int num = _random.GetInt(conf.NumRange + 1);
+                int num = BlockRandom.GetInt(conf.NumRange + 1);
                 for (int i = 0; i < num; i++) {
                     GameObject element = ElementPool.GetObject(parent);
                     element.name = elemName;
-                    element.GetComponent<MeshFilter>().mesh = elemRes.meshes.GetRandomObject(_random);
-                    element.GetComponent<MeshRenderer>().materials = new []{elemRes.materials.GetRandomObject(_random)};
-                    Vector3 pos = QuickRandomInArea.GetRandomPoint_Circular(Vector2.zero, (BlockDistance / 2) - 2, _random).ToVec3().SwapYZ();
-                    float rotate = _random.GetFloat(360);
+                    element.GetComponent<MeshFilter>().mesh = elemRes.meshes.GetRandomObject(BlockRandom);
+                    element.GetComponent<MeshRenderer>().materials = new []{elemRes.materials.GetRandomObject(BlockRandom)};
+                    Vector3 pos = QuickRandomInArea.GetRandomPoint_Circular(Vector2.zero, (BlockDistance / 2) - 2, BlockRandom).ToVec3().SwapYZ();
+                    float rotate = BlockRandom.GetFloat(360);
                     element.transform.localPosition = pos;
                     element.transform.localRotation = Quaternion.Euler(new Vector3(0, rotate, 0));
                     element.transform.localScale = Vector3.one * 2;
