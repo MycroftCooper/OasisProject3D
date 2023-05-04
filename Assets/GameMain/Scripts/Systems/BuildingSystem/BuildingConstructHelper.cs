@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace OasisProject3D.BuildingSystem {
     public class BuildingConstructHelper {
+        private readonly BuildingFactory _factory;
         private readonly BuildingCtrl _targetBuilding;
 
         private Material _buildingDefaultMat;
@@ -12,12 +13,13 @@ namespace OasisProject3D.BuildingSystem {
         private static readonly int HeightKey = Shader.PropertyToID("_Height");
 
         public BuildingConstructHelper(BuildingCtrl targetBuilding) {
+            _factory = GamePlayEnter.BuildingMgr.Factory;
             _targetBuilding = targetBuilding;
             SetConstructMoveMaterial();
         }
         
         private void SetConstructMoveMaterial() {
-            _buildingConstructMat = new Material(BuildingFactory.Instance.GetBuildingMaterial("construct_material"));
+            _buildingConstructMat = new Material(_factory.GetBuildingMaterial("construct_material"));
             _buildingConstructMat.name = _buildingConstructMat.name.Replace("(Instance)","");
             _buildingDefaultMat = new Material(_targetBuilding.BuildingMeshRenderer.material);
             _buildingDefaultMat.name = _buildingDefaultMat.name.Replace("(Instance)","");

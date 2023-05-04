@@ -1,6 +1,7 @@
 [
   {
-    "id": "centerTower",
+    "key": "centerTower",
+    "id": 1,
     "name": "中央水塔",
     "buildingType": 14,
     "canBulidBlockType": [
@@ -34,7 +35,8 @@
     "describe": "相当于城镇中心，使用经济资源交易"
   },
   {
-    "id": "buildingBase",
+    "key": "buildingBase",
+    "id": 2,
     "name": "稳固地桩",
     "buildingType": 2,
     "canBulidBlockType": [
@@ -70,7 +72,8 @@
     "describe": "使沙漠地块变为稳固地块"
   },
   {
-    "id": "weatherStation",
+    "key": "weatherStation",
+    "id": 3,
     "name": "气象站",
     "buildingType": 2,
     "canBulidBlockType": [
@@ -106,7 +109,8 @@
     "describe": "预知天气"
   },
   {
-    "id": "researchStation",
+    "key": "researchStation",
+    "id": 4,
     "name": "科研站",
     "buildingType": 2,
     "canBulidBlockType": [
@@ -142,7 +146,8 @@
     "describe": "解锁新科技"
   },
   {
-    "id": "waterPump",
+    "key": "waterPump",
+    "id": 5,
     "name": "水泵",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -176,7 +181,8 @@
     "describe": "获得生产产出物，会降低地块绿化率"
   },
   {
-    "id": "greenhouse",
+    "key": "greenhouse",
+    "id": 6,
     "name": "大棚",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -212,7 +218,8 @@
     "describe": "获得生产产出物"
   },
   {
-    "id": "field",
+    "key": "field",
+    "id": 7,
     "name": "耕田",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -246,7 +253,8 @@
     "describe": "获得生产产出物，会大量降低地块绿化率"
   },
   {
-    "id": "firePowerStation",
+    "key": "firePowerStation",
+    "id": 8,
     "name": "火力发电站",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -281,7 +289,8 @@
     "describe": "获得生产产出物"
   },
   {
-    "id": "solarPowerStation",
+    "key": "solarPowerStation",
+    "id": 9,
     "name": "太阳能发电站",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -317,7 +326,8 @@
     "describe": "获得生产产出物，晴天产出加倍"
   },
   {
-    "id": "windPowerStation",
+    "key": "windPowerStation",
+    "id": 10,
     "name": "风力发电站",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -353,7 +363,8 @@
     "describe": "获得生产产出物，大风天产出加倍"
   },
   {
-    "id": "mobileMiningStation",
+    "key": "mobileMiningStation",
+    "id": 11,
     "name": "移动矿站",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -387,7 +398,8 @@
     "describe": "获得生产产出物"
   },
   {
-    "id": "sandControlGrass",
+    "key": "sandControlGrass",
+    "id": 12,
     "name": "固沙草格",
     "buildingType": 16,
     "canBulidBlockType": [
@@ -421,7 +433,8 @@
     "describe": "阻隔沙漠化漫延"
   },
   {
-    "id": "windbreakFences",
+    "key": "windbreakFences",
+    "id": 13,
     "name": "防风栅栏",
     "buildingType": 16,
     "canBulidBlockType": [
@@ -456,7 +469,8 @@
     "describe": "阻隔沙漠化漫延"
   },
   {
-    "id": "sandControlShrub",
+    "key": "sandControlShrub",
+    "id": 14,
     "name": "治沙灌木",
     "buildingType": 16,
     "canBulidBlockType": [
@@ -490,7 +504,8 @@
     "describe": "阻隔沙漠化漫延"
   },
   {
-    "id": "windbreakTree",
+    "key": "windbreakTree",
+    "id": 15,
     "name": "防风林",
     "buildingType": 16,
     "canBulidBlockType": [
@@ -524,7 +539,8 @@
     "describe": "提升地块绿化率，阻隔沙漠化漫延"
   },
   {
-    "id": "rangerStation",
+    "key": "rangerStation",
+    "id": 16,
     "name": "护林工作站",
     "buildingType": 20,
     "canBulidBlockType": [
@@ -560,7 +576,8 @@
     "describe": "生产建筑材料或提高范围内地块绿化率"
   },
   {
-    "id": "warehouse",
+    "key": "warehouse",
+    "id": 17,
     "name": "仓库",
     "buildingType": 8,
     "canBulidBlockType": [
@@ -596,7 +613,8 @@
     "describe": "存储其它资源"
   },
   {
-    "id": "house",
+    "key": "house",
+    "id": 18,
     "name": "住房",
     "buildingType": 8,
     "canBulidBlockType": [
@@ -632,7 +650,8 @@
     "describe": "维持人口"
   },
   {
-    "id": "capacitorStation",
+    "key": "capacitorStation",
+    "id": 19,
     "name": "电容列阵",
     "buildingType": 8,
     "canBulidBlockType": [
@@ -668,7 +687,8 @@
     "describe": "存储电力"
   },
   {
-    "id": "waterTower",
+    "key": "waterTower",
+    "id": 20,
     "name": "水塔",
     "buildingType": 8,
     "canBulidBlockType": [

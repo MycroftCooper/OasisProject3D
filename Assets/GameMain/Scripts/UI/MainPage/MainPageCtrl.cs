@@ -7,7 +7,7 @@ using QuickGameFramework.Runtime.UI;
 using Controller = QuickGameFramework.Runtime.UI.Controller;
 
 namespace OasisProject3D.UI.GameMainUIPackage {
-    public class MainPageCtrl: Controller  {
+    public class MainPageCtrl : Controller  {
         private MainPage _mainPage;
         private void Start() {
             _mainPage = (MainPage)UIPanel.ui;
@@ -16,13 +16,14 @@ namespace OasisProject3D.UI.GameMainUIPackage {
             var buildingList = _mainPage.BuildingList;
             _isBuildingListOpen = false;
             _buildingCaseList = buildingList.BuildingCaseList;
+            _buildingCaseList.onClickItem.Add(OnBuildingBtnClicked);
+            
             buildingList.BuildingTabAnyBtn.onClick.Add(OnBuildingTypeBtnClicked);
             buildingList.BuildingTabFunctionBtn.onClick.Add(OnBuildingTypeBtnClicked);
             buildingList.BuildingTabEcoBtn.onClick.Add(OnBuildingTypeBtnClicked);
             buildingList.BuildingTabProductBtn.onClick.Add(OnBuildingTypeBtnClicked);
             buildingList.BuildingTabStorageBtn.onClick.Add(OnBuildingTypeBtnClicked);
-            buildingList.BuildingCaseList.onClickItem.Add(OnBuildingBtnClicked);
-
+            
             _mainPage.Speed1XBtn.onClick.Add(OnGameSpeedBtnClicked);
             _mainPage.Speed2XBtn.onClick.Add(OnGameSpeedBtnClicked);
             _mainPage.Speed3XBtn.onClick.Add(OnGameSpeedBtnClicked);
@@ -42,7 +43,7 @@ namespace OasisProject3D.UI.GameMainUIPackage {
         private bool _isBuildingListOpen;
         private EBuildingType _nowSelectType;
         private GList _buildingCaseList;
-        private BuildingManager BuildingMgr => BuildingManager.Instance;
+        private BuildingManager BuildingMgr => GamePlayEnter.BuildingMgr;
         
         private void OnBuildBtnClicked() {
             _isBuildingListOpen = !_isBuildingListOpen;
@@ -86,6 +87,17 @@ namespace OasisProject3D.UI.GameMainUIPackage {
             OpenOrCloseBuildingList(false);
         }
 
+        public void OnBuildingBtnRollOver(EventContext context) {
+            BuildingIconCase targetCase = (BuildingIconCase)context.sender;
+            int buildingID = BuildingMgr.Key2ID(targetCase.name); 
+            
+            var descTab = GameEntry.UIMgr.GetUIInstance<BuildingDescTabCtrl>("BuildingDescTab");
+            descTab.DispatchMessage(new Message {
+                Command = Message.CommonCommand.Show,
+                ExtraParams = buildingID
+            });
+        }
+
         public void OpenOrCloseBuildingList(bool isOpen) {
             DispatchMessage(new Message {
                 Command = isOpen ? MainPageUICommand.OpenBuildingList : MainPageUICommand.CloseBuildingList
@@ -105,7 +117,7 @@ namespace OasisProject3D.UI.GameMainUIPackage {
             var gamePlayMgr = GameEntry.GamePlayModuleMgr;
             switch (btnName) {
                 case "Speed1XBtn":
-                    gamePlayMgr.fixedUpdateInterval = gamePlayMgr.fixedUpdateInterval == 1 ? -1 : 0;
+                    gamePlayMgr.fixedUpdateInterval = gamePlayMgr.fixedUpdateInterval == 1 ? -1 : 1;
                     break;
                 case "Speed2XBtn":
                     gamePlayMgr.fixedUpdateInterval = 0.5f;

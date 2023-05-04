@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace QuickGameFramework.Runtime.UI {
     public abstract class View<T> : MonoBehaviour {
-        private Controller _controller;
-        protected bool IsShowing => _controller.IsShowing;
+        protected Controller Controller;
+        protected bool IsShowing => Controller.IsShowing;
 
         protected abstract void OnShow(T data);
         protected abstract void OnHide(T data);
@@ -26,8 +26,8 @@ namespace QuickGameFramework.Runtime.UI {
         }
 
         protected virtual void Start() {
-            _controller = transform.GetComponent<Controller>();
-            GameEntry.UIMgr.AddUIInstance(uiID, _controller);
+            Controller = transform.GetComponent<Controller>();
+            GameEntry.UIMgr.AddUIInstance(uiID, Controller);
         }
 
         protected void OnDestroy() {
@@ -52,11 +52,11 @@ namespace QuickGameFramework.Runtime.UI {
         }
 
         protected void DispatchMessage(Message message) {
-            _controller.DispatchMessage(message);
+            Controller.DispatchMessage(message);
         }
         
         protected void DispatchMessageDelayed(Message message, float time) {
-            _controller.DispatchMessageDelayed(message, time);
+            Controller.DispatchMessageDelayed(message, time);
         }
     }
 }

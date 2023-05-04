@@ -26,11 +26,11 @@ namespace cfg
         /// <summary>
         /// 电力
         /// </summary>
-        Electricity = 3,
+        Power = 3,
         /// <summary>
         /// 建筑材料
         /// </summary>
-        BuildingMaterial = 4,
+        BuildingRes = 4,
         /// <summary>
         /// 幼苗
         /// </summary>

@@ -3,7 +3,7 @@ using cfg;
 using QuickGameFramework.Runtime.UI;
 
 namespace OasisProject3D.UI.GameMainUIPackage {
-    internal class MainPageModel:Model<MainPageUIData> {
+    internal class MainPageModel : Model<MainPageUIData> {
         protected override void OnShow(ValueType extraParams) {
             OnGreenRateRefresh();
             OnResDataRefresh();

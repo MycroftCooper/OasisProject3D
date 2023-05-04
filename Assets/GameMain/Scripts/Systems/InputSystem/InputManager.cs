@@ -8,5 +8,7 @@ public class InputManager : MonoBehaviour {
     
     void Start() {
         playerInput = GetComponent<PlayerInput>();
+        playerInput.actions.FindActionMap("MainGameCtrl").Enable();
     }
+    
 }

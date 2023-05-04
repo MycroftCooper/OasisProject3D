@@ -2,6 +2,7 @@ using MycroftToolkit.QuickCode;
 using OasisProject3D.BlockSystem;
 using OasisProject3D.BuildingSystem;
 using OasisProject3D.MapSystem;
+using OasisProject3D.ResourceSystem;
 using OasisProject3D.UI.GameEntryUIPackage;
 using QuickGameFramework.Procedure;
 using QuickGameFramework.Runtime;
@@ -46,12 +47,15 @@ namespace OasisProject3D.Procedures {
         private void InitGamePlayModule() {
             GameEntry.GamePlayModuleMgr.CreateModule<MapManager>();
             GameEntry.GamePlayModuleMgr.CreateModule<BlockManager>();
+            GameEntry.GamePlayModuleMgr.CreateModule<BuildingManager>();
+            GameEntry.GamePlayModuleMgr.CreateModule<ResourceManager>();
             GameEntry.GamePlayModuleMgr.fixedUpdateInterval = 10;
         }
 
         private void LoadAssets() {
             _assetLoadProgress = GamePlayEnter.BlockMgr.Factory.PreLoadAsset();
-            _assetLoadProgress += BuildingFactory.Instance.PreLoadAsset();
+            _assetLoadProgress += GamePlayEnter.BuildingMgr.Factory.PreLoadAsset();
+            _assetLoadProgress += GamePlayEnter.ResMgr.PreLoadAsset();
             _assetLoadProgress.Completed += () => _isLoadCompleted = true;
         }
     }

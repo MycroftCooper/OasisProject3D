@@ -18,7 +18,8 @@ public sealed partial class BuildingConfig :  Bright.Config.BeanBase
 {
     public BuildingConfig(JSONNode _json) 
     {
-        { if(!_json["id"].IsString) { throw new SerializationException(); }  Id = _json["id"]; }
+        { if(!_json["key"].IsString) { throw new SerializationException(); }  Key = _json["key"]; }
+        { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["buildingType"].IsNumber) { throw new SerializationException(); }  BuildingType = (EBuildingType)_json["buildingType"].AsInt; }
         { var __json0 = _json["canBulidBlockType"]; if(!__json0.IsArray) { throw new SerializationException(); } int _n0 = __json0.Count; CanBulidBlockType = new EBlockType[_n0]; int __index0=0; foreach(JSONNode __e0 in __json0.Children) { EBlockType __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = (EBlockType)__e0.AsInt; }  CanBulidBlockType[__index0++] = __v0; }   }
@@ -31,8 +32,9 @@ public sealed partial class BuildingConfig :  Bright.Config.BeanBase
         PostInit();
     }
 
-    public BuildingConfig(string id, string name, EBuildingType buildingType, EBlockType[] canBulidBlockType, float HP, System.Collections.Generic.Dictionary<EResType, int> bulidCost, System.Collections.Generic.Dictionary<EResType, int> keepCost, System.Collections.Generic.Dictionary<EResType, int> produce, System.Collections.Generic.Dictionary<EResType, int> storage, string describe ) 
+    public BuildingConfig(string key, int id, string name, EBuildingType buildingType, EBlockType[] canBulidBlockType, float HP, System.Collections.Generic.Dictionary<EResType, int> bulidCost, System.Collections.Generic.Dictionary<EResType, int> keepCost, System.Collections.Generic.Dictionary<EResType, int> produce, System.Collections.Generic.Dictionary<EResType, int> storage, string describe ) 
     {
+        this.Key = key;
         this.Id = id;
         this.Name = name;
         this.BuildingType = buildingType;
@@ -52,9 +54,13 @@ public sealed partial class BuildingConfig :  Bright.Config.BeanBase
     }
 
     /// <summary>
+    /// 建筑键
+    /// </summary>
+    public string Key { get; private set; }
+    /// <summary>
     /// 建筑ID
     /// </summary>
-    public string Id { get; private set; }
+    public int Id { get; private set; }
     /// <summary>
     /// 建筑名称
     /// </summary>
@@ -107,6 +113,7 @@ public sealed partial class BuildingConfig :  Bright.Config.BeanBase
     public override string ToString()
     {
         return "{ "
+        + "Key:" + Key + ","
         + "Id:" + Id + ","
         + "Name:" + Name + ","
         + "BuildingType:" + BuildingType + ","

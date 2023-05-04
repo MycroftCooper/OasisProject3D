@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using cfg;
 using FairyGUI;
-using OasisProject3D.BuildingSystem;
 using QuickGameFramework.Runtime.UI;
 using UnityEngine;
 
@@ -39,13 +38,13 @@ namespace OasisProject3D.UI.GameMainUIPackage {
                 EResType resType = kv.Key;
                 string numText = kv.Value.ToString("F1", CultureInfo.InvariantCulture);
                 switch (resType) {
-                    case EResType.BuildingMaterial:
+                    case EResType.BuildingRes:
                         _mainPage.WoodNum.text = numText;
                         break;
                     case EResType.Water:
                         _mainPage.WaterNum.text = numText;
                         break;
-                    case EResType.Electricity:
+                    case EResType.Power:
                         break;
                     case EResType.Seedling:
                         _mainPage.SaplingNum.text = numText;
@@ -62,13 +61,14 @@ namespace OasisProject3D.UI.GameMainUIPackage {
         #endregion
 
         #region 建筑列表相关
+        
         protected void OnBuildingListRefresh(MainPageUIData uiData) {
             GList buildingList = _mainPage.BuildingList.BuildingCaseList;
             buildingList.RemoveChildrenToPool();
-            var buildingMgr = BuildingManager.Instance;
+            var buildingMgr = GamePlayEnter.BuildingMgr;
             List<string> buildingKeys = buildingMgr.GetBuildingKeys(uiData.SelectedBuildingType);
             foreach (var buildingKey in buildingKeys) {
-                Sprite buildingIcon = BuildingFactory.Instance.GetBuildingIcon(buildingKey);
+                Sprite buildingIcon = buildingMgr.Factory.GetBuildingIcon(buildingKey);
                 if (buildingIcon == null) {
                     continue;
                 }
@@ -76,6 +76,7 @@ namespace OasisProject3D.UI.GameMainUIPackage {
                 buildingIconCase.BuildingIcon.texture = new NTexture(buildingIcon);
                 buildingIconCase.BuildingName.text = buildingMgr.GetBuildingName(buildingKey);
                 buildingIconCase.name = buildingKey;
+                buildingIconCase.onRollOver.Add(((MainPageCtrl)Controller).OnBuildingBtnRollOver);
             }
         }
         

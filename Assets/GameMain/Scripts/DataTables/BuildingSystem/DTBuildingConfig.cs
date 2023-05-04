@@ -28,7 +28,7 @@ public sealed partial class DTBuildingConfig
         {
             var _v = BuildingSystem.BuildingConfig.DeserializeBuildingConfig(_row);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.Key, _v);
         }
         PostInit();
     }

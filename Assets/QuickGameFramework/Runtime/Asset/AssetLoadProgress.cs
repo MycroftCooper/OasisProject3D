@@ -30,7 +30,13 @@ namespace QuickGameFramework.Runtime {
         }
 
         public static AssetLoadProgress operator +(AssetLoadProgress a, AssetLoadProgress b) {
-            a.AddHandles(b.Handles);
+            if (b.Handles.Count != 0) {
+                a.AddHandles(b.Handles);
+            }
+            if (b.SubHandles.Count != 0) {
+                a.AddSubHandles(b.SubHandles);
+            }
+            
             b.Destroy();
             return a;
         }
@@ -91,6 +97,14 @@ namespace QuickGameFramework.Runtime {
             }
             SubHandles.Add(handle);
             handle.Completed += OnHandleComplete;
+        }
+
+        public void AddSubHandles(List<SubAssetsOperationHandle> handles) {
+            if (handles == null || handles.Count == 0) {
+                QLog.Error("QuickGameFramework>Asset> handle为空，加入加载队列失败！");
+                return;
+            }
+            handles.ForEach(AddSubHandle);
         }
 
         public void OnHandleComplete(OperationHandleBase handle) {

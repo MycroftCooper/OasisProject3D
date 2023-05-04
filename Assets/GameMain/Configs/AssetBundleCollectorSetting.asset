@@ -41,6 +41,14 @@ MonoBehaviour:
         FilterRuleName: CollectSprite
         AssetTags: BuildingIcon
         UserData: 
+      - CollectPath: Assets/GameRes/UI/Icon/ResourceIcons
+        CollectorGUID: de29a2d271608554d81dcbbd3a63880c
+        CollectorType: 0
+        AddressRuleName: AddressByGroupAndFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: ResIcon
+        UserData: 
     - GroupName: Block
       GroupDesc: "\u5730\u5757\u7EC4"
       AssetTags: Block

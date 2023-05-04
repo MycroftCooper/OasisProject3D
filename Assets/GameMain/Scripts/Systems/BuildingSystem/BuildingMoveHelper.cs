@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 namespace OasisProject3D.BuildingSystem {
     public class BuildingMoveHelper {
+        private readonly BuildingFactory _factory;
+        
         private readonly Transform _targetTransform;
         private readonly BuildingCtrl _targetBuilding;
         private BlockCtrl _lastBlockCtrl;
@@ -27,6 +29,7 @@ namespace OasisProject3D.BuildingSystem {
         private readonly Quaternion _originalRotation;
 
         public BuildingMoveHelper(BuildingCtrl targetBuilding) {
+            _factory = GamePlayEnter.BuildingMgr.Factory;
             _targetBuilding = targetBuilding;
             _targetTransform = _targetBuilding.transform;
             _originalPos = _targetTransform.position;
@@ -40,6 +43,7 @@ namespace OasisProject3D.BuildingSystem {
             PlayerInput playerInput = GameEntry.InputMgr.playerInput;
             _buildingInputActionMap = playerInput.actions.FindActionMap("BuildingMoveCtrl");
             _buildingInputActionMap.Enable();
+            playerInput.actions.FindActionMap("MainGameCtrl").Disable();
             
             _buildingInputActionMap.FindAction("Move").performed += OnBuildingMoveHandler;
             _buildingInputActionMap.FindAction("TurnLeft").performed += OnBuildingTurnLeftHandler;
@@ -55,10 +59,11 @@ namespace OasisProject3D.BuildingSystem {
             _buildingInputActionMap.FindAction("Confirm").performed -= OnMoveConfirmHandler;
             _buildingInputActionMap.FindAction("Cancel").performed -= OnMoveCancelHandler;
             _buildingInputActionMap.Disable();
+            GameEntry.InputMgr.playerInput.actions.FindActionMap("MainGameCtrl").Enable();
         }
 
         private void SetBuildingMoveMaterial() {
-            _buildingMoveMat = new Material(BuildingFactory.Instance.GetBuildingMaterial("transColor_material"));
+            _buildingMoveMat = new Material(_factory.GetBuildingMaterial("transColor_material"));
             _buildingMoveMat.name = _buildingMoveMat.name.Replace("(Instance)","");
             _buildingDefaultMat = new Material(_targetBuilding.BuildingMeshRenderer.material);
             _buildingDefaultMat.name = _buildingDefaultMat.name.Replace("(Instance)","");

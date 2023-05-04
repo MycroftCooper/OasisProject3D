@@ -114,7 +114,7 @@ namespace QuickGameFramework.Runtime {
 			
 			_modules.Add(module);
 			module.OnModuleCreate(createParam);
-			QLog.Log($"QuickGameFramework>Module>模块<{typeof(T)}>创建成功!优先级:{priority}");
+			QLog.Log($"QuickGameFramework>Module>模块创建成功!\n模块名称:<{typeof(T)}>\n优先级:{priority}");
 			return module;
 		}
 

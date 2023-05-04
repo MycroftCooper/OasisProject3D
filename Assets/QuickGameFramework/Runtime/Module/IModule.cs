@@ -29,7 +29,7 @@ namespace QuickGameFramework.Runtime {
 	
 	public class ModuleComparer : IComparer<IModule> {
 		public int Compare(IModule x, IModule y) {
-			return -(x!.Priority - y!.Priority);
+			return x!.Priority - y!.Priority;
 		}
 	}
 }

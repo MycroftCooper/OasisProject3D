@@ -37,7 +37,7 @@ namespace OasisProject3D.BlockSystem {
         }
         #endregion
         
-        public BlockFactory Factory;
+        public BlockFactory Factory { get; private set; }
         public Dictionary<EBlockType, BlockConfig> BlockConf;
         private Vector2Int MapSize => GamePlayEnter.MapMgr.MapSize;
         private Dictionary<Vector2Int, BlockCtrl> _posBlockMap;

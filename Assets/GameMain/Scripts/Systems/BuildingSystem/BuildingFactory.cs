@@ -4,7 +4,7 @@ using QuickGameFramework.Runtime;
 using UnityEngine;
 
 namespace OasisProject3D.BuildingSystem {
-    public class BuildingFactory : Singleton<BuildingFactory>, IEntityFactory<BuildingCtrl> {
+    public class BuildingFactory : IEntityFactory<BuildingCtrl> {
         private AssetManager AssetMgr => GameEntry.AssetMgr;
         private Dictionary<string, GameObject> _prefabs;
         private Dictionary<string, Material> _materials;
@@ -13,7 +13,7 @@ namespace OasisProject3D.BuildingSystem {
         public AssetLoadProgress PreLoadAsset() {
             var output = new AssetLoadProgress();
             _prefabs = new Dictionary<string, GameObject>();
-            output += AssetMgr.LoadAssetsAsyncByTag<GameObject>("BuildingPrefab", (prefab,path) => {
+            output += AssetMgr.LoadAssetsAsyncByTag<GameObject>("BuildingPrefab", (prefab,_) => {
                 _prefabs.Add(prefab.name.Replace("_prefab", ""), prefab);
             });
 
@@ -72,7 +72,7 @@ namespace OasisProject3D.BuildingSystem {
         }
 
         public List<Sprite> GetBuildingIcon(EBuildingType buildingType) {
-            List<string> buildingKeys = BuildingManager.Instance.GetBuildingKeys(buildingType);
+            List<string> buildingKeys = GamePlayEnter.BuildingMgr.GetBuildingKeys(buildingType);
             if (buildingKeys.Count == 0) {
                 QLog.Error($"BuildingFactory> 未找到<{buildingType}>类型的建筑Key!请检查建筑配表!");
                 return null;
