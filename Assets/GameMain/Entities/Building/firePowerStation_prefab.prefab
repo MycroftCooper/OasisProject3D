@@ -4920,9 +4920,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2656114542776860696, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4118932185546327641, guid: 6419e804a29e8574cabb63e9e89ec312, type: 3}
     - target: {fileID: 6196590270800372720, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
       propertyPath: m_Name
-      value: FirePowerStation
+      value: firePowerStation_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794941439297215651, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Size.x
+      value: 13.52739
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794941439297215651, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Size.y
+      value: 6.2422314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794941439297215651, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Center.x
+      value: -0.096364975
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794941439297215651, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Center.y
+      value: 2.1971111
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}

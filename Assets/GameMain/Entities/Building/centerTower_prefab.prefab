@@ -4863,9 +4863,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2656114542776860696, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3246477062369129662, guid: 880e6fa60d873c44ca7415dd255b941b, type: 3}
     - target: {fileID: 6196590270800372720, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
       propertyPath: m_Name
-      value: CenterTower
+      value: centerTower_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794941439297215651, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Size.x
+      value: 13.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794941439297215651, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Size.y
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794941439297215651, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Size.z
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794941439297215651, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Center.y
+      value: 11.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794941439297215651, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794941439297215651, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}

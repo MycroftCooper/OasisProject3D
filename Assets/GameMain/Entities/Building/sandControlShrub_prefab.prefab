@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2656114542776860696, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2533198809606746109, guid: f8b4c1b886ce5c343aa67bef92989c77, type: 3}
     - target: {fileID: 6196590270800372720, guid: 685fb3068cdb9074cbd5d8747ab1c6ce, type: 3}
       propertyPath: m_Name
       value: sandControlShrub_prefab
