@@ -8,7 +8,7 @@ using YooAsset;
 
 namespace QuickGameFramework.Runtime {
     public class DataTableManager {
-        private List<AssetOperationHandle> _jsonFileLoadHandles;
+        private List<AssetHandle> _jsonFileLoadHandles;
         private const string JsonFilePath = "Assets/GameMain/DataTables/Json/";
         private const string JsonFileTag = "DataTable";
         public Tables Tables;

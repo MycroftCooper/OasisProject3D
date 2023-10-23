@@ -19,13 +19,13 @@ namespace QuickGameFramework.Runtime {
         public bool IsComplete => _completeHandleNum == Handles.Count;
         public Action Completed;
         
-        public List<AssetOperationHandle> Handles { get; }
-        public List<SubAssetsOperationHandle> SubHandles { get; }
+        public List<AssetHandle> Handles { get; }
+        public List<SubAssetsHandle> SubHandles { get; }
         private int _completeHandleNum;
 
         public AssetLoadProgress() {
-            Handles = new List<AssetOperationHandle>();
-            SubHandles = new List<SubAssetsOperationHandle>();
+            Handles = new List<AssetHandle>();
+            SubHandles = new List<SubAssetsHandle>();
             _completeHandleNum = 0;
         }
 
@@ -41,31 +41,31 @@ namespace QuickGameFramework.Runtime {
             return a;
         }
         
-        public static AssetLoadProgress operator +(AssetLoadProgress a, AssetOperationHandle b) {
+        public static AssetLoadProgress operator +(AssetLoadProgress a, AssetHandle b) {
             a.AddHandle(b);
             return a;
         }
         
-        public static AssetLoadProgress operator +(AssetLoadProgress a, AssetOperationHandle[] b) {
+        public static AssetLoadProgress operator +(AssetLoadProgress a, AssetHandle[] b) {
             foreach (var handle in b) {
                 a.AddHandle(handle);
             }
             return a;
         }
         
-        public static AssetLoadProgress operator +(AssetLoadProgress a, SubAssetsOperationHandle b) {
+        public static AssetLoadProgress operator +(AssetLoadProgress a, SubAssetsHandle b) {
             a.AddSubHandle(b);
             return a;
         }
         
-        public static AssetLoadProgress operator +(AssetLoadProgress a, SubAssetsOperationHandle[] b) {
+        public static AssetLoadProgress operator +(AssetLoadProgress a, SubAssetsHandle[] b) {
             foreach (var subHandle in b) {
                 a.AddSubHandle(subHandle);
             }
             return a;
         }
 
-        public void AddHandles(List<AssetOperationHandle> handles) {
+        public void AddHandles(List<AssetHandle> handles) {
             if (handles == null || handles.Count == 0) {
                 QLog.Error("QuickGameFramework>Asset> handle为空，加入加载队列失败！");
                 return;
@@ -73,7 +73,7 @@ namespace QuickGameFramework.Runtime {
             handles.ForEach(AddHandle);
         }
 
-        public void AddHandle(AssetOperationHandle handle) {
+        public void AddHandle(AssetHandle handle) {
             if (handle == null) {
                 QLog.Error("QuickGameFramework>Asset> handle为空，加入加载队列失败！");
                 return;
@@ -86,7 +86,7 @@ namespace QuickGameFramework.Runtime {
             handle.Completed += OnHandleComplete;
         }
         
-        public void AddSubHandle(SubAssetsOperationHandle handle) {
+        public void AddSubHandle(SubAssetsHandle handle) {
             if (handle == null) {
                 QLog.Error("QuickGameFramework>Asset> handle为空，加入加载队列失败！");
                 return;
@@ -99,7 +99,7 @@ namespace QuickGameFramework.Runtime {
             handle.Completed += OnHandleComplete;
         }
 
-        public void AddSubHandles(List<SubAssetsOperationHandle> handles) {
+        public void AddSubHandles(List<SubAssetsHandle> handles) {
             if (handles == null || handles.Count == 0) {
                 QLog.Error("QuickGameFramework>Asset> handle为空，加入加载队列失败！");
                 return;
@@ -107,7 +107,7 @@ namespace QuickGameFramework.Runtime {
             handles.ForEach(AddSubHandle);
         }
 
-        public void OnHandleComplete(OperationHandleBase handle) {
+        public void OnHandleComplete(HandleBase handle) {
             _completeHandleNum += 1;
             if (IsComplete) {
                 Completed?.Invoke();
@@ -115,7 +115,7 @@ namespace QuickGameFramework.Runtime {
         }
 
         public void Destroy() {
-            Handles.ForEach(_=>_.Completed -= OnHandleComplete);
+            Handles.ForEach(h=>h.Completed -= OnHandleComplete);
             Handles.Clear();
             Completed = null;
         }

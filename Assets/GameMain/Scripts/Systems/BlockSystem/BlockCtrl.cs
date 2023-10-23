@@ -37,7 +37,7 @@ namespace OasisProject3D.BlockSystem {
 
         private static BlockManager BlockMgr => GamePlayEnter.BlockMgr;
 
-        public override void Init(string entityID, IEntityFactory<Entity> factory, ValueType data = null) {
+        public override void Init(string entityID, IEntityFactory<Entity> factory, object data = null) {
             base.Init(entityID, factory, data);
             Ticker = new Ticker(InfectionData.Time);
             Ticker.OnExecute += UpdateBlock;

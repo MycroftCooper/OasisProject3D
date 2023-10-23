@@ -5,12 +5,12 @@ namespace QuickGameFramework.Runtime {
     public abstract class Entity : MonoBehaviour {
         public string ID { get; private set; }
 
-        public virtual ValueType Data { get; set; }
+        public virtual object Data { get; set; }
 
         private IEntityFactory<Entity> _factory;
 
 
-        public virtual void Init(string entityID, IEntityFactory<Entity> factory, ValueType data = null) {
+        public virtual void Init(string entityID, IEntityFactory<Entity> factory, object data = null) {
             ID = entityID;
             name = ID;
             Data = data;

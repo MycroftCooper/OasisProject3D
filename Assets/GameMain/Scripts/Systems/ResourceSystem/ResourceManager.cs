@@ -11,7 +11,8 @@ namespace OasisProject3D.ResourceSystem {
         public bool IsFrameworkModule => false;
         public bool IsManualUpdate => true;
         public void OnModuleCreate(params object[] createParam) {
-            
+            _resDict = new Dictionary<EResType, float>();
+            _storageSpaceDict = new Dictionary<EResType, float>();
         }
 
         public void OnModuleUpdate(float intervalSeconds) {
@@ -65,6 +66,11 @@ namespace OasisProject3D.ResourceSystem {
                 resNum = Mathf.Clamp(resNum, 0f, _storageSpaceDict[resType]);
                 _resDict[resType] = resNum;
             }
+        }
+
+        public int GetResNum(EResType resType) {
+            _resDict.TryGetValue(resType, out var output);
+            return (int)output;
         }
     }
 }

@@ -9,13 +9,13 @@ using YooAsset;
 namespace QuickGameFramework.Runtime {
     public class UIManager {
         private readonly ProjectAssetSetting _projectAssetSetting;
-        private readonly Dictionary<string, AssetOperationHandle> _handleDict;
+        private readonly Dictionary<string, AssetHandle> _handleDict;
 
         private SpriteAtlas _iconAtlas;
 
         public UIManager() {
             _projectAssetSetting = GameEntry.ConfigMgr.ProjectAssetSetting;
-            _handleDict = new Dictionary<string, AssetOperationHandle>();
+            _handleDict = new Dictionary<string, AssetHandle>();
             _uiCtrlDict = new GeneralDictionary<string>();
         }
 

@@ -89,13 +89,8 @@ namespace OasisProject3D.UI.GameMainUIPackage {
 
         public void OnBuildingBtnRollOver(EventContext context) {
             BuildingIconCase targetCase = (BuildingIconCase)context.sender;
-            int buildingID = BuildingMgr.Key2ID(targetCase.name); 
-            
-            var descTab = GameEntry.UIMgr.GetUIInstance<BuildingDescTabCtrl>("BuildingDescTab");
-            descTab.DispatchMessage(new Message {
-                Command = Message.CommonCommand.Show,
-                ExtraParams = buildingID
-            });
+            var descTab = GameEntry.UIMgr.GetUIInstance<BuildingOrBlockDescTabCtrl>("BuildingOrBlockDescTab");
+            descTab.OnOverBuildingBtnInBuildingList(targetCase.name);
         }
 
         public void OpenOrCloseBuildingList(bool isOpen) {

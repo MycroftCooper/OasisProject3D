@@ -5,15 +5,15 @@ using FairyGUI.Utils;
 
 namespace OasisProject3D.UI.GameMainUIPackage
 {
-    public partial class BuildingDescBaseInfo : GComponent
+    public partial class BuildingBasicInfo : GComponent
     {
         public GTextField Desc;
         public GTextField Name;
         public const string URL = "ui://t09fsbe0qo0z4q";
 
-        public static BuildingDescBaseInfo CreateInstance()
+        public static BuildingBasicInfo CreateInstance()
         {
-            return (BuildingDescBaseInfo)UIPackage.CreateObject("GameMainUIPackage", "BuildingDescBaseInfo");
+            return (BuildingBasicInfo)UIPackage.CreateObject("GameMainUIPackage", "BuildingBasicInfo");
         }
 
         public override void ConstructFromXML(XML xml)

@@ -21,7 +21,7 @@ namespace QuickGameFramework.Runtime {
 		}
 
 		#region 资源加载API
-		public AssetOperationHandle LoadAssetAsync<T>(string path, Action<T> callback ,string packageName = null) where T : Object {
+		public AssetHandle LoadAssetAsync<T>(string path, Action<T> callback ,string packageName = null) where T : Object {
 			if (!GetAssetPackage(packageName, out ResourcePackage package)) {
 				QLog.Error($"QuickGameFramework>Asset>资源<{path}>异步加载失败!");
 				return null;
@@ -34,7 +34,7 @@ namespace QuickGameFramework.Runtime {
 			return handle;
 		}
 
-		public SubAssetsOperationHandle LoadSubAssetsAsync<T>(string path, Action<T[]> callback, string packageName = null) where T : Object {
+		public SubAssetsHandle LoadSubAssetsAsync<T>(string path, Action<T[]> callback, string packageName = null) where T : Object {
 			if (!GetAssetPackage(packageName, out ResourcePackage package)) {
 				QLog.Error($"QuickGameFramework>Asset>资源<{path}>异步加载失败!");
 				return null;
@@ -47,7 +47,7 @@ namespace QuickGameFramework.Runtime {
 			return handle;
 		}
 
-		public SubAssetsOperationHandle[] LoadSubAssetsAsyncByTag<T>(string tag, Action<T[]> callback, string packageName = null) where T : Object {
+		public SubAssetsHandle[] LoadSubAssetsAsyncByTag<T>(string tag, Action<T[]> callback, string packageName = null) where T : Object {
 			if (!GetAssetPackage(packageName, out ResourcePackage package)) {
 				QLog.Error($"QuickGameFramework>Asset>Tag:<{tag}>相关资源异步加载失败!");
 				return null;
@@ -59,7 +59,7 @@ namespace QuickGameFramework.Runtime {
 				return null;
 			}
 			
-			var output = new List<SubAssetsOperationHandle>();
+			var output = new List<SubAssetsHandle>();
 			foreach (var info in infos) {
 				var path = info.Address;
 				var handle = package.LoadSubAssetsAsync<T>(path);
@@ -72,7 +72,7 @@ namespace QuickGameFramework.Runtime {
 			return output.ToArray();
 		}
 
-		public AssetOperationHandle[] LoadAssetsAsyncByTag<T>(string tag, Action<T, string> callback, string packageName = null)
+		public AssetHandle[] LoadAssetsAsyncByTag<T>(string tag, Action<T, string> callback, string packageName = null)
 			where T : Object {
 			if (!GetAssetPackage(packageName, out ResourcePackage package)) {
 				QLog.Error($"QuickGameFramework>Asset>Tag:<{tag}>相关资源异步加载失败!");
@@ -85,7 +85,7 @@ namespace QuickGameFramework.Runtime {
 				return null;
 			}
 
-			var output = new List<AssetOperationHandle>();
+			var output = new List<AssetHandle>();
 			foreach (var info in infos) {
 				var path = info.Address;
 				var handle = package.LoadAssetAsync<T>(path);
@@ -98,7 +98,7 @@ namespace QuickGameFramework.Runtime {
 			return output.ToArray();
 		}
 
-		public AssetOperationHandle LoadAssetSync<T>(out T asset ,string path, string packageName = null) where T : Object {
+		public AssetHandle LoadAssetSync<T>(out T asset ,string path, string packageName = null) where T : Object {
 			if (!GetAssetPackage(packageName, out ResourcePackage package)) {
 				QLog.Error($"QuickGameFramework>Asset>资源<{path}>同步加载失败!");
 				asset = null;
@@ -111,7 +111,7 @@ namespace QuickGameFramework.Runtime {
 			return handle;
 		}
 		
-		public AssetOperationHandle[] LoadAssetsSyncByTag<T>(string tag, Action<T> callback, string packageName = null)
+		public AssetHandle[] LoadAssetsSyncByTag<T>(string tag, Action<T> callback, string packageName = null)
 			where T : Object {
 			if (!GetAssetPackage(packageName, out ResourcePackage package)) {
 				QLog.Error($"QuickGameFramework>Asset>Tag:<{tag}>相关资源同步加载失败!");
@@ -124,7 +124,7 @@ namespace QuickGameFramework.Runtime {
 				return null;
 			}
 
-			var output = new List<AssetOperationHandle>();
+			var output = new List<AssetHandle>();
 			foreach (var info in infos) {
 				var path = info.Address;
 				var handle = package.LoadAssetSync<T>(path);
@@ -137,20 +137,20 @@ namespace QuickGameFramework.Runtime {
 			return output.ToArray();
 		}
 
-		public SceneOperationHandle LoadSceneAsync(string path, string packageName = null, LoadSceneMode sceneMode = LoadSceneMode.Single, bool activateOnLoad = true) {
+		public SceneHandle LoadSceneAsync(string path, string packageName = null, LoadSceneMode sceneMode = LoadSceneMode.Single, bool activateOnLoad = true) {
 			if (!GetAssetPackage(packageName, out ResourcePackage package)) {
 				QLog.Error($"QuickGameFramework>Asset>场景<{path}>！异步加载失败!");
 				return null;
 			}
-			SceneOperationHandle handle = package.LoadSceneAsync(path, sceneMode, activateOnLoad);
+			SceneHandle handle = package.LoadSceneAsync(path, sceneMode, activateOnLoad);
 			handle.Completed += _ => {
 				QLog.Log($"QuickGameFramework>Asset>场景<{path}>！异步加载成功!");
 			};
 			return handle;
 		}
 
-		public AssetOperationHandle LoadAndInitPrefabAsync(string path, (Transform parent, Vector3 pos, Quaternion rotation) gameObjectInfo ,Action<GameObject> callback = null ,string packageName = null) {
-			AssetOperationHandle handle = LoadAssetAsync<GameObject>(path, null, packageName);
+		public AssetHandle LoadAndInitPrefabAsync(string path, (Transform parent, Vector3 pos, Quaternion rotation) gameObjectInfo ,Action<GameObject> callback = null ,string packageName = null) {
+			AssetHandle handle = LoadAssetAsync<GameObject>(path, null, packageName);
 			if (handle == null) {
 				QLog.Error($"QuickGameFramework>Asset>预制体<{path}>！异步加载失败!");
 				return null;
@@ -165,7 +165,7 @@ namespace QuickGameFramework.Runtime {
 			return handle;
 		}
 		
-		public RawFileOperationHandle[] LoadRawFileAsyncByTag(string tag, Action<byte[], string, string> callback, string packageName = null) {
+		public RawFileHandle[] LoadRawFileAsyncByTag(string tag, Action<byte[], string, string> callback, string packageName = null) {
 			if (!GetAssetPackage(packageName, out ResourcePackage package)) {
 				QLog.Error($"QuickGameFramework>Asset>Tag:<{tag}>相关资源异步加载失败!");
 				return null;
@@ -177,7 +177,7 @@ namespace QuickGameFramework.Runtime {
 				return null;
 			}
 
-			var output = new List<RawFileOperationHandle>();
+			var output = new List<RawFileHandle>();
 			foreach (var info in infos) {
 				var path = info.Address;
 				var handle = package.LoadRawFileAsync(path);
@@ -192,7 +192,7 @@ namespace QuickGameFramework.Runtime {
 
 		#endregion
 		
-		public bool ReleaseAsset(AssetOperationHandle handle) {
+		public bool ReleaseAsset(AssetHandle handle) {
 			if (handle == null) {
 				QLog.Error($"QuickGameFramework>Asset>资源释放失败，句柄为空!");
 				return false;
@@ -234,7 +234,7 @@ namespace QuickGameFramework.Runtime {
 			UpdatePackageDict();
 		}
 
-		public static void LogLoadSuccess(OperationHandleBase handle) {
+		public static void LogLoadSuccess(HandleBase handle) {
 			AssetInfo targetInfo = handle.GetAssetInfo();
 			string logStr = $"\n寻址:<{targetInfo.Address}>\n类型:<{targetInfo.AssetType}>\n路径:<{targetInfo.AssetPath}>";
 			if (handle.Status == EOperationStatus.Succeed) {
@@ -308,7 +308,9 @@ namespace QuickGameFramework.Runtime {
 				// 编辑器下的模拟模式
 				case EPlayMode.EditorSimulateMode: {
 					var createParameters = new EditorSimulateModeParameters {
-						SimulateManifestFilePath = EditorSimulateModeHelper.SimulateBuild(package.PackageName)
+						SimulateManifestFilePath =
+							EditorSimulateModeHelper.SimulateBuild(EDefaultBuildPipeline.ScriptableBuildPipeline,
+								package.PackageName)
 					};
 					initializationOperation = package.InitializeAsync(createParameters);
 					return initializationOperation;
@@ -327,8 +329,8 @@ namespace QuickGameFramework.Runtime {
 					var createParameters = new HostPlayModeParameters {
 						// DecryptionServices = 可提供资源包加密类
 						// QueryServices = new GameQueryServices(); 内置文件查询服务类
-						DefaultHostServer = GetHostServerURL(true),
-						FallbackHostServer = GetHostServerURL(false)
+						// DefaultHostServer = GetHostServerURL(true),
+						// FallbackHostServer = GetHostServerURL(false)
 					};
 					initializationOperation = package.InitializeAsync(createParameters);
 					return initializationOperation;

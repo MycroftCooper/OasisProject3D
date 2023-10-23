@@ -5,7 +5,7 @@ using UnityEngine;
 namespace OasisProject3D.BuildingSystem {
     public struct BuildingData {
         public EBuildingType BuildingType;
-        public BuildingConfig BaseConf;
+        public BuildingConfig Conf;
         public Vector2Int BlockPos;
         public Vector2 HPRange;
         private float _HP;

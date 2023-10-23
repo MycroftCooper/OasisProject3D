@@ -1,19 +1,13 @@
 [
   {
     "key": "centerTower",
-    "id": 1,
     "name": "中央水塔",
     "buildingType": 14,
     "canBulidBlockType": [
       2
     ],
     "HP": 100,
-    "bulidCost": [
-      [
-        1,
-        5
-      ]
-    ],
+    "bulidCost": [],
     "keepCost": [
       [
         1,
@@ -36,7 +30,6 @@
   },
   {
     "key": "buildingBase",
-    "id": 2,
     "name": "稳固地桩",
     "buildingType": 2,
     "canBulidBlockType": [
@@ -47,7 +40,7 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
       ]
     ],
@@ -73,7 +66,6 @@
   },
   {
     "key": "weatherStation",
-    "id": 3,
     "name": "气象站",
     "buildingType": 2,
     "canBulidBlockType": [
@@ -84,7 +76,7 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
       ]
     ],
@@ -110,7 +102,6 @@
   },
   {
     "key": "researchStation",
-    "id": 4,
     "name": "科研站",
     "buildingType": 2,
     "canBulidBlockType": [
@@ -121,7 +112,7 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
       ]
     ],
@@ -147,7 +138,6 @@
   },
   {
     "key": "waterPump",
-    "id": 5,
     "name": "水泵",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -156,7 +146,7 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
       ]
     ],
@@ -182,7 +172,6 @@
   },
   {
     "key": "greenhouse",
-    "id": 6,
     "name": "大棚",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -193,7 +182,7 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
       ]
     ],
@@ -219,7 +208,6 @@
   },
   {
     "key": "field",
-    "id": 7,
     "name": "耕田",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -228,7 +216,7 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
       ]
     ],
@@ -254,7 +242,6 @@
   },
   {
     "key": "firePowerStation",
-    "id": 8,
     "name": "火力发电站",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -264,8 +251,8 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
-        5
+        4,
+        6
       ]
     ],
     "keepCost": [
@@ -290,7 +277,6 @@
   },
   {
     "key": "solarPowerStation",
-    "id": 9,
     "name": "太阳能发电站",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -301,7 +287,7 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
       ]
     ],
@@ -327,7 +313,6 @@
   },
   {
     "key": "windPowerStation",
-    "id": 10,
     "name": "风力发电站",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -338,7 +323,7 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
       ]
     ],
@@ -364,7 +349,6 @@
   },
   {
     "key": "mobileMiningStation",
-    "id": 11,
     "name": "移动矿站",
     "buildingType": 4,
     "canBulidBlockType": [
@@ -373,7 +357,7 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
       ]
     ],
@@ -399,7 +383,6 @@
   },
   {
     "key": "sandControlGrass",
-    "id": 12,
     "name": "固沙草格",
     "buildingType": 16,
     "canBulidBlockType": [
@@ -408,8 +391,12 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
-        5
+        4,
+        1
+      ],
+      [
+        5,
+        3
       ]
     ],
     "keepCost": [
@@ -434,7 +421,6 @@
   },
   {
     "key": "windbreakFences",
-    "id": 13,
     "name": "防风栅栏",
     "buildingType": 16,
     "canBulidBlockType": [
@@ -444,8 +430,12 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
+      ],
+      [
+        5,
+        3
       ]
     ],
     "keepCost": [
@@ -470,7 +460,6 @@
   },
   {
     "key": "sandControlShrub",
-    "id": 14,
     "name": "治沙灌木",
     "buildingType": 16,
     "canBulidBlockType": [
@@ -479,8 +468,12 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
+      ],
+      [
+        5,
+        3
       ]
     ],
     "keepCost": [
@@ -505,7 +498,6 @@
   },
   {
     "key": "windbreakTree",
-    "id": 15,
     "name": "防风林",
     "buildingType": 16,
     "canBulidBlockType": [
@@ -514,8 +506,12 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
+      ],
+      [
+        5,
+        3
       ]
     ],
     "keepCost": [
@@ -540,7 +536,6 @@
   },
   {
     "key": "rangerStation",
-    "id": 16,
     "name": "护林工作站",
     "buildingType": 20,
     "canBulidBlockType": [
@@ -551,8 +546,8 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
-        5
+        4,
+        6
       ]
     ],
     "keepCost": [
@@ -577,7 +572,6 @@
   },
   {
     "key": "warehouse",
-    "id": 17,
     "name": "仓库",
     "buildingType": 8,
     "canBulidBlockType": [
@@ -588,7 +582,7 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
       ]
     ],
@@ -614,7 +608,6 @@
   },
   {
     "key": "house",
-    "id": 18,
     "name": "住房",
     "buildingType": 8,
     "canBulidBlockType": [
@@ -625,8 +618,8 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
-        5
+        4,
+        6
       ]
     ],
     "keepCost": [
@@ -651,7 +644,6 @@
   },
   {
     "key": "capacitorStation",
-    "id": 19,
     "name": "电容列阵",
     "buildingType": 8,
     "canBulidBlockType": [
@@ -662,7 +654,7 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
       ]
     ],
@@ -688,7 +680,6 @@
   },
   {
     "key": "waterTower",
-    "id": 20,
     "name": "水塔",
     "buildingType": 8,
     "canBulidBlockType": [
@@ -699,7 +690,7 @@
     "HP": 100,
     "bulidCost": [
       [
-        1,
+        4,
         5
       ]
     ],

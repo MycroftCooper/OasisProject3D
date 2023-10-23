@@ -9,7 +9,7 @@ namespace OasisProject3D.UI.GameMainUIPackage
     {
         public Controller BuildInfoCtrl;
         public GTextField Title;
-        public GList ResLest;
+        public GList ResList;
         public LeftTimeProgressBar BuildProgressBar;
         public LeftTimeProgressBar2 UpgradeProgressBar;
         public const string URL = "ui://t09fsbe0qo0z4r";
@@ -25,7 +25,7 @@ namespace OasisProject3D.UI.GameMainUIPackage
 
             BuildInfoCtrl = GetControllerAt(0);
             Title = (GTextField)GetChildAt(2);
-            ResLest = (GList)GetChildAt(3);
+            ResList = (GList)GetChildAt(3);
             BuildProgressBar = (LeftTimeProgressBar)GetChildAt(4);
             UpgradeProgressBar = (LeftTimeProgressBar2)GetChildAt(5);
         }

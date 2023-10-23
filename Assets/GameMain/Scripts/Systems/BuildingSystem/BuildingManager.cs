@@ -83,27 +83,6 @@ namespace OasisProject3D.BuildingSystem {
             }
             return output;
         }
-
-        public int Key2ID(string key) {
-            if (BuildingCfg.DataMap.TryGetValue(key, out var result)) {
-                return result.Id;
-            }
-            QLog.Error($"BuildingManager>Key2ID>Key:{key}不存在，请检查配表!");
-            return -1;
-        }
-        
-        public string ID2Key(int id) {
-            var result = BuildingCfg.DataMap.Values.FirstOrDefault(_ => _.Id == id);
-            if (result != default) {
-                return result.Key;
-            }
-            QLog.Error($"BuildingManager>Key2ID>ID:{id}不存在，请检查配表!");
-            return default;
-        }
-
-        public string GetBuildingName(string buildingKey) {
-            return BuildingCfg[buildingKey].Name;
-        }
         #endregion
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using MycroftToolkit.QuickCode;
 using NodeCanvas.Framework;
+using NodeCanvas.StateMachines;
 using OasisProject3D.BlockSystem;
 using OasisProject3D.MapSystem;
 using QuickGameFramework.Runtime;
@@ -11,7 +12,7 @@ namespace OasisProject3D.BuildingSystem {
     
     public class BuildingCtrl : Entity, IEnumCmdReceiver<BuildingCmd>  {
         public BuildingData BuildingData { get => (BuildingData)Data; set => Data = value; }
-        public GraphOwner FsmCtrl { get; protected set; }
+        public FSMOwner FsmCtrl { get; protected set; }
         public MeshFilter BuildingMeshFilter { get; protected set; }
         public MeshRenderer BuildingMeshRenderer { get; protected set; }
 
@@ -42,18 +43,21 @@ namespace OasisProject3D.BuildingSystem {
                     throw new ArgumentOutOfRangeException(nameof(cmd), cmd, null);
             }
         }
+
+        public void Delete() {
+            _timer.Cancel();
+            Destroy(gameObject);
+        }
         
         #region 初始化建筑相关
         public bool IsInitialised { get; private set; }
 
-        public void Initialize(BuildingData data = default) {
-            Data ??= new BuildingData();
-            Data = data;
-
-            FsmCtrl = GetComponent<GraphOwner>();
+        public override void Init(string entityID, IEntityFactory<Entity> factory, object data = null) {
+            base.Init(entityID, factory, data);
+            FsmCtrl = GetComponent<FSMOwner>();
             BuildingMeshFilter = transform.Find("Mesh").GetChild(0).GetComponent<MeshFilter>();
             BuildingMeshRenderer = BuildingMeshFilter.GetComponent<MeshRenderer>();
-        
+
             IsInitialised = true;
         }
         #endregion
@@ -116,19 +120,25 @@ namespace OasisProject3D.BuildingSystem {
         public Action<BuildingCtrl> OnBuildStart;
         public Action<BuildingCtrl, bool> OnBuildEnd;
         private BuildingConstructHelper _buildingConstructHelper;
-        private float _constructProgress;
+        public float ConstructProgress { get; protected set; }
+        public float LeftConstructScs { get; protected set; }
+        private Timer _timer;
+
         public virtual void OnBuildEnterHandler() {
             IsBuilding = true;
             OnBuildStart?.Invoke(this);
             _buildingConstructHelper = new BuildingConstructHelper(this);
             
             // 假的建造进度条
-            Timer.Register(5f, OnBuildExitHandler, _ => {
-                _buildingConstructHelper.UpdateBuildingConstructProgress(_ / 5f);});
+            _timer = Timer.Register(5f, OnBuildExitHandler, _ => {
+                ConstructProgress = _ / 5f;
+                _buildingConstructHelper.UpdateBuildingConstructProgress(ConstructProgress);
+                LeftConstructScs = 5 * (1 - ConstructProgress);
+            });
         }
         
         public virtual void OnBuildUpdateHandler() {
-            if (_buildingConstructHelper.UpdateBuildingConstructProgress(_constructProgress)) {
+            if (_buildingConstructHelper.UpdateBuildingConstructProgress(ConstructProgress)) {
                 
             }
         }

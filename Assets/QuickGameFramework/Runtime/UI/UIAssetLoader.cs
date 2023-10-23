@@ -12,14 +12,14 @@ namespace QuickGameFramework.Runtime {
     /// </summary>
     public class UIAssetLoader : MonoBehaviour {
         private bool _isLoad;
-        private List<AssetOperationHandle> _fguiAssetHandles;
+        private List<AssetHandle> _fguiAssetHandles;
         private string _fuiPackageName;
 
         private void Awake() {
             if (_isLoad) return;
             
             _fuiPackageName = gameObject.GetComponent<UIPanel>().packageName;
-            _fguiAssetHandles = new List<AssetOperationHandle>();
+            _fguiAssetHandles = new List<AssetHandle>();
             UIPackage.AddPackage(_fuiPackageName, LoadFunc);
             _isLoad = true;
         }

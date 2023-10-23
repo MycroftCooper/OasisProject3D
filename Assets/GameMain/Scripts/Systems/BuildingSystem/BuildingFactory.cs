@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using cfg;
+using cfg.BuildingSystem;
 using QuickGameFramework.Runtime;
 using UnityEngine;
 
 namespace OasisProject3D.BuildingSystem {
     public class BuildingFactory : IEntityFactory<BuildingCtrl> {
+        public DTBuildingConfig BuildingCfg => GameEntry.DataTableMgr.Tables.DTBuildingConfig;
         private AssetManager AssetMgr => GameEntry.AssetMgr;
         private Dictionary<string, GameObject> _prefabs;
         private Dictionary<string, Material> _materials;
@@ -43,12 +45,9 @@ namespace OasisProject3D.BuildingSystem {
 
             GameObject buildingGo = Object.Instantiate(buildingPrefab);
             var output = buildingGo.GetComponent<BuildingCtrl>();
-            if (data == null) {
-                output.Initialize();
-            } else {
-                output.Initialize((BuildingData)data);
-            }
-            
+
+            output.Init(entityID, this, data ?? new BuildingData{Conf = GetBuildingConfig(entityID)});
+
             return output;
         }
 
@@ -57,6 +56,14 @@ namespace OasisProject3D.BuildingSystem {
         }
 
         #region 获取资源相关
+
+        public BuildingConfig GetBuildingConfig(string key) {
+            BuildingCfg.DataMap.TryGetValue(key, out var cfg);
+            if (cfg != null) return cfg;
+            QLog.Error($"BuildingFactor> 建筑配置查找失败，配表中不存在:{key}");
+            return null;
+        }
+        
         public Material GetBuildingMaterial(string key) {
             if (!_materials.TryGetValue(key, out var output)) {
                 QLog.Error($"BuildingFactory>Error> 材质<{key}>不存在，可能是没加载，也可能真的不存在!");
@@ -87,6 +94,24 @@ namespace OasisProject3D.BuildingSystem {
             }
 
             return output;
+        }
+
+        public string GetBuildingName(string buildingKey) {
+            var cfg = GetBuildingConfig(buildingKey);
+            if (cfg != null) return cfg.Name;
+            QLog.Error($"BuildingFactor> 查找名称失败，配表中不存在:{buildingKey}");
+            return default;
+        }
+
+        public string GetBuildingDesc(string buildingKey) {
+            var cfg = GetBuildingConfig(buildingKey);
+            if (cfg != null) return cfg.Describe;
+            QLog.Error($"BuildingFactor> 查找名称失败，配表中不存在:{buildingKey}");
+            return default;
+        }
+
+        public string GetBuildingCoast(string buildingKey) {
+            return default;
         }
         #endregion
         

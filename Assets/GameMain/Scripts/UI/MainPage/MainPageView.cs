@@ -74,7 +74,7 @@ namespace OasisProject3D.UI.GameMainUIPackage {
                 }
                 BuildingIconCase buildingIconCase = (BuildingIconCase)buildingList.AddItemFromPool();
                 buildingIconCase.BuildingIcon.texture = new NTexture(buildingIcon);
-                buildingIconCase.BuildingName.text = buildingMgr.GetBuildingName(buildingKey);
+                buildingIconCase.BuildingName.text = buildingMgr.Factory.GetBuildingName(buildingKey);
                 buildingIconCase.name = buildingKey;
                 buildingIconCase.onRollOver.Add(((MainPageCtrl)Controller).OnBuildingBtnRollOver);
             }

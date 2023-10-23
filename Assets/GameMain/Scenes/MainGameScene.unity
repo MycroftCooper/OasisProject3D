@@ -1331,7 +1331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e493365785f784e8079c74ce834847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiID: BuildingDescTab
+  uiID: BuildingOrBlockDescTab
   useFgui: 1
   fguiBinderName: 
 --- !u!114 &1937558706
@@ -1371,9 +1371,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   packageName: GameMainUIPackage
-  componentName: BuildingDescTab
+  componentName: BuildingOrBlockDescTab
   fitScreen: 1
-  sortingOrder: 0
+  sortingOrder: 1
   packagePath: Assets/GameRes/UI/FguiPackages/GameMainUIPackage
   renderMode: 0
   renderCamera: {fileID: 0}

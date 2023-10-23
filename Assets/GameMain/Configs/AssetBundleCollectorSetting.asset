@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: AssetBundleCollectorSetting
   m_EditorClassIdentifier: 
   ShowPackageView: 0
-  EnableAddressable: 1
-  UniqueBundleName: 1
   ShowEditorAlias: 1
+  UniqueBundleName: 1
   Packages:
   - PackageName: MainPackage
     PackageDesc: "\u4E3B\u6E38\u620F\u5305"
+    EnableAddressable: 1
+    LocationToLower: 0
+    IncludeAssetGUID: 0
+    IgnoreDefaultType: 1
+    AutoCollectShaders: 1
     Groups:
     - GroupName: UI
       GroupDesc: "UI\u7EC4"
